@@ -6,3 +6,8 @@ rewritten again in an object-oriented programming style. It was a quick
 hack, and it needs a lot of cleanup and refactoring. A perfect code base to teach
 the value of software developement fundamentals!
 <br>
+## HW 0
+This marks the initial commit for the class. No code changes were made. See the 
+assignment here for basic git and eclipse instructions: 
+https://uiowa.instructure.com/courses/203756/files/21924301?module_item_id=6270600
+<br>
