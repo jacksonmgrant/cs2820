@@ -5,4 +5,8 @@ research project. It was first written in Swift and rewritten in Java. It was th
 rewritten again in an object-oriented programming style. It was a quick
 hack, and it needs a lot of cleanup and refactoring. A perfect code base to teach
 the value of software developement fundamentals!
+
+
+This is the base code I'll be using for CS2820, which was developed by Professor Goddard. I look forward to learning something new, as I'm not familiar with Eclipse!
+
 <br>
