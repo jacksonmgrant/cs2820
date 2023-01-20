@@ -58,4 +58,30 @@ public class WorkLoadDescription extends VisualizationObject {
     this.inputFileName = gf.getGraphFileName();
     description = new Description(inputGraphString);
   }
+  public static void main(String[] args){
+   	WorkLoadDescription sts = new WorkLoadDescription("StressTest.txt"); // Instantiate WorkLoadDescription with the parameter StressTest.txt
+   	
+    /** Print to the console 
+   	i.  Graph Name: {name of graph in the file, sans the ‘{‘ 
+   	ii.  Each flow, preceded by the string ‘Flow k: ‘, where k is the flow number starting 
+   	at 1, with the flows ordered alphabetically by their name. That is, F2 will be 
+   	printed before F5. (Note, however, ordering the flows alphabetically is not the 
+   	same as ordering them numerically, which is what I have usually done in the 
+   	graph .txt files when creating the flows.) 
+
+   	   * 		for (int i = 1; i < whatever.size(); i++){     
+   				        System.out.println("Flow " + i + ": " + whatever.get(i)); 		 
+   				}
+
+   	   * 
+   	   * 
+   	   * 
+   	   */
+  }
+  
+
+
 }
+  
+
+
