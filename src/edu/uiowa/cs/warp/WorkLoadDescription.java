@@ -1,13 +1,24 @@
-/**
- * 
- */
+/*
+ * Warp
+ *
+ * Created by Steve Goddard on 9/18/20
+ * Modified by nsingh5 on 1/23/23.
+ */ 
+
 package edu.uiowa.cs.warp;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+
 
 /**
  * Reads the input file, whose name is passed as input parameter to the constructor, and builds a
  * Description object based on the contents. Each line of the file is an entry (string) in the
  * Description object.
  * 
+ *
  * @author sgoddard
  * @version 1.4 Fall 2022
  */
@@ -20,6 +31,7 @@ public class WorkLoadDescription extends VisualizationObject {
   private String inputGraphString;
   private FileManager fm;
   private String inputFileName;
+
 
   WorkLoadDescription(String inputFileName) {
     super(new FileManager(), EMPTY, INPUT_FILE_SUFFIX); // VisualizationObject constructor
@@ -58,25 +70,28 @@ public class WorkLoadDescription extends VisualizationObject {
     this.inputFileName = gf.getGraphFileName();
     description = new Description(inputGraphString);
   }
-  public static void main(String[] args){
-   	WorkLoadDescription sts = new WorkLoadDescription("StressTest.txt"); // Instantiate WorkLoadDescription with the parameter StressTest.txt
+  
+  /** 
+   * Returns Flows alphabetically.
+   *
+   * @param args instantiates WorkLoadDescription, prints StressTest.txt alphabetically
+  */
+  public static void main(String[] args) { 
+
+    WorkLoadDescription sts = new WorkLoadDescription("StressTest.txt"); //instantiate with txt file
+    var contents = sts.visualization();
    	
-    /** Print to the console 
-   	i.  Graph Name: {name of graph in the file, sans the ‘{‘ 
-   	ii.  Each flow, preceded by the string ‘Flow k: ‘, where k is the flow number starting 
-   	at 1, with the flows ordered alphabetically by their name. That is, F2 will be 
-   	printed before F5. (Note, however, ordering the flows alphabetically is not the 
-   	same as ordering them numerically, which is what I have usually done in the 
-   	graph .txt files when creating the flows.) 
+    System.out.println(contents.get(0).substring(0,
+        contents.get(0).indexOf("{"))); // print Graph Name without the {
+    contents.remove(0); //removes the first line "StressTest" so it doesn't print on console as Flow
+    contents.remove(contents.size() - 1); // removes }
+ 
+    Collections.sort(contents);
+    for (int i = 0; i < contents.size(); i++) { // loop to print the Flows
+      int y = i + 1; // increments index so that Flow starts at 1
+      System.out.printf("Flow " + y + ": " + contents.get(i));
+    }
 
-   	   * 		for (int i = 1; i < whatever.size(); i++){     
-   				        System.out.println("Flow " + i + ": " + whatever.get(i)); 		 
-   				}
-
-   	   * 
-   	   * 
-   	   * 
-   	   */
   }
   
 
