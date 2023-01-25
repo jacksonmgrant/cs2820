@@ -11,3 +11,7 @@ This marks the initial commit for the class. No code changes were made. See the
 assignment here for basic git and eclipse instructions: 
 https://uiowa.instructure.com/courses/203756/files/21924301?module_item_id=6270600
 <br>
+## HW 1
+Refactored WorkloadDescription for standalone testing. It can now pull information from
+Warp test txt files, sort them, and print them to the console with clear formatting.
+Learned to analyze the code base for existing resources when solving a problem.
