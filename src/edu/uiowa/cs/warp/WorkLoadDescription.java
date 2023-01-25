@@ -2,6 +2,9 @@
  * 
  */
 package edu.uiowa.cs.warp;
+import java.util.Collections;
+import java.util.Scanner;
+import java.io.File;
 
 /**
  * Reads the input file, whose name is passed as input parameter to the constructor, and builds a
@@ -57,5 +60,26 @@ public class WorkLoadDescription extends VisualizationObject {
     inputGraphString = gf.readGraphFile(inputFile);
     this.inputFileName = gf.getGraphFileName();
     description = new Description(inputGraphString);
+  }
+  
+  public static void main(String[] args) {
+	  //Initialize WorkloadDescription object for StressTest.txt
+	  WorkLoadDescription stressTest = new WorkLoadDescription("StressTest.txt");
+	  //Get Description (file contents) for stress
+	  Description toBeAlphabetized = stressTest.visualization();
+	  
+	  //Parse file name
+	  String fileName = stressTest.getInputFileName();
+	  
+	  //Trim and Sort toBeAlphabetized to only contain flows
+	  toBeAlphabetized.remove(0);
+	  toBeAlphabetized.remove(toBeAlphabetized.size()-1);
+	  Collections.sort(toBeAlphabetized);
+	  
+	  //Print the file in the proper format
+	  System.out.println(fileName.substring(0, fileName.indexOf(".")));
+	  for(int i = 0; i < toBeAlphabetized.size(); i++) {
+		  System.out.print("Flow " + (i+1) + ": " + toBeAlphabetized.get(i));
+	  }
   }
 }
