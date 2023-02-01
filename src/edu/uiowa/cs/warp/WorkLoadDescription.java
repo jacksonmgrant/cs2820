@@ -63,9 +63,9 @@ public class WorkLoadDescription extends VisualizationObject {
   }
   
   public static void main(String[] args) {
-	  //Initialize WorkloadDescription object for StressTest.txt
-	  WorkLoadDescription stressTest = new WorkLoadDescription("StressTest.txt");
-	  //Get Description (file contents) for stress
+	  //Get file contents
+	  String file = "StressTest.txt";
+	  WorkLoadDescription stressTest = new WorkLoadDescription(file);
 	  Description toBeAlphabetized = stressTest.visualization();
 	  
 	  //Parse file name
