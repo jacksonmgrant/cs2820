@@ -69,15 +69,15 @@ public class WorkLoadDescription extends VisualizationObject {
 	  Description toBeAlphabetized = stressTest.visualization();
 	  
 	  //Parse file name
-	  String fileName = stressTest.getInputFileName();
+	  String firstLine = toBeAlphabetized.remove(0);
+	  String fileName = firstLine.substring(0, firstLine.indexOf(' '));
 	  
 	  //Trim and Sort toBeAlphabetized to only contain flows
-	  toBeAlphabetized.remove(0);
 	  toBeAlphabetized.remove(toBeAlphabetized.size()-1);
 	  Collections.sort(toBeAlphabetized);
 	  
 	  //Print the file in the proper format
-	  System.out.println(fileName.substring(0, fileName.indexOf(".")));
+	  System.out.println(fileName);
 	  for(int i = 0; i < toBeAlphabetized.size(); i++) {
 		  System.out.print("Flow " + (i+1) + ": " + toBeAlphabetized.get(i));
 	  }
