@@ -38,40 +38,153 @@ import edu.uiowa.cs.warp.Visualization.WorkLoadChoices;
  * @version 1.5
  *
  */
+/**
+ * @author nalin
+ *
+ */
+/**
+ * @author nalin
+ *
+ */
+/**
+ * @author nalin
+ *
+ */
+/**
+ * @author nalin
+ *
+ */
 public class Warp {
 
-  private static final Integer NUM_CHANNELS = 16; // default number of wireless channels available
-                                                  // for scheduling (command line option)
-  private static final Double MIN_LQ = 0.9; // default minimum Link Quality in system (command line
-                                            // option)
-  private static final Double E2E = 0.99; // default end-to-end reliability for all flows (command
-                                          // line option)
+  /**
+ * The default number of wireless channels available for scheduling.
+ */
+  private static final Integer NUM_CHANNELS = 16;
+ 
+  
+  /**
+ * The default minimum Link Quality in system.
+ */
+  private static final Double MIN_LQ = 0.9;
+ 
+  /**
+ * The default end-to-end reliability for all flows.
+ */
+  private static final Double E2E = 0.99;
+  
+  
+  /**
+ * The default location where output files get sent.
+ */
   private static final String DEFAULT_OUTPUT_SUB_DIRECTORY = "OutputFiles/";
+  
+  
+  /**
+ * If schedule isn't specified, it goes back to this value.
+ */
   private static final ScheduleChoices DEFAULT_SCHEDULER = ScheduleChoices.PRIORITY;
-  /* default number of faults to be tolerated per transmission (command-line option */
+  
+  /**
+ * The default number of faults to be tolerated per transmission (command-line option).
+ */
   private static final Integer DEFAULT_FAULTS_TOLERATED = 0;
 
-  private static Integer nChannels; // number of wireless channels available for scheduling
-  private static Integer numFaults; // number of faults tolerated per edge
-  private static Double minLQ; // global variable for minimum Link Quality in system, later we can
-                               // add local minLQ for each link
-  private static Double e2e; // global variable for minimum Link Quality in system, later we can add
-                             // local minLQ for each link
-  private static String outputSubDirectory; // default output subdirectory (from working directory)
-                                            // where output files will be placed (e.g., gv, wf, ra)
-  private static Boolean guiRequested; // Gui Visualization selected
-  private static Boolean gvRequested; // GraphVis file requested flag
-  private static Boolean wfRequested; // WARP file requested flag
-  private static Boolean raRequested; // Reliability Analysis file requested flag
-  private static Boolean laRequested; // Latency Analysis file requested flag
-  private static Boolean caRequested; // Channel Analysis file requested flag
-  private static Boolean simRequested; // Simulation file requested flag
-  private static Boolean allRequested; // all out files requested flag
-  private static Boolean latencyRequested; // latency report requested flag
+  
+  /**
+ * The number of wireless channels available for scheduling.
+ */
+  private static Integer nChannels; 
+  
+  
+  /**
+ *  The number of faults tolerated per edge.
+ */
+  private static Integer numFaults; 
+  
+  
+  /**
+ * The global variable for minimum Link Quality in system, later we can add local minLQ for each link.
+ */
+  private static Double minLQ;
+  
+  
+  /**
+ * The global variable for minimum Link Quality in system, later we can add local minLQ for each link
+ */
+  private static Double e2e; 
+  
+  
+  /**
+ * default output subdirectory (from working directory)
+ * where output files will be placed (e.g., gv, wf, ra)
+ */
+  private static String outputSubDirectory; 
+  
+  
+  /**
+ * Gui Visualization selected
+ */
+  private static Boolean guiRequested; // 
+  
+  /**
+ *  GraphVis file requested flag
+ */
+  private static Boolean gvRequested; //
+  
+  /**
+ * WARP file requested flag
+ */
+  private static Boolean wfRequested; // 
+  
+  /**
+ * Reliability Analysis file requested flag
+ */
+  private static Boolean raRequested; // 
+  
+  /**
+ * Latency Analysis file requested flag
+ */
+  private static Boolean laRequested; // 
+  
+  /**
+ * Channel Analysis file requested flag
+ */
+  private static Boolean caRequested; // 
+  
+  /**
+ * Simulation file requested flag
+ */
+  private static Boolean simRequested; // 
+  
+  /**
+ * all out files requested flag
+ */
+  private static Boolean allRequested; // 
+  
+  /**
+ * latency report requested flag
+ */
+  private static Boolean latencyRequested; // 
+  
+  /**
+ * 
+ */
   private static Boolean schedulerRequested = false;
-  private static Boolean verboseMode; // verbose mode flag (mainly for running in IDE)
-  private static String inputFile; // inputFile from which the graph workload is read
-  private static ScheduleChoices schedulerSelected; // Scheduler requested
+  
+  /**
+ * verbose mode flag (mainly for running in IDE)
+ */
+  private static Boolean verboseMode; // 
+  
+  /**
+ * inputFile from which the graph workload is read
+ */
+  private static String inputFile; // 
+  
+  /**
+ * Scheduler requested
+ */
+  private static ScheduleChoices schedulerSelected; // 
 
 
   public static void main(String[] args) {
