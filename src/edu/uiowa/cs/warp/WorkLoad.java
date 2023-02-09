@@ -27,14 +27,17 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   * The default priority for graph nodes.
   */
   private static final Integer DEFAULT_PRIORITY = 0;
+  
   /**
    * The default index for graph nodes.
    */
   private static final Integer DEFAULT_INDEX = 0;
+  
   /**
    * Default transmission cost for a node.
    */
   private static final Integer DEFAULT_TX_NUM = 0;
+  
   /**
    * Warning message for when a nonexistent flow is passed as an argument.
    */
@@ -42,46 +45,57 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
       "\n\tWarning! Bad situation: " + "Flow %s doesn't exist but trying to ";
 
   /**
-   * @see INCOMPLETE The number of faults on a node?? The number of faults tolerable by the run???
+   * The number of faults per edge in a flow
    */
   private Integer numFaults = 0;
+  
   /**
    * Minimum packet reception rate, not sure what for though
    */
   private Double minPacketReceptionRate = 0.0;
+  
   /**
-   * End to end something
+   * The required end to end communication reliability for the flows.
    */
   private Double e2e = 0.0;
+  
   /**
    * Whether or not nodes will be named with integers or 
    */
   private Boolean intForNodeNames = false;
+  
   /**
    * Whether or not flows will be named with integers or 
    */
   private Boolean intForFlowNames = false;
+  
   /**
    * The map of all flow nodes in the WARP graph (<name, Flow>)
    */
   private FlowMap flows;
+  
   // private Integer nFlows = 0;
+  
   /**
    * The map of all graph nodes in the WARP graph (<name, Node>)
    */
-  private NodeMap nodes; // map of all graph nodes in the WARP graph (<name, Node>)
+  private NodeMap nodes;
+  
   /**
    * The name of the WARP graph that defines the workload.
    */
   private String name;
+  
   /**
    * The array that holds the names of flows in order to preserve their order.
    */
   private ArrayList<String> flowNamesInOriginalOrder = new ArrayList<>();
+  
   /**
    * The array that holds the names of flows sorted by their priority.
    */
   private ArrayList<String> flowNamesInPriorityOrder = new ArrayList<>();
+  
   // private FileManager fm;
 
   WorkLoad(Double m, Double e2e, String inputFileName) {
@@ -552,6 +566,16 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     return txArrayList;
   }
 
+  /**
+   * Calculates number of transmissions needed per link and total transmissions required
+   * for the given flow
+   * @param flow the flow being analyzed
+   * @param e2e end to end reliability
+   * @param M minimum packet reception rate
+   * @param optimizationRequested Unused, needs to be refactored
+   * @return an ArrayList containing the number of transmissions per link and the total worst case
+   * cost of transmitting end to end at the end of the List.
+   */
   private ArrayList<Integer> numTxAttemptsPerLinkAndTotalTxAttempts(Flow flow, Double e2e, Double M,
       boolean optimizationRequested) {
     var nodesInFlow = flow.nodes;
@@ -568,13 +592,13 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     // use max to handle rounding error when e2e == 1.0
     
     
-    // Now compute reliability of packet reaching each node in the given time slot
-    // Start with a 2-D reliability window that is a 2-D matrix of no size
-    // each row is a time slot, stating at time 0
-    // each column represents the reliability of the packet reaching that node at the
-    // current time slot (i.e., the row it is in)
-    // will add rows as we compute reliabilities until the final reliability is reached
-    // for all nodes.
+    /* Now compute reliability of packet reaching each node in the given time slot:
+     *Start with a 2-D reliability window that is a 2-D matrix of no size
+     *each row is a time slot, stating at time 0
+     *each column represents the reliability of the packet reaching that node at the
+     *current time slot (i.e., the row it is in)
+     *will add rows as we compute reliabilities until the final reliability is reached
+     *for all nodes. */
     var reliabilityWindow = new Vector<Vector<Double>>();
     var newReliabilityRow = new Vector<Double>();
     for (int i = 0; i < nNodesInFlow; i++) {
@@ -591,26 +615,26 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     // back in the matrix
     currentReliabilityRow[0] = 1.0; // initialize (i.e., P(packet@FlowSrc) = 1
     Double e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1]; 
-    // the analysis will end when the 2e2 reliability metrix is met, initially the
+    // the analysis will end when the e2e reliability metric is met, initially the
     // state is not met and will be 0 with this statement
     
     
     var timeSlot = 0; // start time at 0
-    while (e2eReliabilityState < e2e) { // change to while and increment increment timeSlot becuase
-                                        // we don't know how long this schedule window will last
-      var prevReliabilityRow = currentReliabilityRow;
+    var prevReliabilityRow = currentReliabilityRow;
+    while (e2eReliabilityState < e2e) {
+      prevReliabilityRow = currentReliabilityRow;
       currentReliabilityRow = newReliabilityRow.toArray(new Double[newReliabilityRow.size()]); 
       // would be reliabilityWindow[timeSlot] if working through a schedule
       
       
-      // Now use each flow:src->sink to update reliability computations
+      // Now use each flow:source->sink to update reliability computations
       // this is the update formula for the state probabilities
       // nextState = (1 - M) * prevState + M*NextHighestFlowState
       // use MinLQ for M in above equation
       // NewSinkNodeState = (1-M)*PrevSnkNodeState + M*PrevSrcNodeState
 
       for (int nodeIndex = 0; nodeIndex < (nNodesInFlow - 1); nodeIndex++) { 
-    	  // loop through each node in the flow and update the sates for
+    	  // loop through each node in the flow and update the states for
     	  // each link (i.e., sink->src pair)
     	  
         var flowSrcNodeindex = nodeIndex;
@@ -667,6 +691,9 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   }
 
 
+  /**
+   * @return a String array of all node names in alphabetical order
+   */
   public String[] getNodeNamesOrderedAlphabetically() {
     var nodes = getNodes();
     Set<String> keys = nodes.keySet(); // get the names from the node map
@@ -709,13 +736,18 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     return flow;
   }
 
-  // public function to return an array of flow names in the order they were read from
-  // the graph file
+  /**
+   * @return a String array with the flow names in their original order from the graph file
+   */
   public String[] getFlowNames() {
     return flowNamesInOriginalOrder.toArray(new String[0]);
     // could use new String[list.size()], but due to JVM optimizations new (new String[0] is better
   }
 
+  /**
+   * @param nodeName the node to find the index of
+   * @return the index of the given node
+   */
   // public function to return the dictionary of nodes
   public Integer getNodeIndex(String nodeName) {
     var index = 0;
@@ -726,6 +758,11 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     return index;
   }
 
+  /**
+   * @param flowName the flow to get node names from
+   * @return an empty array if the flow given doesn't exists, otherwise
+   * returns an array of the names of the nodes in the given flow
+   */
   public String[] getNodesInFlow(String flowName) {
     // get the flow node for requested Flow and then loop through the
     // nodes in the flow to create an array of the node names in
@@ -746,19 +783,25 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     return nodes;
   }
 
+  /**
+   * Calculates the hyperPeriod, which is the smallest time period required to wait
+   * until all flows can be repeated.
+   * @return the hyperPeriod of the graph
+   */
   public Integer getHyperPeriod() {
     var hyperPeriod = 1; // hyperPeriod is LCM of all periods. Initialize to 1
     for (String flowName : getFlowNames()) {
-      // var dm = new Utlitities();
-      hyperPeriod = Utilities.lcm(hyperPeriod, getFlowPeriod(flowName)); // Find LCM of hyperPeriod
-                                                                         // so far and the current
-                                                                         // period, then update the
-                                                                         // hyperPeriod with that
-                                                                         // value
+        // Find LCM of hyperPeriod so far and the current period, then update the
+        // hyperPeriod with that value
+      hyperPeriod = Utilities.lcm(hyperPeriod, getFlowPeriod(flowName)); 
     }
     return hyperPeriod;
   }
 
+  /**
+   * @param flowName the name of the flow being analyzed
+   * @return the total number of transmission attempts in the flow
+   */
   public Integer getTotalTxAttemptsInFlow(String flowName) {
     var flow = getFlow(flowName);
     var linkTxAndTotalCost = flow.getLinkTxAndTotalCost();
@@ -767,8 +810,12 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     return totalCost;
   }
 
-  // return an array of the number of transmission needed for each
-  // link (i.e. edge in the flow graph) to meet E2E target
+  /**
+   * Calculates the number of transmission attempts for each link in a given flow.
+   * @param flowName the name of the flow being analyzed
+   * @return an array of the number of transmissions needed for each
+   * edge to meet E2E target
+   */
   public Integer[] getNumTxAttemptsPerLink(String flowName) {
     var flow = getFlow(flowName);
     var linkTxAndTotalCost = new ArrayList<Integer>(flow.getLinkTxAndTotalCost());
@@ -779,16 +826,33 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   }
 
 
+  /**
+   * Adds an edge to an existing node's list of connected edges.
+   * @param nodeName the node the edge is being added to
+   * @param edge the edge to be added
+   */
   public void addEdge(String nodeName, Edge edge) {
     var node = nodes.get(nodeName); // get the node object
     node.addEdge(edge);
   }
 
+  /**
+   * @return the length of the longest flow in the WorkLoad
+   */
   public Integer maxFlowLength() {
     Integer maxLength = 0;
     for (Flow flow : flows.values()) {
       maxLength = Math.max(maxLength, flow.nodes.size());
     }
     return maxLength;
+  }
+  
+  /**
+   * Testing main, this should have been deleted
+   */
+  public static void main(String[] args) {
+	  WorkLoad tester = new WorkLoad(1,.9,.99,"StressTest.txt");
+	  //var output = tester.finalizeCurrentFlow("AF1");
+	  //System.out.println(output);
   }
 }
