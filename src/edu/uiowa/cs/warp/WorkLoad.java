@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.uiowa.cs.warp;
 
 import edu.uiowa.cs.utilities.Utilities;
@@ -26,24 +23,64 @@ import java.util.stream.Collectors;
  */
 public class WorkLoad extends WorkLoadDescription implements ReliabilityParameters {
 
+  /**
+  * The default priority for graph nodes.
+  */
   private static final Integer DEFAULT_PRIORITY = 0;
+  /**
+   * The default index for graph nodes.
+   */
   private static final Integer DEFAULT_INDEX = 0;
+  /**
+   * Default transmission cost for a node.
+   */
   private static final Integer DEFAULT_TX_NUM = 0;
+  /**
+   * Warning message for when a nonexistent flow is passed as an argument.
+   */
   private static final String FLOW_WARNING =
       "\n\tWarning! Bad situation: " + "Flow %s doesn't exist but trying to ";
 
+  /**
+   * @see INCOMPLETE The number of faults on a node?? The number of faults tolerable by the run???
+   */
   private Integer numFaults = 0;
+  /**
+   * Minimum packet reception rate, not sure what for though
+   */
   private Double minPacketReceptionRate = 0.0;
+  /**
+   * End to end something
+   */
   private Double e2e = 0.0;
+  /**
+   * Whether or not nodes will be named with integers or 
+   */
   private Boolean intForNodeNames = false;
+  /**
+   * Whether or not flows will be named with integers or 
+   */
   private Boolean intForFlowNames = false;
-  private FlowMap flows; // map of all flow nodes in the WARP graph (<name, Flow>)
+  /**
+   * The map of all flow nodes in the WARP graph (<name, Flow>)
+   */
+  private FlowMap flows;
   // private Integer nFlows = 0;
+  /**
+   * The map of all graph nodes in the WARP graph (<name, Node>)
+   */
   private NodeMap nodes; // map of all graph nodes in the WARP graph (<name, Node>)
-  private String name; // name of the WARP graph defining the workload
-  private ArrayList<String> flowNamesInOriginalOrder = new ArrayList<>(); // array to hold names of
-                                                                          // flows to preserve their
-                                                                          // order
+  /**
+   * The name of the WARP graph that defines the workload.
+   */
+  private String name;
+  /**
+   * The array that holds the names of flows in order to preserve their order.
+   */
+  private ArrayList<String> flowNamesInOriginalOrder = new ArrayList<>();
+  /**
+   * The array that holds the names of flows sorted by their priority.
+   */
   private ArrayList<String> flowNamesInPriorityOrder = new ArrayList<>();
   // private FileManager fm;
 
@@ -527,14 +564,10 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     var nHops = nNodesInFlow - 1;
     // minLinkReliablityNeded is the minimum reliability needed per link in a flow to hit E2E
     // reliability for the flow
-    Double minLinkReliablityNeded = Math.max(e2e, Math.pow(e2e, (1.0 / (double) nHops))); // use max
-                                                                                          // to
-                                                                                          // handle
-                                                                                          // rounding
-                                                                                          // error
-                                                                                          // when
-                                                                                          // e2e ==
-                                                                                          // 1.0
+    Double minLinkReliablityNeded = Math.max(e2e, Math.pow(e2e, (1.0 / (double) nHops))); 
+    // use max to handle rounding error when e2e == 1.0
+    
+    
     // Now compute reliability of packet reaching each node in the given time slot
     // Start with a 2-D reliability window that is a 2-D matrix of no size
     // each row is a time slot, stating at time 0
@@ -553,99 +586,61 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     // var currentReliabilityRow = (Double[]) reliabilityWindow.get(0).toArray();
     // Want reliabilityWindow[0][0] = 1.0 (i.e., P(packet@FlowSrc) = 1
     // but I din't want to mess with the newReliablityRow vector I use below
-    // So, we initialize this first entry to 1.0, wich is reliabilityWindow[0][0]
+    // So, we initialize this first entry to 1.0, which is reliabilityWindow[0][0]
     // We will then update this row with computed values for each node and put it
     // back in the matrix
     currentReliabilityRow[0] = 1.0; // initialize (i.e., P(packet@FlowSrc) = 1
-    Double e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1]; // the analysis will end
-                                                                          // when the 2e2
-                                                                          // reliability metrix is
-                                                                          // met, initially the
-                                                                          // state is not met and
-                                                                          // will be 0 with this
-                                                                          // statement
+    Double e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1]; 
+    // the analysis will end when the 2e2 reliability metrix is met, initially the
+    // state is not met and will be 0 with this statement
+    
+    
     var timeSlot = 0; // start time at 0
     while (e2eReliabilityState < e2e) { // change to while and increment increment timeSlot becuase
                                         // we don't know how long this schedule window will last
       var prevReliabilityRow = currentReliabilityRow;
-      currentReliabilityRow = newReliabilityRow.toArray(new Double[newReliabilityRow.size()]); // would
-                                                                                               // be
-                                                                                               // reliabilityWindow[timeSlot]
-                                                                                               // if
-                                                                                               // working
-                                                                                               // through
-                                                                                               // a
-                                                                                               // schedule
+      currentReliabilityRow = newReliabilityRow.toArray(new Double[newReliabilityRow.size()]); 
+      // would be reliabilityWindow[timeSlot] if working through a schedule
+      
+      
       // Now use each flow:src->sink to update reliability computations
       // this is the update formula for the state probabilities
       // nextState = (1 - M) * prevState + M*NextHighestFlowState
       // use MinLQ for M in above equation
       // NewSinkNodeState = (1-M)*PrevSnkNodeState + M*PrevSrcNodeState
 
-      for (int nodeIndex = 0; nodeIndex < (nNodesInFlow - 1); nodeIndex++) { // loop through each
-                                                                             // node in the flow and
-                                                                             // update the sates for
-                                                                             // each link (i.e.,
-                                                                             // sink->src pair)
+      for (int nodeIndex = 0; nodeIndex < (nNodesInFlow - 1); nodeIndex++) { 
+    	  // loop through each node in the flow and update the sates for
+    	  // each link (i.e., sink->src pair)
+    	  
         var flowSrcNodeindex = nodeIndex;
         var flowSnkNodeindex = nodeIndex + 1;
         var prevSrcNodeState = prevReliabilityRow[flowSrcNodeindex];
         var prevSnkNodeState = prevReliabilityRow[flowSnkNodeindex];
         Double nextSnkState;
-        if ((prevSnkNodeState < minLinkReliablityNeded) && prevSrcNodeState > 0) { // do a push
-                                                                                   // until PrevSnk
-                                                                                   // state > e2e to
-                                                                                   // ensure next
-                                                                                   // node reaches
-                                                                                   // target E2E BUT
-                                                                                   // skip if no
-                                                                                   // chance of
-                                                                                   // success (i.e.,
-                                                                                   // source doesn't
-                                                                                   // have packet)
-          nextSnkState = ((1.0 - M) * prevSnkNodeState) + (M * prevSrcNodeState); // need to
-                                                                                  // continue
-                                                                                  // attempting to
-                                                                                  // Tx, so update
-                                                                                  // current state
-          nPushes[nodeIndex] += 1; // increment the number of pushes for for this node to snk node
+        
+        // do a push until PrevSnk state > e2e to ensure next node reaches target E2E BUT
+        // skip if no chance of success (i.e., source doesn't have packet)
+        if ((prevSnkNodeState < minLinkReliablityNeded) && prevSrcNodeState > 0) { 
+        	
+        	// need to continue attempting to Tx, so update current state
+          nextSnkState = ((1.0 - M) * prevSnkNodeState) + (M * prevSrcNodeState); 
+          
+       // increment the number of pushes for for this node to snk node
+          nPushes[nodeIndex] += 1; 
         } else {
-          nextSnkState = prevSnkNodeState; // snkNode has met its reliability. Thus move on to the
-                                           // next node and record the reliability met
+        	// snkNode has met its reliability. Thus move on to the
+            // next node and record the reliability met
+        	nextSnkState = prevSnkNodeState;
         }
 
-        if (currentReliabilityRow[flowSrcNodeindex] < prevReliabilityRow[flowSrcNodeindex]) { // probabilities
-                                                                                              // are
-                                                                                              // non-decreasing
-                                                                                              // so
-                                                                                              // update
-                                                                                              // if
-                                                                                              // we
-                                                                                              // were
-                                                                                              // higher
-                                                                                              // by
-                                                                                              // carring
-                                                                                              // old
-                                                                                              // value
-                                                                                              // forward
-          currentReliabilityRow[flowSrcNodeindex] = prevReliabilityRow[flowSrcNodeindex]; // carry
-                                                                                          // forward
-                                                                                          // the
-                                                                                          // previous
-                                                                                          // state
-                                                                                          // for the
-                                                                                          // src
-                                                                                          // node,
-                                                                                          // which
-                                                                                          // may get
-                                                                                          // over
-                                                                                          // written
-                                                                                          // later
-                                                                                          // by
-                                                                                          // another
-                                                                                          // instruction
-                                                                                          // in this
-                                                                                          // slot
+        // probabilities are non-decreasing so update if we were higher by carrying old
+        // value forward
+        if (currentReliabilityRow[flowSrcNodeindex] < prevReliabilityRow[flowSrcNodeindex]) { 
+        	
+        	// carry forward the previous state for the src node, which may get over written
+            // later by another instruction in this slot
+          currentReliabilityRow[flowSrcNodeindex] = prevReliabilityRow[flowSrcNodeindex];
         }
         currentReliabilityRow[flowSnkNodeindex] = nextSnkState;
       }
