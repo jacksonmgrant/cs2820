@@ -63,6 +63,9 @@ public class Program implements SystemAttributes {
     this.deadlineMisses = new Description();
   }
 
+  /**
+   * @return the WorkLoad object containing all flows and nodes within the graph.
+   */
   public WorkLoad toWorkLoad() {
     return workLoad;
   }
@@ -1142,6 +1145,9 @@ public class Program implements SystemAttributes {
     scheduleBuilt = schedule;
   }
 
+  /**
+   * @return the completed schedule for the graph
+   */
   public ProgramSchedule getSchedule() {
     return scheduleBuilt;
   }
@@ -1202,13 +1208,16 @@ public class Program implements SystemAttributes {
     return workLoad.getNumFaults();
   }
 
+  /**
+   * @return a HashMap mapping each node to its index when sorted by alphabetical order
+   */
   public HashMap<String, Integer> getNodeMapIndex() {
-    var orderedNodes = workLoad.getNodeNamesOrderedAlphabetically(); // create an array of node
-                                                                     // names
-    // sorted alphabetically
-    var nodeIndexMap = new HashMap<String, Integer>(); // create a new mapping from node names to
-                                                       // index in schedule
-    // table
+	// create an array of node names sorted alphabetically
+    var orderedNodes = workLoad.getNodeNamesOrderedAlphabetically(); 
+    
+    // create a new mapping from node names to index in schedule table
+    var nodeIndexMap = new HashMap<String, Integer>();
+    
     var nNodes = orderedNodes.length;
     for (int index = 0; index < nNodes; index++) { // set up the node to index mapping
       var name = orderedNodes[index];
