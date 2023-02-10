@@ -301,6 +301,13 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     return node.getChannel();
   }
 
+  /**
+   * Adds a new flow node to the Flows dictionary. Only name, priority, and index are changed from
+   * the default values. Priority is set to the number of flows already added (index), 0 for first
+   * flow. This will create a default priority equal to the order listed in the input graph file. We
+   * Index is set to the same value to preserve that order as a secondary sort key.
+   * @param flowName the name of the flow to be added
+   */
   public void addFlow(String flowName) {
     /*
      * add a new flow node to the Flows dictionary. Only name, priority, and index are changed from
@@ -334,6 +341,13 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   }
 
 
+  /**
+   * Adds the given node to the flow. Creates a new node with default priority if there is not
+   * already an existing node with the given name. Updates the flow's transmission cost after 
+   * the node has been added.
+   * @param flowName the flow to add the node to
+   * @param nodeName the name of the node to be added
+   */
   public void addNodeToFlow(String flowName, String nodeName) {
     if (!Utilities.isInteger(nodeName) && intForNodeNames) {
       /* set false because name not is a number; && above makes sure we only set it once */
@@ -358,6 +372,12 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   }
 
 
+  /**
+   * Finds the priority of the given node within the given flow.
+   * @param flowName the flow the node belongs to
+   * @param nodeName the node to find the priority of
+   * @return the priority of the given node, 0 if node does not exist
+   */
   public Integer getFlowPriority(String flowName, String nodeName) {
     var priority = 0;
     var flow = getFlow(flowName);
@@ -397,31 +417,55 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     return flowNode.index;
   }
 
+  /**
+   * @param flowName the flow to get the priority from
+   * @return the priority of the flow
+   */
   public Integer getFlowPriority(String flowName) {
     var flowNode = getFlow(flowName);
     return flowNode.getPriority();
   }
 
+  /**
+   * @param flowName the flow to get the period from
+   * @return the period of the flow
+   */
   public Integer getFlowPeriod(String flowName) {
     var flowNode = getFlow(flowName);
     return flowNode.getPeriod();
   }
 
+  /**
+   * @param flowName the flow to get the deadline from
+   * @return the deadline of the flow
+   */
   public Integer getFlowDeadline(String flowName) {
     var flowNode = getFlow(flowName);
     return flowNode.getDeadline();
   }
 
+  /**
+   * @param flowName the flow to get the phase from
+   * @return the phase of the flow
+   */
   public Integer getFlowPhase(String flowName) {
     var flowNode = getFlow(flowName);
     return flowNode.getPhase();
   }
 
+  /**
+   * @param flowName the flow to retrieve transmission attempts from
+   * @return the number of transmission attempts for any one link in the flow
+   */
   public Integer getFlowTxAttemptsPerLink(String flowName) {
     var flowNode = getFlow(flowName);
     return flowNode.numTxPerLink;
   }
 
+  /**
+   * Sets flowNamesInPriorityOrder to a List of all flows sorted first by priority, and then by
+   * index.
+   */
   public void setFlowsInPriorityOrder() {
     // create a list of Flow objects from the FlowMap using the stream interface.
     List<Flow> unsortedFlows = flows.values().stream().collect(Collectors.toList());
@@ -437,6 +481,10 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     sortedFlows.forEach((node) -> flowNamesInPriorityOrder.add(node.getName()));
   }
 
+  /**
+   * Sets flowNamesInPriorityOrder to a List of all flows sorted first by deadline, and then by
+   * priority.
+   */
   public void setFlowsInDMorder() {
     /* create a list of Flow objects from the FlowMap using the stream interface. */
     List<Flow> unsortedFlows = flows.values().stream().collect(Collectors.toList());
@@ -454,6 +502,10 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     sortedFlows.forEach((node) -> flowNamesInPriorityOrder.add(node.getName()));
   }
 
+  /**
+   * Sets flowNamesInPriorityOrder to a List of all flows sorted first by period, and then by
+   * priority.
+   */
   public void setFlowsInRMorder() {
     // create a list of Flow objects from the FlowMap using the stream interface.
     List<Flow> unsortedFlows = flows.values().stream().collect(Collectors.toList());
