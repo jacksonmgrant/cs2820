@@ -72,14 +72,14 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   private Boolean intForFlowNames = false;
   
   /**
-   * The map of all flow nodes in the WARP graph (<name, Flow>)
+   * The map of all flow names in the WARP graph to their objects.
    */
   private FlowMap flows;
   
   // private Integer nFlows = 0;
   
   /**
-   * The map of all graph nodes in the WARP graph (<name, Node>)
+   * The map of all node names in the WARP graph to their objects.
    */
   private NodeMap nodes;
   
@@ -89,12 +89,14 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   private String name;
   
   /**
-   * The array that holds the names of flows in order to preserve their order.
+   * The ArrayList that holds the names of flows in the order they were added.
    */
   private ArrayList<String> flowNamesInOriginalOrder = new ArrayList<>();
   
   /**
-   * The array that holds the names of flows sorted by their priority.
+   * The ArrayList that holds the names of flows sorted by their priority. Needs to be
+   * filled with one of the following method calls: setFlowsInDMorder(), setFlowsInPriorityOrder(),
+   * setFlowsInRMorder()
    */
   private ArrayList<String> flowNamesInPriorityOrder = new ArrayList<>();
   
@@ -106,8 +108,8 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
    * file, built the AST of the graph, and build the node and flow data objects. This constructor
    * sets the number of faults equal to 0.
    * 
-   * @param m the minimum packet reception rate to use for the Workload
-   * @param e2e the end to end communication reliability for the Workload
+   * @param m the minimum packet reception rate to use for the Workload, between 0.0 and 1.0
+   * @param e2e the end to end communication reliability for the Workload, between 0.0 and 1.0
    * @param inputFileName the file to develop the graph from
    */
   WorkLoad(Double m, Double e2e, String inputFileName) {
@@ -127,9 +129,9 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
    * reliability. In addition to initializing the WorkLoad attributes, it will read the input
    * file, built the AST of the graph, and build the node and flow data objects.
    * 
-   * @param numFaults the number of faults per edge to use for the Workload
-   * @param m the minimum packet reception rate to use for the Workload
-   * @param e2e the end to end communication reliability for the Workload
+   * @param numFaults the number of faults per edge to use for the Workload, integer >= 0
+   * @param m the minimum packet reception rate to use for the Workload, between 0.0 and 1.0
+   * @param e2e the end to end communication reliability for the Workload, between 0.0 and 1.0
    * @param inputFileName the file to develop the graph from
    */
   WorkLoad(Integer numFaults, Double m, Double e2e, String inputFileName) {
@@ -326,7 +328,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   /**
    * Adds a new flow node to the Flows dictionary. Only name, priority, and index are changed from
    * the default values. Priority is set to the number of flows already added (index), 0 for first
-   * flow. This will create a default priority equal to the order listed in the input graph file. We
+   * flow. This will create a default priority equal to the order listed in the input graph file.
    * Index is set to the same value to preserve that order as a secondary sort key.
    * 
    * @param flowName the name of the flow to be added
