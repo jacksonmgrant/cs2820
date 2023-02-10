@@ -62,7 +62,7 @@ public class VisualizationImplementation implements Visualization {
   /**
    * Constructor that initializes objects, and makes a call to 
    * VisualizationObject. This creates a visualization for warp.
- * @param warp
+ * @param warp Refers to the main WARP interface.
  * @param outputDirectory
  * @param choice
  */
