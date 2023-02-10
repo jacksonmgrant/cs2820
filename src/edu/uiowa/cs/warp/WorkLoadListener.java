@@ -43,7 +43,7 @@ final class WorkLoadListener extends WARPBaseListener {
     public static void buildNodesAndFlows (WorkLoad workLoad){
     	/*
     	 * Create the listener object, which will read the workLoad 
-    	 * description and then buid the node and flow objects that
+    	 * description and then build the node and flow objects that
     	 * instantiates the workLoad. This object is not needed
     	 * after that.
     	 */

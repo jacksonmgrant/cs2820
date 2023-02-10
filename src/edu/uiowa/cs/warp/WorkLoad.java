@@ -45,12 +45,12 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
       "\n\tWarning! Bad situation: " + "Flow %s doesn't exist but trying to ";
 
   /**
-   * The number of faults per edge in a flow
+   * The number of faults per edge in a flow.
    */
   private Integer numFaults = 0;
   
   /**
-   * Minimum packet reception rate, not sure what for though
+   * Minimum packet reception rate for graph nodes.
    */
   private Double minPacketReceptionRate = 0.0;
   
@@ -60,12 +60,14 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   private Double e2e = 0.0;
   
   /**
-   * Whether or not nodes will be named with integers or 
+   * Whether or not nodes will be named with integers or characters. True is for integers,
+   * false is for characters.
    */
   private Boolean intForNodeNames = false;
   
   /**
-   * Whether or not flows will be named with integers or 
+   * Whether or not flows will be named with integers or characters. True is for integers,
+   * false is for characters.
    */
   private Boolean intForFlowNames = false;
   
@@ -98,6 +100,16 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   
   // private FileManager fm;
 
+  /**
+   * Creates a new WorkLoad based on the provided file, packet reception rate, and end to end
+   * reliability. In addition to initializing the WorkLoad attributes, it will read the input
+   * file, built the AST of the graph, and build the node and flow data objects. This constructor
+   * sets the number of faults equal to 0.
+   * 
+   * @param m the minimum packet reception rate to use for the Workload
+   * @param e2e the end to end communication reliability for the Workload
+   * @param inputFileName the file to develop the graph from
+   */
   WorkLoad(Double m, Double e2e, String inputFileName) {
     super(inputFileName);
     setDefaultParameters();
@@ -110,6 +122,16 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     WorkLoadListener.buildNodesAndFlows(this);
   }
 
+  /**
+   * Creates a new WorkLoad based on the provided file, packet reception rate, and end to end
+   * reliability. In addition to initializing the WorkLoad attributes, it will read the input
+   * file, built the AST of the graph, and build the node and flow data objects.
+   * 
+   * @param numFaults the number of faults per edge to use for the Workload
+   * @param m the minimum packet reception rate to use for the Workload
+   * @param e2e the end to end communication reliability for the Workload
+   * @param inputFileName the file to develop the graph from
+   */
   WorkLoad(Integer numFaults, Double m, Double e2e, String inputFileName) {
     super(inputFileName);
     setDefaultParameters();
@@ -306,6 +328,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
    * the default values. Priority is set to the number of flows already added (index), 0 for first
    * flow. This will create a default priority equal to the order listed in the input graph file. We
    * Index is set to the same value to preserve that order as a secondary sort key.
+   * 
    * @param flowName the name of the flow to be added
    */
   public void addFlow(String flowName) {
@@ -345,6 +368,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
    * Adds the given node to the flow. Creates a new node with default priority if there is not
    * already an existing node with the given name. Updates the flow's transmission cost after 
    * the node has been added.
+   * 
    * @param flowName the flow to add the node to
    * @param nodeName the name of the node to be added
    */
@@ -374,6 +398,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
 
   /**
    * Finds the priority of the given node within the given flow.
+   * 
    * @param flowName the flow the node belongs to
    * @param nodeName the node to find the priority of
    * @return the priority of the given node, 0 if node does not exist
@@ -600,6 +625,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   /**
    * Calculates the fixed number of transmissions per link based on the number of faults per edge
    * and the total number of transmissions for the flow.
+   * 
    * @param flow the flow being analyzed
    * @return an ArrayList containing the number of transmissions for each node with the total
    * number of transmissions at the end of the list
@@ -628,6 +654,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   /**
    * Calculates number of transmissions needed per link and total transmissions required
    * for the given flow
+   * 
    * @param flow the flow being analyzed
    * @param e2e end to end reliability
    * @param M minimum packet reception rate
@@ -845,6 +872,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   /**
    * Calculates the hyperPeriod, which is the smallest time period required to wait
    * until all flows can be repeated.
+   * 
    * @return the hyperPeriod of the graph
    */
   public Integer getHyperPeriod() {
@@ -871,6 +899,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
 
   /**
    * Calculates the number of transmission attempts for each link in a given flow.
+   * 
    * @param flowName the name of the flow being analyzed
    * @return an array of the number of transmissions needed for each
    * edge to meet E2E target
@@ -887,6 +916,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
 
   /**
    * Adds an edge to an existing node's list of connected edges.
+   * 
    * @param nodeName the node the edge is being added to
    * @param edge the edge to be added
    */
@@ -904,14 +934,4 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
       maxLength = Math.max(maxLength, flow.nodes.size());
     }
     return maxLength;
-  }
-  
-  /**
-   * Testing main, this should have been deleted
-   */
-  public static void main(String[] args) {
-	  WorkLoad tester = new WorkLoad(1,.9,.99,"StressTest.txt");
-	  //var output = tester.finalizeCurrentFlow("AF1");
-	  //System.out.println(output);
-  }
-}
+  }}
