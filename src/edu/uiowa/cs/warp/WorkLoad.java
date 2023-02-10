@@ -545,6 +545,13 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     }
   }
 
+  /**
+   * Calculates the fixed number of transmissions per link based on the number of faults per edge
+   * and the total number of transmissions for the flow.
+   * @param flow the flow being analyzed
+   * @return an ArrayList containing the number of transmissions for each node with the total
+   * number of transmissions at the end of the list
+   */
   private ArrayList<Integer> getFixedTxPerLinkAndTotalTxCost(Flow flow) {
     var nodesInFlow = flow.nodes;
     var nNodesInFlow = nodesInFlow.size();
