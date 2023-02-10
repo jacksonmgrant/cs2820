@@ -181,7 +181,7 @@ public class Warp {
    * If there is an all out files requested flag, the parameters are visualized according to 
    * configurations.
    * 
-   * @param User input (command line option)
+   * @param args Command line option
  */
   public static void main(String[] args) {
     // parse command-line options and set WARP system parameters
@@ -247,8 +247,8 @@ public class Warp {
    * When the workload visualization is not null and there is a verbose mode flag,
    *  it prints a string.
    * If the Gui Visualization is selected, then it displays the visualization. 
- * @param workLoad 
- * @param choice
+ * @param workLoad the WorkLoad object 
+ * @param choice keep track of choices for work load to create a visualization of.
  */
   private static void visualize(WorkLoad workLoad, WorkLoadChoices choice) {
     var viz =
@@ -265,8 +265,8 @@ public class Warp {
   }
 
   /**
- * @param warp
- * @param choice
+ * @param warp Refers to the main WARP interface.
+ * @param choice keep track of choices for the system to create a visualization of.
  */
   private static void visualize(WarpInterface warp, SystemChoices choice) {
     var viz = VisualizationFactory.createProgramVisualization(warp, outputSubDirectory, choice);
@@ -280,7 +280,7 @@ public class Warp {
   }
 
   /**
- * @param warp
+ * @param warp Refers to the main WARP interface.
  */
   private static void verifyPerformanceRequirements(WarpInterface warp) {
     verifyDeadlines(warp);
@@ -289,7 +289,7 @@ public class Warp {
   }
 
   /**
- * @param warp
+ * @param warp Refers to the main WARP interface.
  */
   private static void verifyReliabilities(WarpInterface warp) {
     if (schedulerSelected != ScheduleChoices.RTHART) {
@@ -308,7 +308,7 @@ public class Warp {
   }
 
   /**
- * @param warp
+ * @param warp Refers to the main WARP interface.
  */
   private static void verifyDeadlines(WarpInterface warp) {
     if (!warp.deadlinesMet()) {
@@ -322,7 +322,7 @@ public class Warp {
   }
 
   /**
- * @param warp
+ * @param warp Refers to the main WARP interface.
  */
   private static void verifyNoChannelConflicts(WarpInterface warp) {
     if (warp.toChannelAnalysis().isChannelConflict()) {
@@ -337,8 +337,8 @@ public class Warp {
   }
 
   /**
-   * Function where command line parsing is moved -- need to set up globals?
- * @param args
+   * Sets the parameters configurations for WARP.
+ * @param args Command line arguments.
  */
   private static void setWarpParameters(String[] args) { 
 
