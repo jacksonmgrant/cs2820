@@ -14,3 +14,6 @@ This is the base code I'll be using for CS2820, which was developed by Professor
 ## HW2
 Jackson: Added Javadoc comments to WorkLoad.java (Class comment, attributes, constructors, 22 methods), 
 Program.java (3 methods), and ProgramVisualization (Class comment, attributes, all methods). 
+
+Nalini: Added Javadoc comments to Warp (Class comment, attributes, all methods),
+Flow (Class comment, attributes, all methods), VisualizationImplementation (Class comment, attributes, all methods).
