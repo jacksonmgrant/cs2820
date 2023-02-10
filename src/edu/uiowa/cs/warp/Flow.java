@@ -8,11 +8,29 @@ import java.util.ArrayList;
  */
 public class Flow extends SchedulableObject implements Comparable<Flow>{
 
+	/**
+	 * The value to return if parameters are undefined.
+	 */
 	private static final Integer UNDEFINED = -1;
+	/**
+	 * The default number of faults permitted.
+	 */
 	private static final Integer DEFAULT_FAULTS_TOLERATED = 0; 
+	/**
+	 * The default starting point.
+	 */
 	private static final Integer DEFAULT_INDEX = 0;
+	/**
+	 * The default set for the period.
+	 */
 	private static final Integer DEFAULT_PERIOD = 100; 
+	/**
+	 * The default set for the deadline.
+	 */
 	private static final Integer DEFAULT_DEADLINE = 100;
+	/**
+	 * The default set for the phase.
+	 */
 	private static final Integer DEFAULT_PHASE = 0;
 	
 
@@ -30,7 +48,7 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
     Edge edgePredecessor;
     
     /*
-     * Constructor that sets name, priority, and index
+     * Constructor that sets name, priority, and index.
      */
     Flow (String name, Integer priority, Integer index){
     	super(name, priority, DEFAULT_PERIOD, DEFAULT_DEADLINE, DEFAULT_PHASE);
@@ -49,7 +67,8 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
     }
     
     /*
-     * Constructor
+     * Constructor that sets the index, numTxPerLink, nodePredecessor, and edgePredecessor.
+     * It also initializes an ArrayList each for nodes, linkTxAndTotalCost, and edges.
      */
     Flow () {
     	super();
@@ -102,7 +121,7 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
 	}
 
 	/**
-	 * Add and edge to the flow.
+	 * Add an edge to the flow.
 	 */
 	public void addEdge(Edge edge) {
 		/* set predecessor and add edge to flow */
@@ -113,7 +132,7 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
 	}
 	
 	/**
-	 * Add and edge to the flow.
+	 * Add a node to the flow.
 	 */
 	public void addNode(Node node) {
 		/* set predecessor and add edge to flow */
@@ -164,12 +183,20 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
 		this.linkTxAndTotalCost = linkTxAndTotalCost;
 	}
 
+	/**
+	 * @return an int from a comparison, returning either -1 or 1
+	 * If parameter flow.getPriority is greater than object flow priority it returns -1
+	 * else it returns 1. 
+	 */
 	@Override
     public int compareTo(Flow flow) {
     	// ascending order (0 is highest priority)
         return flow.getPriority() > this.getPriority() ? -1 : 1;
     }
     
+    /**
+     * @return a string from method getName()
+     */
     @Override
     public String toString() {
         return getName();
