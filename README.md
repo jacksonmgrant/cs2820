@@ -10,3 +10,6 @@ the value of software developement fundamentals!
 This is the base code I'll be using for CS2820, which was developed by Professor Goddard. I look forward to learning something new, as I'm not familiar with Eclipse!
 
 <br>
+
+##HW2
+Jackson: Added Javadoc comments to WorkLoad.java (Class comment, attributes, constructors, 22 methods) and Program.java (3 methods). 
