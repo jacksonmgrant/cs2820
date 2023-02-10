@@ -11,5 +11,5 @@ This is the base code I'll be using for CS2820, which was developed by Professor
 
 <br>
 
-##HW2
+## HW2
 Jackson: Added Javadoc comments to WorkLoad.java (Class comment, attributes, constructors, 22 methods) and Program.java (3 methods). 
