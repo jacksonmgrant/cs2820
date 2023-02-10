@@ -3,6 +3,8 @@ package edu.uiowa.cs.warp;
 import java.util.ArrayList;
 
 /**
+ * The Flow class extends the SchedulableObject file and implements Comparable.
+ * It keeps track of the flows used for the WARP project.
  * @author sgoddard
  *
  */
@@ -114,7 +116,7 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
 	}
 	
 	/**
-	 * @return the nodes
+	 * @return the edges
 	 */
 	public ArrayList<Edge> getEdges() {
 		return edges;
@@ -185,8 +187,8 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
 
 	/**
 	 * @return an int from a comparison, returning either -1 or 1
-	 * If parameter flow.getPriority is greater than object flow priority it returns -1
-	 * else it returns 1. 
+	 * If the priority of the input parameter flow is greater than the priority of this object, 
+	 * then return -1, else return 1.
 	 */
 	@Override
     public int compareTo(Flow flow) {

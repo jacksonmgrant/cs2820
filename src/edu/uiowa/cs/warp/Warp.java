@@ -95,8 +95,8 @@ public class Warp {
   
   
   /**
- * The global variable for minimum Link Quality in system, 
- * later we can add local minLQ for each link.
+ * The global variable for end-to-end in system, 
+ * later we can add local end-to-end for each link.
  */
   private static Double e2e; 
   
@@ -161,12 +161,12 @@ public class Warp {
   /**
  * Verbose mode flag (mainly for running in IDE).
  */
-  private static Boolean verboseMode; // 
+  private static Boolean verboseMode; 
   
   /**
  * Input file from which the graph workload is read.
  */
-  private static String inputFile; // 
+  private static String inputFile;  
   
   /**
  * Type of scheduler that is requested.
@@ -244,9 +244,10 @@ public class Warp {
   }
 
   /**
-   * When the workload visualization is not null and there is a verbose mode flag , it prints a string.
+   * When the workload visualization is not null and there is a verbose mode flag,
+   *  it prints a string.
    * If the Gui Visualization is selected, then it displays the visualization. 
- * @param workLoad
+ * @param workLoad 
  * @param choice
  */
   private static void visualize(WorkLoad workLoad, WorkLoadChoices choice) {
@@ -472,9 +473,9 @@ public class Warp {
   }
 
   /**
- * 
+ * Prints all system configuration parameters. 
  */
-  private static void printWarpParameters() { // print all system configuration parameters
+  private static void printWarpParameters() {
     // Print out each of the system configuration values
     System.out.println("WARP system configuration values:");
     System.out.println("\tScheduler=" + schedulerSelected);
