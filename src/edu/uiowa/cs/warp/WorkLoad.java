@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
  * Build the nodes and flows for the workload described in the workload description file, whose name
  * is passed into the Constructor via the parameter inputFileName. Good default values for the
  * constructors are m = 0.9, e2e = 0.99, and numFaults = 1 when the second constructor is used.
+ * Can be used for viewing, editing, and adding flows and nodes in the graph as well as calculating
+ * the per node and total transmission attempts.
  * 
  * @author sgoddard
  * @version 1.4
