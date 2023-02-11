@@ -62,9 +62,9 @@ public class VisualizationImplementation implements Visualization {
   /**
    * Constructor that initializes objects, and makes a call to 
    * VisualizationObject. This creates a visualization for warp.
- * @param warp Refers to the main WARP interface.
+ * @param warp any object implementing the Warp interface
  * @param outputDirectory
- * @param choice
+ * @param choice the requested visualization for system
  */
   public VisualizationImplementation(WarpInterface warp, String outputDirectory,
       SystemChoices choice) {
@@ -79,9 +79,9 @@ public class VisualizationImplementation implements Visualization {
   /**
    * Constructor that initializes objects, and makes a call to 
    * VisualizationObject. This creates a visualization for work load.
- * @param workLoad
+ * @param workLoad 
  * @param outputDirectory
- * @param choice
+ * @param choice the requested visualization for work load
  */
   public VisualizationImplementation(WorkLoad workLoad, String outputDirectory,
       WorkLoadChoices choice) {
@@ -123,7 +123,7 @@ public class VisualizationImplementation implements Visualization {
 
   /**
    * Depending on the system choice, implement a visualization accordingly.
- * @param choice
+ * @param choice the requested visualization for system
  */
   private void createVisualization(SystemChoices choice) {
     switch (choice) { // select the requested visualization
@@ -169,7 +169,7 @@ public class VisualizationImplementation implements Visualization {
 
   /**
    * Depending on the workload choice, implement a visualization accordingly.
- * @param choice
+ * @param choice the requested visualization for work load
  */
   private void createVisualization(WorkLoadChoices choice) {
     switch (choice) { // select the requested visualization

@@ -37,7 +37,7 @@ public class ProgramVisualization extends VisualizationObject {
   /**
    * Creates and initializes a new visualization.
    * 
-   * @param warp An interface to interact with a Warp graph
+   * @param warp object
    */
   ProgramVisualization(WarpInterface warp) {
     super(new FileManager(), warp, SOURCE_SUFFIX);
