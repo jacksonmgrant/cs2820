@@ -7,7 +7,8 @@ import java.io.File;
 
 /**
  * VisualizationImplementation class implements the Visualization file,
- * helping create visualizations for the WARP project. 
+ * helping create visualizations for the WARP project based on
+ * the requested information/parameters. 
  * 
  * @author sgoddard
  * @version 1.5
@@ -62,9 +63,9 @@ public class VisualizationImplementation implements Visualization {
   /**
    * Constructor that initializes objects, and makes a call to 
    * VisualizationObject. This creates a visualization for warp.
- * @param warp any object implementing the Warp interface
- * @param outputDirectory
- * @param choice the requested visualization for system
+ * @param warp any object implementing the Warp interface.
+ * @param outputDirectory directory where output visualization goes
+ * @param choice the requested visualization for system.
  */
   public VisualizationImplementation(WarpInterface warp, String outputDirectory,
       SystemChoices choice) {
@@ -79,9 +80,9 @@ public class VisualizationImplementation implements Visualization {
   /**
    * Constructor that initializes objects, and makes a call to 
    * VisualizationObject. This creates a visualization for work load.
- * @param workLoad 
- * @param outputDirectory
- * @param choice the requested visualization for work load
+ * @param workLoad Workload that will be visualized
+ * @param outputDirectory directory where output visualization goes
+ * @param choice the requested visualization for work load.
  */
   public VisualizationImplementation(WorkLoad workLoad, String outputDirectory,
       WorkLoadChoices choice) {
@@ -94,7 +95,7 @@ public class VisualizationImplementation implements Visualization {
   }
 
   /**
- * Displays the visualization if parameters are not null.
+ * Displays the visualization contents if parameters are not null.
  */
 @Override
   public void toDisplay() {
@@ -106,7 +107,7 @@ public class VisualizationImplementation implements Visualization {
   }
 
   /**
- * A file that is created from the file name and the file content as a string.
+ * A file that is created from visualization contents.
  */
 @Override
   public void toFile() {
@@ -114,7 +115,7 @@ public class VisualizationImplementation implements Visualization {
   }
 
   /**
- * @return visualization as a string
+ * @return visualization content as a readable string.
  */
 @Override
   public String toString() {
@@ -123,7 +124,9 @@ public class VisualizationImplementation implements Visualization {
 
   /**
    * Depending on the system choice, implement a visualization accordingly.
- * @param choice the requested visualization for system
+   * These include source, reliability analysis, simulator input, latency analysis,
+   * chanel analysis, latency report, and deadline report.
+ * @param choice the requested visualization for system.
  */
   private void createVisualization(SystemChoices choice) {
     switch (choice) { // select the requested visualization
@@ -169,7 +172,8 @@ public class VisualizationImplementation implements Visualization {
 
   /**
    * Depending on the workload choice, implement a visualization accordingly.
- * @param choice the requested visualization for work load
+   * These include communication graph, graphViz, and input graph.
+ * @param choice the requested visualization for work load.
  */
   private void createVisualization(WorkLoadChoices choice) {
     switch (choice) { // select the requested visualization
@@ -193,11 +197,11 @@ public class VisualizationImplementation implements Visualization {
   }
 
   /**
-   * Creates a visualization and file visualization for the input object.
+   * Creates a file visualization for the input object.
    * A file is created in the output directory from the file name template.
    * The created object is displayed. 
- * @param <T> 
- * @param obj
+
+ * @param obj object that will be called for visualization
  */
   private <T extends VisualizationObject> void createVisualization(T obj) {
     visualization = obj.visualization();
@@ -209,7 +213,7 @@ public class VisualizationImplementation implements Visualization {
 
   /**
    * @return the file name template created from the output path and input string.
- * @param outputDirectory 
+ * @param outputDirectory directory where output visualization goes
  */
   private String createFileNameTemplate(String outputDirectory) {
     String fileNameTemplate;
