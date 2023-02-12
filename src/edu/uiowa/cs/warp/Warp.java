@@ -1,4 +1,18 @@
+package edu.uiowa.cs.warp;
+
+import argparser.ArgParser;
+import argparser.BooleanHolder;
+import argparser.DoubleHolder;
+import argparser.IntHolder;
+import argparser.StringHolder;
+import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
+import edu.uiowa.cs.warp.Visualization.SystemChoices;
+import edu.uiowa.cs.warp.Visualization.WorkLoadChoices;
+
+
+
 /**
+ * Main file for the entire WARP interface. 
  * WARP: On-the-fly Program Synthesis for Agile, Real-time, and Reliable Wireless Networks. This
  * system generates node communication programs WARP uses programs to specify a network’s behavior
  * and includes a synthesis procedure to automatically generate such programs from a high-level
@@ -18,22 +32,7 @@
  * topologies. Testbed experiments show that WARP reduces the time to add new flows by 5 times over
  * a state-of-the-art centralized control plane and guarantees the real-time and reliability of all
  * flows.
- */
-
-package edu.uiowa.cs.warp;
-
-import argparser.ArgParser;
-import argparser.BooleanHolder;
-import argparser.DoubleHolder;
-import argparser.IntHolder;
-import argparser.StringHolder;
-import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
-import edu.uiowa.cs.warp.Visualization.SystemChoices;
-import edu.uiowa.cs.warp.Visualization.WorkLoadChoices;
-
-
-
-/**
+ * 
  * @author sgoddard
  * @version 1.5
  *
@@ -244,9 +243,9 @@ public class Warp {
   }
 
   /**
-   * When the workload visualization is not null and there is a verbose mode flag,
-   *  it prints a string.
-   * If the Gui Visualization is selected, then it displays the visualization. 
+   * When the workload visualization is not null and there is a verbose mode flag 
+   * it prints a string, else it is output to a file.
+   * If the Gui Visualization is selected, then it displays the visualization.
  * @param workLoad the WorkLoad object 
  * @param choice keep track of choices for work load to create a visualization of.
  */
@@ -266,7 +265,7 @@ public class Warp {
 
   /**
    * Creates visualization based on the choice. If var pointer is not null, then the visualization file is created.
-   * The var pointer is displayed if specific gui and scheduler has been requested.
+   * The var pointer is displayed if Gui visualization and specific scheduler has been requested.
  * @param warp Refers to the main WARP interface.
  * @param choice keep track of choices for the system to create a visualization of.
  */
@@ -282,8 +281,8 @@ public class Warp {
   }
 
   /**
-   * Checks if performance-based requirements were met. This includes 
-   * deadlines, reliabilities, and checking there are no channel conflicts.
+   * Checks if performance-based requirements are met. This includes 
+   * deadlines, reliabilities, and verifying that there are no channel conflicts.
  * @param warp Refers to the main WARP interface.
  */
   private static void verifyPerformanceRequirements(WarpInterface warp) {
@@ -348,6 +347,7 @@ public class Warp {
 
   /**
    * Sets the parameters configurations for WARP.
+   * Arguments that aren't passed through the command line are set to default.
  * @param args Command line arguments.
  */
   private static void setWarpParameters(String[] args) { 
