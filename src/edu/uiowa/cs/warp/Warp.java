@@ -59,7 +59,7 @@ public class Warp {
   
   
   /**
- * The default location subdirectory where output files will get sent.
+ * The default location where output files will get sent.
  */
   private static final String DEFAULT_OUTPUT_SUB_DIRECTORY = "OutputFiles/";
   
@@ -102,7 +102,7 @@ public class Warp {
   
   
   /**
- * The output subdirectory (from working directory)
+ * The location (from working directory)
  * where output files will be placed (e.g., gv, wf, ra).
  */
   private static String outputSubDirectory; 
@@ -265,6 +265,8 @@ public class Warp {
   }
 
   /**
+   * Creates visualization based on the choice. If var pointer is not null, then the visualization file is created.
+   * The var pointer is displayed if specific gui and scheduler has been requested.
  * @param warp Refers to the main WARP interface.
  * @param choice keep track of choices for the system to create a visualization of.
  */
@@ -280,6 +282,8 @@ public class Warp {
   }
 
   /**
+   * Checks if performance-based requirements were met. This includes 
+   * deadlines, reliabilities, and checking there are no channel conflicts.
  * @param warp Refers to the main WARP interface.
  */
   private static void verifyPerformanceRequirements(WarpInterface warp) {
@@ -289,6 +293,8 @@ public class Warp {
   }
 
   /**
+   * Checks for the flow reliabilities. An error is printed if flows don't
+   * meet the reliability target.
  * @param warp Refers to the main WARP interface.
  */
   private static void verifyReliabilities(WarpInterface warp) {
@@ -308,6 +314,8 @@ public class Warp {
   }
 
   /**
+   * Checks for the flow deadlines. An error is printed if flows don't
+   * meet the deadline target.
  * @param warp Refers to the main WARP interface.
  */
   private static void verifyDeadlines(WarpInterface warp) {
@@ -322,6 +330,8 @@ public class Warp {
   }
 
   /**
+   * Checks for the flow channel conflicts. An error is printed if flows 
+   * contain a conflict.
  * @param warp Refers to the main WARP interface.
  */
   private static void verifyNoChannelConflicts(WarpInterface warp) {
