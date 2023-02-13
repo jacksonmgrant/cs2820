@@ -49,8 +49,12 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
     Node nodePredecessor;
     Edge edgePredecessor;
     
-    /*
+    /**
      * Constructor that sets name, priority, and index.
+     * 
+     * @param name the name of the flow
+     * @param priority the priority of the flow
+     * @param index the index of the flow
      */
     Flow (String name, Integer priority, Integer index){
     	super(name, priority, DEFAULT_PERIOD, DEFAULT_DEADLINE, DEFAULT_PHASE);
@@ -68,7 +72,7 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
         this.edgePredecessor = null;
     }
     
-    /*
+    /**
      * Constructor that sets the index, numTxPerLink, nodePredecessor, and edgePredecessor.
      * It also initializes an ArrayList each for nodes, linkTxAndTotalCost, and edges.
      */
