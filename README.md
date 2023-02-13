@@ -19,3 +19,8 @@ https://uiowa.instructure.com/courses/203756/files/21924301?module_item_id=62706
 Refactored WorkloadDescription for standalone testing. It can now pull information from
 Warp test txt files, sort them, and print them to the console with clear formatting.
 Learned to analyze the code base for existing resources when solving a problem.
+<br>
+## HW2
+Worked with Nalini Singh to add JavaDoc comments to Flow, Program, ProgramVisualiztion
+VisualizationImplementation, Warp, and WorkLoad. Generated JavaDocs are included in
+project.
