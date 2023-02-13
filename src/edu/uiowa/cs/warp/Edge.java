@@ -5,8 +5,8 @@ public class Edge extends SchedulableObject implements Comparable<Edge> {
 	private static final String UNKNOWN = "Unknown";
 
 	private String flow;
-	private String src;
-	private String snk;
+	private String src; //source
+	private String snk; //sink
 	private Integer instance;
 	private String coordinator;
 	private EdgeState state;

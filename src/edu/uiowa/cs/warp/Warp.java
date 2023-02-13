@@ -1,4 +1,18 @@
+package edu.uiowa.cs.warp;
+
+import argparser.ArgParser;
+import argparser.BooleanHolder;
+import argparser.DoubleHolder;
+import argparser.IntHolder;
+import argparser.StringHolder;
+import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
+import edu.uiowa.cs.warp.Visualization.SystemChoices;
+import edu.uiowa.cs.warp.Visualization.WorkLoadChoices;
+
+
+
 /**
+ * Main file for the entire WARP interface. 
  * WARP: On-the-fly Program Synthesis for Agile, Real-time, and Reliable Wireless Networks. This
  * system generates node communication programs WARP uses programs to specify a network’s behavior
  * and includes a synthesis procedure to automatically generate such programs from a high-level
@@ -18,62 +32,156 @@
  * topologies. Testbed experiments show that WARP reduces the time to add new flows by 5 times over
  * a state-of-the-art centralized control plane and guarantees the real-time and reliability of all
  * flows.
- */
-
-package edu.uiowa.cs.warp;
-
-import argparser.ArgParser;
-import argparser.BooleanHolder;
-import argparser.DoubleHolder;
-import argparser.IntHolder;
-import argparser.StringHolder;
-import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
-import edu.uiowa.cs.warp.Visualization.SystemChoices;
-import edu.uiowa.cs.warp.Visualization.WorkLoadChoices;
-
-
-
-/**
+ * 
  * @author sgoddard
  * @version 1.5
  *
  */
+
 public class Warp {
 
-  private static final Integer NUM_CHANNELS = 16; // default number of wireless channels available
-                                                  // for scheduling (command line option)
-  private static final Double MIN_LQ = 0.9; // default minimum Link Quality in system (command line
-                                            // option)
-  private static final Double E2E = 0.99; // default end-to-end reliability for all flows (command
-                                          // line option)
+  /**
+ * The default number of wireless channels available for scheduling (command line option).
+ */
+  private static final Integer NUM_CHANNELS = 16;
+ 
+  
+  /**
+ * The default minimum Link Quality in system (command line option).
+ */
+  private static final Double MIN_LQ = 0.9;
+ 
+  /**
+ * The default end-to-end reliability for all flows (command line option).
+ */
+  private static final Double E2E = 0.99;
+  
+  
+  /**
+ * The default location where output files will get sent.
+ */
   private static final String DEFAULT_OUTPUT_SUB_DIRECTORY = "OutputFiles/";
+  
+  
+  /**
+ * If schedule isn't specified, it goes back to this value. 
+ */
   private static final ScheduleChoices DEFAULT_SCHEDULER = ScheduleChoices.PRIORITY;
-  /* default number of faults to be tolerated per transmission (command-line option */
+  
+  /**
+ * The default number of faults to be tolerated per transmission (command line option).
+ */
   private static final Integer DEFAULT_FAULTS_TOLERATED = 0;
 
-  private static Integer nChannels; // number of wireless channels available for scheduling
-  private static Integer numFaults; // number of faults tolerated per edge
-  private static Double minLQ; // global variable for minimum Link Quality in system, later we can
-                               // add local minLQ for each link
-  private static Double e2e; // global variable for minimum Link Quality in system, later we can add
-                             // local minLQ for each link
-  private static String outputSubDirectory; // default output subdirectory (from working directory)
-                                            // where output files will be placed (e.g., gv, wf, ra)
-  private static Boolean guiRequested; // Gui Visualization selected
-  private static Boolean gvRequested; // GraphVis file requested flag
-  private static Boolean wfRequested; // WARP file requested flag
-  private static Boolean raRequested; // Reliability Analysis file requested flag
-  private static Boolean laRequested; // Latency Analysis file requested flag
-  private static Boolean caRequested; // Channel Analysis file requested flag
-  private static Boolean simRequested; // Simulation file requested flag
-  private static Boolean allRequested; // all out files requested flag
-  private static Boolean latencyRequested; // latency report requested flag
+  
+  /**
+ * The number of wireless channels available for scheduling.
+ */
+  private static Integer nChannels; 
+  
+  
+  /**
+ *  The number of faults tolerated per edge.
+ */
+  private static Integer numFaults; 
+  
+  
+  /**
+ * The global variable for minimum Link Quality in system, 
+ * later we can add local minLQ for each link.
+ */
+  private static Double minLQ;
+  
+  
+  /**
+ * The global variable for end-to-end in system, 
+ * later we can add local end-to-end for each link.
+ */
+  private static Double e2e; 
+  
+  
+  /**
+ * The location (from working directory)
+ * where output files will be placed (e.g., gv, wf, ra).
+ */
+  private static String outputSubDirectory; 
+  
+  
+  /**
+ * Gui Visualization selected.
+ */
+  private static Boolean guiRequested; // 
+  
+  /**
+ *  GraphVis file requested flag.
+ */
+  private static Boolean gvRequested; //
+  
+  /**
+ * WARP file requested flag.
+ */
+  private static Boolean wfRequested; // 
+  
+  /**
+ * Reliability Analysis file requested flag.
+ */
+  private static Boolean raRequested; // 
+  
+  /**
+ * Latency Analysis file requested flag.
+ */
+  private static Boolean laRequested; // 
+  
+  /**
+ * Channel Analysis file requested flag.
+ */
+  private static Boolean caRequested; // 
+  
+  /**
+ * Simulation file requested flag.
+ */
+  private static Boolean simRequested; // 
+  
+  /**
+ * All out files requested flag.
+ */
+  private static Boolean allRequested; // 
+  
+  /**
+ * Latency report requested flag.
+ */
+  private static Boolean latencyRequested; // 
+  
+  /**
+ * Value that determines if a scheduler has been requested.
+ */
   private static Boolean schedulerRequested = false;
-  private static Boolean verboseMode; // verbose mode flag (mainly for running in IDE)
-  private static String inputFile; // inputFile from which the graph workload is read
-  private static ScheduleChoices schedulerSelected; // Scheduler requested
+  
+  /**
+ * Verbose mode flag (mainly for running in IDE).
+ */
+  private static Boolean verboseMode; 
+  
+  /**
+ * Input file from which the graph workload is read.
+ */
+  private static String inputFile;  
+  
+  /**
+ * Type of scheduler that is requested.
+ */
+  private static ScheduleChoices schedulerSelected; 
 
 
+  /**
+   * Main method for WARP program. Makes a call to WARP system parameters and prints accordingly.
+   * It also initializes Workload with number of faults tolerated per edge, minimum link 
+   * quality in each system, e2e, and the input file from which the graph workload is read.
+   * If there is an all out files requested flag, the parameters are visualized according to 
+   * configurations.
+   * 
+   * @param args Command line option
+ */
   public static void main(String[] args) {
     // parse command-line options and set WARP system parameters
     setWarpParameters(args);
@@ -134,6 +242,13 @@ public class Warp {
 
   }
 
+  /**
+   * When the workload visualization is not null and there is a verbose mode flag 
+   * it prints a string, else it is output to a file.
+   * If the Gui Visualization is selected, then it displays the visualization.
+ * @param workLoad the WorkLoad object 
+ * @param choice keep track of choices for work load to create a visualization of.
+ */
   private static void visualize(WorkLoad workLoad, WorkLoadChoices choice) {
     var viz =
         VisualizationFactory.createWorkLoadVisualization(workLoad, outputSubDirectory, choice);
@@ -148,6 +263,12 @@ public class Warp {
     }
   }
 
+  /**
+   * Creates visualization based on the choice. If var pointer is not null, then the visualization file is created.
+   * The var pointer is displayed if Gui visualization and specific scheduler has been requested.
+ * @param warp Refers to the main WARP interface.
+ * @param choice keep track of choices for the system to create a visualization of.
+ */
   private static void visualize(WarpInterface warp, SystemChoices choice) {
     var viz = VisualizationFactory.createProgramVisualization(warp, outputSubDirectory, choice);
     if (viz != null) {
@@ -159,12 +280,22 @@ public class Warp {
     }
   }
 
+  /**
+   * Checks if performance-based requirements are met. This includes 
+   * deadlines, reliabilities, and verifying that there are no channel conflicts.
+ * @param warp Refers to the main WARP interface.
+ */
   private static void verifyPerformanceRequirements(WarpInterface warp) {
     verifyDeadlines(warp);
     verifyReliabilities(warp);
     verifyNoChannelConflicts(warp);
   }
 
+  /**
+   * Checks for the flow reliabilities. An error is printed if flows don't
+   * meet the reliability target.
+ * @param warp Refers to the main WARP interface.
+ */
   private static void verifyReliabilities(WarpInterface warp) {
     if (schedulerSelected != ScheduleChoices.RTHART) {
       /* RealTime HART doesn't adhere to reliability targets */
@@ -181,6 +312,11 @@ public class Warp {
     }
   }
 
+  /**
+   * Checks for the flow deadlines. An error is printed if flows don't
+   * meet the deadline target.
+ * @param warp Refers to the main WARP interface.
+ */
   private static void verifyDeadlines(WarpInterface warp) {
     if (!warp.deadlinesMet()) {
       System.err.printf("\n\tERROR: Not all flows meet their deadlines under %s scheduling.\n",
@@ -192,6 +328,11 @@ public class Warp {
     }
   }
 
+  /**
+   * Checks for the flow channel conflicts. An error is printed if flows 
+   * contain a conflict.
+ * @param warp Refers to the main WARP interface.
+ */
   private static void verifyNoChannelConflicts(WarpInterface warp) {
     if (warp.toChannelAnalysis().isChannelConflict()) {
       System.err
@@ -204,8 +345,12 @@ public class Warp {
     }
   }
 
-  private static void setWarpParameters(String[] args) { // move command line parsing into this
-                                                         // function--need to set up globals?
+  /**
+   * Sets the parameters configurations for WARP.
+   * Arguments that aren't passed through the command line are set to default.
+ * @param args Command line arguments.
+ */
+  private static void setWarpParameters(String[] args) { 
 
     // create holder objects for storing results ...
     // BooleanHolder debug = new BooleanHolder();
@@ -337,7 +482,10 @@ public class Warp {
     }
   }
 
-  private static void printWarpParameters() { // print all system configuration parameters
+  /**
+ * Prints all system configuration parameters. 
+ */
+  private static void printWarpParameters() {
     // Print out each of the system configuration values
     System.out.println("WARP system configuration values:");
     System.out.println("\tScheduler=" + schedulerSelected);
