@@ -1,16 +1,27 @@
-/**
- * 
- */
+/*
+ * Warp
+ *
+ * Created by Steve Goddard on 9/18/20
+ * Modified by nsingh5 on 1/23/23.
+ */ 
+
 package edu.uiowa.cs.warp;
 import java.util.Collections;
 import java.util.Scanner;
 import java.io.File;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+
 
 /**
  * Reads the input file, whose name is passed as input parameter to the constructor, and builds a
  * Description object based on the contents. Each line of the file is an entry (string) in the
  * Description object.
  * 
+ *
  * @author sgoddard
  * @version 1.4 Fall 2022
  */
@@ -23,6 +34,7 @@ public class WorkLoadDescription extends VisualizationObject {
   private String inputGraphString;
   private FileManager fm;
   private String inputFileName;
+
 
   WorkLoadDescription(String inputFileName) {
     super(new FileManager(), EMPTY, INPUT_FILE_SUFFIX); // VisualizationObject constructor
@@ -61,7 +73,12 @@ public class WorkLoadDescription extends VisualizationObject {
     this.inputFileName = gf.getGraphFileName();
     description = new Description(inputGraphString);
   }
-  
+
+	/** 
+	 * Returns Flows alphabetically.
+	 *
+	 * @param args instantiates WorkLoadDescription, prints StressTest.txt alphabetically
+	*/
   public static void main(String[] args) {
 	  //Get file contents
 	  String file = "StressTest.txt";
@@ -83,3 +100,6 @@ public class WorkLoadDescription extends VisualizationObject {
 	  }
   }
 }
+  
+
+
