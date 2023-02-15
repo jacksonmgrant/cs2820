@@ -7,8 +7,6 @@ hack, and it needs a lot of cleanup and refactoring. A perfect code base to teac
 the value of software developement fundamentals!
 
 
-This is the base code I'll be using for CS2820, which was developed by Professor Goddard. I look forward to learning something new, as I'm not familiar with Eclipse!
-
 <br>
 ## HW 0
 This marks the initial commit for the class. No code changes were made. See the 
