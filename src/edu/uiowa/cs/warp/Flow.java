@@ -208,4 +208,29 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
         return getName();
     }
     
+    //If have time, can add other fields to verify, but not necessary
+    public boolean equals(Flow flow) {
+    	boolean isEqual = true;
+    	
+    	//Compare names
+    	if(!this.getName().equals(flow.getName())) {
+    		isEqual = false;
+    		return isEqual;
+    	}
+    	
+    	//Compare priority
+    	if(!this.getPriority().equals(flow.getPriority())) {
+    		isEqual = false;
+    		return isEqual;
+    	}
+    	
+    	//Compare index
+    	if(!this.getIndex().equals(flow.getIndex())) {
+    		isEqual = false;
+    		return isEqual;
+    	}
+    	
+    	return isEqual;
+    }
+    
 }

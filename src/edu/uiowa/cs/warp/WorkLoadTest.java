@@ -8,7 +8,14 @@ class WorkLoadTest {
 
 	@Test
 	void testAddFlow() {
-		fail("Not yet implemented");
+		//Can add to test to check priority and index changed properly??
+		String testingFile = "Example4.txt";
+		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
+		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
+		tester.addFlow(originalFlow.getName());
+		FlowMap allFlowsInTester = tester.getFlows();
+		Flow addedFlow = allFlowsInTester.get(originalFlow.getName());
+		assertEquals(originalFlow.getName(), addedFlow.getName());
 	}
 
 	@Test
