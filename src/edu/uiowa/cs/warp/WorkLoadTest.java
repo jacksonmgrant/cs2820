@@ -2,7 +2,12 @@ package edu.uiowa.cs.warp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+
 
 class WorkLoadTest {
 
@@ -20,11 +25,14 @@ class WorkLoadTest {
 
 	@Test
 	void testAddNodeToFlow() {
-		fail("Not yet implemented");
+		String testingFile = "Example4.txt";
+		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
+		tester.addNodeToFlow("F0", "E");
+				
 	}
 
 	@Test
-	void testGetFlowPriorityStringString() {
+	void testGetFlowPriority() {
 		fail("Not yet implemented");
 	}
 
@@ -55,7 +63,14 @@ class WorkLoadTest {
 
 	@Test
 	void testGetNodeNamesOrderedAlphabetically() {
-		fail("Not yet implemented");
+		
+		String testingFile = "Example4.txt";
+		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
+		String[] expected = {"A","B","C","D"};
+		String[] actual = tester.getNodeNamesOrderedAlphabetically();
+		for (int i = 0; i < expected.length; i++) {
+			assertEquals(expected[i], actual[i]);
+		}
 	}
 
 	@Test
@@ -90,7 +105,17 @@ class WorkLoadTest {
 
 	@Test
 	void testMaxFlowLength() {
-		fail("Not yet implemented");
+
+		String testingFile = "Example4.txt";
+		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
+		var maxFL = 4;
+		assertEquals(maxFL, tester.maxFlowLength());
+		
+//		String testingFile2 = "Example.txt";
+//		WorkLoad tester2 = new WorkLoad(0.9, 0.99, testingFile2);
+//		var maxFL2 = 3;
+//		assertEquals(maxFL2, tester2.maxFlowLength());
+				
 	}
 
 }
