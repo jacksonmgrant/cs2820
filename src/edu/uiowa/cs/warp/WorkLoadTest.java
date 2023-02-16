@@ -39,8 +39,6 @@ class WorkLoadTest {
 		tester.addFlow(originalFlow.getName());
 		int expectedPriority = tester.getFlowNames().length -1;
 		int actualPriority = tester.getFlowPriority(originalFlow.getName());
-		System.out.println(expectedPriority);
-		System.out.println(actualPriority);
 		assertEquals(expectedPriority, actualPriority);
 	}
 
@@ -103,6 +101,18 @@ class WorkLoadTest {
 
 	@Test
 	void testGetTotalTxAttemptsInFlow() {
+		String testingFile = "StressTest.txt";
+		WorkLoadDescription getFlowName = new WorkLoadDescription(testingFile);
+		String flow = getFlowName.visualization().get(4);
+		String flowName = flow.substring(0, flow.indexOf(' '));
+		//System.out.println(flow);
+		
+		//Expected:
+		
+		//Actual:
+		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
+		Integer actual = tester.getTotalTxAttemptsInFlow(flowName);
+		//System.out.println(actual);
 		fail("Not yet implemented");
 	}
 
