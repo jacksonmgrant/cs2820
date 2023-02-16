@@ -209,6 +209,7 @@ public class Flow extends SchedulableObject implements Comparable<Flow>{
     }
     
     //If have time, can add other fields to verify, but not necessary
+    //This method is likely redundant, but keeping in in case we need it later.
     public boolean equals(Flow flow) {
     	boolean isEqual = true;
     	

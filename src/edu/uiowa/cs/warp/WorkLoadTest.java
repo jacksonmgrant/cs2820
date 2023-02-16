@@ -33,7 +33,15 @@ class WorkLoadTest {
 
 	@Test
 	void testGetFlowPriority() {
-		fail("Not yet implemented");
+		String testingFile = "Example4.txt";
+		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
+		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
+		tester.addFlow(originalFlow.getName());
+		int expectedPriority = tester.getFlowNames().length -1;
+		int actualPriority = tester.getFlowPriority(originalFlow.getName());
+		System.out.println(expectedPriority);
+		System.out.println(actualPriority);
+		assertEquals(expectedPriority, actualPriority);
 	}
 
 	@Test
