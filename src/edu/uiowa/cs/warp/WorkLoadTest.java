@@ -15,29 +15,33 @@ import org.junit.jupiter.api.Test;
 
 
 class WorkLoadTest {
+	private WorkLoad stressTestWorkLoad;
+	private WorkLoad exampleThreeWorkLoad;
 	
-	private String testingFile;
-	private WorkLoad testingWorkLoad;
 	
 	@BeforeEach
 	public void setUp() {
-		testingFile = "StressTest.txt";
-		testingWorkLoad = new WorkLoad(0.9, 0.99, testingFile);
+		String stressTest = "StressTest.txt";
+		stressTestWorkLoad = new WorkLoad(0.9, 0.99, stressTest);
+		
+		String exampleThree = "Example3.txt";
+		exampleThreeWorkLoad = new WorkLoad(0.9, 0.99, exampleThree);
+		
 	}
 
 	@Test
 	void testAddFlow() {
 		//Can add to test to check priority and index changed properly??
 		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
-		testingWorkLoad.addFlow(originalFlow.getName());
-		FlowMap allFlowsIntestingWorkLoad = testingWorkLoad.getFlows();
-		Flow addedFlow = allFlowsIntestingWorkLoad.get(originalFlow.getName());
+		stressTestWorkLoad.addFlow(originalFlow.getName());
+		FlowMap allFlowsInstressTestWorkLoad = stressTestWorkLoad.getFlows();
+		Flow addedFlow = allFlowsInstressTestWorkLoad.get(originalFlow.getName());
 		assertEquals(originalFlow.getName(), addedFlow.getName());
 	}
 
 	@Test
 	void testAddNodeToFlow() {
-		//testingWorkLoad.addNodeToFlow("F0", "E");
+		//stressTestWorkLoad.addNodeToFlow("F0", "E");
 		
 		fail("Not yet implemented");
 	}
@@ -45,9 +49,17 @@ class WorkLoadTest {
 	@Test
 	void testGetFlowPriority() {
 		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
-		testingWorkLoad.addFlow(originalFlow.getName());
-		int expectedPriority = testingWorkLoad.getFlowNames().length -1;
-		int actualPriority = testingWorkLoad.getFlowPriority(originalFlow.getName());
+		
+		//Stress Test
+		stressTestWorkLoad.addFlow(originalFlow.getName());
+		int expectedPriority = 15;
+		int actualPriority = stressTestWorkLoad.getFlowPriority(originalFlow.getName());
+		assertEquals(expectedPriority, actualPriority);
+		
+		//Example 3
+		exampleThreeWorkLoad.addFlow(originalFlow.getName());
+		expectedPriority = 6;
+		actualPriority = exampleThreeWorkLoad.getFlowPriority(originalFlow.getName());
 		assertEquals(expectedPriority, actualPriority);
 	}
 
@@ -73,14 +85,29 @@ class WorkLoadTest {
 
 	@Test
 	void testSetFlowsInRMorder() {
+		//Stress Test:
+		stressTestWorkLoad.setFlowsInRMorder();
+		String expected = "[F1, AF1, F2, AF2, F3, F4, AF4, F5, AF5, F6, F7, F8, F9, F10, AF10]";
+		String actual = stressTestWorkLoad.getFlowNamesInPriorityOrder().toString();
+		assertEquals(expected, actual);
+		
+		//Example 3:
+		exampleThreeWorkLoad.setFlowsInRMorder();
+		expected = "[F0, F1, F2, F3, F4, F5]";
+		actual = exampleThreeWorkLoad.getFlowNamesInPriorityOrder().toString();
+		assertEquals(expected, actual);
+		
+		//Old code as of 2/17/23. Delete if new code is acceptable, we are checking if 
+		//new code is acceptable on Mon 2/20/23.
+		/*
 		//Expected:
-		/*Extract all flows from the testing WorkLoad*/
-		Collection<Flow> temp = testingWorkLoad.getFlows().values();
+		//Extract all flows from the testing WorkLoad
+		Collection<Flow> temp = stressTestWorkLoad.getFlows().values();
 		ArrayList<Flow> flows = new ArrayList<Flow>(0);
 		for(Flow flow : temp)
 			flows.add(flow);
 		
-		/*Bubblesort the flows according to period first and priority second*/
+		//Bubblesort the flows according to period first and priority second
 		for(int i = 0; i < flows.size()-2; i++) {
 			for(int j = 0; j < flows.size()-i-1; j++) {
 				if(flows.get(j).getPeriod() == flows.get(j+1).getPeriod()) {
@@ -93,23 +120,25 @@ class WorkLoadTest {
 			}
 		}
 		
-		/*Generate expected values*/
+		//Generate expected values
 		ArrayList<String> expected = new ArrayList<String>(0);
 		for(Flow flow : flows) {
 			expected.add(flow.getName());
 		}
 		
 		//Actual:
-		testingWorkLoad.setFlowsInRMorder();
-		ArrayList<String> actual = testingWorkLoad.getFlowNamesInPriorityOrder();
+		stressTestWorkLoad.setFlowsInRMorder();
+		ArrayList<String> actual = stressTestWorkLoad.getFlowNamesInPriorityOrder();
+		System.out.println(actual.toString());
 		assertEquals(expected, actual);
+		*/
 	}
 
 	@Test
 	void testGetNodeNamesOrderedAlphabetically() {
 		
 		String[] expected = {"A","B","C","D"};
-		String[] actual = testingWorkLoad.getNodeNamesOrderedAlphabetically();
+		String[] actual = stressTestWorkLoad.getNodeNamesOrderedAlphabetically();
 		for (int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
 		}
@@ -117,10 +146,22 @@ class WorkLoadTest {
 
 	@Test
 	void testGetFlowNames() {
+		//StressTest:
+		String expected = "[F1, F5, F2, F4, F3, F6, F7, F8, F9, F10, AF1, AF5, AF2, AF4, AF10]";
+		String[] actual = stressTestWorkLoad.getFlowNames();
+		assertEquals(expected, Arrays.toString(actual));
+		
+		//Example3:
+		expected = "[F0, F1, F2, F3, F4, F5]";
+		actual = exampleThreeWorkLoad.getFlowNames();
+		assertEquals(expected, Arrays.toString(actual));
+		
+		//Old code as of 2/17/23. Delete if new code is acceptable, we are checking if 
+		//new code is acceptable on Mon 2/20/23.
 		/*
-		 * Doesn't work with example 3. It uses colons. Chars in flow name 
-		 * need to be between 48 and 57, 65 and 90, or 97 and 122, all inclusive.
-		 */
+//		Doesn't work with example 3. It uses colons. Chars in flow name 
+//		need to be between 48 and 57, 65 and 90, or 97 and 122, all inclusive.
+		
 		System.out.println((int)' ');
 		WorkLoadDescription getFlows = new WorkLoadDescription(testingFile);
 		Description flows = getFlows.visualization();
@@ -130,20 +171,21 @@ class WorkLoadTest {
 		for(int i = 0; i < expected.length; i++) {
 			String currentFlow = flows.get(i);
 			expected[i] = currentFlow.substring(0, currentFlow.indexOf(' '));
-			/*
-			//Need to remove any non-alpha or non-numeric characters
-			for(int j = 0; j < expected[i].length(); j++) {
-				char c = expected[i].charAt(j);
-				if(!((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))) {
-					expected[i] = expected[i].substring(0,expected[i].indexOf(c)) +
-							expected[i].substring(expected[i].indexOf(c+1));
-				}
-			}*/
+			
+//			//Need to remove any non-alpha or non-numeric characters
+//			for(int j = 0; j < expected[i].length(); j++) {
+//				char c = expected[i].charAt(j);
+//				if(!((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))) {
+//					expected[i] = expected[i].substring(0,expected[i].indexOf(c)) +
+//							expected[i].substring(expected[i].indexOf(c+1));
+//				}
+//			}
 		}
-		String[] actual = testingWorkLoad.getFlowNames();
+		String[] actual = stressTestWorkLoad.getFlowNames();
 		System.out.println(Arrays.toString(expected));
 		System.out.println(Arrays.toString(actual));
 		assertEquals(Arrays.toString(expected),Arrays.toString(actual));
+		*/
 	}
 
 	@Test
@@ -163,21 +205,15 @@ class WorkLoadTest {
 
 	@Test
 	void testGetTotalTxAttemptsInFlow() {
-		WorkLoadDescription getFlowName = new WorkLoadDescription(testingFile);
-		String flow = getFlowName.visualization().get(4);
-		String flowName = flow.substring(0, flow.indexOf(' '));
-		//System.out.println(flow);
+		//Stress Test:
+		Integer expected = 11;
+		Integer actual = stressTestWorkLoad.getTotalTxAttemptsInFlow("F9");
+		assertEquals(expected, actual);
 		
-		//Expected:
-		/*
-		 * Need to find how total transmission attempts are calculated. Is not linear in
-		 * default WorkLoad.
-		 */
-		
-		//Actual:
-		Integer actual = testingWorkLoad.getTotalTxAttemptsInFlow(flowName);
-		//System.out.println(actual);
-		fail("Not yet implemented");
+		//Example 3:
+		expected = 4;
+		actual = exampleThreeWorkLoad.getTotalTxAttemptsInFlow("F0");
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -189,7 +225,7 @@ class WorkLoadTest {
 	void testMaxFlowLength() {
 
 		var maxFL = 4;
-		assertEquals(maxFL, testingWorkLoad.maxFlowLength());
+		assertEquals(maxFL, stressTestWorkLoad.maxFlowLength());
 		
 //		String testingFile2 = "Example.txt";
 //		WorkLoad tester2 = new WorkLoad(0.9, 0.99, testingFile2);
