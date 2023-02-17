@@ -124,7 +124,33 @@ class WorkLoadTest {
 
 	@Test
 	void testGetFlowNames() {
-		fail("Not yet implemented");
+		/*
+		 * Doesn't work with example 3. It uses colons. Chars in flow name 
+		 * need to be between 48 and 57, 65 and 90, or 97 and 122, all inclusive.
+		 */
+		System.out.println((int)' ');
+		WorkLoadDescription getFlows = new WorkLoadDescription(testingFile);
+		Description flows = getFlows.visualization();
+		flows.remove(0);
+		flows.remove(flows.size()-1);
+		String[] expected = new String[flows.size()];
+		for(int i = 0; i < expected.length; i++) {
+			String currentFlow = flows.get(i);
+			expected[i] = currentFlow.substring(0, currentFlow.indexOf(' '));
+			/*
+			//Need to remove any non-alpha or non-numeric characters
+			for(int j = 0; j < expected[i].length(); j++) {
+				char c = expected[i].charAt(j);
+				if(!((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))) {
+					expected[i] = expected[i].substring(0,expected[i].indexOf(c)) +
+							expected[i].substring(expected[i].indexOf(c+1));
+				}
+			}*/
+		}
+		String[] actual = testingWorkLoad.getFlowNames();
+		System.out.println(Arrays.toString(expected));
+		System.out.println(Arrays.toString(actual));
+		assertEquals(Arrays.toString(expected),Arrays.toString(actual));
 	}
 
 	@Test
