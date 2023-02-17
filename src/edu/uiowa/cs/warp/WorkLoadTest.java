@@ -36,10 +36,10 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testAddNodeToFlow() {
-		//testingWorkLoad.addNodeToFlow("F0", "E");
+	void testAddNodeToFlow() { // ask
 		
-		fail("Not yet implemented");
+		
+
 	}
 
 	@Test
@@ -52,8 +52,13 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testSetFlowPriority() {
-		fail("Not yet implemented");
+	void testSetFlowPriority() { //ask
+		int setFP = testingWorkLoad.getFlowPriority("F1");
+		testingWorkLoad.setFlowPriority("F1", 100);
+		int actualFP = testingWorkLoad.getFlowPriority("F1");
+		assertEquals(100, actualFP);
+		assertNotEquals(setFP, actualFP);
+		
 	}
 
 	@Test
@@ -62,12 +67,13 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetFlowDeadline() {
+	void testGetFlowDeadline() { 
 		fail("Not yet implemented");
 	}
 
 	@Test
-	void testGetFlowTxAttemptsPerLink() {
+	void testGetFlowTxAttemptsPerLink() { //ask
+		
 		fail("Not yet implemented");
 	}
 
@@ -108,7 +114,8 @@ class WorkLoadTest {
 	@Test
 	void testGetNodeNamesOrderedAlphabetically() {
 		
-		String[] expected = {"A","B","C","D"};
+		String[] expected = {"A","B","C","D","E","F","G","H","I",
+				"J","K","L","M","N","O","P","Q","R","S","T","U","V","W","Y"};
 		String[] actual = testingWorkLoad.getNodeNamesOrderedAlphabetically();
 		for (int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
@@ -121,7 +128,7 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetNodeIndex() {
+	void testGetNodeIndex() { //ask
 		fail("Not yet implemented");
 	}
 
@@ -131,8 +138,12 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetHyperPeriod() {
-		fail("Not yet implemented");
+	void testGetHyperPeriod() { //ask
+		
+		var expected = 300;
+		var actual = testingWorkLoad.getHyperPeriod();
+		assertEquals(expected,actual);
+		
 	}
 
 	@Test
@@ -162,7 +173,7 @@ class WorkLoadTest {
 	@Test
 	void testMaxFlowLength() {
 
-		var maxFL = 4;
+		var maxFL = 8;
 		assertEquals(maxFL, testingWorkLoad.maxFlowLength());
 		
 //		String testingFile2 = "Example.txt";
