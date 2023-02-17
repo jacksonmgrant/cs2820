@@ -4,41 +4,50 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 class WorkLoadTest {
+	
+	private String testingFile;
+	private WorkLoad testingWorkLoad;
+	
+	@BeforeEach
+	public void setUp() {
+		testingFile = "StressTest.txt";
+		testingWorkLoad = new WorkLoad(0.9, 0.99, testingFile);
+	}
 
 	@Test
 	void testAddFlow() {
 		//Can add to test to check priority and index changed properly??
-		String testingFile = "Example4.txt";
-		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
 		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
-		tester.addFlow(originalFlow.getName());
-		FlowMap allFlowsInTester = tester.getFlows();
-		Flow addedFlow = allFlowsInTester.get(originalFlow.getName());
+		testingWorkLoad.addFlow(originalFlow.getName());
+		FlowMap allFlowsIntestingWorkLoad = testingWorkLoad.getFlows();
+		Flow addedFlow = allFlowsIntestingWorkLoad.get(originalFlow.getName());
 		assertEquals(originalFlow.getName(), addedFlow.getName());
 	}
 
 	@Test
 	void testAddNodeToFlow() {
-		String testingFile = "Example4.txt";
-		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
-		tester.addNodeToFlow("F0", "E");
-				
+		//testingWorkLoad.addNodeToFlow("F0", "E");
+		
+		fail("Not yet implemented");
 	}
 
 	@Test
 	void testGetFlowPriority() {
-		String testingFile = "Example4.txt";
-		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
 		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
-		tester.addFlow(originalFlow.getName());
-		int expectedPriority = tester.getFlowNames().length -1;
-		int actualPriority = tester.getFlowPriority(originalFlow.getName());
+		testingWorkLoad.addFlow(originalFlow.getName());
+		int expectedPriority = testingWorkLoad.getFlowNames().length -1;
+		int actualPriority = testingWorkLoad.getFlowPriority(originalFlow.getName());
 		assertEquals(expectedPriority, actualPriority);
 	}
 
@@ -64,16 +73,43 @@ class WorkLoadTest {
 
 	@Test
 	void testSetFlowsInRMorder() {
-		fail("Not yet implemented");
+		//Expected:
+		/*Extract all flows from the testing WorkLoad*/
+		Collection<Flow> temp = testingWorkLoad.getFlows().values();
+		ArrayList<Flow> flows = new ArrayList<Flow>(0);
+		for(Flow flow : temp)
+			flows.add(flow);
+		
+		/*Bubblesort the flows according to period first and priority second*/
+		for(int i = 0; i < flows.size()-2; i++) {
+			for(int j = 0; j < flows.size()-i-1; j++) {
+				if(flows.get(j).getPeriod() == flows.get(j+1).getPeriod()) {
+					if(flows.get(j).getPriority() > flows.get(j+1).getPriority()) {
+						Collections.swap(flows, j, j+1);
+					}
+				}else if(flows.get(j).getPeriod() > flows.get(j+1).getPeriod()) {
+					Collections.swap(flows, j, j+1);
+				}
+			}
+		}
+		
+		/*Generate expected values*/
+		ArrayList<String> expected = new ArrayList<String>(0);
+		for(Flow flow : flows) {
+			expected.add(flow.getName());
+		}
+		
+		//Actual:
+		testingWorkLoad.setFlowsInRMorder();
+		ArrayList<String> actual = testingWorkLoad.getFlowNamesInPriorityOrder();
+		assertEquals(expected, actual);
 	}
 
 	@Test
 	void testGetNodeNamesOrderedAlphabetically() {
 		
-		String testingFile = "Example4.txt";
-		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
 		String[] expected = {"A","B","C","D"};
-		String[] actual = tester.getNodeNamesOrderedAlphabetically();
+		String[] actual = testingWorkLoad.getNodeNamesOrderedAlphabetically();
 		for (int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
 		}
@@ -101,17 +137,19 @@ class WorkLoadTest {
 
 	@Test
 	void testGetTotalTxAttemptsInFlow() {
-		String testingFile = "StressTest.txt";
 		WorkLoadDescription getFlowName = new WorkLoadDescription(testingFile);
 		String flow = getFlowName.visualization().get(4);
 		String flowName = flow.substring(0, flow.indexOf(' '));
 		//System.out.println(flow);
 		
 		//Expected:
+		/*
+		 * Need to find how total transmission attempts are calculated. Is not linear in
+		 * default WorkLoad.
+		 */
 		
 		//Actual:
-		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
-		Integer actual = tester.getTotalTxAttemptsInFlow(flowName);
+		Integer actual = testingWorkLoad.getTotalTxAttemptsInFlow(flowName);
 		//System.out.println(actual);
 		fail("Not yet implemented");
 	}
@@ -124,10 +162,8 @@ class WorkLoadTest {
 	@Test
 	void testMaxFlowLength() {
 
-		String testingFile = "Example4.txt";
-		WorkLoad tester = new WorkLoad(0.9, 0.99, testingFile);
 		var maxFL = 4;
-		assertEquals(maxFL, tester.maxFlowLength());
+		assertEquals(maxFL, testingWorkLoad.maxFlowLength());
 		
 //		String testingFile2 = "Example.txt";
 //		WorkLoad tester2 = new WorkLoad(0.9, 0.99, testingFile2);
