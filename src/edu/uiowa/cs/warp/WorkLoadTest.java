@@ -91,7 +91,15 @@ class WorkLoadTest {
 
 	@Test
 	void testGetFlowDeadline() { 
-		fail("Not yet implemented");
+		//Stress Test:
+		Integer expected = 100;
+		Integer actual = stressTestWorkLoad.getFlowDeadline("F9");
+		assertEquals(expected, actual);
+		
+		//Example 3:
+		expected = 100;
+		actual = exampleThreeWorkLoad.getFlowDeadline("F0");
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -247,7 +255,15 @@ class WorkLoadTest {
 
 	@Test
 	void testGetNumTxAttemptsPerLink() {
-		fail("Not yet implemented");
+		//Stress Test:
+		String expected = "[3, 4, 5, 6, 6, 6, 5, 0]";
+		Integer[] actual = stressTestWorkLoad.getNumTxAttemptsPerLink("F9");
+		assertEquals(expected, Arrays.toString(actual));
+		
+		//Example 3:
+		expected = "[3, 3, 0]";
+		actual = exampleThreeWorkLoad.getNumTxAttemptsPerLink("F0");
+		assertEquals(expected, Arrays.toString(actual));
 	}
 
 	@Test
