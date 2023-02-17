@@ -2,14 +2,8 @@ package edu.uiowa.cs.warp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,13 +16,26 @@ class WorkLoadTest {
 	
 	@BeforeEach
 	public void setUp() {
+		//I chose StressTest for a high volume test case, and Example3 because 
+		//it and Example2 have different formatting than all the other examples.
+		//SeeSpray or Test1 could also be added for tests involving the flow names
+		//because the names are formatted differently in those files. As another
+		//option, we could create our own test file where we can experiment with
+		//a lot of different cases for highly rigorous testing (I'd be happy to
+		//implement this). Let me know what you think, and feel free to 
+		//make any changes. --Jackson
 		String stressTest = "StressTest.txt";
 		stressTestWorkLoad = new WorkLoad(0.9, 0.99, stressTest);
 		
 		String exampleThree = "Example3.txt";
 		exampleThreeWorkLoad = new WorkLoad(0.9, 0.99, exampleThree);
 		
-		String testingFile = "Example4.txt";
+		//I didn't want to mess with your code without you knowing, so 
+		//I left testingWorkLoad as is. However, it's the same as 
+		//stressTestWorkLoad so we should only keep one to avoid redundancy
+		//and confusion, or change testingWorkLoad to run a different file
+		// if there's another case we want to test. --Jackson
+		String testingFile = "StressTest.txt";
 		testingWorkLoad = new WorkLoad(0.9, 0.99, testingFile);
 		
 	}
@@ -45,7 +52,7 @@ class WorkLoadTest {
 
 	@Test
 	void testAddNodeToFlow() { // ask
-		
+		fail("Not yet implemented");
 		
 
 	}
@@ -205,7 +212,15 @@ class WorkLoadTest {
 
 	@Test
 	void testGetNodesInFlow() {
-		fail("Not yet implemented");
+		//Stress Test:
+		String[] actual = stressTestWorkLoad.getNodesInFlow("F9");
+		String expected = "[A, B, C, D, E, J, K, L]";
+		assertEquals(expected, (Arrays.toString(actual)));
+		
+		//Example 3:
+		actual = exampleThreeWorkLoad.getNodesInFlow("F0");
+		expected = "[A, B, C]";
+		assertEquals(expected, (Arrays.toString(actual)));
 	}
 
 	@Test
