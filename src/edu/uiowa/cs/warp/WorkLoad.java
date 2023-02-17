@@ -821,7 +821,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     var flow = flows.get(flowName); // get the requested flow node
     if (flow == null) {// return empty node if not found
       flow = new Flow();
-      System.out.printf(FLOW_WARNING + "retrieve it\n.", flowName);
+      System.out.printf(FLOW_WARNING + "retrieve it.\n", flowName);
     }
     return flow;
   }
