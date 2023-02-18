@@ -66,21 +66,21 @@ class WorkLoadTest {
 	void testAddNodeToFlow() { 
 		 
 		//Stress Test
-		String [] initial = stressTestWorkLoad.getNodesInFlow("F5");
+		var initial = stressTestWorkLoad.getNodesInFlow("F5");
 		stressTestWorkLoad.addNodeToFlow("F5", "F");
 		var updated = stressTestWorkLoad.getNodesInFlow("F5");
 	
 		assertEquals("F", updated[updated.length-1]);
-		assertNotEquals(initial, updated[updated.length-1]);
+		assertNotEquals(initial, updated);
 		
 		
 		//Example 3
-		String [] start = exampleThreeWorkLoad.getNodesInFlow("F0");
+		var start = exampleThreeWorkLoad.getNodesInFlow("F0");
 		exampleThreeWorkLoad.addNodeToFlow("F0", "D");
 		var end = exampleThreeWorkLoad.getNodesInFlow("F0");
 	
 		assertEquals("D", end[end.length-1]);
-		assertNotEquals(start, end[end.length-1]);
+		assertNotEquals(start, end);
 	
 	}
 
