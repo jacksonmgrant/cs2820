@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 class WorkLoadTest {
 	private WorkLoad stressTestWorkLoad;
 	private WorkLoad exampleThreeWorkLoad;
-	private WorkLoad testingWorkLoad;
+	//private WorkLoad testingWorkLoad;
 	
 	
 	@BeforeEach
@@ -24,6 +24,14 @@ class WorkLoadTest {
 		//a lot of different cases for highly rigorous testing (I'd be happy to
 		//implement this). Let me know what you think, and feel free to 
 		//make any changes. --Jackson
+		
+		//Both files seem like a good fit to run tests on. Because of the different
+		//formatting the parameters being looked at changes too, so having distinct files 
+		// is neat. For now, all tests are passing.
+		//If these testing methods are approved of, then sure we can make our own 
+		//file to work with, it would be good practice. --Nalini
+		
+		
 		String stressTest = "StressTest.txt";
 		stressTestWorkLoad = new WorkLoad(0.9, 0.99, stressTest);
 		
@@ -35,8 +43,12 @@ class WorkLoadTest {
 		//stressTestWorkLoad so we should only keep one to avoid redundancy
 		//and confusion, or change testingWorkLoad to run a different file
 		// if there's another case we want to test. --Jackson
-		String testingFile = "StressTest.txt";
-		testingWorkLoad = new WorkLoad(0.9, 0.99, testingFile);
+		
+		//Commented this out since I modified my stuff accordingly,
+		//should be good to delete it completely? --Nalini
+		
+//		String testingFile = "StressTest.txt";
+//		testingWorkLoad = new WorkLoad(0.9, 0.99, testingFile);
 		
 	}
 
@@ -51,10 +63,25 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testAddNodeToFlow() { // ask
-		fail("Not yet implemented");
+	void testAddNodeToFlow() { 
+		 
+		//Stress Test
+		String [] initial = stressTestWorkLoad.getNodesInFlow("F5");
+		stressTestWorkLoad.addNodeToFlow("F5", "F");
+		var updated = stressTestWorkLoad.getNodesInFlow("F5");
+	
+		assertEquals("F", updated[updated.length-1]);
+		assertNotEquals(initial, updated[updated.length-1]);
 		
-
+		
+		//Example 3
+		String [] start = exampleThreeWorkLoad.getNodesInFlow("F0");
+		exampleThreeWorkLoad.addNodeToFlow("F0", "D");
+		var end = exampleThreeWorkLoad.getNodesInFlow("F0");
+	
+		assertEquals("D", end[end.length-1]);
+		assertNotEquals(start, end[end.length-1]);
+	
 	}
 
 	@Test
@@ -75,18 +102,39 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testSetFlowPriority() { //ask
-		int setFP = testingWorkLoad.getFlowPriority("F1");
-		testingWorkLoad.setFlowPriority("F1", 100);
-		int actualFP = testingWorkLoad.getFlowPriority("F1");
+	void testSetFlowPriority() { 
+		//Stress Test
+		int setFP = stressTestWorkLoad.getFlowPriority("F1");
+		stressTestWorkLoad.setFlowPriority("F1", 100);
+		int actualFP = stressTestWorkLoad.getFlowPriority("F1");
 		assertEquals(100, actualFP);
 		assertNotEquals(setFP, actualFP);
+		
+		//Example 3
+		int setThreeFP = exampleThreeWorkLoad.getFlowPriority("F3");
+		exampleThreeWorkLoad.setFlowPriority("F3", 30);
+		int actualThreeFP = exampleThreeWorkLoad.getFlowPriority("F3");
+		assertEquals(30, actualThreeFP);
+		assertNotEquals(setThreeFP, actualThreeFP);
 		
 	}
 
 	@Test
-	void testSetFlowDeadline() {
-		fail("Not yet implemented");
+	void testSetFlowDeadline() { 
+		//Stress Test
+		int setFD = stressTestWorkLoad.getFlowDeadline("F3");
+		stressTestWorkLoad.setFlowDeadline("F3", 100);
+		int actualFD = stressTestWorkLoad.getFlowDeadline("F3");
+		assertEquals(100, actualFD);
+		assertNotEquals(setFD, actualFD);
+		
+		//Example 3
+		int setThreeFD = exampleThreeWorkLoad.getFlowDeadline("F0");
+		exampleThreeWorkLoad.setFlowDeadline("F0", 20);
+		int actualThreeFD = exampleThreeWorkLoad.getFlowDeadline("F0");
+		assertEquals(20, actualThreeFD);
+		assertNotEquals(setThreeFD, actualThreeFD);
+		
 	}
 
 	@Test
@@ -103,9 +151,26 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetFlowTxAttemptsPerLink() { //ask
+	void testGetFlowTxAttemptsPerLink() { 
 		
-		fail("Not yet implemented");
+		//Stress Test:
+		Integer expected = 3;
+		Integer actual = stressTestWorkLoad.getFlowTxAttemptsPerLink("F1");
+		assertEquals(expected, actual);
+		
+		int expectedAF4 = 3;
+		int actualAF4 = stressTestWorkLoad.getFlowTxAttemptsPerLink("AF4");
+		assertEquals(expectedAF4, actualAF4);
+		
+		//Example 3:
+		expected = 3;
+		actual = exampleThreeWorkLoad.getFlowTxAttemptsPerLink("F1");
+		assertEquals(expected, actual);
+	
+		int expectedF5 = 3;
+		int actualF5 = exampleThreeWorkLoad.getFlowTxAttemptsPerLink("F5");
+		assertEquals(expectedF5, actualF5);
+		
 	}
 
 	@Test
@@ -161,11 +226,21 @@ class WorkLoadTest {
 
 	@Test
 	void testGetNodeNamesOrderedAlphabetically() {
+		
+		//Stress Test
 		String[] expected = {"A","B","C","D","E","F","G","H","I",
 				"J","K","L","M","N","O","P","Q","R","S","T","U","V","W","Y"};
-		String[] actual = testingWorkLoad.getNodeNamesOrderedAlphabetically();
+		String[] actual = stressTestWorkLoad.getNodeNamesOrderedAlphabetically();
 		for (int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
+		}
+		
+		//Example 3
+		String[] expectedThree = {"A","B","C","D","F","G","I",
+				"P","R","V","X"};
+		String[] actualThree = exampleThreeWorkLoad.getNodeNamesOrderedAlphabetically();
+		for (int i = 0; i < expectedThree.length; i++) {
+			assertEquals(expectedThree[i], actualThree[i]);
 		}
 	}
 
@@ -214,8 +289,26 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetNodeIndex() { //ask
-		fail("Not yet implemented");
+	void testGetNodeIndex() { // ?
+		
+		//Stress Test
+		var expected = 0;
+		var actual = stressTestWorkLoad.getNodeIndex("F1");
+		assertEquals(expected,actual);
+		
+		var expectedL = 11;
+		var actualL = stressTestWorkLoad.getNodeIndex("L");
+		assertEquals(expectedL,actualL);
+		
+		//Example 3
+		expected = 0;
+		actual = exampleThreeWorkLoad.getNodeIndex("F0");
+		assertEquals(expected,actual);
+		
+		int expectedV = 9;
+		int actualV = exampleThreeWorkLoad.getNodeIndex("V");
+		assertEquals(expectedV,actualV);
+		
 	}
 
 	@Test
@@ -232,10 +325,16 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetHyperPeriod() { //ask
+	void testGetHyperPeriod() {
 		
+		//Stress Test
 		var expected = 300;
-		var actual = testingWorkLoad.getHyperPeriod();
+		var actual = stressTestWorkLoad.getHyperPeriod();
+		assertEquals(expected,actual);
+		
+		//Example 3 (default is 100)
+		expected = 100;
+		actual = exampleThreeWorkLoad.getHyperPeriod();
 		assertEquals(expected,actual);
 		
 	}
@@ -268,14 +367,15 @@ class WorkLoadTest {
 
 	@Test
 	void testMaxFlowLength() {
-		var maxFL = 8;
-		assertEquals(maxFL, testingWorkLoad.maxFlowLength());
 		
-//		String testingFile2 = "Example.txt";
-//		WorkLoad tester2 = new WorkLoad(0.9, 0.99, testingFile2);
-//		var maxFL2 = 3;
-//		assertEquals(maxFL2, tester2.maxFlowLength());
-				
+		//Stress Test:
+		var maxFL = 8;
+		assertEquals(maxFL, stressTestWorkLoad.maxFlowLength());
+		
+		//Example 3:
+		int maxFL3 = 3;
+		assertEquals(maxFL3, exampleThreeWorkLoad.maxFlowLength());
+						
 	}
 
 }
