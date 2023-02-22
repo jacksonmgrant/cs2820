@@ -198,15 +198,20 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetFlowNames() {
-		//StressTest:
+	void testGetFlowNamesStressTest() {
+		//Test with Stress Test for one formatting style:
 		String expected = "[F1, F5, F2, F4, F3, F6, F7, F8, F9, F10, AF1, AF5, AF2, AF4, AF10]";
 		String[] actual = stressTestWorkLoad.getFlowNames();
 		assertEquals(expected, Arrays.toString(actual));
 		
-		//Example3:
-		expected = "[F0, F1, F2, F3, F4, F5]";
-		actual = exampleThreeWorkLoad.getFlowNames();
+		
+	}
+	
+	@Test
+	void testGetFlowNamesExampleThree() {
+		//Test with Example 3 for a different formatting style:
+		String expected = "[F0, F1, F2, F3, F4, F5]";
+		String[] actual = exampleThreeWorkLoad.getFlowNames();
 		assertEquals(expected, Arrays.toString(actual));
 	}
 
