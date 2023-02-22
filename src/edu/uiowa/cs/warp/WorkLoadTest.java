@@ -11,26 +11,16 @@ import org.junit.jupiter.api.Test;
 class WorkLoadTest {
 	private WorkLoad stressTestWorkLoad;
 	private WorkLoad exampleThreeWorkLoad;
-	//private WorkLoad testingWorkLoad;
 	
 	
 	@BeforeEach
 	public void setUp() {
-		//I chose StressTest for a high volume test case, and Example3 because 
-		//it and Example2 have different formatting than all the other examples.
-		//SeeSpray or Test1 could also be added for tests involving the flow names
-		//because the names are formatted differently in those files. As another
-		//option, we could create our own test file where we can experiment with
-		//a lot of different cases for highly rigorous testing (I'd be happy to
-		//implement this). Let me know what you think, and feel free to 
-		//make any changes. --Jackson
-		
-		//Both files seem like a good fit to run tests on. Because of the different
-		//formatting the parameters being looked at changes too, so having distinct files 
-		// is neat. For now, all tests are passing.
-		//If these testing methods are approved of, then sure we can make our own 
-		//file to work with, it would be good practice. --Nalini
-		
+		//Two test files are used for this test suite: StressTest.txt and Example3.txt.
+		//StressTest is used as the primary case because it provides more rigorous
+		//data. Example3 is used in order to test both default values in Flow and
+		//that methods work with a different formatting style.
+		//This setup method creates a new WorkLoad object for each test file before
+		//running each test.
 		
 		String stressTest = "StressTest.txt";
 		stressTestWorkLoad = new WorkLoad(0.9, 0.99, stressTest);
@@ -41,7 +31,6 @@ class WorkLoadTest {
 
 	@Test
 	void testAddFlow() {
-		//Can add to test to check priority and index changed properly??
 		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
 		stressTestWorkLoad.addFlow(originalFlow.getName());
 		FlowMap allFlowsInstressTestWorkLoad = stressTestWorkLoad.getFlows();
