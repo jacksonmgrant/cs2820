@@ -160,17 +160,20 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testSetFlowsInRMorder() {
-		//Stress Test:
+	void testSetFlowsInRMorderStressTest() {
+		//Test using Stress Test for input parameters and volume:
 		stressTestWorkLoad.setFlowsInRMorder();
 		String expected = "[F1, AF1, F2, AF2, F3, F4, AF4, F5, AF5, F6, F7, F8, F9, F10, AF10]";
 		String actual = stressTestWorkLoad.getFlowNamesInPriorityOrder().toString();
 		assertEquals(expected, actual);
-		
-		//Example 3:
+	}
+	
+	@Test
+	void testSetFlowsInRMOrderStressTest() {
+		//Test using Example 3 for default parameters and different formatting:
 		exampleThreeWorkLoad.setFlowsInRMorder();
-		expected = "[F0, F1, F2, F3, F4, F5]";
-		actual = exampleThreeWorkLoad.getFlowNamesInPriorityOrder().toString();
+		String expected = "[F0, F1, F2, F3, F4, F5]";
+		String actual = exampleThreeWorkLoad.getFlowNamesInPriorityOrder().toString();
 		assertEquals(expected, actual);
 	}
 
