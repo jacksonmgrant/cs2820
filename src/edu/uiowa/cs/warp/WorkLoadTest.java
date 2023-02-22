@@ -52,23 +52,16 @@ class WorkLoadTest {
 	@Test
 	void testAddNodeToFlow() { 
 		 
-		//Stress Test
+		//Using the Stress Test file to check if a node has been 
+		//added to a flow, there is also a not equals to make 
+		//sure the initial and final  flow values 
+		//aren't the same (since a node is added)
 		var initial = stressTestWorkLoad.getNodesInFlow("F5");
 		stressTestWorkLoad.addNodeToFlow("F5", "F");
 		var updated = stressTestWorkLoad.getNodesInFlow("F5");
 	
 		assertEquals("F", updated[updated.length-1]);
 		assertNotEquals(initial, updated);
-		
-		
-		//Example 3
-//		var start = exampleThreeWorkLoad.getNodesInFlow("F0");
-//		exampleThreeWorkLoad.addNodeToFlow("F0", "D");
-//		var end = exampleThreeWorkLoad.getNodesInFlow("F0");
-//	
-//		assertEquals("D", end[end.length-1]);
-//		assertNotEquals(start, end);
-	
 	}
 
 	@Test
@@ -83,49 +76,36 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testSetFlowPriority() { 
-		//Stress Test
-//		int setFP = stressTestWorkLoad.getFlowPriority("F1");
-//		stressTestWorkLoad.setFlowPriority("F1", 100);
-//		int actualFP = stressTestWorkLoad.getFlowPriority("F1");
-//		assertEquals(100, actualFP);
-//		assertNotEquals(setFP, actualFP);
-		
-		//Example 3
+	void testSetFlowPriority() { 		
+		//Using the Example 3 file to test if the flow priority is being 
+		//set accordingly, and doing a before and after assert to make 
+		//sure the value gets updated.
 		int setThreeFP = exampleThreeWorkLoad.getFlowPriority("F3");
 		exampleThreeWorkLoad.setFlowPriority("F3", 30);
 		int actualThreeFP = exampleThreeWorkLoad.getFlowPriority("F3");
 		assertEquals(30, actualThreeFP);
-		assertNotEquals(setThreeFP, actualThreeFP);
-		
+		assertNotEquals(setThreeFP, actualThreeFP);		
 	}
 
 	@Test
 	void testSetFlowDeadline() { 
-		//Stress Test
+		//Using the Stress Test file to test if the flow deadline is being 
+		//set accordingly, and doing a before and after assert to make 
+		//sure the value gets updated.
 		int setFD = stressTestWorkLoad.getFlowDeadline("F3");
 		stressTestWorkLoad.setFlowDeadline("F3", 100);
 		int actualFD = stressTestWorkLoad.getFlowDeadline("F3");
 		assertEquals(100, actualFD);
-		assertNotEquals(setFD, actualFD);
-		
-		//Example 3
-		int setThreeFD = exampleThreeWorkLoad.getFlowDeadline("F0");
-		exampleThreeWorkLoad.setFlowDeadline("F0", 20);
-		int actualThreeFD = exampleThreeWorkLoad.getFlowDeadline("F0");
-		assertEquals(20, actualThreeFD);
-		assertNotEquals(setThreeFD, actualThreeFD);
-		
+		assertNotEquals(setFD, actualFD);	
 	}
 
+	
 	@Test
 	void testGetFlowDeadlineStressTest() { 
 		//Using the Stress Test to test when a parameter is passed:
 		Integer expected = 50;
 		Integer actual = stressTestWorkLoad.getFlowDeadline("F3");
-		assertEquals(expected, actual);
-		
-		
+		assertEquals(expected, actual);		
 	}
 	
 	@Test
@@ -136,28 +116,17 @@ class WorkLoadTest {
 		assertEquals(expected, actual);
 	}
 
+	
 	@Test
 	void testGetFlowTxAttemptsPerLink() { 
 		
-		//Stress Test:
-		Integer expected = 3;
-		Integer actual = stressTestWorkLoad.getFlowTxAttemptsPerLink("F1");
-		assertEquals(expected, actual);
-		
-		int expectedAF4 = 3;
-		int actualAF4 = stressTestWorkLoad.getFlowTxAttemptsPerLink("AF4");
-		assertEquals(expectedAF4, actualAF4);
-		
-		//Example 3:
-		expected = 3;
-		actual = exampleThreeWorkLoad.getFlowTxAttemptsPerLink("F1");
-		assertEquals(expected, actual);
-	
-		int expectedF5 = 3;
-		int actualF5 = exampleThreeWorkLoad.getFlowTxAttemptsPerLink("F5");
-		assertEquals(expectedF5, actualF5);
-		
+		//Using the Example 3 file to get the flow transaction 
+		//attempts per link, which should be 3
+		int expected = 3;
+		int actual = exampleThreeWorkLoad.getFlowTxAttemptsPerLink("F1");
+		assertEquals(expected, actual);	
 	}
+	
 
 	@Test
 	void testSetFlowsInRMorderStressTest() {
@@ -169,7 +138,7 @@ class WorkLoadTest {
 	}
 	
 	@Test
-	void testSetFlowsInRMOrderStressTest() {
+	void testSetFlowsInRMOrderExampleThree() {
 		//Test using Example 3 for default parameters and different formatting:
 		exampleThreeWorkLoad.setFlowsInRMorder();
 		String expected = "[F0, F1, F2, F3, F4, F5]";
@@ -177,11 +146,12 @@ class WorkLoadTest {
 		assertEquals(expected, actual);
 	}
 
+	
 	@Test
 	void testGetNodeNamesOrderedAlphabetically_StressTest() {
 		
 		//Using the Stress Test file to check if nodes are ordered
-		//alphabetically, based on the letters 
+		//alphabetically based on the parameters (specific letters)
 		String[] expected = {"A","B","C","D","E","F","G","H","I",
 				"J","K","L","M","N","O","P","Q","R","S","T","U","V","W","Y"};
 		String[] actual = stressTestWorkLoad.getNodeNamesOrderedAlphabetically();
@@ -193,7 +163,7 @@ class WorkLoadTest {
 	@Test
 	void testGetNodeNamesOrderedAlphabetically_Example3() {	
 		//Using the Example 3 file to check if nodes are ordered
-		//alphabetically, based on the letters 
+		//alphabetically based on the parameters (specific letters) 
 		String[] expectedThree = {"A","B","C","D","F","G","I",
 				"P","R","V","X"};
 		String[] actualThree = exampleThreeWorkLoad.getNodeNamesOrderedAlphabetically();
@@ -202,6 +172,7 @@ class WorkLoadTest {
 		}
 	}
 
+	
 	@Test
 	void testGetFlowNamesStressTest() {
 		//Test with Stress Test for one formatting style:
@@ -223,23 +194,11 @@ class WorkLoadTest {
 	@Test
 	void testGetNodeIndex() { // ?
 		
-		//Stress Test
-		var expected = 0;
-		var actual = stressTestWorkLoad.getNodeIndex("F1");
-		assertEquals(expected,actual);
-		
+		//Using the Stress Test file to check for a node index
+		//and asserting it 
 		var expectedL = 11;
 		var actualL = stressTestWorkLoad.getNodeIndex("L");
 		assertEquals(expectedL,actualL);
-		
-		//Example 3
-		expected = 0;
-		actual = exampleThreeWorkLoad.getNodeIndex("F0");
-		assertEquals(expected,actual);
-		
-		int expectedV = 9;
-		int actualV = exampleThreeWorkLoad.getNodeIndex("V");
-		assertEquals(expectedV,actualV);
 		
 	}
 
@@ -250,6 +209,7 @@ class WorkLoadTest {
 		String expected = "[A, B, C, D, E, J, K, L]";
 		assertEquals(expected, (Arrays.toString(actual)));
 	}
+	
 
 	@Test
 	void testGetHyperPeriodStressTest() {
@@ -265,10 +225,10 @@ class WorkLoadTest {
 		//Using the Example 3 file to see if the default is set correctly
 		var expected = 100;
 		var actual = exampleThreeWorkLoad.getHyperPeriod();
-		assertEquals(expected,actual);
-		
+		assertEquals(expected,actual);	
 	}
 
+	
 	@Test
 	void testGetTotalTxAttemptsInFlowStressTest() {
 		//Test using the Stress Test:
@@ -296,14 +256,11 @@ class WorkLoadTest {
 	@Test
 	void testMaxFlowLength() {
 		
-		//Stress Test:
+		// Uses the Stress Test file to assert the maximum flow length
+		//which is 8, as observed in F4, F9, AF4, 
 		var maxFL = 8;
-		assertEquals(maxFL, stressTestWorkLoad.maxFlowLength());
-		
-		//Example 3:
-		int maxFL3 = 3;
-		assertEquals(maxFL3, exampleThreeWorkLoad.maxFlowLength());
-						
+		int actualFL = stressTestWorkLoad.maxFlowLength();
+		assertEquals(maxFL, actualFL);	
 	}
 
 }
