@@ -244,16 +244,19 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetHyperPeriod() {
+	void testGetHyperPeriodStressTest() {
 		
-		//Stress Test
+		//Using the Stress Test file to see if the value is calculated correctly
 		var expected = 300;
 		var actual = stressTestWorkLoad.getHyperPeriod();
 		assertEquals(expected,actual);
+	}
+	@Test
+	void testGetHyperPeriodDefault() {
 		
-		//Example 3 (default is 100)
-		expected = 100;
-		actual = exampleThreeWorkLoad.getHyperPeriod();
+		//Using the Example 3 file to see if the default is set correctly
+		var expected = 100;
+		var actual = exampleThreeWorkLoad.getHyperPeriod();
 		assertEquals(expected,actual);
 		
 	}
