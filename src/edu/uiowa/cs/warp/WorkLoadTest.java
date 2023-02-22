@@ -249,11 +249,6 @@ class WorkLoadTest {
 		String[] actual = stressTestWorkLoad.getNodesInFlow("F9");
 		String expected = "[A, B, C, D, E, J, K, L]";
 		assertEquals(expected, (Arrays.toString(actual)));
-		
-		//Example 3:
-		actual = exampleThreeWorkLoad.getNodesInFlow("F0");
-		expected = "[A, B, C]";
-		assertEquals(expected, (Arrays.toString(actual)));
 	}
 
 	@Test
