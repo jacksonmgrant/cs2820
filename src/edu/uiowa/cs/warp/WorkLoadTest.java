@@ -178,17 +178,22 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetNodeNamesOrderedAlphabetically() {
+	void testGetNodeNamesOrderedAlphabetically_StressTest() {
 		
-		//Stress Test
+		//Using the Stress Test file to check if nodes are ordered
+		//alphabetically, based on the letters 
 		String[] expected = {"A","B","C","D","E","F","G","H","I",
 				"J","K","L","M","N","O","P","Q","R","S","T","U","V","W","Y"};
 		String[] actual = stressTestWorkLoad.getNodeNamesOrderedAlphabetically();
 		for (int i = 0; i < expected.length; i++) {
 			assertEquals(expected[i], actual[i]);
 		}
-		
-		//Example 3
+	}
+	
+	@Test
+	void testGetNodeNamesOrderedAlphabetically_Example3() {	
+		//Using the Example 3 file to check if nodes are ordered
+		//alphabetically, based on the letters 
 		String[] expectedThree = {"A","B","C","D","F","G","I",
 				"P","R","V","X"};
 		String[] actualThree = exampleThreeWorkLoad.getNodeNamesOrderedAlphabetically();
