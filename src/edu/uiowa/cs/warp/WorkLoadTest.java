@@ -270,15 +270,18 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetTotalTxAttemptsInFlow() {
-		//Stress Test:
+	void testGetTotalTxAttemptsInFlowStressTest() {
+		//Test using the Stress Test:
 		Integer expected = 11;
-		Integer actual = stressTestWorkLoad.getTotalTxAttemptsInFlow("F9");
+		Integer actual = stressTestWorkLoad.getTotalTxAttemptsInFlow("F1");
 		assertEquals(expected, actual);
-		
-		//Example 3:
-		expected = 4;
-		actual = exampleThreeWorkLoad.getTotalTxAttemptsInFlow("F0");
+	}
+	
+	@Test
+	void testGetTotalTxAttemptsInFlowDefault() {
+		//Test when the flows have default values:
+		Integer expected = 4;
+		Integer actual = exampleThreeWorkLoad.getTotalTxAttemptsInFlow("F0");
 		assertEquals(expected, actual);
 	}
 
