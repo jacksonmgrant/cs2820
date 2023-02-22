@@ -173,42 +173,6 @@ class WorkLoadTest {
 		expected = "[F0, F1, F2, F3, F4, F5]";
 		actual = exampleThreeWorkLoad.getFlowNamesInPriorityOrder().toString();
 		assertEquals(expected, actual);
-		
-		//Old code as of 2/17/23. Delete if new code is acceptable, we are checking if 
-		//new code is acceptable on Mon 2/20/23.
-		/*
-		//Expected:
-		//Extract all flows from the testing WorkLoad
-		Collection<Flow> temp = stressTestWorkLoad.getFlows().values();
-		ArrayList<Flow> flows = new ArrayList<Flow>(0);
-		for(Flow flow : temp)
-			flows.add(flow);
-		
-		//Bubblesort the flows according to period first and priority second
-		for(int i = 0; i < flows.size()-2; i++) {
-			for(int j = 0; j < flows.size()-i-1; j++) {
-				if(flows.get(j).getPeriod() == flows.get(j+1).getPeriod()) {
-					if(flows.get(j).getPriority() > flows.get(j+1).getPriority()) {
-						Collections.swap(flows, j, j+1);
-					}
-				}else if(flows.get(j).getPeriod() > flows.get(j+1).getPeriod()) {
-					Collections.swap(flows, j, j+1);
-				}
-			}
-		}
-		
-		//Generate expected values
-		ArrayList<String> expected = new ArrayList<String>(0);
-		for(Flow flow : flows) {
-			expected.add(flow.getName());
-		}
-		
-		//Actual:
-		stressTestWorkLoad.setFlowsInRMorder();
-		ArrayList<String> actual = stressTestWorkLoad.getFlowNamesInPriorityOrder();
-		System.out.println(actual.toString());
-		assertEquals(expected, actual);
-		*/
 	}
 
 	@Test
@@ -242,37 +206,6 @@ class WorkLoadTest {
 		expected = "[F0, F1, F2, F3, F4, F5]";
 		actual = exampleThreeWorkLoad.getFlowNames();
 		assertEquals(expected, Arrays.toString(actual));
-		
-		//Old code as of 2/17/23. Delete if new code is acceptable, we are checking if 
-		//new code is acceptable on Mon 2/20/23.
-		/*
-//		Doesn't work with example 3. It uses colons. Chars in flow name 
-//		need to be between 48 and 57, 65 and 90, or 97 and 122, all inclusive.
-		
-		System.out.println((int)' ');
-		WorkLoadDescription getFlows = new WorkLoadDescription(testingFile);
-		Description flows = getFlows.visualization();
-		flows.remove(0);
-		flows.remove(flows.size()-1);
-		String[] expected = new String[flows.size()];
-		for(int i = 0; i < expected.length; i++) {
-			String currentFlow = flows.get(i);
-			expected[i] = currentFlow.substring(0, currentFlow.indexOf(' '));
-			
-//			//Need to remove any non-alpha or non-numeric characters
-//			for(int j = 0; j < expected[i].length(); j++) {
-//				char c = expected[i].charAt(j);
-//				if(!((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))) {
-//					expected[i] = expected[i].substring(0,expected[i].indexOf(c)) +
-//							expected[i].substring(expected[i].indexOf(c+1));
-//				}
-//			}
-		}
-		String[] actual = stressTestWorkLoad.getFlowNames();
-		System.out.println(Arrays.toString(expected));
-		System.out.println(Arrays.toString(actual));
-		assertEquals(Arrays.toString(expected),Arrays.toString(actual));
-		*/
 	}
 
 	@Test
