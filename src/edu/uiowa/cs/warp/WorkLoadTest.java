@@ -190,6 +190,7 @@ class WorkLoadTest {
 		}
 	}
 	
+	@Test
 	void testGetNodeNamesOrderedAlphabetically_Example3() {	
 		//Using the Example 3 file to check if nodes are ordered
 		//alphabetically, based on the letters 
