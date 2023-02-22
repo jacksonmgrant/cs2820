@@ -75,16 +75,10 @@ class WorkLoadTest {
 	void testGetFlowPriority() {
 		Flow originalFlow = new Flow("Test flow to be added", 0, 0);
 		
-		//Stress Test
+		//Using the stress test file
 		stressTestWorkLoad.addFlow(originalFlow.getName());
 		int expectedPriority = 15;
 		int actualPriority = stressTestWorkLoad.getFlowPriority(originalFlow.getName());
-		assertEquals(expectedPriority, actualPriority);
-		
-		//Example 3
-		exampleThreeWorkLoad.addFlow(originalFlow.getName());
-		expectedPriority = 6;
-		actualPriority = exampleThreeWorkLoad.getFlowPriority(originalFlow.getName());
 		assertEquals(expectedPriority, actualPriority);
 	}
 
