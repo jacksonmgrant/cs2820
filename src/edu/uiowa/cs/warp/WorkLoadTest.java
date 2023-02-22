@@ -233,7 +233,7 @@ class WorkLoadTest {
 	void testGetTotalTxAttemptsInFlowStressTest() {
 		//Test using the Stress Test:
 		Integer expected = 11;
-		Integer actual = stressTestWorkLoad.getTotalTxAttemptsInFlow("F1");
+		Integer actual = stressTestWorkLoad.getTotalTxAttemptsInFlow("F9");
 		assertEquals(expected, actual);
 	}
 	
