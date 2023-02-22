@@ -21,5 +21,5 @@ Flow (Class comment, attributes, all methods), VisualizationImplementation (Clas
 <br>
 
 ## HW3
-Nalini: Developed test cases for addNodeToFlow, getFlowPriority, getFlowTxAttemptsPerLink, getNodeNamesOrderedAlphabetically, getNodeIndex, getHyperPeriod,
+Nalini: Developed test cases for addNodeToFlow, setFlowPriority, getFlowTxAttemptsPerLink, getNodeNamesOrderedAlphabetically, getNodeIndex, getHyperPeriod,
 maxFlowLength, setFlowDeadline
