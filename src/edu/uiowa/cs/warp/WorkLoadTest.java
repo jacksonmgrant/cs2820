@@ -119,15 +119,20 @@ class WorkLoadTest {
 	}
 
 	@Test
-	void testGetFlowDeadline() { 
-		//Stress Test:
-		Integer expected = 100;
-		Integer actual = stressTestWorkLoad.getFlowDeadline("F9");
+	void testGetFlowDeadlineStressTest() { 
+		//Using the Stress Test to test when a parameter is passed:
+		Integer expected = 50;
+		Integer actual = stressTestWorkLoad.getFlowDeadline("F3");
 		assertEquals(expected, actual);
 		
-		//Example 3:
-		expected = 100;
-		actual = exampleThreeWorkLoad.getFlowDeadline("F0");
+		
+	}
+	
+	@Test
+	void testGetFlowDeadlineDefault() {
+		//Using Example 3 to test that it works with the default values:
+		Integer expected = 100;
+		Integer actual = exampleThreeWorkLoad.getFlowDeadline("F0");
 		assertEquals(expected, actual);
 	}
 
