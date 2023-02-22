@@ -36,20 +36,7 @@ class WorkLoadTest {
 		stressTestWorkLoad = new WorkLoad(0.9, 0.99, stressTest);
 		
 		String exampleThree = "Example3.txt";
-		exampleThreeWorkLoad = new WorkLoad(0.9, 0.99, exampleThree);
-		
-		//I didn't want to mess with your code without you knowing, so 
-		//I left testingWorkLoad as is. However, it's the same as 
-		//stressTestWorkLoad so we should only keep one to avoid redundancy
-		//and confusion, or change testingWorkLoad to run a different file
-		// if there's another case we want to test. --Jackson
-		
-		//Commented this out since I modified my stuff accordingly,
-		//should be good to delete it completely? --Nalini
-		
-//		String testingFile = "StressTest.txt";
-//		testingWorkLoad = new WorkLoad(0.9, 0.99, testingFile);
-		
+		exampleThreeWorkLoad = new WorkLoad(0.9, 0.99, exampleThree);		
 	}
 
 	@Test
