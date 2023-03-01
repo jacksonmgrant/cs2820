@@ -74,6 +74,7 @@
   </edges>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_XcJ3cLhVEe2UuoshngsjNA" sourceConnectionVisual="_XcOI4LhVEe2UuoshngsjNA" text="ReliabilityAnalysis analyzes the end-to-end reliability of messages transmitted in flows for the&#xD;&#xA;WARP system.&#xD;&#xA;&lt;p>&#xD;&#xA;&#xD;&#xA;Let M represent the Minimum Packet Reception Rate on an edge in a flow. The end-to-end&#xD;&#xA;reliability for each flow, flow:src->sink, is computed iteratively as follows:&lt;br>&#xD;&#xA;(1)The flow:src node has an initial probability of 1.0 when it is released. All other initial&#xD;&#xA;probabilities are 0.0. (That is, the reset of the nodes in the flow have an initial probability&#xD;&#xA;value of 0.0.) &lt;br>&#xD;&#xA;(2) each src->sink pair probability is computed as NewSinkNodeState = (1-M)*PrevSnkNodeState +&#xD;&#xA;M*PrevSrcNodeState &lt;br>&#xD;&#xA;This value represents the probability that the message as been received by the node SinkNode.&#xD;&#xA;Thus, the NewSinkNodeState probability will increase each time a push or pull is executed with&#xD;&#xA;SinkNode as a listener.&#xD;&#xA;&lt;p>&#xD;&#xA;&#xD;&#xA;The last probability state value for any node is the reliability of the message reaching that&#xD;&#xA;node, and the end-to-end reliability of a flow is the value of the last Flow:SinkNode&#xD;&#xA;probability.&#xD;&#xA;&lt;p>&#xD;&#xA;&#xD;&#xA;CS2820 Spring 2023 Project: Implement this class to compute the probabilities the comprise the&#xD;&#xA;ReliablityMatrix, which is the core of the file visualization that is requested in Warp.&#xD;&#xA;&lt;p>&#xD;&#xA;&#xD;&#xA;To do this, you will need to retrieve the program source, parse the instructions for each node,&#xD;&#xA;in each time slot, to extract the src and snk nodes in the instruction and then apply the message&#xD;&#xA;success probability equation defined above.&#xD;&#xA;&lt;p>&#xD;&#xA;&#xD;&#xA;I recommend using the getInstructionParameters method of the WarpDSL class to extract the src and&#xD;&#xA;snk nodes from the instruction string in a program schedule time slot.&#xD;&#xA;&#xD;&#xA;@author sgoddard&#xD;&#xA;@version 1.5&#xD;&#xA; *" item="_XcPXALhVEe2UuoshngsjNA">
     <modelElement href="Reliability.uml#_R6WbxbhVEe2UuoshngsjNA"/>
+    <visualProperties xmi:id="_KH3V4LhgEe2UuoshngsjNA" position="1265.0,437.0" size="200.0,150.0" visible="false"/>
   </nodes>
   <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_XcYg8LhVEe2UuoshngsjNA" sourceConnectionVisual="_Xcf1sLhVEe2UuoshngsjNA" text="@author sgoddard&#xD;&#xA; *" item="_XciR8LhVEe2UuoshngsjNA">
     <modelElement href="Reliability.uml#_R6WbxrhVEe2UuoshngsjNA"/>
@@ -618,41 +619,6 @@
       </parameters>
     </operations>
   </nodes>
-  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_XcPXALhVEe2UuoshngsjNA" comments="_XcJ3cLhVEe2UuoshngsjNA" targetConnectionVisual="_XcOI4LhVEe2UuoshngsjNA" name="ReliabilityAnalysis" associationsIn="_XeFxILhVEe2UuoshngsjNA">
-    <modelElement href="Reliability.uml#_Rh9w8bhVEe2UuoshngsjNA"/>
-    <visualProperties xmi:id="_XcPXAbhVEe2UuoshngsjNA" position="732.0,417.0" size="-1.0,-1.0"/>
-    <visibility xmi:id="_XcPXArhVEe2UuoshngsjNA" label="+"/>
-    <operations xmi:id="_XcPXA7hVEe2UuoshngsjNA" name="verifyReliabilities">
-      <modelElement href="Reliability.uml#_Rh-YALhVEe2UuoshngsjNA"/>
-      <visibility xmi:id="_XcPXBLhVEe2UuoshngsjNA" label="+"/>
-      <cardinality xmi:id="_XcPXBbhVEe2UuoshngsjNA" label="1" max="1" min="1"/>
-      <outParameters xmi:id="_XcPXBrhVEe2UuoshngsjNA">
-        <modelElement href="Reliability.uml#_Rh-YAbhVEe2UuoshngsjNA"/>
-        <type xmi:id="_XcPXB7hVEe2UuoshngsjNA" name="Boolean">
-          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        </type>
-      </outParameters>
-    </operations>
-    <operations xmi:id="_XcPXCLhVEe2UuoshngsjNA" name="ReliabilityAnalysis">
-      <modelElement href="Reliability.uml#_R1XOELhVEe2UuoshngsjNA"/>
-      <keywords xmi:id="_XcPXCbhVEe2UuoshngsjNA" keyword="create"/>
-      <visibility xmi:id="_XcPXCrhVEe2UuoshngsjNA" label="+"/>
-      <cardinality xmi:id="_XcPXC7hVEe2UuoshngsjNA" label="1" max="1" min="1"/>
-      <outParameters xmi:id="_XcPXDLhVEe2UuoshngsjNA">
-        <modelElement href="Reliability.uml#_R1XOFLhVEe2UuoshngsjNA"/>
-        <type xmi:id="_XcPXDbhVEe2UuoshngsjNA" name="ReliabilityAnalysis">
-          <modelElement href="Reliability.uml#_Rh9w8bhVEe2UuoshngsjNA"/>
-        </type>
-      </outParameters>
-      <parameters xmi:id="_XcPXDrhVEe2UuoshngsjNA" name="program">
-        <modelElement href="Reliability.uml#_R1XOEbhVEe2UuoshngsjNA"/>
-        <cardinality xmi:id="_XcPXD7hVEe2UuoshngsjNA" label="1" max="1" min="1"/>
-        <type xmi:id="_XcPXELhVEe2UuoshngsjNA" name="Program">
-          <modelElement href="Reliability.uml#_RhiTILhVEe2UuoshngsjNA"/>
-        </type>
-      </parameters>
-    </operations>
-  </nodes>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_XdUVELhVEe2UuoshngsjNA" name="ReliabilityTable">
     <modelElement href="Reliability.uml#_RiCCYLhVEe2UuoshngsjNA"/>
     <visualProperties xmi:id="_XdUVEbhVEe2UuoshngsjNA" position="728.0,681.0" size="-1.0,-1.0"/>
@@ -793,6 +759,54 @@
           <modelElement href="Reliability.uml#_R3R5oLhVEe2UuoshngsjNA"/>
         </type>
       </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_XcPXALhVEe2UuoshngsjNA" comments="_XcJ3cLhVEe2UuoshngsjNA" targetConnectionVisual="_XcOI4LhVEe2UuoshngsjNA" name="ReliabilityAnalysis" associationsIn="_XeFxILhVEe2UuoshngsjNA">
+    <modelElement href="Reliability.uml#_Rh9w8bhVEe2UuoshngsjNA"/>
+    <visualProperties xmi:id="_XcPXAbhVEe2UuoshngsjNA" position="732.0,417.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_XcPXArhVEe2UuoshngsjNA" label="+"/>
+    <operations xmi:id="_XcPXA7hVEe2UuoshngsjNA" name="verifyReliabilities">
+      <modelElement href="Reliability.uml#_Rh-YALhVEe2UuoshngsjNA"/>
+      <visualProperties xmi:id="_JcYv8LhgEe2UuoshngsjNA"/>
+      <visibility xmi:id="_XcPXBLhVEe2UuoshngsjNA" label="+"/>
+      <cardinality xmi:id="_XcPXBbhVEe2UuoshngsjNA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_XcPXBrhVEe2UuoshngsjNA">
+        <modelElement href="Reliability.uml#_Rh-YAbhVEe2UuoshngsjNA"/>
+        <type xmi:id="_XcPXB7hVEe2UuoshngsjNA" name="Boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_XcPXCLhVEe2UuoshngsjNA" name="ReliabilityAnalysis">
+      <modelElement href="Reliability.uml#_R1XOELhVEe2UuoshngsjNA"/>
+      <visualProperties xmi:id="_JcZXALhgEe2UuoshngsjNA"/>
+      <keywords xmi:id="_XcPXCbhVEe2UuoshngsjNA" keyword="create"/>
+      <visibility xmi:id="_XcPXCrhVEe2UuoshngsjNA" label="+"/>
+      <cardinality xmi:id="_XcPXC7hVEe2UuoshngsjNA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_XcPXDLhVEe2UuoshngsjNA">
+        <modelElement href="Reliability.uml#_R1XOFLhVEe2UuoshngsjNA"/>
+        <type xmi:id="_XcPXDbhVEe2UuoshngsjNA" name="ReliabilityAnalysis">
+          <modelElement href="Reliability.uml#_Rh9w8bhVEe2UuoshngsjNA"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_XcPXDrhVEe2UuoshngsjNA" name="program">
+        <modelElement href="Reliability.uml#_R1XOEbhVEe2UuoshngsjNA"/>
+        <cardinality xmi:id="_XcPXD7hVEe2UuoshngsjNA" label="1" max="1" min="1"/>
+        <type xmi:id="_XcPXELhVEe2UuoshngsjNA" name="Program">
+          <modelElement href="Reliability.uml#_RhiTILhVEe2UuoshngsjNA"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_WaEuYLhgEe2UuoshngsjNA" name="getReliabilities">
+      <modelElement href="Reliability.uml#_WaBrELhgEe2UuoshngsjNA"/>
+      <visibility xmi:id="_WaEuYbhgEe2UuoshngsjNA" label="+"/>
+      <cardinality xmi:id="_WaEuYrhgEe2UuoshngsjNA" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_WaEuY7hgEe2UuoshngsjNA">
+        <modelElement href="Reliability.uml#_WaBrEbhgEe2UuoshngsjNA"/>
+        <type xmi:id="_WaEuZLhgEe2UuoshngsjNA" name="ReliabilityTable">
+          <modelElement href="Reliability.uml#_RiCCYLhVEe2UuoshngsjNA"/>
+        </type>
+      </outParameters>
     </operations>
   </nodes>
 </com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

@@ -40,6 +40,11 @@ package edu.uiowa.cs.warp;
  */
 public class ReliabilityAnalysis {
   // TODO Auto-generated class
+public ReliabilityTable getReliabilities() {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
 
 
   public ReliabilityAnalysis(Program program) {
