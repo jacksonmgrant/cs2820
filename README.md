@@ -41,3 +41,9 @@ maxFlowLength, setFlowDeadline
 
 Jackson: Developed test cases for addFlow, getTotalTxAttemptsInFlow, getFlowPriority, setFlowsInRMorder, getFlowNames,
 getNodesInFlow, getNumTxAttemptsInLink, and getFlowDeadline.
+
+<br>
+
+## HW4
+Learned how to generate and edit UML diagrams for existing code. Generated diagrams for: SchedulableObject, WorkLoad (+parents and associated classes),
+and Reliability (+associated classes).
