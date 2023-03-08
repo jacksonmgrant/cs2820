@@ -1,5 +1,7 @@
 package edu.uiowa.cs.warp;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * ReliabilityAnalysis analyzes the end-to-end reliability of messages transmitted in flows for the
@@ -40,29 +42,118 @@ import java.util.ArrayList;
  *
  */
 public class ReliabilityAnalysis {
-  // TODO Auto-generated class   
-   
+	
+	/**
+	 * The required end to end communication reliability for the flows.
+	 */
+	private Double e2e;
+	
+	/**
+	 * Minimum packet reception rate for graph nodes.
+	 */
+	private Double minPacketReceptionRate;
+	
+	/**
+	 * The number of faults per edge in a flow.
+	 */
+	private Integer numFaults;
+	  
+	  
+   /**
+    * Creates a new ReliabilityAnalysis object with the provided values for
+    * end-to-end communication and minimum packet reception rate. All other
+    * values are set to defaults.
+    * 
+    * @param e2e The required end to end communication reliability for flows
+    * @param minPacketReceptionRate The minimum packet reception rate for nodes
+    */
    public ReliabilityAnalysis (Double e2e, Double minPacketReceptionRate) {
-      // TODO implement this operation
-      throw new UnsupportedOperationException("not implemented");
+      this.setDefaultParameters();
+      this.e2e = e2e;
+      this.minPacketReceptionRate = minPacketReceptionRate;
    }
    
+   /**
+    * Creates a new ReliabilityAnalysis object with the provided values for
+    * the number of faults. All other values are set to defaults.
+    * 
+    * @param numFaults The number of faults allowed per edge in a Flow
+    */
    public ReliabilityAnalysis (Integer numFaults) {
-      // TODO implement this operation
-      throw new UnsupportedOperationException("not implemented");
+      this.setDefaultParameters();
+      this.numFaults = numFaults;
    }
    
 
 
   public ReliabilityAnalysis(Program program) {
     // TODO Auto-generated constructor stub
+	// Not implemented
   }
   
-  public ArrayList numTxPerLinkAndTotalTxCost(Flow flow) {
+  /**
+   * Sets all parameters to default values specified within this method.
+   */
+  private void setDefaultParameters() {
+	  this.e2e = 0.99;
+	  this.minPacketReceptionRate = 0.9;
+	  this.numFaults = 0;
+  }
+  
+  /**
+   * Calculates number of transmissions needed per link and total transmissions
+   * required for the given flow
+   * 
+   * @param flow the flow being analyzed
+   * @return an ArrayList containing the number of transmissions per link and the
+   * total worst case cost of transmitting end to end at the end of the List.
+   */
+  public ArrayList<Integer> numTxPerLinkAndTotalTxCost(Flow flow) {
       // TODO implement this operation
+      
+      ArrayList<Node> nodesInFlow = flow.getNodes();
+      //The last entry will contain the worst-case cost of transmitting E2E in 
+      //isolation
+      int nNodesInFlow = nodesInFlow.size();
+      
+      //Array to track nPushes for each node in this flow (same as nTx per link).
+      //Initialized to all 0 values.
+      List<Integer> nPushes = new ArrayList<Integer>(Collections.nCopies(nNodesInFlow + 1, 0));
+      
+      int nHops = nNodesInFlow - 1;
+      // minLinkReliablityNeded is the minimum reliability needed per link in a flow to hit E2E
+      // reliability for the flow
+      Double minLinkReliablityNeded = Math.max(e2e, Math.pow(e2e, (1.0 / (double) nHops))); 
+      // use max to handle rounding error when e2e == 1.0
+      
+      /*
+       * So far, this is a copy with minor refactoring of numTxAttemptsPerLinkAndTotalTxAttempts
+       * up to line 683 of WorkLoad. I have mostly just been specifying variable types
+       * and converting arrays to ArrayLists. My plan is to copy over the method with its
+       * current functionality, but with variable types properly matched, and then to
+       * rework it to make it more readable and efficient. We need to pick back up at line 685.
+       */
+      
+      
+      //Leaving this here until we finish
       throw new UnsupportedOperationException("not implemented");
    }
 
+  
+  
+  /*
+   * Testing main, feel free to rewrite and/or use whenever you need to test something.
+   * If you want to save a test for reuse, just comment it out when it's not in use.
+   * 
+   * TODO delete this
+   */
+  public static void main(String[] args) {
+	  ReliabilityAnalysis tester = new ReliabilityAnalysis(1);
+	  WorkLoad test = new WorkLoad(0.9, 0.99, "Example.txt");
+	  Flow testingFlow = test.getFlows().get("F0");
+	  tester.numTxPerLinkAndTotalTxCost(testingFlow);
+  }
+  
   
   
   
