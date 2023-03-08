@@ -1,4 +1,5 @@
 package edu.uiowa.cs.warp;
+import java.util.ArrayList;
 
 /**
  * ReliabilityAnalysis analyzes the end-to-end reliability of messages transmitted in flows for the
@@ -40,6 +41,21 @@ package edu.uiowa.cs.warp;
  */
 public class ReliabilityAnalysis {
   // TODO Auto-generated class   
+public ArrayList numTxPerLinkAndTotalTxCost(Flow flow) {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
+   public ReliabilityAnalysis (Double e2e, Double minPacketReceptionRate) {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
+   public ReliabilityAnalysis (Integer numFaults) {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
 
 
   public ReliabilityAnalysis(Program program) {
