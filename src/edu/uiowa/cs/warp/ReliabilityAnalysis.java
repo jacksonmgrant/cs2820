@@ -41,10 +41,6 @@ import java.util.ArrayList;
  */
 public class ReliabilityAnalysis {
   // TODO Auto-generated class   
-public ArrayList numTxPerLinkAndTotalTxCost(Flow flow) {
-      // TODO implement this operation
-      throw new UnsupportedOperationException("not implemented");
-   }
    
    public ReliabilityAnalysis (Double e2e, Double minPacketReceptionRate) {
       // TODO implement this operation
@@ -61,8 +57,18 @@ public ArrayList numTxPerLinkAndTotalTxCost(Flow flow) {
   public ReliabilityAnalysis(Program program) {
     // TODO Auto-generated constructor stub
   }
+  
+  public ArrayList numTxPerLinkAndTotalTxCost(Flow flow) {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
 
-public ReliabilityTable getReliabilities() {
+  
+  
+  
+  
+  
+  public ReliabilityTable getReliabilities() {
       // TODO implement this operation
       throw new UnsupportedOperationException("not implemented");
    }
