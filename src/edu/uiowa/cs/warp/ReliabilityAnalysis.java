@@ -123,7 +123,7 @@ public class ReliabilityAnalysis {
       int nHops = nNodesInFlow - 1;
       // minLinkReliablityNeded is the minimum reliability needed per link in a flow to hit E2E
       // reliability for the flow
-      Double minLinkReliablityNeded = Math.max(e2e, Math.pow(e2e, (1.0 / (double) nHops))); 
+      Double minLinkReliablityNeeded = Math.max(e2e, Math.pow(e2e, (1.0 / (double) nHops))); 
       // use max to handle rounding error when e2e == 1.0
       
       /*
@@ -134,6 +134,83 @@ public class ReliabilityAnalysis {
        * rework it to make it more readable and efficient. We need to pick back up at line 685.
        */
       
+      
+      /* Now compute reliability of packet reaching each node in the given time slot:
+       *Start with a 2-D reliability window that is a 2-D matrix of no size
+       *each row is a time slot, stating at time 0
+       *each column represents the reliability of the packet reaching that node at the
+       *current time slot (i.e., the row it is in)
+       *will add rows as we compute reliabilities until the final reliability is reached
+       *for all nodes. */
+      ReliabilityTable reliabilityWindow = new ReliabilityTable();
+      ReliabilityRow newReliabilityRow = new ReliabilityRow();
+      // create the row initialized with 0.0 values
+      for (int i = 0; i < nNodesInFlow; i++) { 
+    	  newReliabilityRow.add(0.0);
+      }
+      
+      reliabilityWindow.add(newReliabilityRow);
+      ReliabilityRow tmpVector = reliabilityWindow.get(0);
+      Double[] currentReliabilityRow = tmpVector.toArray(new Double[tmpVector.size()]);
+      // var currentReliabilityRow = (Double[]) reliabilityWindow.get(0).toArray();
+      // Want reliabilityWindow[0][0] = 1.0 (i.e., P(packet@FlowSrc) = 1
+      // but I din't want to mess with the newReliablityRow vector I use below
+      // So, we initialize this first entry to 1.0, which is reliabilityWindow[0][0]
+      // We will then update this row with computed values for each node and put it
+      // back in the matrix
+      
+      // initialize (i.e., P (packet@FlowSrc = 1)
+      currentReliabilityRow[0] = 1.0;
+      // the analysis will end when the e2e reliability metric is met, initially the
+      // state is not met and will be 0 with this statement
+      Double e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1];
+      
+      
+      // start time at 0
+      int timeSlot = 0;
+      Double[] prevReliabilityRow = currentReliabilityRow;
+      while (e2eReliabilityState < e2e) {
+    	  prevReliabilityRow = currentReliabilityRow;
+    	  // would be reliabilityWindow[timeSlot] if working through a schedule
+    	  currentReliabilityRow = newReliabilityRow.toArray(new Double[newReliabilityRow.size()]);
+      }
+      
+      
+      // Now use each flow:source->sink to update reliability computations
+      // this is the update formula for the state probabilities
+      // nextState = (1-M) * prevState + M*NextHighestFlowState
+      // use minLQ for M in above equation
+      // NewSinkNodeState = (1-M)*PrevSnkNodeState + M*PrevSrcNodeState
+      
+      // loop through each node in the flow and update the states for
+      // each link (i.e., sink->src pair)
+      for (int nodeIndex = 0; nodeIndex < (nNodesInFlow - 1); nodeIndex++) {
+    	  int flowSrcNodeindex = nodeIndex;
+    	  int flowSnkNodeindex = nodeIndex + 1;
+    	  Double prevSrcNodeState = prevReliabilityRow[flowSrcNodeindex];
+    	  Double prevSnkNodeState = prevReliabilityRow[flowSnkNodeindex];
+    	  Double nextSnkState;
+    	  
+    	  // do a push until PrevSnk state > e2e to ensure next node reaches target E2E BUT
+    	  // skip if no chance of success (i.e., source doesn't have packet)
+    	  if ((prevSnkNodeState < minLinkReliablityNeeded) && prevSrcNodeState > 0) {
+    		  
+    		  //need to continue attempting to Tx, so update current state
+    		  nextSnkState = ((1.0 - minPacketReceptionRate) * prevSnkNodeState) + 
+    				  (minPacketReceptionRate * prevSrcNodeState);
+    		  
+
+    		  
+    		  /*
+    		   * Kept your comment above. This is from where you left off to line 742 of WorkLoad.
+    		   * Minor refactoring and including the use of ReliabilityRow and ReliabilityTable as needed.
+    		   * Also using the variable types instead of 'var'. Need to pick back up at line 743, 
+    		   * starting with the comment.
+    		   * Not sure how to completely refactor this for loop as it seems long.
+    		   * 
+    		   */
+    	  }
+      }
       
       //Leaving this here until we finish
       throw new UnsupportedOperationException("not implemented");
