@@ -139,11 +139,7 @@ public class ReliabilityAnalysis {
        *will add rows as we compute reliabilities until the final reliability is reached
        *for all nodes. */
       ReliabilityTable reliabilityWindow = new ReliabilityTable();
-      ReliabilityRow newReliabilityRow = new ReliabilityRow();
-      // create the row initialized with 0.0 values
-      for (int i = 0; i < nNodesInFlow; i++) { 
-    	  newReliabilityRow.add(0.0);
-      }
+      ReliabilityRow newReliabilityRow = new ReliabilityRow(nNodesInFlow, 0.0);
       
       reliabilityWindow.add(newReliabilityRow);
       ReliabilityRow currentReliabilityRow = reliabilityWindow.get(0);
@@ -188,7 +184,7 @@ public class ReliabilityAnalysis {
     	  
     		  // do a push until PrevSnk state > e2e to ensure next node reaches target E2E BUT
     		  // skip if no chance of success (i.e., source doesn't have packet)
-    		  if ((prevSnkNodeState < minLinkReliablityNeeded) && prevSrcNodeState > 0) {
+    		  if ((prevSrcNodeState > 0 && prevSnkNodeState < minLinkReliablityNeeded)) {
     		  
     		  		//need to continue attempting to Tx, so update current state
     		  		nextSnkState = ((1.0 - minPacketReceptionRate) * prevSnkNodeState) + 
@@ -226,6 +222,7 @@ public class ReliabilityAnalysis {
       // specified reliability target is the number of rows in the reliabilityWindow
       int size = reliabilityWindow.size();
 	  nPushes.set(nNodesInFlow, size); 
+	  System.out.println(nPushes.toString());
 	  return nPushes;
    }
 
