@@ -171,69 +171,62 @@ public class ReliabilityAnalysis {
     	  Collections.copy(currentReliabilityRow, newReliabilityRow);
       
       
-      // Now use each flow:source->sink to update reliability computations
-      // this is the update formula for the state probabilities
-      // nextState = (1-M) * prevState + M*NextHighestFlowState
-      // use minLQ for M in above equation
-      // NewSinkNodeState = (1-M)*PrevSnkNodeState + M*PrevSrcNodeState
+    	  // Now use each flow:source->sink to update reliability computations
+    	  // this is the update formula for the state probabilities
+    	  // nextState = (1-M) * prevState + M*NextHighestFlowState
+    	  // use minLQ for M in above equation
+    	  // NewSinkNodeState = (1-M)*PrevSnkNodeState + M*PrevSrcNodeState
       
-      // loop through each node in the flow and update the states for
-      // each link (i.e., sink->src pair)
-      for (int nodeIndex = 0; nodeIndex < (nNodesInFlow - 1); nodeIndex++) {
-    	  int flowSrcNodeindex = nodeIndex;
-    	  int flowSnkNodeindex = nodeIndex + 1;
-    	  Double prevSrcNodeState = prevReliabilityRow.get(flowSrcNodeindex);
-    	  Double prevSnkNodeState = prevReliabilityRow.get(flowSnkNodeindex);
-    	  Double nextSnkState;
+    	  // loop through each node in the flow and update the states for
+    	  // each link (i.e., sink->src pair)
+    	  for (int nodeIndex = 0; nodeIndex < (nNodesInFlow - 1); nodeIndex++) {
+    		  int flowSrcNodeindex = nodeIndex;
+    		  int flowSnkNodeindex = nodeIndex + 1;
+    		  Double prevSrcNodeState = prevReliabilityRow.get(flowSrcNodeindex);
+    		  Double prevSnkNodeState = prevReliabilityRow.get(flowSnkNodeindex);
+    		  Double nextSnkState;
     	  
-    	  // do a push until PrevSnk state > e2e to ensure next node reaches target E2E BUT
-    	  // skip if no chance of success (i.e., source doesn't have packet)
-    	  if ((prevSnkNodeState < minLinkReliablityNeeded) && prevSrcNodeState > 0) {
+    		  // do a push until PrevSnk state > e2e to ensure next node reaches target E2E BUT
+    		  // skip if no chance of success (i.e., source doesn't have packet)
+    		  if ((prevSnkNodeState < minLinkReliablityNeeded) && prevSrcNodeState > 0) {
     		  
-    		  	//need to continue attempting to Tx, so update current state
-    		  	nextSnkState = ((1.0 - minPacketReceptionRate) * prevSnkNodeState) + 
+    		  		//need to continue attempting to Tx, so update current state
+    		  		nextSnkState = ((1.0 - minPacketReceptionRate) * prevSnkNodeState) + 
     		  					(minPacketReceptionRate * prevSrcNodeState);
-    		  	// increment the number of pushes for for this node to snk node
-    		  	nPushes.set(nodeIndex, nPushes.get(nodeIndex) + 1);
-          } else {
-          		// snkNode has met its reliability. Thus move on to the
-        	  	// next node and record the reliability met
-          		nextSnkState = prevSnkNodeState;
-    	  }
+    		  		// increment the number of pushes for for this node to snk node
+    		  		nPushes.set(nodeIndex, nPushes.get(nodeIndex) + 1);
+    		  } else {
+          			// snkNode has met its reliability. Thus move on to the
+        	  		// next node and record the reliability met
+          			nextSnkState = prevSnkNodeState;
+    		  }
     	  
-    	  // probabilities are non-decreasing so update if we were higher by carrying old
-          // value forward
-          if (currentReliabilityRow.get(flowSrcNodeindex) < prevReliabilityRow.get(flowSrcNodeindex)) { 
+    		  // probabilities are non-decreasing so update if we were higher by carrying old
+    		  // value forward
+    		  if (currentReliabilityRow.get(flowSrcNodeindex) < 
+    				  prevReliabilityRow.get(flowSrcNodeindex)) { 
           	
-          	// carry forward the previous state for the src node, which may get over written
-            // later by another instruction in this slot
-            currentReliabilityRow.set(flowSrcNodeindex, prevReliabilityRow.get(flowSrcNodeindex));
-          }
-          currentReliabilityRow.set(flowSnkNodeindex, nextSnkState);
+    			  // carry forward the previous state for the src node, which may get over written
+    			  // later by another instruction in this slot
+    			  currentReliabilityRow.set(flowSrcNodeindex, 
+    					  prevReliabilityRow.get(flowSrcNodeindex));
+    		  }
+    		  currentReliabilityRow.set(flowSnkNodeindex, nextSnkState);
+    	  }
           
-          e2eReliabilityState = currentReliabilityRow.get(nNodesInFlow - 1);
+    	  e2eReliabilityState = currentReliabilityRow.get(nNodesInFlow - 1);
           
+    	  reliabilityWindow.add(currentReliabilityRow);
           
-          //This code is making a bunch of conversions to add a vector to the window. We can
-          //rework currentReliabilityrow to be added to the window without using the
-          //vector or if statement
-          
-          reliabilityWindow.add(currentReliabilityRow);
-          
-          
-          timeSlot += 1; // increase to next time slot
-        }
+    	  timeSlot += 1; // increase to next time slot
       
-        int size = reliabilityWindow.size();
-        nPushes.set(nNodesInFlow, size); // The total (worst-case) cost to transmit E2E in isolation with
-                                      // specified reliability target is the number of rows in the
-                                      // reliabilityWindow
-        // Now convert the array to the ArrayList needed to return
-        return nPushes;
       }
-      
-      //Leaving this here until we finish
-      throw new UnsupportedOperationException("not implemented");
+	  
+	  // The total (worst-case) cost to transmit E2E in isolation with
+      // specified reliability target is the number of rows in the reliabilityWindow
+      int size = reliabilityWindow.size();
+	  nPushes.set(nNodesInFlow, size); 
+	  return nPushes;
    }
 
   
