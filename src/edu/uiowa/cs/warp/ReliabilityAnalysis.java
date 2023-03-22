@@ -102,14 +102,14 @@ public class ReliabilityAnalysis {
   }
   
   /**
-   * Calculates number of transmissions needed per link and total transmissions
-   * required for the given flow
+   * Calculates number of transmissions needed per link and total worst-case
+   * transmission time for the given flow.
    * 
    * @param flow the flow being analyzed
    * @return an ArrayList containing the number of transmissions per link and the
-   * total worst case cost of transmitting end to end at the end of the List.
+   * total worst case time of transmitting end to end at the end of the List.
    */
-  public List<Integer> numTxPerLinkAndTotalTxCost(Flow flow) {
+  public ArrayList<Integer> numTxPerLinkAndTotalTxCost(Flow flow) {
       // TODO implement this operation
       
       ArrayList<Node> nodesInFlow = flow.getNodes();
@@ -119,7 +119,7 @@ public class ReliabilityAnalysis {
       
       //Array to track nPushes for each node in this flow (same as nTx per link).
       //Initialized to all 0 values.
-      List<Integer> nPushes = new ArrayList<Integer>(Collections.nCopies(nNodesInFlow + 1, 0));
+      ArrayList<Integer> nPushes = new ArrayList<Integer>(Collections.nCopies(nNodesInFlow + 1, 0));
       
       int nHops = nNodesInFlow - 1;
       // minLinkReliablityNeded is the minimum reliability needed per link in a flow to hit E2E
@@ -141,8 +141,8 @@ public class ReliabilityAnalysis {
       ReliabilityTable reliabilityWindow = new ReliabilityTable();
       ReliabilityRow newReliabilityRow = new ReliabilityRow(nNodesInFlow, 0.0);
       
-      reliabilityWindow.add(newReliabilityRow);
-      ReliabilityRow currentReliabilityRow = reliabilityWindow.get(0);
+      //reliabilityWindow.add(newReliabilityRow);
+      ReliabilityRow currentReliabilityRow = newReliabilityRow;
       // var currentReliabilityRow = (Double[]) reliabilityWindow.get(0).toArray();
       // Want reliabilityWindow[0][0] = 1.0 (i.e., P(packet@FlowSrc) = 1
       // but I din't want to mess with the newReliablityRow vector I use below
@@ -207,6 +207,7 @@ public class ReliabilityAnalysis {
     			  currentReliabilityRow.set(flowSrcNodeindex, 
     					  prevReliabilityRow.get(flowSrcNodeindex));
     		  }
+    		  
     		  currentReliabilityRow.set(flowSnkNodeindex, nextSnkState);
     	  }
           
@@ -221,7 +222,7 @@ public class ReliabilityAnalysis {
 	  // The total (worst-case) cost to transmit E2E in isolation with
       // specified reliability target is the number of rows in the reliabilityWindow
       int size = reliabilityWindow.size();
-	  nPushes.set(nNodesInFlow, size); 
+	  nPushes.set(nNodesInFlow, size);
 	  System.out.println(nPushes.toString());
 	  return nPushes;
    }
@@ -238,6 +239,7 @@ public class ReliabilityAnalysis {
 	  ReliabilityAnalysis tester = new ReliabilityAnalysis(1);
 	  WorkLoad test = new WorkLoad(0.9, 0.99, "Example.txt");
 	  Flow testingFlow = test.getFlows().get("F0");
+	  //test.numTxAttemptsPerLinkAndTotalTxAttempts(testingFlow, 0.99, 0.9, false);
 	  tester.numTxPerLinkAndTotalTxCost(testingFlow);
   }
   

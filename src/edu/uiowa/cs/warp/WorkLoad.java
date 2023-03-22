@@ -656,8 +656,8 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
   }
 
   /**
-   * Calculates number of transmissions needed per link and total transmissions required
-   * for the given flow
+   * Calculates number of transmissions needed per link and total worst-case
+   * transmission time for the given flow.
    * 
    * @param flow the flow being analyzed
    * @param e2e end to end reliability
@@ -666,7 +666,8 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
    * @return an ArrayList containing the number of transmissions per link and the total worst case
    * cost of transmitting end to end at the end of the List.
    */
-  private ArrayList<Integer> numTxAttemptsPerLinkAndTotalTxAttempts(Flow flow, Double e2e, Double M,
+  //TODO return to private
+  public ArrayList<Integer> numTxAttemptsPerLinkAndTotalTxAttempts(Flow flow, Double e2e, Double M,
       boolean optimizationRequested) {
     var nodesInFlow = flow.nodes;
     var nNodesInFlow = nodesInFlow.size(); // The last entry will contain the worst-case cost of
@@ -777,6 +778,8 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
     // Now convert the array to the ArrayList needed to return
     ArrayList<Integer> nPushesArrayList = new ArrayList<Integer>();
     Collections.addAll(nPushesArrayList, nPushes);
+    //TODO Delete this
+    //System.out.println(nPushesArrayList.toString());
     return nPushesArrayList;
   }
 
