@@ -146,8 +146,7 @@ public class ReliabilityAnalysis {
       }
       
       reliabilityWindow.add(newReliabilityRow);
-      ReliabilityRow tmpVector = reliabilityWindow.get(0);
-      Double[] currentReliabilityRow = tmpVector.toArray(new Double[tmpVector.size()]);
+      ReliabilityRow currentReliabilityRow = reliabilityWindow.get(0);
       // var currentReliabilityRow = (Double[]) reliabilityWindow.get(0).toArray();
       // Want reliabilityWindow[0][0] = 1.0 (i.e., P(packet@FlowSrc) = 1
       // but I din't want to mess with the newReliablityRow vector I use below
@@ -156,19 +155,20 @@ public class ReliabilityAnalysis {
       // back in the matrix
       
       // initialize (i.e., P (packet@FlowSrc = 1)
-      currentReliabilityRow[0] = 1.0;
+      currentReliabilityRow.set(0, 1.0);
       // the analysis will end when the e2e reliability metric is met, initially the
       // state is not met and will be 0 with this statement
-      Double e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1];
+      Double e2eReliabilityState = currentReliabilityRow.get(nNodesInFlow - 1);
       
       
       // start time at 0
       int timeSlot = 0;
-      Double[] prevReliabilityRow;
+      ReliabilityRow prevReliabilityRow = new ReliabilityRow(nNodesInFlow, 0.0);
+      
       while (e2eReliabilityState < e2e) {
-    	  prevReliabilityRow = currentReliabilityRow;
+    	  Collections.copy(prevReliabilityRow, currentReliabilityRow);
     	  // would be reliabilityWindow[timeSlot] if working through a schedule
-    	  currentReliabilityRow = newReliabilityRow.toArray(new Double[newReliabilityRow.size()]);
+    	  Collections.copy(currentReliabilityRow, newReliabilityRow);
       
       
       // Now use each flow:source->sink to update reliability computations
@@ -182,8 +182,8 @@ public class ReliabilityAnalysis {
       for (int nodeIndex = 0; nodeIndex < (nNodesInFlow - 1); nodeIndex++) {
     	  int flowSrcNodeindex = nodeIndex;
     	  int flowSnkNodeindex = nodeIndex + 1;
-    	  Double prevSrcNodeState = prevReliabilityRow[flowSrcNodeindex];
-    	  Double prevSnkNodeState = prevReliabilityRow[flowSnkNodeindex];
+    	  Double prevSrcNodeState = prevReliabilityRow.get(flowSrcNodeindex);
+    	  Double prevSnkNodeState = prevReliabilityRow.get(flowSnkNodeindex);
     	  Double nextSnkState;
     	  
     	  // do a push until PrevSnk state > e2e to ensure next node reaches target E2E BUT
@@ -203,29 +203,22 @@ public class ReliabilityAnalysis {
     	  
     	  // probabilities are non-decreasing so update if we were higher by carrying old
           // value forward
-          if (currentReliabilityRow[flowSrcNodeindex] < prevReliabilityRow[flowSrcNodeindex]) { 
+          if (currentReliabilityRow.get(flowSrcNodeindex) < prevReliabilityRow.get(flowSrcNodeindex)) { 
           	
           	// carry forward the previous state for the src node, which may get over written
             // later by another instruction in this slot
-            currentReliabilityRow[flowSrcNodeindex] = prevReliabilityRow[flowSrcNodeindex];
+            currentReliabilityRow.set(flowSrcNodeindex, prevReliabilityRow.get(flowSrcNodeindex));
           }
-          currentReliabilityRow[flowSnkNodeindex] = nextSnkState;
+          currentReliabilityRow.set(flowSnkNodeindex, nextSnkState);
           
-          e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1];
+          e2eReliabilityState = currentReliabilityRow.get(nNodesInFlow - 1);
           
           
           //This code is making a bunch of conversions to add a vector to the window. We can
           //rework currentReliabilityrow to be added to the window without using the
           //vector or if statement
           
-          ReliabilityRow currentReliabilityVector = new ReliabilityRow();
-          // convert the row to a vector so we can add it to the reliability window
-          Collections.addAll(currentReliabilityVector, currentReliabilityRow);
-          if (timeSlot < reliabilityWindow.size()) {
-            reliabilityWindow.set(timeSlot, (currentReliabilityVector));
-          } else {
-            reliabilityWindow.add(currentReliabilityVector);
-          }
+          reliabilityWindow.add(currentReliabilityRow);
           
           
           timeSlot += 1; // increase to next time slot
