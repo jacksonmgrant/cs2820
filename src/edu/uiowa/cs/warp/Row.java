@@ -10,7 +10,7 @@ public class Row<T> extends ArrayList<T> {
 	}
 
 	Row (Integer numElements, T element) {
-		super();
+		super(numElements);
 		for (int i=0; i < numElements; i++) {  
 			this.add(element); // create the the row initialized with element
 		}
