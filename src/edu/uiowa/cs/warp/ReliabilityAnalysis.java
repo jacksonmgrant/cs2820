@@ -2,6 +2,7 @@ package edu.uiowa.cs.warp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * ReliabilityAnalysis analyzes the end-to-end reliability of messages transmitted in flows for the
@@ -108,7 +109,7 @@ public class ReliabilityAnalysis {
    * @return an ArrayList containing the number of transmissions per link and the
    * total worst case cost of transmitting end to end at the end of the List.
    */
-  public ArrayList<Integer> numTxPerLinkAndTotalTxCost(Flow flow) {
+  public List<Integer> numTxPerLinkAndTotalTxCost(Flow flow) {
       // TODO implement this operation
       
       ArrayList<Node> nodesInFlow = flow.getNodes();
@@ -165,7 +166,6 @@ public class ReliabilityAnalysis {
     	  prevReliabilityRow = currentReliabilityRow;
     	  // would be reliabilityWindow[timeSlot] if working through a schedule
     	  currentReliabilityRow = newReliabilityRow.toArray(new Double[newReliabilityRow.size()]);
-      }
       
       
       // Now use each flow:source->sink to update reliability computations
@@ -187,21 +187,45 @@ public class ReliabilityAnalysis {
     	  // skip if no chance of success (i.e., source doesn't have packet)
     	  if ((prevSnkNodeState < minLinkReliablityNeeded) && prevSrcNodeState > 0) {
     		  
-    		  //need to continue attempting to Tx, so update current state
-    		  nextSnkState = ((1.0 - minPacketReceptionRate) * prevSnkNodeState) + 
-    				  (minPacketReceptionRate * prevSrcNodeState);
-    		  
-
-    		  
-    		  /*
-    		   * Kept your comment above. This is from where you left off to line 742 of WorkLoad.
-    		   * Minor refactoring and including the use of ReliabilityRow and ReliabilityTable as needed.
-    		   * Also using the variable types instead of 'var'. Need to pick back up at line 743, 
-    		   * starting with the comment.
-    		   * Not sure how to completely refactor this for loop as it seems long.
-    		   * 
-    		   */
+    		  	//need to continue attempting to Tx, so update current state
+    		  	nextSnkState = ((1.0 - minPacketReceptionRate) * prevSnkNodeState) + 
+    		  					(minPacketReceptionRate * prevSrcNodeState);
+    		  	// increment the number of pushes for for this node to snk node
+    		  	nPushes.set(nodeIndex, nPushes.get(nodeIndex) + 1);
+          } else {
+          		// snkNode has met its reliability. Thus move on to the
+        	  	// next node and record the reliability met
+          		nextSnkState = prevSnkNodeState;
     	  }
+    	  
+    	  // probabilities are non-decreasing so update if we were higher by carrying old
+          // value forward
+          if (currentReliabilityRow[flowSrcNodeindex] < prevReliabilityRow[flowSrcNodeindex]) { 
+          	
+          	// carry forward the previous state for the src node, which may get over written
+            // later by another instruction in this slot
+            currentReliabilityRow[flowSrcNodeindex] = prevReliabilityRow[flowSrcNodeindex];
+          }
+          currentReliabilityRow[flowSnkNodeindex] = nextSnkState;
+          
+          e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1];
+          ReliabilityRow currentReliabilityVector = new ReliabilityRow();
+          // convert the row to a vector so we can add it to the reliability window
+          Collections.addAll(currentReliabilityVector, currentReliabilityRow);
+          if (timeSlot < reliabilityWindow.size()) {
+            reliabilityWindow.set(timeSlot, (currentReliabilityVector));
+          } else {
+            reliabilityWindow.add(currentReliabilityVector);
+          }
+          timeSlot += 1; // increase to next time slot
+        }
+      
+        var size = reliabilityWindow.size();
+        nPushes.set(nNodesInFlow, size); // The total (worst-case) cost to transmit E2E in isolation with
+                                      // specified reliability target is the number of rows in the
+                                      // reliabilityWindow
+        // Now convert the array to the ArrayList needed to return
+        return nPushes;
       }
       
       //Leaving this here until we finish
