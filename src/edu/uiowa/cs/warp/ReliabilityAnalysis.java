@@ -128,6 +128,9 @@ public class ReliabilityAnalysis {
       // use max to handle rounding error when e2e == 1.0
       
       
+      
+      //Make a helper method?
+      
       /* Now compute reliability of packet reaching each node in the given time slot:
        *Start with a 2-D reliability window that is a 2-D matrix of no size
        *each row is a time slot, stating at time 0
@@ -161,7 +164,7 @@ public class ReliabilityAnalysis {
       
       // start time at 0
       int timeSlot = 0;
-      Double[] prevReliabilityRow = currentReliabilityRow;
+      Double[] prevReliabilityRow;
       while (e2eReliabilityState < e2e) {
     	  prevReliabilityRow = currentReliabilityRow;
     	  // would be reliabilityWindow[timeSlot] if working through a schedule
@@ -209,6 +212,12 @@ public class ReliabilityAnalysis {
           currentReliabilityRow[flowSnkNodeindex] = nextSnkState;
           
           e2eReliabilityState = currentReliabilityRow[nNodesInFlow - 1];
+          
+          
+          //This code is making a bunch of conversions to add a vector to the window. We can
+          //rework currentReliabilityrow to be added to the window without using the
+          //vector or if statement
+          
           ReliabilityRow currentReliabilityVector = new ReliabilityRow();
           // convert the row to a vector so we can add it to the reliability window
           Collections.addAll(currentReliabilityVector, currentReliabilityRow);
@@ -217,10 +226,12 @@ public class ReliabilityAnalysis {
           } else {
             reliabilityWindow.add(currentReliabilityVector);
           }
+          
+          
           timeSlot += 1; // increase to next time slot
         }
       
-        var size = reliabilityWindow.size();
+        int size = reliabilityWindow.size();
         nPushes.set(nNodesInFlow, size); // The total (worst-case) cost to transmit E2E in isolation with
                                       // specified reliability target is the number of rows in the
                                       // reliabilityWindow
