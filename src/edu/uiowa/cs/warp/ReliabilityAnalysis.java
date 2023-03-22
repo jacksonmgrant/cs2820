@@ -126,14 +126,6 @@ public class ReliabilityAnalysis {
       Double minLinkReliablityNeeded = Math.max(e2e, Math.pow(e2e, (1.0 / (double) nHops))); 
       // use max to handle rounding error when e2e == 1.0
       
-      /*
-       * So far, this is a copy with minor refactoring of numTxAttemptsPerLinkAndTotalTxAttempts
-       * up to line 683 of WorkLoad. I have mostly just been specifying variable types
-       * and converting arrays to ArrayLists. My plan is to copy over the method with its
-       * current functionality, but with variable types properly matched, and then to
-       * rework it to make it more readable and efficient. We need to pick back up at line 685.
-       */
-      
       
       /* Now compute reliability of packet reaching each node in the given time slot:
        *Start with a 2-D reliability window that is a 2-D matrix of no size
