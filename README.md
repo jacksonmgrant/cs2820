@@ -47,3 +47,8 @@ getNodesInFlow, getNumTxAttemptsInLink, and getFlowDeadline.
 ## HW4
 Learned how to generate and edit UML diagrams for existing code. Generated diagrams for: SchedulableObject, WorkLoad (+parents and associated classes),
 and Reliability (+associated classes).
+
+<br>
+
+## HW5
+Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the ReliabilityAnalysis class and refactor the method.
