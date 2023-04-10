@@ -54,6 +54,7 @@ and Reliability (+associated classes).
 Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the ReliabilityAnalysis class and refactor the method.
 
 <br>
+
 # Final Project
 
 ## Sprint 1 - High Level Plans
