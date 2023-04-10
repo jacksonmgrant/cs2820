@@ -54,10 +54,44 @@ and Reliability (+associated classes).
 Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the ReliabilityAnalysis class and refactor the method.
 
 <br>
-
 # Final Project
 
-<br>
- 
-## Sprint 1
+## Sprint 1 - High Level Plans
+
+### Sprint 1
+
+* Fill out this document -Group
+* Put high-level plans into ReadMe -Jackie, Andy
+* Create a full sequence diagram for when Warp is run with the -ra option -Matt, Jackson
+* Create plans and assign work -Group
+
+### Sprint 2
+
+* Update ReadMe to reflect updated plans and document who did what -Jackie
+* Fully code ReliabilityVisualization
+    * Implement createHeader() -Jackson
+    * Implement createVisualizationData() -Andy
+    * Implement visualization() -Andy
+* JavaDoc ReliabilityVisualization -Group, Jackson Review
+* Update UML diagrams -Matt
+* Make tests for ReliabilityVisualization - Jackie, Matt
+    * Unit tests for each method -Matt
+    * Test to verify output formatting -Matt
+    * Test to check math -Jackie
+* Plan Sprint 3 -Group
+
+### Sprint 3
+
+* Update ReadMe - Jackie
+* Fully code ReliabilityAnalysis
+    * Bug fix (2.a.iii.1) -Jackson
+    * Run reliability analysis from constructor -Jackson, Andy
+    * Implement getReliabilities() -Andy
+    * Implement verifyReliabilities() -Andy
+* JavaDoc ReliabilityAnalysis -Group, Jackson Review
+* Update UML diagrams -Matt
+* Make tests for ReliabilityAnalysis -Jackie, Matt
+    * Unit tests for each method -Jackie, Matt
+    * Test to verify output data -Jackie, Matt
+
 
