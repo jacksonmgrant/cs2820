@@ -57,6 +57,8 @@ Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the Reliabili
 
 # Final Project
 
+[Technical Specification Google Doc](https://docs.google.com/document/d/1YtgiXZ6dUqEybnEn1GiRPgqbS9u9EbHHVdMxRW4qAtI/edit?usp=sharing)
+
 ## Sprint 1 - High Level Plans
 
 ### Sprint 1
