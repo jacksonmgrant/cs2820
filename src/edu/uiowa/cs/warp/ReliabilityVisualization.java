@@ -1,5 +1,14 @@
 package edu.uiowa.cs.warp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
+
 /**
  * ReliabilityVisualization creates the visualizations for
  * the reliability analysis of the WARP program. <p>
@@ -77,20 +86,36 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 * @return the title of the visualization
 	 */
 	public String createTitle() {
-		
 		return String.format("Reliability Analysis for graph %s\n", warp.toWorkload().getInputFileName());
 	}
 	
 	/**
-	 * Creates a list of column names Fx:n, where x is the flow number and n
-	 * is the node belonging to the flow.
+	 * Creates a list of column names formatted as Flowname:Nodename consisting of
+	 * every flow in the input file.
 	 * 
-	 * @return the String array of names
+	 * @return the String array of column names
 	 */
 	@Override
 	public String[] createColumnHeader() {
-		//TODO implement this operation
-		return null;
+		WorkLoad workload = warp.toWorkload();
+		FlowMap flows = workload.getFlows();
+		Set<Entry<String,Flow>> allCombos = flows.entrySet();
+		String[] columnNames = new String[allCombos.size()];
+		
+		Iterator nameGrabber = allCombos.iterator();
+		int i = 0;
+		while(nameGrabber.hasNext()) {
+			Map.Entry<String, Flow> pair = (Entry<String, Flow>) nameGrabber.next();
+			String flowName = pair.getKey();
+			ArrayList<Node> flowContents = pair.getValue().getNodes();
+			for(Node n : flowContents) {
+				System.out.print(i + ": ");
+				columnNames[i] = flowName + ":" + n.getName();
+				System.out.println(columnNames[i]);
+				i++;
+			}
+		}
+		return columnNames;
 	}
 	
 	/**
@@ -104,6 +129,23 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	public String[][] createVisualizationData(){
 		//TODO implement this operation
 		return null;
+	}
+	
+	
+	
+	/*
+	   * Testing main, feel free to rewrite and/or use whenever you need to test something.
+	   * If you want to save a test for reuse, just comment it out when it's not in use.
+	   * 
+	   * TODO delete this
+	   */
+	public static void main(String[] args) {
+		WorkLoad w = new WorkLoad(0, 0.9, 0.9, "StressTest4.txt");
+		WarpInterface warp = SystemFactory.create(w, 16, ScheduleChoices.PRIORITY);
+		ReliabilityVisualization tester = new ReliabilityVisualization(warp);
+		
+		
+		System.out.println(Arrays.toString(tester.createColumnHeader()));
 	}
 	
 	
