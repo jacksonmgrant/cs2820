@@ -37,7 +37,11 @@ class ReliabilityVisualizationTest {
 
 	@Test
 	void testCreateTitle() {
-		fail("Not yet implemented");
+		WorkLoad titleWorkLoad = new WorkLoad(0.9, 0.9, "StressTest.txt");
+		Program titleProgram = new Program(titleWorkLoad, 16, SystemAttributes.ScheduleChoices.PRIORITY);
+		String expectedTitle = titleProgram.getName();
+		assertEquals("WARP program for graph StressTest", expectedTitle);
+		
 	}
 
 	//This one is implemented in VisualizationObject, may be an easy way to get
