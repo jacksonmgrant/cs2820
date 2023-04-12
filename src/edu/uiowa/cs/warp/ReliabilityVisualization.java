@@ -14,9 +14,23 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	
 	private static final String SOURCE_SUFFIX = ".ra";
 	private static final String OBJECT_NAME = "Reliability Analysis";
+	
+	/**
+	 * An interface for interacting with a warp system.
+	 */
 	private WarpInterface warp;
+	
+	/**
+	 * A reliability analysis of the flows in the given warp system.
+	 */
 	private ReliabilityAnalysis ra;
 	
+	
+	/**
+	 * Creates an initializes a new visualization.
+	 * 
+	 * @param warp a warp system
+	 */
 	ReliabilityVisualization(WarpInterface warp) {
 		super(new FileManager(), warp, SOURCE_SUFFIX);
 		this.warp = warp;
@@ -24,7 +38,10 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	}
 	
 	/**
-	 * Creates a header for the reliability visualization. Header includes...
+	 * Creates a header for the reliability visualization. Header includes
+	 * the title, scheduler name, minimum packet reception rate (M), the
+	 * required end-to-end reliability for each flow (E2E), and the number
+	 * of channels (nChannels).
 	 * 
 	 * @return a Description containing the header
 	 */
