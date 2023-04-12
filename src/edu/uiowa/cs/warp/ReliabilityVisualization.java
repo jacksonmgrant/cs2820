@@ -98,20 +98,6 @@ public class ReliabilityVisualization  extends VisualizationObject {
 		return null;
 	}
 	
-	/**
-	 * Hold on this for now. ProgramVisualization just uses the VisualizationObject
-	 * implementation of this method, we can probably do that once we implement
-	 * createVisualizationData() and createColumnHeader().
-	 * 
-	 * @return
-	 */
-	@Override
-	public Description visualization() {
-		//TODO implement this operation
-		return null;
-	}
-	
-	
 	
 /* File Visualization for workload defined in Example.txt follows. Note
  * that your Authentication tag will be different from this example. The
