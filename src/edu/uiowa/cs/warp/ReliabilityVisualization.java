@@ -11,8 +11,6 @@ package edu.uiowa.cs.warp;
  *
  */
 public class ReliabilityVisualization  extends VisualizationObject {
-
-	// TODO Auto-generated class stub for unimplemented visualization
 	
 	private static final String SOURCE_SUFFIX = ".ra";
 	private static final String OBJECT_NAME = "Reliability Analysis";
@@ -24,6 +22,68 @@ public class ReliabilityVisualization  extends VisualizationObject {
 		this.warp = warp;
 		this.ra = warp.toReliabilityAnalysis();
 	}
+	
+	/**
+	 * Creates a header for the reliability visualization. Header includes...
+	 * 
+	 * @return a Description containing the header
+	 */
+	@Override
+	public Description createHeader() {
+		//TODO implement this operation
+		return null;
+	}
+	
+	/**
+	 * Helper method for createHeader used to generate the title of the 
+	 * visualization.
+	 * 
+	 * @return the title of the visualization
+	 */
+	public String createTitle() {
+		//TODO implement this operation
+		return null;
+	}
+	
+	/**
+	 * Creates a list of column names Fx:n, where x is the flow number and n
+	 * is the node belonging to the flow.
+	 * 
+	 * @return the String array of names
+	 */
+	@Override
+	public String[] createColumnHeader() {
+		//TODO implement this operation
+		return null;
+	}
+	
+	/**
+	 * Creates a 2D array to visualize the reliability data with each column
+	 * the reliability of sending a message to the given node in the given flow
+	 * and each row a separate timeslot. The table values are the reliabilities.
+	 * 
+	 * @return a 2D String array of the data
+	 */
+	@Override
+	public String[][] createVisualizationData(){
+		//TODO implement this operation
+		return null;
+	}
+	
+	/**
+	 * Hold on this for now. ProgramVisualization just uses the VisualizationObject
+	 * implementation of this method, we can probably do that once we implement
+	 * createVisualizationData() and createColumnHeader().
+	 * 
+	 * @return
+	 */
+	@Override
+	public Description visualization() {
+		//TODO implement this operation
+		return null;
+	}
+	
+	
 	
 /* File Visualization for workload defined in Example.txt follows. Note
  * that your Authentication tag will be different from this example. The
