@@ -233,6 +233,21 @@ public class ReliabilityAnalysis {
 	  tester.numTxPerLinkAndTotalTxCost(testingFlow);
   }*/
   
+  public void buildReliabilities() {
+	// TODO implement this operation
+  }
+  
+  public void setHeaderRow() {
+	// TODO implement this operation
+  }
+  
+  public void getHeaderRow() {
+	// TODO implement this operation
+  }
+  
+  public void printRATable() {
+	// TODO implement this operation
+  }
   
   public ReliabilityTable getReliabilities() {
       // TODO implement this operation
