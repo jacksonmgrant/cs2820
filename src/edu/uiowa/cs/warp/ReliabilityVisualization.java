@@ -38,6 +38,17 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	}
 	
 	/**
+	   * Combines the title, column headers, and schedule visualization to create a new 
+	   * GuiVisualization object.
+	   * 
+	   * @return the GuiVisualization object
+	   */
+	  @Override
+	  public GuiVisualization displayVisualization() {
+	    return new GuiVisualization(createTitle(), createColumnHeader(), createVisualizationData());
+	  }
+	
+	/**
 	 * Creates a header for the reliability visualization. Header includes
 	 * the title, scheduler name, minimum packet reception rate (M), the
 	 * required end-to-end reliability for each flow (E2E), and the number
