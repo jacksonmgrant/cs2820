@@ -58,8 +58,16 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 */
 	@Override
 	public Description createHeader() {
-		//TODO implement this operation
-		return null;
+		Description header = new Description();
+
+	    header.add(createTitle());
+	    
+	    Program program = warp.toProgram();
+	    header.add(String.format("Scheduler Name: %s\n", program.getSchedulerName()));
+	    header.add(String.format("M: %s\n", String.valueOf(program.getMinPacketReceptionRate())));
+	    header.add(String.format("E2E: %s\n", String.valueOf(program.getE2e())));
+	    header.add(String.format("nChannels: %d\n", program.getNumChannels()));
+	    return header;
 	}
 	
 	/**
@@ -69,8 +77,8 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 * @return the title of the visualization
 	 */
 	public String createTitle() {
-		//TODO implement this operation
-		return null;
+		
+		return String.format("Reliability Analysis for graph %s\n", warp.toWorkload().getInputFileName());
 	}
 	
 	/**
