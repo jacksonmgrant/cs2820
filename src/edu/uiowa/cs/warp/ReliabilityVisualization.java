@@ -20,7 +20,7 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
  *
  */
 public class ReliabilityVisualization  extends VisualizationObject {
-	
+
 	private static final String SOURCE_SUFFIX = ".ra";
 	private static final String OBJECT_NAME = "Reliability Analysis";
 	
@@ -97,6 +97,8 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 */
 	@Override
 	public String[] createColumnHeader() {
+		return ReliabilityColumnHeader.getColumnHeader(warp);
+		/*
 		WorkLoad workload = warp.toWorkload();
 		FlowMap flows = workload.getFlows();
 		Set<Entry<String,Flow>> allCombos = flows.entrySet();
@@ -115,7 +117,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 				i++;
 			}
 		}
-		return columnNames;
+		return columnNames;*/
 	}
 	
 	/**
@@ -140,7 +142,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	   * TODO delete this
 	   */
 	public static void main(String[] args) {
-		WorkLoad w = new WorkLoad(0, 0.9, 0.9, "StressTest4.txt");
+		WorkLoad w = new WorkLoad(0, 0.9, 0.9, "Example1a.txt");
 		WarpInterface warp = SystemFactory.create(w, 16, ScheduleChoices.PRIORITY);
 		ReliabilityVisualization tester = new ReliabilityVisualization(warp);
 		

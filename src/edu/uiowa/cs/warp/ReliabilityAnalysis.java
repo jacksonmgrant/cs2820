@@ -249,6 +249,14 @@ public class ReliabilityAnalysis {
 	// TODO implement this operation
   }
   
+  /**
+   * Returns a table with the results of the reliability analysis.
+   * Rows in the table are the timeslots in the program schedule,
+   * and columns in the table are the flow names sorted by priority.
+   * 
+   * 
+   * @return a ReliabilityTable with the results of the analysis
+   */
   public ReliabilityTable getReliabilities() {
       // TODO implement this operation
       throw new UnsupportedOperationException("not implemented");
