@@ -1,28 +1,26 @@
 package edu.uiowa.cs.warp;
 
 import java.util.ArrayList;
-import java.util.MissingResourceException;
 
 /**
  * Singleton class to generate the column headers for the reliability analysis
  * of a given Warp interface. Call getColumnHeader() to get the header in a
- * String array; must pass a WarpInterface the first time this method is called.
+ * String array; it requires a parameter in case it has not been initialized yet.
  * 
  * @author Jackson Grant
  *
  */
 public class ReliabilityColumnHeader {
-
+	
 	private static String[] columnHeader;
 	
-	private static WarpInterface system;
+	private static WorkLoad system;
 	
 	private ReliabilityColumnHeader() {
-		WorkLoad workload = system.toWorkload();
 		ArrayList<String> columnHeaderList = new ArrayList<String>(0);
-		ArrayList<String> flowNames = workload.getFlowNamesInPriorityOrder();
+		ArrayList<String> flowNames = system.getFlowNamesInPriorityOrder();
 		for(String flow: flowNames) {
-			String[] nodes = workload.getNodesInFlow(flow);
+			String[] nodes = system.getNodesInFlow(flow);
 			for(String node: nodes) {
 				columnHeaderList.add(flow + ":" + node);
 			}
@@ -41,24 +39,23 @@ public class ReliabilityColumnHeader {
 	 */
 	public static String[] getColumnHeader(WarpInterface warp) {
 		if(system == null) {
-			system = warp;
+			system = warp.toWorkload();
 			new ReliabilityColumnHeader();
 		}
 		return columnHeader;
 	}
 	
-	
-	//Temporary workaround for RA, definitely needs to be fixed.
 	/**
 	 * Returns the column headers properly formatted from the flows in
-	 * the given Warp interface if an interface has been previously given.
+	 * the given program.
 	 * 
+	 * @param program the Program to get the column header from
 	 * @return a String array holding the column headers
 	 */
-	public static String[] getColumnHeader() {
+	public static String[] getColumnHeader(Program program) {
 		if(system == null) {
-			throw new MissingResourceException("No warp interface to grab flow information from",
-					"WarpInterface", "warp");
+			system = program.toWorkLoad();
+			new ReliabilityColumnHeader();
 		}
 		return columnHeader;
 	}
