@@ -64,8 +64,16 @@ public class ReliabilityAnalysis {
 	 * in numTxPerLinkAndTotalTxCost.
 	 */
 	private ArrayList<Integer> nPushes;
+	
+	/**
+	 * A reliability table with the results of the reliability analysis. Rows
+	 * in the table are the timeslots in the program schedule, and columns
+	 * are each node in each flow, with the flows sorted by priority order.
+	 */
+	private ReliabilityTable reliabilities;
 	  
 	  
+	
    /**
     * Creates a new ReliabilityAnalysis object with the provided values for
     * end-to-end communication and minimum packet reception rate. All other
@@ -225,13 +233,13 @@ public class ReliabilityAnalysis {
    * 
    * TODO delete this
    */
-  /*public static void main(String[] args) {
-	  ReliabilityAnalysis tester = new ReliabilityAnalysis(1);
-	  WorkLoad test = new WorkLoad(0.9, 0.99, "Example.txt");
-	  Flow testingFlow = test.getFlows().get("F0");
+  public static void main(String[] args) {
+//	  ReliabilityAnalysis tester = new ReliabilityAnalysis(1);
+//	  WorkLoad test = new WorkLoad(0.9, 0.99, "Example.txt");
+//	  Flow testingFlow = test.getFlows().get("F0");
 	  //test.numTxAttemptsPerLinkAndTotalTxAttempts(testingFlow, 0.99, 0.9, false);
-	  tester.numTxPerLinkAndTotalTxCost(testingFlow);
-  }*/
+	  //tester.numTxPerLinkAndTotalTxCost(testingFlow);
+  }
   
   public void buildReliabilities() {
 	// TODO implement this operation
@@ -252,16 +260,22 @@ public class ReliabilityAnalysis {
   /**
    * Returns a table with the results of the reliability analysis.
    * Rows in the table are the timeslots in the program schedule,
-   * and columns in the table are the flow names sorted by priority.
+   * and columns in the table are each node in each flow, with the 
+   * flows sorted by priority order.
    * 
    * 
    * @return a ReliabilityTable with the results of the analysis
    */
   public ReliabilityTable getReliabilities() {
-      // TODO implement this operation
-      throw new UnsupportedOperationException("not implemented");
+      return reliabilities;
    }
 
+  /**
+   * Verifies that the reliability requirement has been met for all flows in the 
+   * current program.
+   * 
+   * @return true if reliabilities have been met, false if not
+   */
   public Boolean verifyReliabilities() {
     // TODO Auto-generated method stub
     return true;

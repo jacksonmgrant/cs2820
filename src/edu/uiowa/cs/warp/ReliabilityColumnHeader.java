@@ -8,7 +8,7 @@ import java.util.MissingResourceException;
  * of a given Warp interface. Call getColumnHeader() to get the header in a
  * String array; must pass a WarpInterface the first time this method is called.
  * 
- * @author jgrant6
+ * @author Jackson Grant
  *
  */
 public class ReliabilityColumnHeader {

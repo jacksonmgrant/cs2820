@@ -1,11 +1,6 @@
 package edu.uiowa.cs.warp;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
@@ -16,7 +11,10 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
  * CS2820 Spring 2023 Project: Implement this class to create
  * the file visualization that is requested in Warp.
  * 
+ * 
  * @author sgoddard
+ * @author Jackson Grant
+ * @author Andy Luo
  *
  */
 public class ReliabilityVisualization  extends VisualizationObject {
@@ -36,7 +34,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	
 	
 	/**
-	 * Creates an initializes a new visualization.
+	 * Creates and initializes a new visualization.
 	 * 
 	 * @param warp a warp system
 	 */
@@ -91,33 +89,14 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	
 	/**
 	 * Creates a list of column names formatted as Flowname:Nodename consisting of
-	 * every flow in the input file.
+	 * every flow in the input file, sorted by priority order of flows then order
+	 * of nodes in the flow.
 	 * 
 	 * @return the String array of column names
 	 */
 	@Override
 	public String[] createColumnHeader() {
 		return ReliabilityColumnHeader.getColumnHeader(warp);
-		/*
-		WorkLoad workload = warp.toWorkload();
-		FlowMap flows = workload.getFlows();
-		Set<Entry<String,Flow>> allCombos = flows.entrySet();
-		String[] columnNames = new String[allCombos.size()];
-		
-		Iterator nameGrabber = allCombos.iterator();
-		int i = 0;
-		while(nameGrabber.hasNext()) {
-			Map.Entry<String, Flow> pair = (Entry<String, Flow>) nameGrabber.next();
-			String flowName = pair.getKey();
-			ArrayList<Node> flowContents = pair.getValue().getNodes();
-			for(Node n : flowContents) {
-				System.out.print(i + ": ");
-				columnNames[i] = flowName + ":" + n.getName();
-				System.out.println(columnNames[i]);
-				i++;
-			}
-		}
-		return columnNames;*/
 	}
 	
 	/**
