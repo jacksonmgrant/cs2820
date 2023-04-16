@@ -45,6 +45,11 @@ import java.util.Vector;
 public class ReliabilityAnalysis {
 	
 	/**
+	 * The program the analysis is being performed on.
+	 */
+	private Program program;
+	
+	/**
 	 * The required end to end communication reliability for the flows.
 	 */
 	private Double e2e;
@@ -100,10 +105,18 @@ public class ReliabilityAnalysis {
    }
    
 
-
+  /**
+   * Runs a reliability analysis on the given program and stores it in the
+   * resulting object.
+   * 
+   * @param program The program to analyze the reliability of
+   */
   public ReliabilityAnalysis(Program program) {
-    // TODO Auto-generated constructor stub
-	// Not implemented
+	  this.program = program;
+	  this.e2e = program.getE2e();
+	  this.minPacketReceptionRate = program.getMinPacketReceptionRate();
+	  this.numFaults = program.getNumFaults();
+	  buildReliabilities();
   }
   
   /**
@@ -124,6 +137,9 @@ public class ReliabilityAnalysis {
    * total worst case time of transmitting end to end at the end of the List.
    */
   public ArrayList<Integer> numTxPerLinkAndTotalTxCost(Flow flow) {
+	  if(numFaults > 0) {
+		  return getFixedTxPerLinkAndTotalTxCost(flow);
+	  }
       
       ArrayList<Node> nodesInFlow = flow.getNodes();
       
@@ -226,23 +242,41 @@ public class ReliabilityAnalysis {
 	  return currentReliabilityRow;
   }
   
-  
-  /*
-   * Testing main, feel free to rewrite and/or use whenever you need to test something.
-   * If you want to save a test for reuse, just comment it out when it's not in use.
+  /**
+   * Calculates the fixed number of transmissions per link based on the number of faults per edge
+   * and the total number of transmissions for the flow.
    * 
-   * TODO delete this
+   * @param flow the flow being analyzed
+   * @return an ArrayList containing the number of transmissions for each node with the total
+   * number of transmissions at the end of the list
    */
-  public static void main(String[] args) {
-//	  ReliabilityAnalysis tester = new ReliabilityAnalysis(1);
-//	  WorkLoad test = new WorkLoad(0.9, 0.99, "Example.txt");
-//	  Flow testingFlow = test.getFlows().get("F0");
-	  //test.numTxAttemptsPerLinkAndTotalTxAttempts(testingFlow, 0.99, 0.9, false);
-	  //tester.numTxPerLinkAndTotalTxCost(testingFlow);
+  private ArrayList<Integer> getFixedTxPerLinkAndTotalTxCost(Flow flow){
+	  ArrayList<Node> nodesInFlow = flow.getNodes();
+	  int nNodesInFlow = nodesInFlow.size();
+	  ArrayList<Integer> txArrayList = new ArrayList<Integer>(nNodesInFlow + 1);
+	  /*
+	   * Each node will have at most numFaults+1 transmissions. Because we don't know which nodes will
+	   * send the message over an edge, we give the cost to each node.
+	   */
+	  for (int i = 0; i < nNodesInFlow; i++) {
+	    txArrayList.add(numFaults + 1);
+	  }
+	  /*
+	   * now compute the maximum # of TX, assuming at most numFaults occur on an edge per period, and
+	   * each edge requires at least one successful TX.
+	   */
+	  int numEdgesInFlow = nNodesInFlow - 1;
+	  int maxFaultsInFlow = numEdgesInFlow * numFaults;
+	  txArrayList.add(numEdgesInFlow + maxFaultsInFlow);
+	  return txArrayList;
   }
   
+  /**
+   * Computes all reliabilities and fills in the reliability table
+   */
   public void buildReliabilities() {
 	// TODO implement this operation
+	  //Definitely needs to be broken into helpers
   }
   
   public void setHeaderRow() {
@@ -253,6 +287,9 @@ public class ReliabilityAnalysis {
 	// TODO implement this operation
   }
   
+  /**
+   * Prints the table of computed reliabilities to the console.
+   */
   public void printRATable() {
 	// TODO implement this operation
   }
@@ -281,4 +318,20 @@ public class ReliabilityAnalysis {
     return true;
   }
 
+  
+  
+
+  /*
+   * Testing main, feel free to rewrite and/or use whenever you need to test something.
+   * If you want to save a test for reuse, just comment it out when it's not in use.
+   * 
+   * TODO delete this
+   */
+  public static void main(String[] args) {
+//	  ReliabilityAnalysis tester = new ReliabilityAnalysis(1);
+//	  WorkLoad test = new WorkLoad(0.9, 0.99, "Example.txt");
+//	  Flow testingFlow = test.getFlows().get("F0");
+	  //test.numTxAttemptsPerLinkAndTotalTxAttempts(testingFlow, 0.99, 0.9, false);
+	  //tester.numTxPerLinkAndTotalTxCost(testingFlow);
+  }
 }
