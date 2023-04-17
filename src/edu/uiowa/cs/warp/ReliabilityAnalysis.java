@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
+import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
+
 /**
  * ReliabilityAnalysis analyzes the end-to-end reliability of messages transmitted in flows for the
  * WARP system.
@@ -276,7 +278,7 @@ public class ReliabilityAnalysis {
    */
   public void buildReliabilities() {
 	// TODO implement this operation
-	  //Definitely needs to be broken into helpers
+	  
   }
   
   public void setHeaderRow() {
@@ -328,8 +330,9 @@ public class ReliabilityAnalysis {
    * TODO delete this
    */
   public static void main(String[] args) {
-//	  ReliabilityAnalysis tester = new ReliabilityAnalysis(1);
-//	  WorkLoad test = new WorkLoad(0.9, 0.99, "Example.txt");
+	  WorkLoad workload = new WorkLoad(0.9, 0.99, "Example.txt");
+	  Program program = new Program(workload, 16, ScheduleChoices.PRIORITY);
+	  ReliabilityAnalysis tester = new ReliabilityAnalysis(program);
 //	  Flow testingFlow = test.getFlows().get("F0");
 	  //test.numTxAttemptsPerLinkAndTotalTxAttempts(testingFlow, 0.99, 0.9, false);
 	  //tester.numTxPerLinkAndTotalTxCost(testingFlow);
