@@ -1,5 +1,9 @@
 package edu.uiowa.cs.warp;
 
+import java.util.Arrays;
+
+import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
+
 /**
  * ReliabilityVisualization creates the visualizations for
  * the reliability analysis of the WARP program. <p>
@@ -7,11 +11,14 @@ package edu.uiowa.cs.warp;
  * CS2820 Spring 2023 Project: Implement this class to create
  * the file visualization that is requested in Warp.
  * 
+ * 
  * @author sgoddard
+ * @author Jackson Grant
+ * @author Andy Luo
  *
  */
 public class ReliabilityVisualization  extends VisualizationObject {
-	
+
 	private static final String SOURCE_SUFFIX = ".ra";
 	private static final String OBJECT_NAME = "Reliability Analysis";
 	
@@ -27,7 +34,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	
 	
 	/**
-	 * Creates an initializes a new visualization.
+	 * Creates and initializes a new visualization.
 	 * 
 	 * @param warp a warp system
 	 */
@@ -58,8 +65,16 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 */
 	@Override
 	public Description createHeader() {
-		//TODO implement this operation
-		return null;
+		Description header = new Description();
+
+	    header.add(createTitle());
+	    
+	    Program program = warp.toProgram();
+	    header.add(String.format("Scheduler Name: %s\n", program.getSchedulerName()));
+	    header.add(String.format("M: %s\n", String.valueOf(program.getMinPacketReceptionRate())));
+	    header.add(String.format("E2E: %s\n", String.valueOf(program.getE2e())));
+	    header.add(String.format("nChannels: %d\n", program.getNumChannels()));
+	    return header;
 	}
 	
 	/**
@@ -69,20 +84,19 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 * @return the title of the visualization
 	 */
 	public String createTitle() {
-		//TODO implement this operation
-		return null;
+		return String.format("Reliability Analysis for graph %s\n", warp.toWorkload().getInputFileName());
 	}
 	
 	/**
-	 * Creates a list of column names Fx:n, where x is the flow number and n
-	 * is the node belonging to the flow.
+	 * Creates a list of column names formatted as Flowname:Nodename consisting of
+	 * every flow in the input file, sorted by priority order of flows then order
+	 * of nodes in the flow.
 	 * 
-	 * @return the String array of names
+	 * @return the String array of column names
 	 */
 	@Override
 	public String[] createColumnHeader() {
-		//TODO implement this operation
-		return null;
+		return ReliabilityColumnHeader.getColumnHeader(warp);
 	}
 	
 	/**
@@ -96,6 +110,23 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	public String[][] createVisualizationData(){
 		//TODO implement this operation
 		return null;
+	}
+	
+	
+	
+	/*
+	   * Testing main, feel free to rewrite and/or use whenever you need to test something.
+	   * If you want to save a test for reuse, just comment it out when it's not in use.
+	   * 
+	   * TODO delete this
+	   */
+	public static void main(String[] args) {
+		WorkLoad w = new WorkLoad(0, 0.9, 0.9, "Example1a.txt");
+		WarpInterface warp = SystemFactory.create(w, 16, ScheduleChoices.PRIORITY);
+		ReliabilityVisualization tester = new ReliabilityVisualization(warp);
+		
+		
+		System.out.println(Arrays.toString(tester.createColumnHeader()));
 	}
 	
 	

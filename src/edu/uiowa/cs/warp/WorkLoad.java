@@ -617,7 +617,7 @@ public class WorkLoad extends WorkLoadDescription implements ReliabilityParamete
       /* set numTxPerLink based on numFaults */
       flowNode.numTxPerLink = numFaults + 1;
       /* Now compute nTx per link to reach E2E requirement. */
-      ReliabilityAnalysis analyzer = new ReliabilityAnalysis(e2e, minPacketReceptionRate);
+      ReliabilityAnalysis analyzer = new ReliabilityAnalysis(numFaults);
       ArrayList<Integer> linkTxAndTotalCost = analyzer.numTxPerLinkAndTotalTxCost(flowNode);
       flowNode.linkTxAndTotalCost = linkTxAndTotalCost;
       flows.put(flowName, flowNode); // update flow node in Flows array
