@@ -5,11 +5,20 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
+
 class ReliabilityVisualizationTest {
 
+	private WorkLoad workload;
+	private Program program;
+	private WarpInterface warp;
+	private ReliabilityVisualization tester;
+	
 	@BeforeEach
 	void setUp() {
-		//Set up testing objects used in all tests here
+		workload = new WorkLoad(0, 0.9, 0.9, "Example1a.txt");
+		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
+		tester = new ReliabilityVisualization(warp);
 	}
 	
 	//This method may or may not be overridden from VisualizationObject. We should
@@ -37,11 +46,10 @@ class ReliabilityVisualizationTest {
 
 	@Test
 	void testCreateTitle() {
-		WorkLoad titleWorkLoad = new WorkLoad(0.9, 0.9, "StressTest.txt");
-		Program titleProgram = new Program(titleWorkLoad, 16, SystemAttributes.ScheduleChoices.PRIORITY);
-		String expectedTitle = titleProgram.getName();
-		assertEquals("WARP program for graph StressTest", expectedTitle);
+		String expected = "Reliability Analysis for graph Example1A";
+		String actual = tester.createTitle();
 		
+		assertEquals(expected, actual);
 	}
 
 	//This one is implemented in VisualizationObject, may be an easy way to get
