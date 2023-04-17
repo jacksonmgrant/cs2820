@@ -16,7 +16,7 @@ class ReliabilityVisualizationTest {
 	
 	@BeforeEach
 	void setUp() {
-		workload = new WorkLoad(0, 0.9, 0.9, "Example1a.txt");
+		workload = new WorkLoad(0, 0.8, 0.99, "Example1a.txt");
 		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
 		tester = new ReliabilityVisualization(warp);
 	}
@@ -31,7 +31,21 @@ class ReliabilityVisualizationTest {
 
 	@Test
 	void testCreateHeader() {
-		fail("Not yet implemented");
+		Description expected = new Description();
+
+		expected.add(tester.createTitle());
+	    
+	    Program program = warp.toProgram();
+	    expected.add(String.format("Scheduler Name: %s\n", program.getSchedulerName()));
+	    expected.add(String.format("M: %s\n", String.valueOf(program.getMinPacketReceptionRate())));
+	    expected.add(String.format("E2E: %s\n", String.valueOf(program.getE2e())));
+	    expected.add(String.format("nChannels: %d\n", program.getNumChannels()));
+	    
+	    Description actual = new Description();
+	    
+	    actual = tester.createHeader();
+	    
+	    assertEquals(expected, actual);
 	}
 
 	@Test
@@ -41,7 +55,21 @@ class ReliabilityVisualizationTest {
 
 	@Test
 	void testCreateVisualizationData() {
-		fail("Not yet implemented");
+		
+		String[][] expected = {{"1","0.8","0","1","0","0"},{"1","0.96","0.64","1","0","0"},
+							  {"1","0.992","0.896","1","0","0"},{"1","0.9984","0.9728","1","0","0"},{"1","0.9984","0.99328","1","0","0"},
+							  {"1","0.9984","0.99328","1","0.8","0"},{"1","0.9984","0.99328","1","0.96","0.64"},
+							  {"1","0.9984","0.99328","1","0.992","0.896"},{"1","0.9984","0.99328","1","0.9984","0.9728"},
+							  {"1","0.9984","0.99328","1","0.9984","0.9728"},{"1","0.9984","0.99328","1","0.9984","0.99328"},
+							  {"1","0.8","0,1","0.9984","0.99328"},{"1","0.96","0.64","1","0.9984","0.99328"},
+							  {"1","0.992","0.896","1","0.9984","0.99328"},{"1","0.9984","0.9728","1","0.9984","0.99328"},
+							  {"1","0.9984","0.99328","1","0.9984","0.99328"},{"1","0.9984","0.99328","1","0.9984","0.99328"},
+							  {"1","0.9984","0.99328","1","0.9984","0.99328"},{"1","0.9984","0.99328","1","0.9984","0.99328"},
+							  {"1","0.9984","0.99328","1","0.9984","0.99328"},{"1","0.9984","0.99328","1","0.9984","0.99328"}};
+		
+		String[][] actual = tester.createVisualizationData();
+		
+		assertEquals(expected, actual);
 	}
 
 	@Test
