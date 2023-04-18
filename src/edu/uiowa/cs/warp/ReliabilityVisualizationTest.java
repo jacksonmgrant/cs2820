@@ -6,7 +6,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
-
+/**
+ * Tests the class ReliabilityVisualization to make sure the 
+ * reliability analysis methods are set up properly. 
+ * In these tests, Jackie wrote the tests for testVisualization(),
+ * testCreateColumnHeader(). Matt wrote the
+ * tests for testCreateHeader() and testCreateVisualizationData().
+ * Jackson wrote the test for testCreateTitle(). 
+ * 
+ * @author Jackie Mills
+ * @author Matt Boenish
+ * @author Jackson Grant
+ *
+ */
 class ReliabilityVisualizationTest {
 
 	private WorkLoad workload;
@@ -36,7 +48,11 @@ class ReliabilityVisualizationTest {
 
 	@Test
 	void testCreateColumnHeader() {
-		fail("Not yet implemented");
+		String[] expected = {"F0:A", "F0:B", "F0:C", "F1:C", "F1:B", "F1:A"};
+		String[] actual = tester.createColumnHeader();
+		for (int i = 0; i < expected.length; i++) {
+			assertEquals(expected[i], actual[i]);
+		}
 	}
 
 	@Test
