@@ -32,14 +32,6 @@ class ReliabilityVisualizationTest {
 		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
 		tester = new ReliabilityVisualization(warp);
 	}
-	
-	//This method may or may not be overridden from VisualizationObject. We should
-	//still test it, but write the other tests first, then write it to the
-	//VisualizationObject method if we haven't figured it out yet.
-	@Test
-	void testVisualization() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	void testCreateHeader() {
@@ -94,13 +86,6 @@ class ReliabilityVisualizationTest {
 		String actual = tester.createTitle();
 		
 		assertEquals(expected, actual);
-	}
-
-	//This one is implemented in VisualizationObject, may be an easy way to get
-	//file data but wait to implement until we check if we need it.
-	@Test
-	void testCreateFile() {
-		fail("Not yet implemented");
 	}
 	
 	/**

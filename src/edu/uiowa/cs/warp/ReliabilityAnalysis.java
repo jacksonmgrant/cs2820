@@ -18,7 +18,7 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
  * value of 0.0.) <br>
  * (2) each src->sink pair probability is computed as NewSinkNodeState = (1-M)*PrevSnkNodeState +
  * M*PrevSrcNodeState <br>
- * This value represents the probability that the message as been received by the node SinkNode.
+ * This value represents the probability that the message has been received by the node SinkNode.
  * Thus, the NewSinkNodeState probability will increase each time a push or pull is executed with
  * SinkNode as a listener.
  * <p>
