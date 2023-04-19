@@ -281,7 +281,7 @@ public class ReliabilityAnalysis {
    */
   public void buildReliabilities() {
 	// TODO implement this operation
-	  System.out.println(schedule.toString());
+	  //System.out.println(schedule.toString());
   }
   
   public void setHeaderRow() {
