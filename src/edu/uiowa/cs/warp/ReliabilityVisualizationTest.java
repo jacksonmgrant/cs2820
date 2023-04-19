@@ -9,10 +9,10 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 /**
  * Tests the class ReliabilityVisualization to make sure the 
  * reliability analysis methods are set up properly. 
- * In these tests, Jackie wrote the tests for testVisualization(),
- * testCreateColumnHeader(). Matt wrote the
- * tests for testCreateHeader() and testCreateVisualizationData().
- * Jackson wrote the test for testCreateTitle(). 
+ * In these tests, Jackie wrote the tests for testCreateColumnHeader(). 
+ * Matt wrote the tests for testCreateHeader() and 
+ * testCreateVisualizationData(). Jackson wrote the test for 
+ * testCreateTitle(). 
  * 
  * @author Jackie Mills
  * @author Matt Boenish
@@ -31,14 +31,6 @@ class ReliabilityVisualizationTest {
 		workload = new WorkLoad(0, 0.8, 0.99, "Example1a.txt");
 		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
 		tester = new ReliabilityVisualization(warp);
-	}
-	
-	//This method may or may not be overridden from VisualizationObject. We should
-	//still test it, but write the other tests first, then write it to the
-	//VisualizationObject method if we haven't figured it out yet.
-	@Test
-	void testVisualization() {
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -90,17 +82,10 @@ class ReliabilityVisualizationTest {
 
 	@Test
 	void testCreateTitle() {
-		String expected = "Reliability Analysis for graph Example1A";
+		String expected = "Reliability Analysis for graph Example1A\n";
 		String actual = tester.createTitle();
 		
 		assertEquals(expected, actual);
-	}
-
-	//This one is implemented in VisualizationObject, may be an easy way to get
-	//file data but wait to implement until we check if we need it.
-	@Test
-	void testCreateFile() {
-		fail("Not yet implemented");
 	}
 	
 	/**
