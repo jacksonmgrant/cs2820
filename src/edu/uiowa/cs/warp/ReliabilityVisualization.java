@@ -6,7 +6,10 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
 /**
  * ReliabilityVisualization creates the visualizations for
- * the reliability analysis of the WARP program. <p>
+ * the reliability analysis of the WARP program. File created
+ * by Professor Steve Goddard, createVisualizationData() was
+ * written by Andy Luo, and the constructors and other methods
+ * were written by Jackson Grant.<p>
  * 
  * CS2820 Spring 2023 Project: Implement this class to create
  * the file visualization that is requested in Warp.

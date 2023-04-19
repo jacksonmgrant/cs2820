@@ -78,6 +78,8 @@ public class ReliabilityAnalysis {
 	 * are each node in each flow, with the flows sorted by priority order.
 	 */
 	private ReliabilityTable reliabilities;
+	
+	private ProgramSchedule schedule;
 	  
 	  
 	
@@ -118,6 +120,7 @@ public class ReliabilityAnalysis {
 	  this.e2e = program.getE2e();
 	  this.minPacketReceptionRate = program.getMinPacketReceptionRate();
 	  this.numFaults = program.getNumFaults();
+	  this.schedule = program.getSchedule();
 	  buildReliabilities();
   }
   
@@ -278,7 +281,7 @@ public class ReliabilityAnalysis {
    */
   public void buildReliabilities() {
 	// TODO implement this operation
-	  
+	  System.out.println(schedule.toString());
   }
   
   public void setHeaderRow() {
@@ -330,7 +333,7 @@ public class ReliabilityAnalysis {
    * TODO delete this
    */
   public static void main(String[] args) {
-	  WorkLoad workload = new WorkLoad(0.9, 0.99, "Example.txt");
+	  WorkLoad workload = new WorkLoad(0.8, 0.99, "Example.txt");
 	  Program program = new Program(workload, 16, ScheduleChoices.PRIORITY);
 	  ReliabilityAnalysis tester = new ReliabilityAnalysis(program);
 //	  Flow testingFlow = test.getFlows().get("F0");
