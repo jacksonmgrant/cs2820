@@ -128,7 +128,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	   * If you want to save a test for reuse, just comment it out when it's not in use.
 	   * 
 	   * TODO delete this
-	   */
+	   *
 	public static void main(String[] args) {
 		WorkLoad w = new WorkLoad(0, 0.9, 0.9, "Example1a.txt");
 		WarpInterface warp = SystemFactory.create(w, 16, ScheduleChoices.PRIORITY);
@@ -136,7 +136,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 		
 		
 		System.out.println(Arrays.toString(tester.createColumnHeader()));
-	}
+	}*/
 	
 	
 /* File Visualization for workload defined in Example.txt follows. Note

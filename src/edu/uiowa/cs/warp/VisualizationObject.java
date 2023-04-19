@@ -76,6 +76,12 @@ abstract class VisualizationObject {
     return fm;
   }
 
+  /**
+   * Builds the visualization of the data with column headers, formatted
+   * into strings.
+   * 
+   * @return a Description containing the visualization line by line
+   */
   public Description visualization() {
     Description content = new Description();
     var data = createVisualizationData();
@@ -95,10 +101,23 @@ abstract class VisualizationObject {
     return content;
   }
 
+  /**
+   * Builds a file for the visualization with the proper extension and suffix
+   * attached to the given name.
+   * 
+   * @param fileNameTemplate the name to build a file name from
+   * @return the name of the created file
+   */
   public String createFile(String fileNameTemplate) {
     return fm.createFile(fileNameTemplate, nameExtension, suffix);
   }
 
+  /**
+   * Combines the header, data visualization, and footer into one Description
+   * containing the file contents line by line.
+   * 
+   * @return a Description containing the file content
+   */
   public Description fileVisualization() {
     Description fileContent = createHeader();
     fileContent.addAll(visualization());
