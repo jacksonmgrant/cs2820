@@ -97,4 +97,19 @@ Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the Reliabili
     * Unit tests for each method -Jackie, Matt
     * Test to verify output data -Jackie, Matt
 
+## Sprint 2 - Coding ReliabilityVisualization and it's tests
 
+* Update ReadMe to reflect updated plans and document who did what -Jackie
+* Fully code ReliabilityVisualization
+    * Implement createHeader() -Jackson
+    * Implement createHeader() -Jackson
+    * Implement createColumnHeader() -Jackson
+    * Implement createVisualizationData() -Andy
+* JavaDoc all things worked on -Group with review by Jackson
+* UML Diagram update -Matt
+* Tests for ReliabilityVisualization
+    * Create testCreateColumnHeader() -Jackie
+    * Create testCreateHeader() -Matt
+    * Create testCreateVisualizationData() -Matt
+    * Create testCreateTitle() -Jackson
+* Continued planning Sprint 3 and stub out methods & tests -Group

@@ -9,10 +9,10 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 /**
  * Tests the class ReliabilityVisualization to make sure the 
  * reliability analysis methods are set up properly. 
- * In these tests, Jackie wrote the tests for testVisualization(),
- * testCreateColumnHeader(). Matt wrote the
- * tests for testCreateHeader() and testCreateVisualizationData().
- * Jackson wrote the test for testCreateTitle(). 
+ * In these tests, Jackie wrote the tests for testCreateColumnHeader(). 
+ * Matt wrote the tests for testCreateHeader() and 
+ * testCreateVisualizationData(). Jackson wrote the test for 
+ * testCreateTitle(). 
  * 
  * @author Jackie Mills
  * @author Matt Boenish
