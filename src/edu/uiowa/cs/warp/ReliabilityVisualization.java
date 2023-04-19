@@ -108,8 +108,14 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 */
 	@Override
 	public String[][] createVisualizationData(){
-		//TODO implement this operation
-		return null;
+		ReliabilityTable input = ra.getReliabilities();
+		String[][] ans = new String[input.size()][input.get(1).size()];
+		for(int i = 0; i < input.size(); i++) {
+			for(int j = 0; j < input.get(1).size(); j++) {
+				ans[i][j] = "" + input.get(i).get(j);
+			}
+		}
+		return ans;
 	}
 	
 	
