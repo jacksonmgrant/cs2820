@@ -90,7 +90,7 @@ class ReliabilityVisualizationTest {
 
 	@Test
 	void testCreateTitle() {
-		String expected = "Reliability Analysis for graph Example1A";
+		String expected = "Reliability Analysis for graph Example1A\n";
 		String actual = tester.createTitle();
 		
 		assertEquals(expected, actual);

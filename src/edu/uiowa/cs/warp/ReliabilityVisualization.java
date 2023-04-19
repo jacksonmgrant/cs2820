@@ -84,7 +84,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 * @return the title of the visualization
 	 */
 	public String createTitle() {
-		return String.format("Reliability Analysis for graph %s\n", warp.toWorkload().getInputFileName());
+		return String.format("Reliability Analysis for graph %s\n", warp.toProgram().getName());
 	}
 	
 	/**
