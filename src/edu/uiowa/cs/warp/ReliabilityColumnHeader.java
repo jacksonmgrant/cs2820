@@ -38,11 +38,7 @@ public class ReliabilityColumnHeader {
 	 * @return a String array holding the column headers
 	 */
 	public static String[] getColumnHeader(WarpInterface warp) {
-		if(system == null) {
-			system = warp.toWorkload();
-			new ReliabilityColumnHeader();
-		}
-		return columnHeader;
+		return getColumnHeader(warp.toProgram());
 	}
 	
 	/**

@@ -1,10 +1,12 @@
 package edu.uiowa.cs.warp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
+import edu.uiowa.cs.warp.WarpDSL.InstructionParameters;
 
 /**
  * ReliabilityAnalysis analyzes the end-to-end reliability of messages transmitted in flows for the
@@ -80,6 +82,8 @@ public class ReliabilityAnalysis {
 	private ReliabilityTable reliabilities;
 	
 	private ProgramSchedule schedule;
+	
+	private String[] columnHeader;
 	  
 	  
 	
@@ -121,6 +125,7 @@ public class ReliabilityAnalysis {
 	  this.minPacketReceptionRate = program.getMinPacketReceptionRate();
 	  this.numFaults = program.getNumFaults();
 	  this.schedule = program.getSchedule();
+	  this.columnHeader = ReliabilityColumnHeader.getColumnHeader(program);
 	  buildReliabilities();
   }
   
@@ -280,29 +285,65 @@ public class ReliabilityAnalysis {
    * Computes all reliabilities and fills in the reliability table
    */
   public void buildReliabilities() {
-	  //reliabilities = new ReliabilityTable(schedule.size(), program.);
-//	// TODO implement this operation
-//	  WarpDSL a = new WarpDSL();
-//	  System.out.println("Name, Flow, Src, Snk, Coordinator, Listener, Channel.\n");
-//	  for(var i: schedule) {
-//		  for(var j:i) {
-//			  System.out.println(j);
-//			  var b = a.getInstructionParameters(j);
-//			  for(var x: b) {
-//				  System.out.print(x.getName()+", ");
-//				  System.out.print(x.getFlow()+", ");
-//				  System.out.print(x.getSrc()+", ");
-//				  System.out.print(x.getSnk()+", ");
-//				  System.out.print(x.getCoordinator()+", ");
-//				  System.out.print(x.getListener()+", ");
-//				  System.out.print(x.getChannel()+".");
-//				  System.out.println("\n");
-//			  }
-//		  }
-//		  System.out.println("\n");
-//	  }
-//	  //System.out.println(schedule.toString());
+	  reliabilities = new ReliabilityTable(schedule.size(), columnHeader.length);
+	  String prevFlow = "";
+	  String currentFlow;
+	  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
+		  currentFlow = columnHeader[col].substring(0, columnHeader[col].indexOf(":"));
+		  if(!currentFlow.equals(prevFlow)) {
+			  for(int row = 0; row < reliabilities.getNumRows(); row++) {
+				  reliabilities.set(row, col, 1.0);
+			  }
+			  prevFlow = currentFlow;
+		  }
+	  }
+	  fillTable();
+	  //printRATable();
   }
+
+  /**
+   * Fills the reliability table row by row. See Jackson's notes for details.
+   */
+  private void fillTable() {
+	  WarpDSL instructionGetter = new WarpDSL();
+	  ArrayList<InstructionParameters> instructions;
+	  for(int row = 0; row < schedule.getNumRows(); row++) {
+		  for(int col = 0; col < schedule.getNumColumns(); col++) {
+			  instructions = instructionGetter.getInstructionParameters(schedule.get(row,col));
+			  for(InstructionParameters i:instructions) {
+				  if(i.getName().equals("push") || i.getName().equals("pull")) {
+					  //update reliabilities based on math in project handout, see notes
+				  }
+			  }
+		  }
+	  }
+	  
+	  
+	  /*
+	  WarpDSL a = new WarpDSL();
+	  System.out.println("Name, Flow, Src, Snk, Coordinator, Listener, Channel.\n");
+	  for(var i: schedule) {
+		  for(var j:i) {
+			  System.out.println(j);
+			  var b = a.getInstructionParameters(j);
+			  for(var x: b) {
+				  System.out.print(x.getName()+", ");
+				  System.out.print(x.getFlow()+", ");
+				  System.out.print(x.getSrc()+", ");
+				  System.out.print(x.getSnk()+", ");
+				  System.out.print(x.getCoordinator()+", ");
+				  System.out.print(x.getListener()+", ");
+				  System.out.print(x.getChannel()+".");
+				  System.out.println("\n");
+			  }
+		  }
+		  System.out.println("\n");
+	  }
+	  //System.out.println(schedule.toString());
+	   * 
+	   */
+  }
+  
   
   public void setHeaderRow() {
 	// TODO implement this operation
@@ -316,7 +357,16 @@ public class ReliabilityAnalysis {
    * Prints the table of computed reliabilities to the console.
    */
   public void printRATable() {
-	// TODO implement this operation
+	for(String name: columnHeader) {
+		System.out.print(name+"\t");
+	}
+	System.out.println();
+	for(int row = 0; row < reliabilities.getNumRows(); row++) {
+		for(int col = 0; col < reliabilities.getNumColumns(); col++) {
+			System.out.print(reliabilities.get(row,col)+"\t");
+		}
+		System.out.println();
+	}
   }
   
   /**
@@ -336,7 +386,8 @@ public class ReliabilityAnalysis {
    * Verifies that the reliability requirement has been met for all flows in the 
    * current program. If all flows in the last time slot meet the minimum link 
    * reliability needed to satisfy the end-to-end reliability requirement (line 164),
-   * the reliability analysis should meet reliability requirements.
+   * the reliability analysis should meet reliability requirements. <-- pretty sure this 
+   * is wrong, need to look into this method's usage --Jackson
    * 
    * @return true if reliabilities have been met, false if not
    */
