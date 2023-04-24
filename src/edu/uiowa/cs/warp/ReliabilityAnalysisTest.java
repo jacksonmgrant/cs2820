@@ -25,5 +25,15 @@ class ReliabilityAnalysisTest {
 	void test() {
 		fail("Not yet implemented");
 	}
+	
+	@Test
+	void testGetReliabilities() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testVerifyReliabilities() {
+		fail("Not yet implemented");
+	}
 
 }
