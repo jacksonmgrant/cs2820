@@ -280,8 +280,28 @@ public class ReliabilityAnalysis {
    * Computes all reliabilities and fills in the reliability table
    */
   public void buildReliabilities() {
-	// TODO implement this operation
-	  //System.out.println(schedule.toString());
+	  //reliabilities = new ReliabilityTable(schedule.size(), program.);
+//	// TODO implement this operation
+//	  WarpDSL a = new WarpDSL();
+//	  System.out.println("Name, Flow, Src, Snk, Coordinator, Listener, Channel.\n");
+//	  for(var i: schedule) {
+//		  for(var j:i) {
+//			  System.out.println(j);
+//			  var b = a.getInstructionParameters(j);
+//			  for(var x: b) {
+//				  System.out.print(x.getName()+", ");
+//				  System.out.print(x.getFlow()+", ");
+//				  System.out.print(x.getSrc()+", ");
+//				  System.out.print(x.getSnk()+", ");
+//				  System.out.print(x.getCoordinator()+", ");
+//				  System.out.print(x.getListener()+", ");
+//				  System.out.print(x.getChannel()+".");
+//				  System.out.println("\n");
+//			  }
+//		  }
+//		  System.out.println("\n");
+//	  }
+//	  //System.out.println(schedule.toString());
   }
   
   public void setHeaderRow() {
@@ -314,7 +334,9 @@ public class ReliabilityAnalysis {
 
   /**
    * Verifies that the reliability requirement has been met for all flows in the 
-   * current program.
+   * current program. If all flows in the last time slot meet the minimum link 
+   * reliability needed to satisfy the end-to-end reliability requirement (line 164),
+   * the reliability analysis should meet reliability requirements.
    * 
    * @return true if reliabilities have been met, false if not
    */
@@ -333,7 +355,7 @@ public class ReliabilityAnalysis {
    * TODO delete this
    */
   public static void main(String[] args) {
-	  WorkLoad workload = new WorkLoad(0.8, 0.99, "Example.txt");
+	  WorkLoad workload = new WorkLoad(0.8, 0.99, "Example1a.txt");
 	  Program program = new Program(workload, 16, ScheduleChoices.PRIORITY);
 	  ReliabilityAnalysis tester = new ReliabilityAnalysis(program);
 //	  Flow testingFlow = test.getFlows().get("F0");
