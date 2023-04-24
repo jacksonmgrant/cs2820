@@ -47,8 +47,20 @@ class ReliabilityAnalysisTest {
 	@Test
 	void testGetReliabilities() {
 		
-		ReliabilityTable actual = tester.
+		Boolean status = true;
 		
+		ReliabilityTable actual = tester.getReliabilities();
+		
+		int x = 0;
+		int y = 0;
+		for(x = 0; x < expectedData.length;x++) {
+			for(y = 0;y < expectedData[x].length;y++) {
+				if(actual.get(x,y).toString() != expectedData[x][y]) {
+					status = false;
+				}
+			}
+		}
+		assertTrue(status);
 	}
 	
 	@Test
