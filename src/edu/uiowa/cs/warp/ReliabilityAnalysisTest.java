@@ -12,7 +12,7 @@ class ReliabilityAnalysisTest {
 	private WorkLoad workload;
 	private Program program;
 	private WarpInterface warp;
-	private ReliabilityVisualization tester;
+	private ReliabilityAnalysis tester;
 	String[][] expectedData = {{"1","0.8","0","1","0","0"},{"1","0.96","0.64","1","0","0"},
 			  				  {"1","0.992","0.896","1","0","0"},{"1","0.9984","0.9728","1","0","0"},{"1","0.9984","0.99328","1","0","0"},
 			  				  {"1","0.9984","0.99328","1","0.8","0"},{"1","0.9984","0.99328","1","0.96","0.64"},
@@ -28,7 +28,7 @@ class ReliabilityAnalysisTest {
 	void setUp() {
 		workload = new WorkLoad(0, 0.8, 0.99, "Example1a.txt");
 		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
-		tester = new ReliabilityVisualization(warp);
+		tester = new ReliabilityAnalysis(program);
 	}
 	
 	@Test
@@ -38,7 +38,9 @@ class ReliabilityAnalysisTest {
 	
 	@Test
 	void testGetReliabilities() {
-		fail("Not yet implemented");
+		
+		ReliabilityTable actual = tester.
+		
 	}
 	
 	@Test
