@@ -7,6 +7,14 @@ import org.junit.jupiter.api.Test;
 
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
+/** 
+ * Tests the class ReliabilityAnalysis to make sure the methods are properly set up. In these tests, Jackie wrote the
+ * testVerifyReliabilities() and Matt wrote the test for testGetReliabilities().
+ * 
+ * @author Jackie Mills
+ * @author Matt Boenish
+ *
+ */
 class ReliabilityAnalysisTest {
 
 	private WorkLoad workload;
