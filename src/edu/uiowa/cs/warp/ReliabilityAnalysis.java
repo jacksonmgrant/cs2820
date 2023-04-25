@@ -2,9 +2,6 @@ package edu.uiowa.cs.warp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Vector;
-
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 import edu.uiowa.cs.warp.WarpDSL.InstructionParameters;
 
@@ -298,7 +295,7 @@ public class ReliabilityAnalysis {
 		  }
 	  }
 	  fillTable();
-	  //printRATable();
+	  printRATable();
   }
 
   /**
@@ -307,15 +304,19 @@ public class ReliabilityAnalysis {
   private void fillTable() {
 	  WarpDSL instructionGetter = new WarpDSL();
 	  ArrayList<InstructionParameters> instructions;
+	  int timeslot = 0;
+	  
 	  for(int row = 0; row < schedule.getNumRows(); row++) {
+		  copyPrevRow(timeslot);
 		  for(int col = 0; col < schedule.getNumColumns(); col++) {
 			  instructions = instructionGetter.getInstructionParameters(schedule.get(row,col));
 			  for(InstructionParameters i:instructions) {
 				  if(i.getName().equals("push") || i.getName().equals("pull")) {
-					  //update reliabilities based on math in project handout, see notes
+					  updateTable(i.getFlow(), i.getSrc(), i.getSnk(), timeslot);
 				  }
 			  }
 		  }
+		  timeslot++;
 	  }
 	  
 	  
@@ -342,6 +343,36 @@ public class ReliabilityAnalysis {
 	  //System.out.println(schedule.toString());
 	   * 
 	   */
+  }
+  
+  private void copyPrevRow(int timeslot) {
+	  if(timeslot > 0) {
+		  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
+			  Double prev = reliabilities.get(timeslot-1, col);
+			  reliabilities.set(timeslot, col, prev);
+		  }
+	  }
+  }
+  
+  private void updateTable(String flow, String source, String sink, int timeslot) {
+	  String sinkColumn = flow + ":" + sink;
+	  int colIndex = -1;
+	  for(int col = 0; col < columnHeader.length; col++) 
+		  if(columnHeader[col].equals(sinkColumn))
+			  colIndex = col;
+	  
+	  
+	  if(timeslot < 1) {
+		  reliabilities.set(timeslot, colIndex, minPacketReceptionRate);
+	  }else {
+		  Double prevSrcNodeState = reliabilities.get(timeslot-1, colIndex-1);
+		  Double prevSinkNodeState = reliabilities.get(timeslot-1, colIndex);
+		  
+		  Double newSinkNodeState = (1-minPacketReceptionRate) * prevSinkNodeState
+				  + minPacketReceptionRate * prevSrcNodeState;
+		  
+		  reliabilities.set(timeslot, colIndex, newSinkNodeState);
+	  }
   }
   
   
