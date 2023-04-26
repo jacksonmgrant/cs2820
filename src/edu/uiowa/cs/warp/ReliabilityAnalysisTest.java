@@ -9,7 +9,9 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
 /** 
  * Tests the class ReliabilityAnalysis to make sure the methods are properly set up. In these tests, Jackie wrote the
- * testVerifyReliabilities() and Matt wrote the test for testGetReliabilities().
+ * testVerifyReliabilities(), testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow().
+ * Matt wrote the test for testGetReliabilities(), testBuildReliabilityTable(), testPrintRaTable(), and
+ * testSetInitialStateForReleasedFlows().
  * 
  * @author Jackie Mills
  * @author Matt Boenish
