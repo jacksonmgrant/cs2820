@@ -67,5 +67,34 @@ class ReliabilityAnalysisTest {
 	void testVerifyReliabilities() {
 		fail("Not yet implemented");
 	}
+	
+	@Test
+	void testBuildReliabilityTable() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testCarryForwardReliabilities() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testPrintRaTable() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testSetReliabilities() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testSetInitialStateForReleasedFlows() {
+		fail("Not yet implemented");
+	}
 
+	@Test
+	void testSetReliabilityHeaderRow() {
+		fail("Not yet implemented");
+	}
 }
