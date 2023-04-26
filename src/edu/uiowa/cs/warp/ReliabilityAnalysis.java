@@ -87,6 +87,8 @@ public class ReliabilityAnalysis {
 	 * The headers of all columns in the reliability table.
 	 */
 	private String[] columnHeader;
+	
+	private WarpDSL dsl;
 	  
 	  
 	
@@ -129,6 +131,8 @@ public class ReliabilityAnalysis {
 	  this.numFaults = program.getNumFaults();
 	  this.schedule = program.getSchedule();
 	  this.columnHeader = ReliabilityColumnHeader.getColumnHeader(program);
+	  this.dsl = new WarpDSL();
+	  
 	  buildReliabilities();
   }
   
@@ -290,11 +294,22 @@ public class ReliabilityAnalysis {
    * Computes all reliabilities and fills in the reliability table for the given program.
    */
   public void buildReliabilities() {
-	  reliabilities = new ReliabilityTable(schedule.size(), columnHeader.length);
+	  ReliabilityTable reliabilities = new ReliabilityTable(schedule.size(), columnHeader.length);
+	  
+	  NodeMap nodeMap = program.toWorkLoad().getNodes();
+	  setInitialStateForReleasedFlows(nodeMap, reliabilities);
+	  
+	  fillTable();
+	  
+	  //This is for testing and will be removed in the final version
+	  printRATable();
+  }
+
+  private ReliabilityTable setInitialStateForReleasedFlows(NodeMap nodeMap, ReliabilityTable reliabilities) {
 	  String prevFlow = "";
 	  String currentFlow;
 	  
-	  //Set the first node in each flow to a reliability of 1.0 to initialize the reliability math
+	//Set the first node in each flow to a reliability of 1.0 to initialize the reliability math
 	  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
 		  currentFlow = columnHeader[col].substring(0, columnHeader[col].indexOf(":"));
 		  if(!currentFlow.equals(prevFlow)) {
@@ -305,10 +320,15 @@ public class ReliabilityAnalysis {
 		  }
 	  }
 	  
-	  fillTable();
-	  
-	  //This is for testing and will be removed in the final version
-	  printRATable();
+	  return reliabilities;
+  }
+  
+  private void carryFowardReliabilities(int timeslot, NodeMap nodemap, ReliabilityTable reliabilities) {
+	//TODO implement this operation
+  }
+  
+  private void setReliabilities(ReliabilityTable reliabilities) {
+	//TODO implement this operation
   }
 
   /**
@@ -418,12 +438,16 @@ public class ReliabilityAnalysis {
   }
   
   
-  public void setHeaderRow() {
+  public void setReliabilityHeaderRow(ArrayList<String> headerRow) {
 	// TODO implement this operation
   }
   
-  public void getHeaderRow() {
+  public void getReliabilityHeaderRow() {
 	// TODO implement this operation
+  }
+  
+  public void getFinalReliabilityRow() {
+	  //TODO implement this operation
   }
   
   /**
@@ -456,11 +480,7 @@ public class ReliabilityAnalysis {
    }
 
   /**
-   * Verifies that the reliability requirement has been met for all flows in the 
-   * current program. If all flows in the last time slot meet the minimum link 
-   * reliability needed to satisfy the end-to-end reliability requirement (line 164),
-   * the reliability analysis should meet reliability requirements. <-- pretty sure this 
-   * is wrong, need to look into this method's usage --Jackson
+   * 
    * 
    * @return true if reliabilities have been met, false if not
    */
