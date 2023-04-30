@@ -166,7 +166,7 @@ public class ReliabilityAnalysis {
 	  ArrayList<String> flowNames = workload.getFlowNamesInPriorityOrder();
 	  FlowMap flowMap = workload.getFlows();
 	  
-	  int index = 0;
+	  int columnIndex = 0;
 	  
 	  //Iterate through list of flow names in priority order
 	  for(String flowName: flowNames) {
@@ -176,18 +176,18 @@ public class ReliabilityAnalysis {
 		  ArrayList<Node> nodesInFlow = currentFlow.getNodes();
 		  //Iterate through the list of nodes in the current flow
 		  for(int i = 0; i < nodesInFlow.size(); i++) {
+			  //Add first node in flow as a source
 			  if(i == 0) {
-				  String nodeName = headerRow[index];
-				  nodeMap.put(nodeName, new ReliabilityNode(index, nodesInFlow.get(i), true));
+				  String nodeName = headerRow[columnIndex];
+				  nodeMap.put(nodeName, new ReliabilityNode(columnIndex, nodesInFlow.get(i), true));
+			  //Add all other nodes as not sources
 			  }else {
-				  String nodeName = headerRow[index];
-				  nodeMap.put(nodeName, new ReliabilityNode(index, nodesInFlow.get(i), false));
+				  String nodeName = headerRow[columnIndex];
+				  nodeMap.put(nodeName, new ReliabilityNode(columnIndex, nodesInFlow.get(i), false));
 			  }
-			  index++;
+			  columnIndex++;
 		  }
 	  }
-	  
-	  //Test that nodeMap is working next time you open this up
 	  return nodeMap;
   }
   
@@ -234,14 +234,34 @@ public class ReliabilityAnalysis {
    * @param reliabilities the reliability table being computed
    * @return the reliability table with updated values
    */
-  //TODO figure out if nodemap needs to be here
-  public ReliabilityTable carryFowardReliabilities(int timeslot, NodeMap nodemap, ReliabilityTable reliabilities) {
-	  if(timeslot > 1) {
-		  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
-			  Double prevReliability = reliabilities.get(timeslot-1, col);
-			  Double currentReliability = reliabilities.get(timeslot, col);
-			  if(prevReliability > currentReliability) {
-				  reliabilities.set(timeslot, col, prevReliability);
+  //TODO figure out if this actually works, and clean it up if we have time
+  public ReliabilityTable carryFowardReliabilities(int timeslot, ReliabilityTable reliabilities) {
+	  //Collecting flows from workload
+	  WorkLoad workload = program.toWorkLoad();
+	  ArrayList<String> flowNamesInPriorityOrder = workload.getFlowNamesInPriorityOrder();
+	  FlowMap allFlows = workload.getFlows();
+	  
+	  //Iterate through all flows by priority
+	  for(String flowName: flowNamesInPriorityOrder) {
+		  Flow flow = allFlows.get(flowName);
+		  
+		  //Need to find index of the source node to track our place in the table
+		  String srcNodeName = flow.getName() + ":" + flow.getNodes().get(0);
+		  ReliabilityNode srcNode = (ReliabilityNode) nodeIndexes.get(srcNodeName);
+		  int srcNodeIndex = srcNode.getColumnIndex();
+		  int snkNodeIndex = srcNodeIndex + flow.getNodes().size();
+		  
+		  int period = flow.getPeriod();
+		  //Need to copy last row if flow period has not been reset
+		  if(timeslot % period != 0) {
+			  //Iterate through the columns spanned by the flow
+			  for(int col = srcNodeIndex; col < snkNodeIndex; col++) {
+				  Double prevReliability = reliabilities.get(timeslot-1, col);
+				  Double currentReliability = reliabilities.get(timeslot, col);
+				  //Choose the highest reliability: last timeslot or this one
+				  if(prevReliability > currentReliability) {
+					  reliabilities.set(timeslot, col, prevReliability);
+				  }
 			  }
 		  }
 	  }
@@ -315,19 +335,6 @@ public class ReliabilityAnalysis {
 	   */
   }
   
-  /*
-   * Copies the previous row in the reliaiblity table to the current row.
-   * 
-   * @param timeslot the timeslot of the current row
-   */
-  private void copyPrevRow(int timeslot) {
-	  if(timeslot > 0) {
-		  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
-			  Double prev = reliabilities.get(timeslot-1, col);
-			  reliabilities.set(timeslot, col, prev);
-		  }
-	  }
-  }
   
   /*
    * Updates a cell the the reliability table following transmission between nodes.
