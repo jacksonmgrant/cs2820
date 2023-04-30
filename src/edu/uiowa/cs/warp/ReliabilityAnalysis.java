@@ -196,6 +196,12 @@ public class ReliabilityAnalysis {
    * Computes all reliabilities and fills in the reliability table for the given program.
    */
   public ReliabilityTable buildReliabilities() {
+	  /*
+	   * As far as I know, generating the table works except for when flow periods end. When 
+	   * running example1a, when F0 turns over to a new period, C resets while B does not. 
+	   * I'm not yet sure why this is happening, but the issue should be in carryForwardReliabilities.
+	   * --Jackson
+	   */
 	  ReliabilityTable reliabilities = new ReliabilityTable(schedule.size(), headerRow.length);
 	  reliabilities = setInitialStateForReleasedFlows(nodeIndexes, reliabilities);
 	  
