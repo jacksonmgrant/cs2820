@@ -86,9 +86,11 @@ public class ReliabilityAnalysis {
 	/**
 	 * The headers of all columns in the reliability table.
 	 */
-	private String[] columnHeader;
+	private String[] headerRow;
 	
 	private WarpDSL dsl;
+	
+	private NodeMap nodeIndexes;
 	  
 	  
 	
@@ -130,8 +132,11 @@ public class ReliabilityAnalysis {
 	  this.minPacketReceptionRate = program.getMinPacketReceptionRate();
 	  this.numFaults = program.getNumFaults();
 	  this.schedule = program.getSchedule();
-	  this.columnHeader = ReliabilityColumnHeader.getColumnHeader(program);
 	  this.dsl = new WarpDSL();
+	  
+	  setReliabilityHeaderRow(ReliabilityColumnHeader.getColumnHeader(program));
+	  
+	  this.nodeIndexes = buildNodeMap(program.toWorkLoad());
 	  
 	  buildReliabilities();
   }
@@ -146,6 +151,258 @@ public class ReliabilityAnalysis {
 	  this.minPacketReceptionRate = 0.9;
 	  this.numFaults = 0;
   }
+  
+  /**
+   * Builds a map mapping all column header values to a ReliabilityNode, which
+   * is a node subclass indicating whether a node is a source, its phase, and
+   * its index.
+   * 
+   * @param workload a WorkLoad to build a map from
+   * @return a NodeMap mapping all column headers to ReliabilityNodes
+   */
+  private NodeMap buildNodeMap(WorkLoad workload) {
+	  NodeMap nodeMap = new NodeMap();
+	  
+	  ArrayList<String> flowNames = workload.getFlowNamesInPriorityOrder();
+	  FlowMap flowMap = workload.getFlows();
+	  
+	  int index = 0;
+	  
+	  //Iterate through list of flow names in priority order
+	  for(String flowName: flowNames) {
+		  //Get the current flow
+		  Flow currentFlow = flowMap.get(flowName);
+		  //Get the nodes in the current flow
+		  ArrayList<Node> nodesInFlow = currentFlow.getNodes();
+		  //Iterate through the list of nodes in the current flow
+		  for(int i = 0; i < nodesInFlow.size(); i++) {
+			  if(i == 0) {
+				  String nodeName = this.getReliabilityHeaderRow()[index];
+				  nodeMap.put(nodeName, new ReliabilityNode(index, nodesInFlow.get(i), true));
+			  }else {
+				  String nodeName = this.getReliabilityHeaderRow()[index];
+				  nodeMap.put(nodeName, new ReliabilityNode(index, nodesInFlow.get(i), false));
+			  }
+			  index++;
+		  }
+	  }
+	  
+	  //Test that nodeMap is working next time you open this up
+	  return nodeMap;
+  }
+  
+  /**
+   * Computes all reliabilities and fills in the reliability table for the given program.
+   */
+  public void buildReliabilities() {
+	  ReliabilityTable reliabilities = new ReliabilityTable(schedule.size(), headerRow.length);
+	  
+	  
+	  reliabilities = setInitialStateForReleasedFlows(nodeIndexes, reliabilities);
+	  
+	  //fillTable();
+	  
+	  //This is for testing and will be removed in the final version
+	  printRATable(reliabilities);
+  }
+
+  private ReliabilityTable setInitialStateForReleasedFlows(NodeMap nodeMap, ReliabilityTable reliabilities) {
+	  for(int col = 0; col < headerRow.length; col++) {
+		  ReliabilityNode currentNode = (ReliabilityNode) nodeMap.get(headerRow[col]);
+		  if(currentNode.isSource())
+			  for(int row = 0; row < reliabilities.getNumRows(); row++) {
+			  	reliabilities.set(row, currentNode.getIndex(), 1.0);
+			  }
+	  }
+	  
+	  return reliabilities;
+  }
+  
+  private void carryFowardReliabilities(int timeslot, NodeMap nodemap, ReliabilityTable reliabilities) {
+	//TODO implement this operation
+  }
+  
+  private void setReliabilities(ReliabilityTable reliabilities) {
+	//TODO implement this operation
+  }
+
+  /**
+   * Fills the reliability table row by row. 
+   * 
+   * Currently there is an error when a flow is returned to. In example1a, this happens
+   * on the 11th row, after F1 finishes and when F0 starts again. In the example output,
+   * it looks like the flow gets reset to its original reliabilities before the push happens, but in
+   * my version, it does not get reset and simply adds more pushes in F0.
+   * 
+   * The simple solution that comes to mind is to watch for when a different flow is visited than
+   * the one that is currently being visited, and reset that flow's reliabilities when that happens.
+   * However, I suspect there is a better solution that could be found with better understanding of 
+   * what is happening in the expected output.
+   */
+  private void fillTable() {
+	  //Set up objects to get instructions from
+	  WarpDSL instructionGetter = new WarpDSL();
+	  ArrayList<InstructionParameters> instructions;
+	  int timeslot = 0;
+	  
+	  //Iterate through each row in the schedule, and for each row iterate through each set of
+	  //instructions in it. For every instruction in the schedule, update the reliability 
+	  //table if it is a push or pull command (indicating a transmission), and ignore sleep and
+	  //wait commands.
+	  for(int row = 0; row < schedule.getNumRows(); row++) {
+		  copyPrevRow(timeslot);
+		  for(int col = 0; col < schedule.getNumColumns(); col++) {
+			  instructions = instructionGetter.getInstructionParameters(schedule.get(row,col));
+			  for(InstructionParameters i:instructions) {
+				  if(i.getName().equals("push") || i.getName().equals("pull")) {
+					  updateTable(i.getFlow(), i.getSrc(), i.getSnk(), timeslot);
+				  }
+			  }
+		  }
+		  timeslot++;
+	  }
+	  
+	  
+	  /*
+	  WarpDSL a = new WarpDSL();
+	  System.out.println("Name, Flow, Src, Snk, Coordinator, Listener, Channel.\n");
+	  for(var i: schedule) {
+		  for(var j:i) {
+			  System.out.println(j);
+			  var b = a.getInstructionParameters(j);
+			  for(var x: b) {
+				  System.out.print(x.getName()+", ");
+				  System.out.print(x.getFlow()+", ");
+				  System.out.print(x.getSrc()+", ");
+				  System.out.print(x.getSnk()+", ");
+				  System.out.print(x.getCoordinator()+", ");
+				  System.out.print(x.getListener()+", ");
+				  System.out.print(x.getChannel()+".");
+				  System.out.println("\n");
+			  }
+		  }
+		  System.out.println("\n");
+	  }
+	  //System.out.println(schedule.toString());
+	   * 
+	   */
+  }
+  
+  /**
+   * Copies the previous row in the reliaiblity table to the current row.
+   * 
+   * @param timeslot the timeslot of the current row
+   */
+  private void copyPrevRow(int timeslot) {
+	  if(timeslot > 0) {
+		  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
+			  Double prev = reliabilities.get(timeslot-1, col);
+			  reliabilities.set(timeslot, col, prev);
+		  }
+	  }
+  }
+  
+  /**
+   * Updates a cell the the reliability table following transmission between nodes.
+   * 
+   * @param flow the flow of the transmission
+   * @param source the source node
+   * @param sink the sink node, which is the node to be updated
+   * @param timeslot the current timeslot
+   */
+  private void updateTable(String flow, String source, String sink, int timeslot) {
+	  //Find the index of the column that needs to be updated
+	  String sinkColumn = flow + ":" + sink;
+	  int colIndex = -1;
+	  for(int col = 0; col < headerRow.length; col++) 
+		  if(headerRow[col].equals(sinkColumn))
+			  colIndex = col;
+	  
+	  //Update the cell based on the reliability math
+	  if(timeslot < 1) {
+		  reliabilities.set(timeslot, colIndex, minPacketReceptionRate);
+	  }else {
+		  Double prevSrcNodeState = reliabilities.get(timeslot-1, colIndex-1);
+		  Double prevSinkNodeState = reliabilities.get(timeslot-1, colIndex);
+		  
+		  Double newSinkNodeState = (1-minPacketReceptionRate) * prevSinkNodeState
+				  + minPacketReceptionRate * prevSrcNodeState;
+		  
+		  reliabilities.set(timeslot, colIndex, newSinkNodeState);
+	  }
+  }
+  
+  
+  public void setReliabilityHeaderRow(String[] headerRow) {
+	this.headerRow = headerRow;
+  }
+  
+  public String[] getReliabilityHeaderRow() {
+	return headerRow;
+  }
+  
+  public void getFinalReliabilityRow() {
+	  //TODO implement this operation
+  }
+  
+  /**
+   * Prints the table of computed reliabilities to the console.
+   */
+  public void printRATable(ReliabilityTable reliabilities) {
+	for(String name: headerRow) {
+		System.out.print(name+"\t");
+	}
+	System.out.println();
+	for(int row = 0; row < reliabilities.getNumRows(); row++) {
+		for(int col = 0; col < reliabilities.getNumColumns(); col++) {
+			System.out.print(reliabilities.get(row,col)+"\t");
+		}
+		System.out.println();
+	}
+  }
+  
+  /**
+   * Returns a table with the results of the reliability analysis.
+   * Rows in the table are the timeslots in the program schedule,
+   * and columns in the table are each node in each flow, with the 
+   * flows sorted by priority order.
+   * 
+   * 
+   * @return a ReliabilityTable with the results of the analysis
+   */
+  public ReliabilityTable getReliabilities() {
+      return reliabilities;
+   }
+
+  /**
+   * 
+   * 
+   * @return true if reliabilities have been met, false if not
+   */
+  public Boolean verifyReliabilities() {
+    // TODO Auto-generated method stub
+    return true;
+  }
+
+
+
+  /*
+   * Testing main, feel free to rewrite and/or use whenever you need to test something.
+   * If you want to save a test for reuse, just comment it out when it's not in use.
+   * 
+   * TODO delete this
+   */
+  public static void main(String[] args) {
+	  WorkLoad workload = new WorkLoad(0.8, 0.99, "Example1a.txt");
+	  Program program = new Program(workload, 16, ScheduleChoices.PRIORITY);
+	  
+	  //Node node = program.toWorkLoad().getNodes().get(workload.getNodeNamesOrderedAlphabetically()[0]);
+	  //System.out.println(node.getStartTime());
+	  ReliabilityAnalysis tester = new ReliabilityAnalysis(program);
+	  
+	  
+  }
+  
   
   /**
    * Calculates number of transmissions needed per link and total worst-case
@@ -288,222 +545,5 @@ public class ReliabilityAnalysis {
 	  int maxFaultsInFlow = numEdgesInFlow * numFaults;
 	  txArrayList.add(numEdgesInFlow + maxFaultsInFlow);
 	  return txArrayList;
-  }
-  
-  /**
-   * Computes all reliabilities and fills in the reliability table for the given program.
-   */
-  public void buildReliabilities() {
-	  ReliabilityTable reliabilities = new ReliabilityTable(schedule.size(), columnHeader.length);
-	  
-	  NodeMap nodeMap = program.toWorkLoad().getNodes();
-	  setInitialStateForReleasedFlows(nodeMap, reliabilities);
-	  
-	  fillTable();
-	  
-	  //This is for testing and will be removed in the final version
-	  printRATable();
-  }
-
-  private ReliabilityTable setInitialStateForReleasedFlows(NodeMap nodeMap, ReliabilityTable reliabilities) {
-	  String prevFlow = "";
-	  String currentFlow;
-	  
-	//Set the first node in each flow to a reliability of 1.0 to initialize the reliability math
-	  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
-		  currentFlow = columnHeader[col].substring(0, columnHeader[col].indexOf(":"));
-		  if(!currentFlow.equals(prevFlow)) {
-			  for(int row = 0; row < reliabilities.getNumRows(); row++) {
-				  reliabilities.set(row, col, 1.0);
-			  }
-			  prevFlow = currentFlow;
-		  }
-	  }
-	  
-	  return reliabilities;
-  }
-  
-  private void carryFowardReliabilities(int timeslot, NodeMap nodemap, ReliabilityTable reliabilities) {
-	//TODO implement this operation
-  }
-  
-  private void setReliabilities(ReliabilityTable reliabilities) {
-	//TODO implement this operation
-  }
-
-  /**
-   * Fills the reliability table row by row. 
-   * 
-   * Currently there is an error when a flow is returned to. In example1a, this happens
-   * on the 11th row, after F1 finishes and when F0 starts again. In the example output,
-   * it looks like the flow gets reset to its original reliabilities before the push happens, but in
-   * my version, it does not get reset and simply adds more pushes in F0.
-   * 
-   * The simple solution that comes to mind is to watch for when a different flow is visited than
-   * the one that is currently being visited, and reset that flow's reliabilities when that happens.
-   * However, I suspect there is a better solution that could be found with better understanding of 
-   * what is happening in the expected output.
-   */
-  private void fillTable() {
-	  //Set up objects to get instructions from
-	  WarpDSL instructionGetter = new WarpDSL();
-	  ArrayList<InstructionParameters> instructions;
-	  int timeslot = 0;
-	  
-	  //Iterate through each row in the schedule, and for each row iterate through each set of
-	  //instructions in it. For every instruction in the schedule, update the reliability 
-	  //table if it is a push or pull command (indicating a transmission), and ignore sleep and
-	  //wait commands.
-	  for(int row = 0; row < schedule.getNumRows(); row++) {
-		  copyPrevRow(timeslot);
-		  for(int col = 0; col < schedule.getNumColumns(); col++) {
-			  instructions = instructionGetter.getInstructionParameters(schedule.get(row,col));
-			  for(InstructionParameters i:instructions) {
-				  if(i.getName().equals("push") || i.getName().equals("pull")) {
-					  updateTable(i.getFlow(), i.getSrc(), i.getSnk(), timeslot);
-				  }
-			  }
-		  }
-		  timeslot++;
-	  }
-	  
-	  
-	  /*
-	  WarpDSL a = new WarpDSL();
-	  System.out.println("Name, Flow, Src, Snk, Coordinator, Listener, Channel.\n");
-	  for(var i: schedule) {
-		  for(var j:i) {
-			  System.out.println(j);
-			  var b = a.getInstructionParameters(j);
-			  for(var x: b) {
-				  System.out.print(x.getName()+", ");
-				  System.out.print(x.getFlow()+", ");
-				  System.out.print(x.getSrc()+", ");
-				  System.out.print(x.getSnk()+", ");
-				  System.out.print(x.getCoordinator()+", ");
-				  System.out.print(x.getListener()+", ");
-				  System.out.print(x.getChannel()+".");
-				  System.out.println("\n");
-			  }
-		  }
-		  System.out.println("\n");
-	  }
-	  //System.out.println(schedule.toString());
-	   * 
-	   */
-  }
-  
-  /**
-   * Copies the previous row in the reliaiblity table to the current row.
-   * 
-   * @param timeslot the timeslot of the current row
-   */
-  private void copyPrevRow(int timeslot) {
-	  if(timeslot > 0) {
-		  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
-			  Double prev = reliabilities.get(timeslot-1, col);
-			  reliabilities.set(timeslot, col, prev);
-		  }
-	  }
-  }
-  
-  /**
-   * Updates a cell the the reliability table following transmission between nodes.
-   * 
-   * @param flow the flow of the transmission
-   * @param source the source node
-   * @param sink the sink node, which is the node to be updated
-   * @param timeslot the current timeslot
-   */
-  private void updateTable(String flow, String source, String sink, int timeslot) {
-	  //Find the index of the column that needs to be updated
-	  String sinkColumn = flow + ":" + sink;
-	  int colIndex = -1;
-	  for(int col = 0; col < columnHeader.length; col++) 
-		  if(columnHeader[col].equals(sinkColumn))
-			  colIndex = col;
-	  
-	  //Update the cell based on the reliability math
-	  if(timeslot < 1) {
-		  reliabilities.set(timeslot, colIndex, minPacketReceptionRate);
-	  }else {
-		  Double prevSrcNodeState = reliabilities.get(timeslot-1, colIndex-1);
-		  Double prevSinkNodeState = reliabilities.get(timeslot-1, colIndex);
-		  
-		  Double newSinkNodeState = (1-minPacketReceptionRate) * prevSinkNodeState
-				  + minPacketReceptionRate * prevSrcNodeState;
-		  
-		  reliabilities.set(timeslot, colIndex, newSinkNodeState);
-	  }
-  }
-  
-  
-  public void setReliabilityHeaderRow(ArrayList<String> headerRow) {
-	// TODO implement this operation
-  }
-  
-  public void getReliabilityHeaderRow() {
-	// TODO implement this operation
-  }
-  
-  public void getFinalReliabilityRow() {
-	  //TODO implement this operation
-  }
-  
-  /**
-   * Prints the table of computed reliabilities to the console.
-   */
-  public void printRATable() {
-	for(String name: columnHeader) {
-		System.out.print(name+"\t");
-	}
-	System.out.println();
-	for(int row = 0; row < reliabilities.getNumRows(); row++) {
-		for(int col = 0; col < reliabilities.getNumColumns(); col++) {
-			System.out.print(reliabilities.get(row,col)+"\t");
-		}
-		System.out.println();
-	}
-  }
-  
-  /**
-   * Returns a table with the results of the reliability analysis.
-   * Rows in the table are the timeslots in the program schedule,
-   * and columns in the table are each node in each flow, with the 
-   * flows sorted by priority order.
-   * 
-   * 
-   * @return a ReliabilityTable with the results of the analysis
-   */
-  public ReliabilityTable getReliabilities() {
-      return reliabilities;
-   }
-
-  /**
-   * 
-   * 
-   * @return true if reliabilities have been met, false if not
-   */
-  public Boolean verifyReliabilities() {
-    // TODO Auto-generated method stub
-    return true;
-  }
-
-  
-  
-
-  /*
-   * Testing main, feel free to rewrite and/or use whenever you need to test something.
-   * If you want to save a test for reuse, just comment it out when it's not in use.
-   * 
-   * TODO delete this
-   */
-  public static void main(String[] args) {
-	  WorkLoad workload = new WorkLoad(0.8, 0.99, "Example1a.txt");
-	  Program program = new Program(workload, 16, ScheduleChoices.PRIORITY);
-	  ReliabilityAnalysis tester = new ReliabilityAnalysis(program);
-//	  Flow testingFlow = test.getFlows().get("F0");
-	  //test.numTxAttemptsPerLinkAndTotalTxAttempts(testingFlow, 0.99, 0.9, false);
-	  //tester.numTxPerLinkAndTotalTxCost(testingFlow);
   }
 }
