@@ -138,7 +138,7 @@ public class ReliabilityAnalysis {
 	  
 	  this.nodeIndexes = buildNodeMap(program.toWorkLoad());
 	  
-	  buildReliabilities();
+	  this.reliabilities = buildReliabilities();
   }
   
   /**
@@ -194,7 +194,7 @@ public class ReliabilityAnalysis {
   /**
    * Computes all reliabilities and fills in the reliability table for the given program.
    */
-  public void buildReliabilities() {
+  public ReliabilityTable buildReliabilities() {
 	  ReliabilityTable reliabilities = new ReliabilityTable(schedule.size(), headerRow.length);
 	  
 	  
@@ -204,6 +204,8 @@ public class ReliabilityAnalysis {
 	  
 	  //This is for testing and will be removed in the final version
 	  printRATable(reliabilities);
+	  
+	  return reliabilities;
   }
 
   /**
@@ -342,10 +344,16 @@ public class ReliabilityAnalysis {
   }
   
   
+  /**
+   * @param headerRow the array to set the header row to
+   */
   public void setReliabilityHeaderRow(String[] headerRow) {
 	this.headerRow = headerRow;
   }
   
+  /**
+   * @return a String array containing the header row with the name of each column
+   */
   public String[] getReliabilityHeaderRow() {
 	return headerRow;
   }
@@ -356,6 +364,8 @@ public class ReliabilityAnalysis {
   
   /**
    * Prints the table of computed reliabilities to the console.
+   * 
+   * @param the ReliabilityTable to be printed
    */
   public void printRATable(ReliabilityTable reliabilities) {
 	for(String name: headerRow) {
