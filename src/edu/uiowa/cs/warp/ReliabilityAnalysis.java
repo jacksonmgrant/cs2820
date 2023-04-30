@@ -155,7 +155,7 @@ public class ReliabilityAnalysis {
   /**
    * Builds a map mapping all column header values to a ReliabilityNode, which
    * is a node subclass indicating whether a node is a source, its phase, and
-   * its index.
+   * its column index.
    * 
    * @param workload a WorkLoad to build a map from
    * @return a NodeMap mapping all column headers to ReliabilityNodes
@@ -177,10 +177,10 @@ public class ReliabilityAnalysis {
 		  //Iterate through the list of nodes in the current flow
 		  for(int i = 0; i < nodesInFlow.size(); i++) {
 			  if(i == 0) {
-				  String nodeName = this.getReliabilityHeaderRow()[index];
+				  String nodeName = headerRow[index];
 				  nodeMap.put(nodeName, new ReliabilityNode(index, nodesInFlow.get(i), true));
 			  }else {
-				  String nodeName = this.getReliabilityHeaderRow()[index];
+				  String nodeName = headerRow[index];
 				  nodeMap.put(nodeName, new ReliabilityNode(index, nodesInFlow.get(i), false));
 			  }
 			  index++;
@@ -206,12 +206,21 @@ public class ReliabilityAnalysis {
 	  printRATable(reliabilities);
   }
 
+  /**
+   * Initializes all source node reliabilities to 1.0 in all timeslots following their phase,
+   * leaving all other nodes with a reliability of 0.0
+   * 
+   * @param nodeMap the NodeMap of nodes in the reliability analysis
+   * @param reliabilities the ReliabilityTable to set the initial state for
+   * @return the ReliabilityTable with the initial state set
+   */
   private ReliabilityTable setInitialStateForReleasedFlows(NodeMap nodeMap, ReliabilityTable reliabilities) {
 	  for(int col = 0; col < headerRow.length; col++) {
 		  ReliabilityNode currentNode = (ReliabilityNode) nodeMap.get(headerRow[col]);
+		  System.out.println(currentNode);
 		  if(currentNode.isSource())
-			  for(int row = 0; row < reliabilities.getNumRows(); row++) {
-			  	reliabilities.set(row, currentNode.getIndex(), 1.0);
+			  for(int row = currentNode.getPhase(); row < reliabilities.getNumRows(); row++) {
+			  	reliabilities.set(row, currentNode.getColumnIndex(), 1.0);
 			  }
 	  }
 	  
@@ -226,7 +235,7 @@ public class ReliabilityAnalysis {
 	//TODO implement this operation
   }
 
-  /**
+  /*
    * Fills the reliability table row by row. 
    * 
    * Currently there is an error when a flow is returned to. In example1a, this happens
@@ -288,7 +297,7 @@ public class ReliabilityAnalysis {
 	   */
   }
   
-  /**
+  /*
    * Copies the previous row in the reliaiblity table to the current row.
    * 
    * @param timeslot the timeslot of the current row
@@ -302,7 +311,7 @@ public class ReliabilityAnalysis {
 	  }
   }
   
-  /**
+  /*
    * Updates a cell the the reliability table following transmission between nodes.
    * 
    * @param flow the flow of the transmission
