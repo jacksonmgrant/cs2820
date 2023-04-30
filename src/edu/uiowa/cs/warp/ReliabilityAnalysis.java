@@ -160,7 +160,7 @@ public class ReliabilityAnalysis {
    * @param workload a WorkLoad to build a map from
    * @return a NodeMap mapping all column headers to ReliabilityNodes
    */
-  private NodeMap buildNodeMap(WorkLoad workload) {
+  public NodeMap buildNodeMap(WorkLoad workload) {
 	  NodeMap nodeMap = new NodeMap();
 	  
 	  ArrayList<String> flowNames = workload.getFlowNamesInPriorityOrder();
@@ -196,11 +196,9 @@ public class ReliabilityAnalysis {
    */
   public ReliabilityTable buildReliabilities() {
 	  ReliabilityTable reliabilities = new ReliabilityTable(schedule.size(), headerRow.length);
-	  
-	  
 	  reliabilities = setInitialStateForReleasedFlows(nodeIndexes, reliabilities);
 	  
-	  //fillTable();
+	  
 	  
 	  //This is for testing and will be removed in the final version
 	  printRATable(reliabilities);
@@ -216,10 +214,9 @@ public class ReliabilityAnalysis {
    * @param reliabilities the ReliabilityTable to set the initial state for
    * @return the ReliabilityTable with the initial state set
    */
-  private ReliabilityTable setInitialStateForReleasedFlows(NodeMap nodeMap, ReliabilityTable reliabilities) {
-	  for(int col = 0; col < headerRow.length; col++) {
+  public ReliabilityTable setInitialStateForReleasedFlows(NodeMap nodeMap, ReliabilityTable reliabilities) {
+	  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
 		  ReliabilityNode currentNode = (ReliabilityNode) nodeMap.get(headerRow[col]);
-		  System.out.println(currentNode);
 		  if(currentNode.isSource())
 			  for(int row = currentNode.getPhase(); row < reliabilities.getNumRows(); row++) {
 			  	reliabilities.set(row, currentNode.getColumnIndex(), 1.0);
@@ -229,8 +226,27 @@ public class ReliabilityAnalysis {
 	  return reliabilities;
   }
   
-  private void carryFowardReliabilities(int timeslot, NodeMap nodemap, ReliabilityTable reliabilities) {
-	//TODO implement this operation
+  /**
+   * Carries forward reliabilities to the given timeslot from the one before it.
+   * 
+   * @param timeslot the current timeslot
+   * @param nodemap
+   * @param reliabilities the reliability table being computed
+   * @return the reliability table with updated values
+   */
+  //TODO figure out if nodemap needs to be here
+  public ReliabilityTable carryFowardReliabilities(int timeslot, NodeMap nodemap, ReliabilityTable reliabilities) {
+	  if(timeslot > 1) {
+		  for(int col = 0; col < reliabilities.getNumColumns(); col++) {
+			  Double prevReliability = reliabilities.get(timeslot-1, col);
+			  Double currentReliability = reliabilities.get(timeslot, col);
+			  if(prevReliability > currentReliability) {
+				  reliabilities.set(timeslot, col, prevReliability);
+			  }
+		  }
+	  }
+	  
+	  return reliabilities;
   }
   
   private void setReliabilities(ReliabilityTable reliabilities) {
