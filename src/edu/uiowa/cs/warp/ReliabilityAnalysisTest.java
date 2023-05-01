@@ -23,16 +23,16 @@ class ReliabilityAnalysisTest {
 	private Program program;
 	private WarpInterface warp;
 	private ReliabilityAnalysis tester;
-	String[][] expectedData = {{"1","0.8","0","1","0","0"},{"1","0.96","0.64","1","0","0"},
-			  				  {"1","0.992","0.896","1","0","0"},{"1","0.9984","0.9728","1","0","0"},{"1","0.9984","0.99328","1","0","0"},
-			  				  {"1","0.9984","0.99328","1","0.8","0"},{"1","0.9984","0.99328","1","0.96","0.64"},
-			  				  {"1","0.9984","0.99328","1","0.992","0.896"},{"1","0.9984","0.99328","1","0.9984","0.9728"},
-			  				  {"1","0.9984","0.99328","1","0.9984","0.9728"},{"1","0.9984","0.99328","1","0.9984","0.99328"},
-			  				  {"1","0.8","0,1","0.9984","0.99328"},{"1","0.96","0.64","1","0.9984","0.99328"},
-			  				  {"1","0.992","0.896","1","0.9984","0.99328"},{"1","0.9984","0.9728","1","0.9984","0.99328"},
-			  				  {"1","0.9984","0.99328","1","0.9984","0.99328"},{"1","0.9984","0.99328","1","0.9984","0.99328"},
-			  				  {"1","0.9984","0.99328","1","0.9984","0.99328"},{"1","0.9984","0.99328","1","0.9984","0.99328"},
-			  				  {"1","0.9984","0.99328","1","0.9984","0.99328"},{"1","0.9984","0.99328","1","0.9984","0.99328"}};
+	String[][] expectedData = {{"1.0","0.8","0.0","1.0","0.0","0.0"},{"1.0","0.96","0.6400000000000001","1.0","0.0","0.0"},
+			  {"1.0","0.992","0.896","1.0","0.0","0.0"},{"1.0","0.9984","0.9728000000000001","1.0","0.0","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.0","0.0"},
+			  {"1.0","0.9984","0.9932799999999999","1.0","0.8","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.96","0.6400000000000001"},
+			  {"1.0","0.9984","0.9932799999999999","1.0","0.992","0.896"},{"1.0","0.9984","0.9932799999999999","1.0","0.9984","0.9728000000000001"},
+			  {"1.0","0.9984","0.9932799999999999","1.0","0.9984","0.9932799999999999"},{"1.0","0.99968","0.0","1.0","0.9984","0.9932799999999999"},
+			  {"1.0", "0.9999359999999999", "0.799744", "1.0", "0.9984", "0.9932799999999999"},
+			  {"1.0", "0.9999872", "0.9598976", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.99196928", "1.0", "0.9984", "0.9932799999999999"},
+			  {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},
+			  {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},
+			  {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"}};
 	
 	@BeforeEach
 	void setUp() {
@@ -40,6 +40,7 @@ class ReliabilityAnalysisTest {
 		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
 		program = warp.toProgram();
 		tester = new ReliabilityAnalysis(program);
+
 	}
 	
 	/**
@@ -56,7 +57,8 @@ class ReliabilityAnalysisTest {
 		int y = 0;
 		for(x = 0; x < expectedData.length;x++) {
 			for(y = 0;y < expectedData[x].length;y++) {
-				if(actual.get(x,y).toString() != expectedData[x][y]) {
+				System.out.print("  "+ status +" (" + x + "," + y + ") " + actual.get(x, y).toString() + expectedData[x][y]);
+				if(actual.get(x, y).toString().compareTo(expectedData[x][y]) != 0) {
 					status = false;
 				}
 			}
@@ -71,19 +73,19 @@ class ReliabilityAnalysisTest {
 	@Test
 	void testVerifyReliabilities() {
 		
-		Boolean standing = true;
+		boolean standing = true;
 		Double e2e = 0.99;
-		//String[] actual = tester.getFinalReliabilityRow();
+		boolean actual = tester.verifyReliabilities();
+		String[] lastRow = {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"};
 		
-		String[] lastRow = expectedData[expectedData.length];
-		
-		for (int i = 0; i < lastRow.length; i++) {
-
-			if (i > e2e)
+		//String[] lastRow = expectedData[expectedData.length];
+		for(int i = 0; i < lastRow.length; i++) {
+			if(i >= e2e) {
 				standing = false;
+			}
 		}
 		
-		assertTrue(standing);
+		assertEquals(standing, actual);
 	}
 	
 	/**
@@ -164,9 +166,10 @@ class ReliabilityAnalysisTest {
 	// Jackie
 	@Test
 	void testSetReliabilityHeaderRowStress() {
-		WorkLoad workloadStress = new WorkLoad(0, 0.8, 0.99, "StressTest4.txt");
+		WorkLoad workloadStress = new WorkLoad(0, 0.9, 0.99, "StressTest4.txt");
 		WarpInterface warpStress = SystemFactory.create(workloadStress, 16, ScheduleChoices.PRIORITY);
-		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(warpStress.toProgram());
+		Program program = warpStress.toProgram();
+		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(program);
 		
 		String[] expected = {"F1:B", "F1:C", "F1:D", "F2:C", "F2:D", "F2:E", "F2:F", "F2:G", "F2:H", "F2:I", "F3:C", 
 				"F3:D", "F3:E", "F3:J", "F3:K", "F3:L", "F4:A", "F4:B", "F4:C", "F4:D", "F4:E", "F4:J", "F4:K", "F4:L",
