@@ -38,6 +38,7 @@ class ReliabilityAnalysisTest {
 	void setUp() {
 		workload = new WorkLoad(0, 0.8, 0.99, "Example1a.txt");
 		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
+		program = warp.toProgram();
 		tester = new ReliabilityAnalysis(program);
 	}
 	
@@ -72,7 +73,7 @@ class ReliabilityAnalysisTest {
 		
 		Boolean standing = true;
 		Double e2e = 0.99;
-		String[] actual = tester.getFinalReliabilityRow();
+		//String[] actual = tester.getFinalReliabilityRow();
 		
 		String[] lastRow = expectedData[expectedData.length];
 		
@@ -90,7 +91,20 @@ class ReliabilityAnalysisTest {
 	 */
 	@Test
 	void testBuildReliabilityTable() {
-		fail("Not yet implemented");
+		Boolean status = true;
+		
+		ReliabilityTable actual = tester.buildReliabilities();
+		
+		int x = 0;
+		int y = 0;
+		for(x = 0; x < expectedData.length;x++) {
+			for(y = 0;y < expectedData[x].length;y++) {
+				if(actual.get(x,y).toString() != expectedData[x][y]) {
+					status = false;
+				}
+			}
+		}
+		assertTrue(status);
 	}
 	
 	
