@@ -72,7 +72,7 @@ class ReliabilityAnalysisTest {
 		
 		Boolean standing = true;
 		Double e2e = 0.99;
-		String[] actual = tester.getFinalReliabilityRow();
+		//String[] actual = tester.getFinalReliabilityRow();
 		
 		String[] lastRow = expectedData[expectedData.length];
 		
