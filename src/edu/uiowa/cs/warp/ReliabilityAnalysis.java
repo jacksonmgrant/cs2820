@@ -88,8 +88,15 @@ public class ReliabilityAnalysis {
 	 */
 	private String[] headerRow;
 	
+	/**
+	 * The warp dsl object used to parse instruction parameters.
+	 */
 	private WarpDSL dsl;
 	
+	/**
+	 * A map of Reliability Nodes used to map nodes to column indexes and store
+	 * column-specific data.
+	 */
 	private NodeMap nodeIndexes;
 	  
 	  
@@ -134,7 +141,7 @@ public class ReliabilityAnalysis {
 	  this.schedule = program.getSchedule();
 	  this.dsl = new WarpDSL();
 	  
-	  setReliabilityHeaderRow(ReliabilityColumnHeader.getColumnHeader(program));
+	  setReliabilityHeaderRow(program);
 	  
 	  this.nodeIndexes = buildNodeMap(program.toWorkLoad());
 	  
@@ -226,7 +233,7 @@ public class ReliabilityAnalysis {
 	  }
 	  
 	  //This is for testing and will be removed in the final version
-	  printRATable(reliabilities);
+	  //printRATable(reliabilities);
 	  
 	  return reliabilities;
   }
@@ -333,8 +340,18 @@ public class ReliabilityAnalysis {
   /**
    * @param headerRow the array to set the header row to
    */
-  public void setReliabilityHeaderRow(String[] headerRow) {
-	this.headerRow = headerRow;
+  public void setReliabilityHeaderRow(Program program) {
+	  	ArrayList<String> columnHeaderList = new ArrayList<String>(0);
+		ArrayList<String> flowNames = program.toWorkLoad().getFlowNamesInPriorityOrder();
+		for(String flow: flowNames) {
+			String[] nodes = program.toWorkLoad().getNodesInFlow(flow);
+			for(String node: nodes) {
+				columnHeaderList.add(flow + ":" + node);
+			}
+		}
+		int numCols = columnHeaderList.size();
+		this.headerRow = new String[numCols];
+		this.headerRow = columnHeaderList.toArray(this.headerRow);
   }
   
   /**
@@ -344,6 +361,9 @@ public class ReliabilityAnalysis {
 	return headerRow;
   }
   
+  /**
+   * @return the last row in the reliability table
+   */
   public ReliabilityRow getFinalReliabilityRow() {
 	  return this.reliabilities.get(this.reliabilities.size()-1);
   }

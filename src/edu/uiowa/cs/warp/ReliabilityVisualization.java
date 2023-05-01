@@ -1,5 +1,6 @@
 package edu.uiowa.cs.warp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
@@ -99,7 +100,18 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 */
 	@Override
 	public String[] createColumnHeader() {
-		return ReliabilityColumnHeader.getColumnHeader(warp);
+		ArrayList<String> columnHeaderList = new ArrayList<String>(0);
+		ArrayList<String> flowNames = this.warp.toWorkload().getFlowNamesInPriorityOrder();
+		for(String flow: flowNames) {
+			String[] nodes = this.warp.toWorkload().getNodesInFlow(flow);
+			for(String node: nodes) {
+				columnHeaderList.add(flow + ":" + node);
+			}
+		}
+		int numCols = columnHeaderList.size();
+		String[] columnHeader = new String[numCols];
+		columnHeader = columnHeaderList.toArray(columnHeader);
+		return columnHeader;
 	}
 	
 	/**

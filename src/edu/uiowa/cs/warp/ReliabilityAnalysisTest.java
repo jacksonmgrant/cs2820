@@ -166,7 +166,7 @@ class ReliabilityAnalysisTest {
 	void testSetReliabilityHeaderRowStress() {
 		WorkLoad workloadStress = new WorkLoad(0, 0.8, 0.99, "StressTest4.txt");
 		WarpInterface warpStress = SystemFactory.create(workloadStress, 16, ScheduleChoices.PRIORITY);
-		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(program);
+		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(warpStress.toProgram());
 		
 		String[] expected = {"F1:B", "F1:C", "F1:D", "F2:C", "F2:D", "F2:E", "F2:F", "F2:G", "F2:H", "F2:I", "F3:C", 
 				"F3:D", "F3:E", "F3:J", "F3:K", "F3:L", "F4:A", "F4:B", "F4:C", "F4:D", "F4:E", "F4:J", "F4:K", "F4:L",
@@ -175,6 +175,7 @@ class ReliabilityAnalysisTest {
 				"F9:K", "F9:L", "F10:C", "F10:D", "F10:E", "F10:J", "F10:K", "F10:L"};
 		String[] actual = testerStress.getReliabilityHeaderRow();
 		for (int i = 0; i < expected.length; i++) {
+			System.out.println(expected[i] + ", " + actual[i]);
 			assertEquals(expected[i], actual[i]);
 		}
 	}
