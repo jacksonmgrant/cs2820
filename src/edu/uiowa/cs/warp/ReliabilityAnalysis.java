@@ -386,10 +386,45 @@ public class ReliabilityAnalysis {
    */
   public Boolean verifyReliabilities() {
 	ReliabilityRow t = this.getFinalReliabilityRow();
-		
+	FlowMap allFlows = program.toWorkLoad().getFlows();
+	
+	//Check Final Reliabilities
 	for(int i = 0; i < t.size(); i++) {
-		if(t.get(i) >= e2e) {
+		if(t.get(i) < this.e2e) {
 			System.out.println(t.get(i) + " is greater than or equal to e2e");
+			return false;
+		}
+	}
+	
+	
+	for(int i = 0; i < this.reliabilities.getNumColumns(); i++) {
+		String flowName = "";
+		String nodeName = "";
+		String header = this.headerRow[i];
+		
+		Boolean flipped = false;
+		
+		for(int j = 0; j < header.length(); i++) {
+			if(flipped) {
+				if(header.charAt(i) == ':') {
+					flipped = true;
+					continue;
+				}	
+				flowName = flowName + header.charAt(i);
+			}else {
+				nodeName += header.charAt(i);
+			}
+		}
+		
+		ReliabilityNode curNode = (ReliabilityNode) this.nodeIndexes.get(nodeName);
+		
+		if(curNode.isSource() == true){
+			continue;
+		}
+		
+		int deadline = allFlows.get(flowName).getDeadline();
+		
+		if(reliabilities.get(deadline, i) < e2e) {
 			return false;
 		}
 	}
