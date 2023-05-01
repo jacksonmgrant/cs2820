@@ -344,8 +344,8 @@ public class ReliabilityAnalysis {
 	return headerRow;
   }
   
-  public void getFinalReliabilityRow() {
-	  //TODO implement this operation
+  public ReliabilityRow getFinalReliabilityRow() {
+	  return this.reliabilities.get(this.reliabilities.size()-1);
   }
   
   /**
@@ -385,8 +385,16 @@ public class ReliabilityAnalysis {
    * @return true if reliabilities have been met, false if not
    */
   public Boolean verifyReliabilities() {
-    // TODO Auto-generated method stub
-    return true;
+	ReliabilityRow t = this.getFinalReliabilityRow();
+		
+	for(int i = 0; i < t.size(); i++) {
+		if(t.get(i) >= e2e) {
+			System.out.println(t.get(i) + " is greater than or equal to e2e");
+			return false;
+		}
+	}
+		
+	return true;
   }
 
 
