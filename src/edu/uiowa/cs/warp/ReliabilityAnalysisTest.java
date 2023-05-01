@@ -40,6 +40,7 @@ class ReliabilityAnalysisTest {
 		warp = SystemFactory.create(workload, 16, ScheduleChoices.PRIORITY);
 		program = warp.toProgram();
 		tester = new ReliabilityAnalysis(program);
+
 	}
 	
 	/**
@@ -71,19 +72,19 @@ class ReliabilityAnalysisTest {
 	@Test
 	void testVerifyReliabilities() {
 		
-		Boolean standing = true;
+		boolean standing = true;
 		Double e2e = 0.99;
-		//String[] actual = tester.getFinalReliabilityRow();
+		boolean actual = tester.verifyReliabilities();
+		String[] lastRow = {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"};
 		
-		String[] lastRow = expectedData[expectedData.length];
-		
-		for (int i = 0; i < lastRow.length; i++) {
-
-			if (i > e2e)
+		//String[] lastRow = expectedData[expectedData.length];
+		for(int i = 0; i < lastRow.length; i++) {
+			if(i >= e2e) {
 				standing = false;
+			}
 		}
 		
-		assertTrue(standing);
+		assertEquals(standing, actual);
 	}
 	
 	/**
@@ -164,8 +165,9 @@ class ReliabilityAnalysisTest {
 	// Jackie
 	@Test
 	void testSetReliabilityHeaderRowStress() {
-		WorkLoad workloadStress = new WorkLoad(0, 0.8, 0.99, "StressTest4.txt");
+		WorkLoad workloadStress = new WorkLoad(0, 0.9, 0.99, "StressTest4.txt");
 		WarpInterface warpStress = SystemFactory.create(workloadStress, 16, ScheduleChoices.PRIORITY);
+		Program program = warpStress.toProgram();
 		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(program);
 		
 		String[] expected = {"F1:B", "F1:C", "F1:D", "F2:C", "F2:D", "F2:E", "F2:F", "F2:G", "F2:H", "F2:I", "F3:C", 
