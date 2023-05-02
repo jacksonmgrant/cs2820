@@ -98,6 +98,8 @@ public class ReliabilityAnalysis {
 	 * and store column-specific data on the nodes.
 	 */
 	private NodeMap nodeIndexes;
+	
+	private WorkLoad workload;
 	  
 	  
 	
@@ -140,10 +142,11 @@ public class ReliabilityAnalysis {
 	  this.numFaults = program.getNumFaults();
 	  this.schedule = program.getSchedule();
 	  this.dsl = new WarpDSL();
+	  this.workload = program.toWorkLoad();
 	  
 	  setReliabilityHeaderRow(program);
 	  
-	  this.nodeIndexes = buildNodeMap(program.toWorkLoad());
+	  this.nodeIndexes = buildNodeMap(workload);
 	  
 	  ReliabilityTable computedRATable = buildReliabilities();
 	  setReliabilities(computedRATable);
@@ -265,12 +268,10 @@ public class ReliabilityAnalysis {
    * @param reliabilities the reliability table being computed
    * @return the reliability table with updated values
    */
-  //TODO figure out if this actually works, and clean it up if we have time
   public ReliabilityTable carryForwardReliabilities(int timeslot, ReliabilityTable reliabilities) {
 	  //Collecting flows from workload
-	  WorkLoad workload = program.toWorkLoad();
-	  ArrayList<String> flowNamesInPriorityOrder = workload.getFlowNamesInPriorityOrder();
-	  FlowMap allFlows = workload.getFlows();
+	  ArrayList<String> flowNamesInPriorityOrder = this.workload.getFlowNamesInPriorityOrder();
+	  FlowMap allFlows = this.workload.getFlows();
 	  
 	  //Iterate through all flows by priority
 	  for(String flowName: flowNamesInPriorityOrder) {
@@ -312,8 +313,9 @@ public class ReliabilityAnalysis {
 	  ReliabilityNode sinkNode = (ReliabilityNode) nodeIndexes.get(flow + ":" + sink);
 	  int colIndex = sinkNode.getColumnIndex();
 	  
+	  int period = workload.getFlowPeriod(flow);
 	  //Update the cell based on the reliability math
-	  if(timeslot < 1) {
+	  if(timeslot % period == 0) {
 		  reliabilities.set(timeslot, colIndex, minPacketReceptionRate);
 	  }else {
 		  Double prevSrcNodeState = reliabilities.get(timeslot-1, colIndex-1);
@@ -342,9 +344,9 @@ public class ReliabilityAnalysis {
    */
   public void setReliabilityHeaderRow(Program program) {
 	  	ArrayList<String> columnHeaderList = new ArrayList<String>(0);
-		ArrayList<String> flowNames = program.toWorkLoad().getFlowNamesInPriorityOrder();
+		ArrayList<String> flowNames = this.workload.getFlowNamesInPriorityOrder();
 		for(String flow: flowNames) {
-			String[] nodes = program.toWorkLoad().getNodesInFlow(flow);
+			String[] nodes = this.workload.getNodesInFlow(flow);
 			for(String node: nodes) {
 				columnHeaderList.add(flow + ":" + node);
 			}
@@ -406,7 +408,7 @@ public class ReliabilityAnalysis {
    */
   public Boolean verifyReliabilities() {
 	ReliabilityRow t = this.getFinalReliabilityRow();
-	FlowMap allFlows = program.toWorkLoad().getFlows();
+	FlowMap allFlows = this.workload.getFlows();
 	
 	//Check Final Reliabilities
 	for(int i = 0; i < t.size(); i++) {
