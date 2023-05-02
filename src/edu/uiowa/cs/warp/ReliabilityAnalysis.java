@@ -88,8 +88,15 @@ public class ReliabilityAnalysis {
 	 */
 	private String[] headerRow;
 	
+	/**
+	 * The warp dsl object used to parse instruction parameters.
+	 */
 	private WarpDSL dsl;
 	
+	/**
+	 * A map of Reliability Nodes used to map nodes (entries) to column indexes (keys)
+	 * and store column-specific data on the nodes.
+	 */
 	private NodeMap nodeIndexes;
 	  
 	  
@@ -134,7 +141,7 @@ public class ReliabilityAnalysis {
 	  this.schedule = program.getSchedule();
 	  this.dsl = new WarpDSL();
 	  
-	  setReliabilityHeaderRow(ReliabilityColumnHeader.getColumnHeader(program));
+	  setReliabilityHeaderRow(program);
 	  
 	  this.nodeIndexes = buildNodeMap(program.toWorkLoad());
 	  
@@ -279,7 +286,7 @@ public class ReliabilityAnalysis {
 		  //Need to copy last row if flow period has not been reset
 		  if(timeslot % period != 0) {
 			  //Iterate through the columns spanned by the flow
-			  for(int col = srcNodeIndex; col < snkNodeIndex; col++) {
+			  for(int col = srcNodeIndex+1; col < snkNodeIndex; col++) {
 				  Double prevReliability = reliabilities.get(timeslot-1, col);
 				  Double currentReliability = reliabilities.get(timeslot, col);
 				  //Choose the highest reliability: last timeslot or this one
@@ -333,8 +340,18 @@ public class ReliabilityAnalysis {
   /**
    * @param headerRow the array to set the header row to
    */
-  public void setReliabilityHeaderRow(String[] headerRow) {
-	this.headerRow = headerRow;
+  public void setReliabilityHeaderRow(Program program) {
+	  	ArrayList<String> columnHeaderList = new ArrayList<String>(0);
+		ArrayList<String> flowNames = program.toWorkLoad().getFlowNamesInPriorityOrder();
+		for(String flow: flowNames) {
+			String[] nodes = program.toWorkLoad().getNodesInFlow(flow);
+			for(String node: nodes) {
+				columnHeaderList.add(flow + ":" + node);
+			}
+		}
+		int numCols = columnHeaderList.size();
+		this.headerRow = new String[numCols];
+		this.headerRow = columnHeaderList.toArray(this.headerRow);
   }
   
   /**
@@ -344,6 +361,9 @@ public class ReliabilityAnalysis {
 	return headerRow;
   }
   
+  /**
+   * @return the last row in the reliability table
+   */
   public ReliabilityRow getFinalReliabilityRow() {
 	  return this.reliabilities.get(this.reliabilities.size()-1);
   }
@@ -398,25 +418,25 @@ public class ReliabilityAnalysis {
 	
 	
 	for(int i = 0; i < this.reliabilities.getNumColumns(); i++) {
-		String flowName = "";
-		String nodeName = "";
 		String header = this.headerRow[i];
-		
+		String flowName = header.substring(0, header.indexOf(":"));
+		String nodeName = header.substring(header.indexOf(":"));
+		/*
 		Boolean flipped = false;
 		
-		for(int j = 0; j < header.length(); i++) {
+		for(int j = 0; j < header.length(); j++) {
 			if(flipped) {
-				if(header.charAt(i) == ':') {
+				if(header.charAt(j) == ':') {
 					flipped = true;
 					continue;
 				}	
-				flowName = flowName + header.charAt(i);
+				flowName = flowName + header.charAt(j);
 			}else {
-				nodeName += header.charAt(i);
+				nodeName += header.charAt(j);
 			}
-		}
+		}*/
 		
-		ReliabilityNode curNode = (ReliabilityNode) this.nodeIndexes.get(nodeName);
+		ReliabilityNode curNode = (ReliabilityNode) this.nodeIndexes.get(header);
 		
 		if(curNode.isSource() == true){
 			continue;
@@ -448,6 +468,10 @@ public class ReliabilityAnalysis {
 	  //System.out.println(node.getStartTime());
 	  ReliabilityAnalysis tester = new ReliabilityAnalysis(program);
 	  
+	  /*
+	   * Test for Andy to use
+	   */
+	  //System.out.println(tester.verifyReliabilities());
 	  
   }
   
