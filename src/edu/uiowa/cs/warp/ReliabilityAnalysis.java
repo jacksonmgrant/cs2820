@@ -211,7 +211,8 @@ public class ReliabilityAnalysis {
   }
   
   /**
-   * Computes all reliabilities and fills in the reliability table for the given program.
+   * Computes all reliabilities and fills in the reliability table for the program this
+   * analysis was initialized with.
    * 
    * @return a ReliabilityTable with all reliabilities computed for the schedule in this
    * analysis' program
