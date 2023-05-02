@@ -23,6 +23,7 @@ class ReliabilityAnalysisTest {
 	private Program program;
 	private WarpInterface warp;
 	private ReliabilityAnalysis tester;
+	private ReliabilityTable rTable;
 	String[][] expectedData = {{"1.0","0.8","0.0","1.0","0.0","0.0"},{"1.0","0.96","0.6400000000000001","1.0","0.0","0.0"},
 			  {"1.0","0.992","0.896","1.0","0.0","0.0"},{"1.0","0.9984","0.9728000000000001","1.0","0.0","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.0","0.0"},
 			  {"1.0","0.9984","0.9932799999999999","1.0","0.8","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.96","0.6400000000000001"},
@@ -78,13 +79,12 @@ class ReliabilityAnalysisTest {
 		boolean actual = tester.verifyReliabilities();
 		String[] lastRow = {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"};
 		
-		//String[] lastRow = expectedData[expectedData.length];
-		for(int i = 0; i < lastRow.length; i++) {
-			if(i >= e2e) {
+		//String[] lastRow = expectedData[expectedData.length-1];
+		for(int i = 0; i < 5; i++) {
+			if(i < e2e) {
 				standing = false;
 			}
 		}
-		
 		assertEquals(standing, actual);
 	}
 	
@@ -116,7 +116,16 @@ class ReliabilityAnalysisTest {
 	// Jackie
 	@Test
 	void testCarryForwardReliabilities() {
-		fail("Not yet implemented");
+		ReliabilityTable actual = tester.carryForwardReliabilities(0, rTable);
+		
+		int i = 0;
+		int j = 0;
+		for(i = 0; i < expectedData.length; i++) {
+			for(j = 0; j < expectedData[i].length; j++) {
+				assertEquals((actual.get(i,j).toString()), (expectedData[i][j]));
+			}
+		}
+		
 	}
 	
 	/**
@@ -132,6 +141,7 @@ class ReliabilityAnalysisTest {
 	 * has been built. 
 	 */
 	// Jackie
+	// ??? Have no idea how to test this because it's private and void.... 
 	@Test
 	void testSetReliabilities() {
 		fail("Not yet implemented");
