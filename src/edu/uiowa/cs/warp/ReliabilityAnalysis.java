@@ -1,6 +1,5 @@
 package edu.uiowa.cs.warp;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 import edu.uiowa.cs.warp.WarpDSL.InstructionParameters;
@@ -31,15 +30,20 @@ import edu.uiowa.cs.warp.WarpDSL.InstructionParameters;
  * ReliablityMatrix, which is the core of the file visualization that is requested in Warp.
  * <p>
  * 
- * To do this, you will need to retrieve the program source, parse the instructions for each node,
- * in each time slot, to extract the src and snk nodes in the instruction and then apply the message
- * success probability equation defined above.
+ * Project was completed by Jackson Grant, Jackie Mills, Matt Boenish, and Andy Luo on May 5, 2023.
+ * The reliability analysis here was written by Jackson Grant and Andy Luo for this project, with 
+ * Jackie Mills and Matt Boenish performing testing, planning, and documentation for the project.
  * <p>
  * 
- * I recommend using the getInstructionParameters method of the WarpDSL class to extract the src and
- * snk nodes from the instruction string in a program schedule time slot.
+ * The method numTxPerLinkAndTotalTxCost and its associated code was written for Homework 5 by Jackson 
+ * Grant and Jackie Mills. It is not used internally in this class, instead it refactors some 
+ * functionality from the WorkLoad class.
  * 
  * @author sgoddard
+ * @author Jackson Grant
+ * @author Andy Luo
+ * @author Jackie Mills
+ * @author Matt Boenish
  * @version 1.5
  *
  */
@@ -94,11 +98,15 @@ public class ReliabilityAnalysis {
 	private WarpDSL dsl;
 	
 	/**
-	 * A map of Reliability Nodes used to map nodes (entries) to column indexes (keys)
+	 * A map of ReliabilityNodes used to map nodes (entries) to column indexes (keys)
 	 * and store column-specific data on the nodes.
 	 */
 	private NodeMap nodeIndexes;
 	
+	/**
+	 * The workload being used for the analysis, which is generated from the input
+	 * program.
+	 */
 	private WorkLoad workload;
 	  
 	  
@@ -235,8 +243,8 @@ public class ReliabilityAnalysis {
 		  timeslot++;
 	  }
 	  
-	  //This is for testing and will be removed in the final version
-	  printRATable(reliabilities);
+	  //This is for testing and will be removed in the final version  TODO delete this
+	  //printRATable(reliabilities);
 	  
 	  return reliabilities;
   }
@@ -402,7 +410,7 @@ public class ReliabilityAnalysis {
    }
 
   /**
-   * 
+   * Verifies that reliabilities are being met by the schedule being analyzed.
    * 
    * @return true if reliabilities have been met, false if not
    */

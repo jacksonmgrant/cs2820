@@ -1,9 +1,6 @@
 package edu.uiowa.cs.warp;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
 /**
  * ReliabilityVisualization creates the visualizations for
@@ -124,31 +121,15 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	@Override
 	public String[][] createVisualizationData(){
 		ReliabilityTable input = ra.getReliabilities();
-		String[][] ans = new String[input.size()][input.get(1).size()];
-		for(int i = 0; i < input.size(); i++) {
-			for(int j = 0; j < input.get(1).size(); j++) {
-				ans[i][j] = "" + input.get(i).get(j);
+		String[][] ans = new String[input.getNumRows()][input.getNumColumns()];
+		for(int i = 0; i < input.getNumRows(); i++) {
+			for(int j = 0; j < input.getNumColumns(); j++) {
+				ans[i][j] = "" + input.get(i,j);
 			}
 		}
 		return ans;
 	}
 	
-	
-	
-	/*
-	   * Testing main, feel free to rewrite and/or use whenever you need to test something.
-	   * If you want to save a test for reuse, just comment it out when it's not in use.
-	   * 
-	   * TODO delete this
-	   *
-	public static void main(String[] args) {
-		WorkLoad w = new WorkLoad(0, 0.9, 0.9, "Example1a.txt");
-		WarpInterface warp = SystemFactory.create(w, 16, ScheduleChoices.PRIORITY);
-		ReliabilityVisualization tester = new ReliabilityVisualization(warp);
-		
-		
-		System.out.println(Arrays.toString(tester.createColumnHeader()));
-	}*/
 	
 	
 /* File Visualization for workload defined in Example.txt follows. Note

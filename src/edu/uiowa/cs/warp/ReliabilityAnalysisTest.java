@@ -185,7 +185,6 @@ class ReliabilityAnalysisTest {
 				"F9:K", "F9:L", "F10:C", "F10:D", "F10:E", "F10:J", "F10:K", "F10:L"};
 		String[] actual = testerStress.getReliabilityHeaderRow();
 		for (int i = 0; i < expected.length; i++) {
-			System.out.println(expected[i] + ", " + actual[i]);
 			assertEquals(expected[i], actual[i]);
 		}
 	}
