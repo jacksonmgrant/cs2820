@@ -68,19 +68,18 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Asserts that the end to end reliability is met in the final row of the reliability table. This test 
+	 * makes sure that verify reliabilities returns true if they're all met.
 	 */
-	// Jackie
 	@Test
 	void testVerifyReliabilities() {
 		
 		boolean standing = true;
 		Double e2e = 0.99;
 		boolean actual = tester.verifyReliabilities();
-		String[] lastRow = {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"};
 		
-		//String[] lastRow = expectedData[expectedData.length-1];
-		for(int i = 0; i < 5; i++) {
+		String[] lastRow = expectedData[expectedData.length-1];
+		for(int i = 0; i < lastRow.length; i++) {
 			if(i < e2e) {
 				standing = false;
 			}
@@ -113,10 +112,11 @@ class ReliabilityAnalysisTest {
 	/**
 	 * Tests that carry forward reliabilities is setting the right values in the reliability table.
 	 */
-	// Jackie
 	@Test
 	void testCarryForwardReliabilities() {
+		rTable = tester.getReliabilities();
 		ReliabilityTable actual = tester.carryForwardReliabilities(0, rTable);
+		
 		
 		int i = 0;
 		int j = 0;
@@ -125,7 +125,6 @@ class ReliabilityAnalysisTest {
 				assertEquals((actual.get(i,j).toString()), (expectedData[i][j]));
 			}
 		}
-		
 	}
 	
 	/**
@@ -141,7 +140,7 @@ class ReliabilityAnalysisTest {
 	 * has been built. 
 	 */
 	// Jackie
-	// ??? Have no idea how to test this because it's private and void.... 
+	// Have no idea how to test this because it's private void.... 
 	@Test
 	void testSetReliabilities() {
 		fail("Not yet implemented");
@@ -159,7 +158,6 @@ class ReliabilityAnalysisTest {
 	 * Test for setting the reliability header row. Makes sure that the setter is setting
 	 * the nodes in the proper order, and equal to the nodes actually in the flow. 
 	 */
-	// Jackie
 	@Test
 	void testSetReliabilityHeaderRow() {
 		String[] expected = {"F0:A", "F0:B", "F0:C", "F1:C", "F1:B", "F1:A"};
@@ -173,7 +171,6 @@ class ReliabilityAnalysisTest {
 	 * Stress test for setting the reliability header row. Makes sure that the setter is setting all of the nodes
 	 * in the proper order and equal to the nodes in the flow."
 	 */
-	// Jackie
 	@Test
 	void testSetReliabilityHeaderRowStress() {
 		WorkLoad workloadStress = new WorkLoad(0, 0.9, 0.99, "StressTest4.txt");
