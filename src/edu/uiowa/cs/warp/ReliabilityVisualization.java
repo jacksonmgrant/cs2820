@@ -97,18 +97,7 @@ public class ReliabilityVisualization  extends VisualizationObject {
 	 */
 	@Override
 	public String[] createColumnHeader() {
-		ArrayList<String> columnHeaderList = new ArrayList<String>(0);
-		ArrayList<String> flowNames = this.warp.toWorkload().getFlowNamesInPriorityOrder();
-		for(String flow: flowNames) {
-			String[] nodes = this.warp.toWorkload().getNodesInFlow(flow);
-			for(String node: nodes) {
-				columnHeaderList.add(flow + ":" + node);
-			}
-		}
-		int numCols = columnHeaderList.size();
-		String[] columnHeader = new String[numCols];
-		columnHeader = columnHeaderList.toArray(columnHeader);
-		return columnHeader;
+		return ra.getReliabilityHeaderRow();
 	}
 	
 	/**
