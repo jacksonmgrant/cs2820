@@ -23,6 +23,7 @@ class ReliabilityAnalysisTest {
 	private Program program;
 	private WarpInterface warp;
 	private ReliabilityAnalysis tester;
+	private ReliabilityTable rTable;
 	String[][] expectedData = {{"1.0","0.8","0.0","1.0","0.0","0.0"},{"1.0","0.96","0.6400000000000001","1.0","0.0","0.0"},
 			  {"1.0","0.992","0.896","1.0","0.0","0.0"},{"1.0","0.9984","0.9728000000000001","1.0","0.0","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.0","0.0"},
 			  {"1.0","0.9984","0.9932799999999999","1.0","0.8","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.96","0.6400000000000001"},
@@ -67,24 +68,22 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Asserts that the end to end reliability is met in the final row of the reliability table. This test 
+	 * makes sure that verify reliabilities returns true if they're all met.
 	 */
-	// Jackie
 	@Test
 	void testVerifyReliabilities() {
 		
 		boolean standing = true;
 		Double e2e = 0.99;
 		boolean actual = tester.verifyReliabilities();
-		String[] lastRow = {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"};
 		
-		//String[] lastRow = expectedData[expectedData.length];
+		String[] lastRow = expectedData[expectedData.length-1];
 		for(int i = 0; i < lastRow.length; i++) {
-			if(i >= e2e) {
+			if(i < e2e) {
 				standing = false;
 			}
 		}
-		
 		assertEquals(standing, actual);
 	}
 	
@@ -113,10 +112,19 @@ class ReliabilityAnalysisTest {
 	/**
 	 * Tests that carry forward reliabilities is setting the right values in the reliability table.
 	 */
-	// Jackie
 	@Test
 	void testCarryForwardReliabilities() {
-		fail("Not yet implemented");
+		rTable = tester.getReliabilities();
+		ReliabilityTable actual = tester.carryForwardReliabilities(0, rTable);
+		
+		
+		int i = 0;
+		int j = 0;
+		for(i = 0; i < expectedData.length; i++) {
+			for(j = 0; j < expectedData[i].length; j++) {
+				assertEquals((actual.get(i,j).toString()), (expectedData[i][j]));
+			}
+		}
 	}
 	
 	/**
@@ -132,6 +140,7 @@ class ReliabilityAnalysisTest {
 	 * has been built. 
 	 */
 	// Jackie
+	// Have no idea how to test this because it's private void.... 
 	@Test
 	void testSetReliabilities() {
 		fail("Not yet implemented");
@@ -149,7 +158,6 @@ class ReliabilityAnalysisTest {
 	 * Test for setting the reliability header row. Makes sure that the setter is setting
 	 * the nodes in the proper order, and equal to the nodes actually in the flow. 
 	 */
-	// Jackie
 	@Test
 	void testSetReliabilityHeaderRow() {
 		String[] expected = {"F0:A", "F0:B", "F0:C", "F1:C", "F1:B", "F1:A"};
@@ -163,7 +171,6 @@ class ReliabilityAnalysisTest {
 	 * Stress test for setting the reliability header row. Makes sure that the setter is setting all of the nodes
 	 * in the proper order and equal to the nodes in the flow."
 	 */
-	// Jackie
 	@Test
 	void testSetReliabilityHeaderRowStress() {
 		WorkLoad workloadStress = new WorkLoad(0, 0.9, 0.99, "StressTest4.txt");
