@@ -33,6 +33,9 @@ class ReliabilityVisualizationTest {
 		tester = new ReliabilityVisualization(warp);
 	}
 
+	/**
+	 * Tests that the header created in the Reliability Visualization is formatted correctly. 
+	 */
 	@Test
 	void testCreateHeader() {
 		Description expected = new Description();
@@ -52,6 +55,9 @@ class ReliabilityVisualizationTest {
 	    assertEquals(expected, actual);
 	}
 
+	/**
+	 * Tests that createColumnHeader formats the flows and nodes in the correct order.
+	 */
 	@Test
 	void testCreateColumnHeader() {
 		String[] expected = {"F0:A", "F0:B", "F0:C", "F1:C", "F1:B", "F1:A"};
@@ -61,6 +67,9 @@ class ReliabilityVisualizationTest {
 		}
 	}
 
+	/**
+	 * Asserts that the data in createVisualizationData() is equal to what it should be. 
+	 */
 	@Test
 	void testCreateVisualizationData() {
 		
@@ -97,6 +106,9 @@ class ReliabilityVisualizationTest {
 		assertTrue(status);
 	}
 
+	/**
+	 * Asserts that the title for the reliability analysis is equal to the correct string.
+	 */
 	@Test
 	void testCreateTitle() {
 		String expected = "Reliability Analysis for graph Example1A\n";
