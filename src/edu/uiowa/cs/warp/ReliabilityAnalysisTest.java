@@ -94,7 +94,7 @@ class ReliabilityAnalysisTest {
 	void testBuildReliabilityTable() {
 		Boolean status = true;
 		
-		ReliabilityTable actual = tester.buildReliabilities();
+		ReliabilityTable actual = tester.buildReliabilityTable();
 		
 		int x = 0;
 		int y = 0;

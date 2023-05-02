@@ -156,7 +156,7 @@ public class ReliabilityAnalysis {
 	  
 	  this.nodeIndexes = buildNodeMap(workload);
 	  
-	  ReliabilityTable computedRATable = buildReliabilities();
+	  ReliabilityTable computedRATable = buildReliabilityTable();
 	  setReliabilities(computedRATable);
   }
   
@@ -212,14 +212,11 @@ public class ReliabilityAnalysis {
   
   /**
    * Computes all reliabilities and fills in the reliability table for the given program.
+   * 
+   * @return a ReliabilityTable with all reliabilities computed for the schedule in this
+   * analysis' program
    */
-  public ReliabilityTable buildReliabilities() {
-	  /*
-	   * As far as I know, generating the table works except for when flow periods end. When 
-	   * running example1a, when F0 turns over to a new period, C resets while B does not. 
-	   * I'm not yet sure why this is happening, but the issue should be in carryForwardReliabilities.
-	   * --Jackson
-	   */
+  public ReliabilityTable buildReliabilityTable() {
 	  ReliabilityTable reliabilities = new ReliabilityTable(schedule.size(), headerRow.length);
 	  reliabilities = setInitialStateForReleasedFlows(nodeIndexes, reliabilities);
 	  
@@ -270,7 +267,8 @@ public class ReliabilityAnalysis {
   
   /**
    * Carries forward reliabilities to the given timeslot from the one before it, unless
-   * a flow has started a new period.
+   * a flow has started a new period. Only used while a reliability table is being built,
+   * is only public for testing purposes.
    * 
    * @param timeslot the current timeslot
    * @param reliabilities the reliability table being computed
@@ -310,7 +308,8 @@ public class ReliabilityAnalysis {
   }
   
   /*
-   * Updates a cell the the reliability table following transmission between nodes.
+   * Updates a cell the the reliability table following transmission between nodes. Only
+   * used while a reliability table is being built, is only public for testing.
    * 
    * @param flow the flow of the transmission
    * @param sink the sink node, which is the node to be updated
@@ -348,7 +347,11 @@ public class ReliabilityAnalysis {
   }  
   
   /**
-   * @param headerRow the array to set the header row to
+   * Creates a String array of column names formatted as Flowname:Nodename consisting of
+   * every flow in the input file, sorted by priority order of flows then order
+   * of nodes in the flow. This array is saved as a class attribute.
+   * 
+   * @param program the Program to build the header from
    */
   public void setReliabilityHeaderRow(Program program) {
 	  	ArrayList<String> columnHeaderList = new ArrayList<String>(0);
@@ -365,7 +368,8 @@ public class ReliabilityAnalysis {
   }
   
   /**
-   * @return a String array containing the header row with the name of each column
+   * @return a String array containing the header row with the name of each column as array
+   * values
    */
   public String[] getReliabilityHeaderRow() {
 	return headerRow;
