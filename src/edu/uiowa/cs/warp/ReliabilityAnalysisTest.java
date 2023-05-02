@@ -100,7 +100,8 @@ class ReliabilityAnalysisTest {
 		int y = 0;
 		for(x = 0; x < expectedData.length;x++) {
 			for(y = 0;y < expectedData[x].length;y++) {
-				if(actual.get(x,y).toString() != expectedData[x][y]) {
+				if(!actual.get(x,y).toString().equals(expectedData[x][y])) {
+					//System.out.println(" Actual: " + actual.get(x, y) + " Expected: " +expectedData[x][y] + " " + x + " " +y);
 					status = false;
 				}
 			}
