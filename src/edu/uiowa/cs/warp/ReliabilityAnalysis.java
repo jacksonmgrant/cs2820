@@ -343,7 +343,7 @@ public class ReliabilityAnalysis {
    * 
    * @param reliabilities the finished ReliabilityTable
    */
-  private void setReliabilities(ReliabilityTable reliabilities) {
+  public void setReliabilities(ReliabilityTable reliabilities) {
 	this.reliabilities = reliabilities;
   }  
   
