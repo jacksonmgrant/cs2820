@@ -90,7 +90,7 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * Asserts that the end to end reliability is met in the final row of the reliability table. This test 
+	 * Asserts that the end to end reliability is met at each point where the period changes. This test 
 	 * makes sure that verify reliabilities returns true if they're all met.
 	 */
 	@Test
@@ -100,13 +100,41 @@ class ReliabilityAnalysisTest {
 		Double e2e = 0.99;
 		boolean actual = tester.verifyReliabilities();
 		
-		String[] lastRow = expectedData[expectedData.length-1];
-		for(int i = 0; i < lastRow.length; i++) {
-			if(i < e2e) {
-				standing = false;
-			}
-		}
+		double first = Double.parseDouble(expectedData[10][2]);
+		double second = Double.parseDouble(expectedData[20][2]);
+		double third = Double.parseDouble(expectedData[20][5]);
+		
+		if ((first < e2e) || (second < e2e) || (third < e2e)) {
+			standing = false; }
+		
+		//String[] lastRow = expectedData[expectedData.length-1];
+		//for(int i = 0; i < lastRow.length; i++) {
+		//	if(i < e2e) {
+		//		standing = false;
+		//	}
+		//}
+		
 		assertEquals(standing, actual);
+	}
+	
+	@Test
+	void testVerifyReliabilitiesStress() {
+		WorkLoad workloadStress = new WorkLoad(0, 0.9, 0.99, "StressTest4.txt");
+		WarpInterface warpStress = SystemFactory.create(workloadStress, 16, ScheduleChoices.PRIORITY);
+		Program program = warpStress.toProgram();
+		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(program);
+		
+		boolean standing = true;
+		Double e2e = 0.99;
+		boolean actual = testerStress.verifyReliabilities();
+		
+		ReliabilityTable stressTable = testerStress.getReliabilities();
+		if (stressTable.get(58, 100) > e2e) 
+			standing = false;
+		
+		assertFalse(actual);
+		//assertEquals(standing, actual);
+		
 	}
 	
 	/**
