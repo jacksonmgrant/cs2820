@@ -180,7 +180,35 @@ class ReliabilityAnalysisTest {
 	 */
 	@Test
 	void testPrintRaTable() {
-		fail("Not yet implemented");
+		
+		ReliabilityTable table = tester.getReliabilities();
+		String[] actual = tester.printRATable(table);
+		String[] expected = new String[21];
+		
+		String cRow = "";
+		int x = 0;
+		int y = 0;
+		for(x = 0;x < expectedData.length;x++) {
+			cRow = "";
+			for(y = 0;y < expectedData[x].length;y++) {
+				cRow = cRow + table.get(x, y)+"\t";
+			}
+			expected[x+1] = cRow;
+		}
+		String[] headerRow = tester.getReliabilityHeaderRow();
+		expected[0] = "";
+		int z = 0;
+		for(z = 0;z < headerRow.length;z++) {
+			expected[0] = expected[0] + headerRow[z]+"\t";
+		}
+		Boolean status = true;
+		int i = 0;
+		for(i = 0;i < expected.length;i++) {
+			if(!actual[i].equals(expected[i])) {
+				status = false;
+			}
+		}
+		assertTrue(status);
 	}
 	
 	/**
