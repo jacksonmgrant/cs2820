@@ -387,18 +387,24 @@ public class ReliabilityAnalysis {
    * Prints the table of computed reliabilities to the console.
    * 
    * @param the ReliabilityTable to be printed
+   * @return a String array for testing
    */
-  public void printRATable(ReliabilityTable reliabilities) {
+  public String[] printRATable(ReliabilityTable reliabilities) {
+	ArrayList<String> output = new ArrayList<String>();
 	for(String name: headerRow) {
 		System.out.print(name+"\t");
+		output.add(0, name+"\t");
 	}
 	System.out.println();
 	for(int row = 0; row < reliabilities.getNumRows(); row++) {
 		for(int col = 0; col < reliabilities.getNumColumns(); col++) {
 			System.out.print(reliabilities.get(row,col)+"\t");
+			output.add(reliabilities.get(row, col)+"\t");
+			
 		}
 		System.out.println();
 	}
+	return (String[]) output.toArray();
   }
   
   /**
