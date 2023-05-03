@@ -152,7 +152,7 @@ public class ReliabilityAnalysis {
 	  this.dsl = new WarpDSL();
 	  this.workload = program.toWorkLoad();
 	  
-	  setReliabilityHeaderRow(program);
+	  setReliabilityHeaderRow(workload);
 	  
 	  this.nodeIndexes = buildNodeMap(workload);
 	  
@@ -354,11 +354,11 @@ public class ReliabilityAnalysis {
    * 
    * @param program the Program to build the header from
    */
-  public void setReliabilityHeaderRow(Program program) {
+  public void setReliabilityHeaderRow(WorkLoad workload) {
 	  	ArrayList<String> columnHeaderList = new ArrayList<String>(0);
-		ArrayList<String> flowNames = this.workload.getFlowNamesInPriorityOrder();
+		ArrayList<String> flowNames = workload.getFlowNamesInPriorityOrder();
 		for(String flow: flowNames) {
-			String[] nodes = this.workload.getNodesInFlow(flow);
+			String[] nodes = workload.getNodesInFlow(flow);
 			for(String node: nodes) {
 				columnHeaderList.add(flow + ":" + node);
 			}
