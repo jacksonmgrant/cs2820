@@ -8,8 +8,9 @@ import org.junit.jupiter.api.Test;
 import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
 /** 
- * Tests the class ReliabilityAnalysis to make sure the methods are properly set up. In these tests, Jackie wrote the
- * testVerifyReliabilities(), testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow().
+ * Tests the class ReliabilityAnalysis using the files Example1a.txt and some from StressTest4.txt to make sure the 
+ * methods are properly set up. In these tests, Jackie wrote the testVerifyReliabilities(), 
+ * testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow().
  * Matt wrote the test for testGetReliabilities(), testBuildReliabilityTable(), testPrintRaTable(), and
  * testSetInitialStateForReleasedFlows().
  * 
@@ -99,8 +100,7 @@ class ReliabilityAnalysisTest {
 		Double e2e = 0.99;
 		boolean actual = tester.verifyReliabilities();
 		
-		String[] lastRow = {"1.0", "0.9984", "0.9932799999999999", "1.0", "0.9984", "0.9932799999999999"};
-		//String[] lastRow = expectedData[expectedData.length-1];
+		String[] lastRow = expectedData[expectedData.length-1];
 		for(int i = 0; i < lastRow.length; i++) {
 			if(i < e2e) {
 				standing = false;
@@ -159,11 +159,15 @@ class ReliabilityAnalysisTest {
 	 * Tests that set reliabilities is adding the correct data to the Reliability Table after it 
 	 * has been built. 
 	 */
-	// Jackie
-	// Have no idea how to test this because it's private void.... 
 	@Test
 	void testSetReliabilities() {
-		fail("Not yet implemented");
+		ReliabilityTable actual = tester.getReliabilities();
+		
+		for(int i = 0; i < expectedData.length; i++) {
+			for(int j = 0; j < expectedData[i].length; j++) {
+				assertEquals((actual.get(i,j).toString()), (expectedData[i][j]));
+			}
+		}
 	}
 	
 	/**
