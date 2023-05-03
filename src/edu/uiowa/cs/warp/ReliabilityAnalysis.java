@@ -404,7 +404,11 @@ public class ReliabilityAnalysis {
 		}
 		System.out.println();
 	}
-	return (String[]) output.toArray();
+	String[] outputArray = new String[output.size()];
+	for(int i = 0; i < output.size(); i++) {
+		outputArray[i] = output.get(i);
+	}
+	return outputArray;
   }
   
   /**
@@ -492,7 +496,8 @@ public class ReliabilityAnalysis {
 	  /*
 	   * Test for Andy to use
 	   */
-	  //System.out.println(tester.verifyReliabilities());
+	  tester.printRATable(tester.getReliabilities());
+	  System.out.println(tester.verifyReliabilities());
 	  
   }
   
