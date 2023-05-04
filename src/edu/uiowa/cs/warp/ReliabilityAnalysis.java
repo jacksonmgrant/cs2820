@@ -391,17 +391,21 @@ public class ReliabilityAnalysis {
    */
   public String[] printRATable(ReliabilityTable reliabilities) {
 	ArrayList<String> output = new ArrayList<String>();
+	String headerString = "";
 	for(String name: headerRow) {
 		System.out.print(name+"\t");
-		output.add(0, name+"\t");
+		headerString = headerString + name +"\t";
 	}
+	output.add(headerString);
 	System.out.println();
 	for(int row = 0; row < reliabilities.getNumRows(); row++) {
+		String nextRow = "";
 		for(int col = 0; col < reliabilities.getNumColumns(); col++) {
 			System.out.print(reliabilities.get(row,col)+"\t");
-			output.add(reliabilities.get(row, col)+"\t");
+			nextRow = nextRow + reliabilities.get(row, col)+"\t";
 			
 		}
+		output.add(nextRow);
 		System.out.println();
 	}
 	String[] outputArray = new String[output.size()];

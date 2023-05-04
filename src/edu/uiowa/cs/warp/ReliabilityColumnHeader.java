@@ -3,8 +3,8 @@ package edu.uiowa.cs.warp;
 import java.util.ArrayList;
 
 /**
- * Currently unused, does not function when multiple programs are running in test, 
- * leaving in in the event it needs to be reused.
+ * Currently unused, does not function when multiple programs are running in test. 
+ * Leaving in in the event it needs to be reused.
  * 
  * Singleton class to generate the column headers for the reliability analysis
  * of a given Warp interface. Call getColumnHeader() to get the header in a
