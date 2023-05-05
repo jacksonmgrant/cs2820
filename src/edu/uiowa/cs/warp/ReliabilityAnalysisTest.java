@@ -26,7 +26,10 @@ class ReliabilityAnalysisTest {
 	private ReliabilityAnalysis tester;
 	private ReliabilityTable rTable;
 	
-	String[][] expectedData = {{"1.0","0.8","0.0","1.0","0.0","0.0"},
+	/**
+	 * Expected data for the Example1a input file
+	 */
+	private String[][] expectedData = {{"1.0","0.8","0.0","1.0","0.0","0.0"},
 		{"1.0","0.96","0.6400000000000001","1.0","0.0","0.0"},
 		{"1.0","0.992","0.896","1.0","0.0","0.0"},
 		{"1.0","0.9984","0.9728000000000001","1.0","0.0","0.0"},
@@ -91,7 +94,7 @@ class ReliabilityAnalysisTest {
 		Double e2e = 0.99;
 		boolean actual = tester.verifyReliabilities();
 		
-		double first = Double.parseDouble(expectedData[10][2]);
+		double first = Double.parseDouble(expectedData[9][2]);
 		double second = Double.parseDouble(expectedData[19][2]);
 		double third = Double.parseDouble(expectedData[19][5]);
 		
