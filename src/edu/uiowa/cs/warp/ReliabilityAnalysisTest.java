@@ -108,16 +108,10 @@ class ReliabilityAnalysisTest {
 		Program program = warpStress.toProgram();
 		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(program);
 		
-		boolean standing = true;
 		Double e2e = 0.99;
 		boolean actual = testerStress.verifyReliabilities();
 		
-		ReliabilityTable stressTable = testerStress.getReliabilities();
-		if (stressTable.get(57, 99) > e2e) 
-			standing = false;
-		
 		assertFalse(actual);
-		
 	}
 	
 	/**
