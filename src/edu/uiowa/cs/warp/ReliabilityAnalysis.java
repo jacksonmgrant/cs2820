@@ -152,7 +152,7 @@ public class ReliabilityAnalysis {
 	  this.dsl = new WarpDSL();
 	  this.workload = program.toWorkLoad();
 	  
-	  setReliabilityHeaderRow(program);
+	  setReliabilityHeaderRow(workload);
 	  
 	  this.nodeIndexes = buildNodeMap(workload);
 	  
@@ -354,11 +354,11 @@ public class ReliabilityAnalysis {
    * 
    * @param program the Program to build the header from
    */
-  public void setReliabilityHeaderRow(Program program) {
+  public void setReliabilityHeaderRow(WorkLoad workload) {
 	  	ArrayList<String> columnHeaderList = new ArrayList<String>(0);
-		ArrayList<String> flowNames = this.workload.getFlowNamesInPriorityOrder();
+		ArrayList<String> flowNames = workload.getFlowNamesInPriorityOrder();
 		for(String flow: flowNames) {
-			String[] nodes = this.workload.getNodesInFlow(flow);
+			String[] nodes = workload.getNodesInFlow(flow);
 			for(String node: nodes) {
 				columnHeaderList.add(flow + ":" + node);
 			}
@@ -391,20 +391,28 @@ public class ReliabilityAnalysis {
    */
   public String[] printRATable(ReliabilityTable reliabilities) {
 	ArrayList<String> output = new ArrayList<String>();
+	String headerString = "";
 	for(String name: headerRow) {
 		System.out.print(name+"\t");
-		output.add(0, name+"\t");
+		headerString = headerString + name +"\t";
 	}
+	output.add(headerString);
 	System.out.println();
 	for(int row = 0; row < reliabilities.getNumRows(); row++) {
+		String nextRow = "";
 		for(int col = 0; col < reliabilities.getNumColumns(); col++) {
 			System.out.print(reliabilities.get(row,col)+"\t");
-			output.add(reliabilities.get(row, col)+"\t");
+			nextRow = nextRow + reliabilities.get(row, col)+"\t";
 			
 		}
+		output.add(nextRow);
 		System.out.println();
 	}
-	return (String[]) output.toArray();
+	String[] outputArray = new String[output.size()];
+	for(int i = 0; i < output.size(); i++) {
+		outputArray[i] = output.get(i);
+	}
+	return outputArray;
   }
   
   /**
@@ -492,7 +500,8 @@ public class ReliabilityAnalysis {
 	  /*
 	   * Test for Andy to use
 	   */
-	  //System.out.println(tester.verifyReliabilities());
+	  tester.printRATable(tester.getReliabilities());
+	  System.out.println(tester.verifyReliabilities());
 	  
   }
   
