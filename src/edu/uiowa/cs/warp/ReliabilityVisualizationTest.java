@@ -139,20 +139,4 @@ class ReliabilityVisualizationTest {
 		assertEquals(expected, actual);
 	}
 	
-	/**
-	 * Verifies that the format of the output file matches the required format.
-	 */
-	@Test
-	void testFileFormat() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Verifies that the reliabilities in the output file are correct.
-	 */
-	@Test
-	void checkMath() {
-		fail("Not yet implemented");
-	}
-
 }

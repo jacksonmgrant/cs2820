@@ -9,8 +9,8 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
 /** 
  * Tests the class ReliabilityAnalysis using the files Example1a.txt and some from StressTest4.txt to make sure the 
- * methods are properly set up. In these tests, Jackie wrote the testVerifyReliabilities(), 
- * testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow().
+ * methods are properly set up. In these tests, Jackie wrote the testVerifyReliabilities(), testVerifyReliabilitiesStress(), 
+ * testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow(), and testSetReliabilityHeaderRowStress().
  * Matt wrote the test for testGetReliabilities(), testBuildReliabilityTable(), testPrintRaTable(), and
  * testSetInitialStateForReleasedFlows().
  * 
@@ -25,16 +25,6 @@ class ReliabilityAnalysisTest {
 	private WarpInterface warp;
 	private ReliabilityAnalysis tester;
 	private ReliabilityTable rTable;
-	/*String[][] expectedData = {{"1.0","0.8","0.0","1.0","0.0","0.0"},{"1.0","0.96","0.6400000000000001","1.0","0.0","0.0"},
-			  {"1.0","0.992","0.896","1.0","0.0","0.0"},{"1.0","0.9984","0.9728000000000001","1.0","0.0","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.0","0.0"},
-			  {"1.0","0.9984","0.9932799999999999","1.0","0.8","0.0"},{"1.0","0.9984","0.9932799999999999","1.0","0.96","0.6400000000000001"},
-			  {"1.0","0.9984","0.9932799999999999","1.0","0.992","0.896"},{"1.0","0.9984","0.9932799999999999","1.0","0.9984","0.9728000000000001"},
-			  {"1.0","0.9984","0.9932799999999999","1.0","0.9984","0.9932799999999999"},{"1.0","0.99968","0.0","1.0","0.9984","0.9932799999999999"},
-			  {"1.0", "0.9999359999999999", "0.799744", "1.0", "0.9984", "0.9932799999999999"},
-			  {"1.0", "0.9999872", "0.9598976", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.99196928", "1.0", "0.9984", "0.9932799999999999"},
-			  {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},
-			  {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},
-			  {"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"},{"1.0", "0.99999744", "0.9983918079999999", "1.0", "0.9984", "0.9932799999999999"}};*/
 	
 	String[][] expectedData = {{"1.0","0.8","0.0","1.0","0.0","0.0"},
 		{"1.0","0.96","0.6400000000000001","1.0","0.0","0.0"},
@@ -67,7 +57,8 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Tests that getReliability returns a reliability table with the correct reliabilities
+	 * in the correct spot for each node in the flow.
 	 */
 	@Test
 	void testGetReliabilities() {
@@ -101,18 +92,11 @@ class ReliabilityAnalysisTest {
 		boolean actual = tester.verifyReliabilities();
 		
 		double first = Double.parseDouble(expectedData[10][2]);
-		double second = Double.parseDouble(expectedData[20][2]);
-		double third = Double.parseDouble(expectedData[20][5]);
+		double second = Double.parseDouble(expectedData[19][2]);
+		double third = Double.parseDouble(expectedData[19][5]);
 		
 		if ((first < e2e) || (second < e2e) || (third < e2e)) {
 			standing = false; }
-		
-		//String[] lastRow = expectedData[expectedData.length-1];
-		//for(int i = 0; i < lastRow.length; i++) {
-		//	if(i < e2e) {
-		//		standing = false;
-		//	}
-		//}
 		
 		assertEquals(standing, actual);
 	}
@@ -124,21 +108,15 @@ class ReliabilityAnalysisTest {
 		Program program = warpStress.toProgram();
 		ReliabilityAnalysis testerStress = new ReliabilityAnalysis(program);
 		
-		boolean standing = true;
 		Double e2e = 0.99;
 		boolean actual = testerStress.verifyReliabilities();
 		
-		ReliabilityTable stressTable = testerStress.getReliabilities();
-		if (stressTable.get(58, 100) > e2e) 
-			standing = false;
-		
 		assertFalse(actual);
-		//assertEquals(standing, actual);
-		
 	}
 	
 	/**
-	 * 
+	 * Tests buildReliabilityTable and ensures that it computes the correct data. If the data is not correct, 
+	 * or if the data is in the wrong spot, then the test will fail.
 	 */
 	@Test
 	void testBuildReliabilityTable() {
@@ -151,7 +129,6 @@ class ReliabilityAnalysisTest {
 		for(x = 0; x < expectedData.length;x++) {
 			for(y = 0;y < expectedData[x].length;y++) {
 				if(!actual.get(x,y).toString().equals(expectedData[x][y])) {
-					//System.out.println(" Actual: " + actual.get(x, y) + " Expected: " +expectedData[x][y] + " " + x + " " +y);
 					status = false;
 				}
 			}
@@ -176,7 +153,9 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Test that printRATable prints the correct reliability analysis table to the console
+	 * when the program is ran. If it does not print the correct info in the correct location,
+	 * then the test will fail.
 	 */
 	@Test
 	void testPrintRaTable() {
@@ -227,7 +206,8 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Test to check that setInitialStateForReleasedFlows sets all the source nodes to 1.0 
+	 * in the reliability table. If all of the source nodes are not set to 1.0, the test will fail. 
 	 */
 	@Test
 	void testSetInitialStateForReleasedFlows() {

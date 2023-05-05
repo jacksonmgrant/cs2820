@@ -113,3 +113,37 @@ Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the Reliabili
     * Create testCreateVisualizationData() -Matt
     * Create testCreateTitle() -Jackson
 * Continued planning Sprint 3 and stub out methods & tests -Group
+
+## Sprint 2 - Coding ReliabilityAnalysis and it's tests
+* Update ReadMe to document who finished each task -Jackie
+* Fully code ReliabilityAnalysis
+    * Bug fix from HW5 -Jackson
+    * Run reliability analysis from constructor with the following methods:
+        * ReliabilityAnalysis(program) -Jackson
+        * buildNodeMap() -Jackson
+        * buildReliabilityTable() -Jackson
+        * setInitialStateForReleasedFlows() -Jackson
+        * carryForwardReliabilities() -Jackson
+        * updateTable() -Jackson
+        * setReliabilities() -Jackson
+        * setReliabilityHeaderRow() -Jackson
+        * getReliabilityHeaderRow() -Jackson
+        * printRATable() -Jackson
+    * Implement getReliabilities() -Andy
+    * Implement verifyReliabilities() -Andy
+    * Implement getFinalReliabilityRow() -Andy
+* JavaDoc ReliabilityAnalysis and ReliabilityAnalysisTest -Group with review by Jackson
+* Update UML diagrams -Matt
+* Make tests for ReliabilityAnalysis
+    * testVerifyReliabilities() -Jackie
+    * testVerifyReliabilitiesStress() -Jackie , Andy
+    * testCarryForwardReliabilities() -Jackie
+    * testSetReliabilities() -Jackie
+    * testSetReliabilityHeaderRow() -Jackie
+    * testSetReliabilityHeaderRowStress() -Jackie
+    * testGetReliabilities() -Matt
+    * testBuildReliabilityTable() -Matt
+    * testPrintRaTable() -Matt
+    * testSetInitialStateForReleasedFlows() -Matt
+* Check the UML diagram and the high-level plans for this Sprint
+        
