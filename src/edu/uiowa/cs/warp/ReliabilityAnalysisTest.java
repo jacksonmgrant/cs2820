@@ -101,8 +101,8 @@ class ReliabilityAnalysisTest {
 		boolean actual = tester.verifyReliabilities();
 		
 		double first = Double.parseDouble(expectedData[10][2]);
-		double second = Double.parseDouble(expectedData[20][2]);
-		double third = Double.parseDouble(expectedData[20][5]);
+		double second = Double.parseDouble(expectedData[19][2]);
+		double third = Double.parseDouble(expectedData[19][5]);
 		
 		if ((first < e2e) || (second < e2e) || (third < e2e)) {
 			standing = false; }
@@ -129,7 +129,7 @@ class ReliabilityAnalysisTest {
 		boolean actual = testerStress.verifyReliabilities();
 		
 		ReliabilityTable stressTable = testerStress.getReliabilities();
-		if (stressTable.get(58, 100) > e2e) 
+		if (stressTable.get(57, 99) > e2e) 
 			standing = false;
 		
 		assertFalse(actual);
