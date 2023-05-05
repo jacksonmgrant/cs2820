@@ -114,7 +114,7 @@ Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the Reliabili
     * Create testCreateTitle() -Jackson
 * Continued planning Sprint 3 and stub out methods & tests -Group
 
-## Sprint 2 - Coding ReliabilityAnalysis and it's tests
+## Sprint 3 - Coding ReliabilityAnalysis and it's tests
 * Update ReadMe to document who finished each task -Jackie
 * Fully code ReliabilityAnalysis
     * Bug fix from HW5 -Jackson
