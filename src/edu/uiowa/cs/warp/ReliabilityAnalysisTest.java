@@ -10,7 +10,7 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 /** 
  * Tests the class ReliabilityAnalysis using the files Example1a.txt and some from StressTest4.txt to make sure the 
  * methods are properly set up. In these tests, Jackie wrote the testVerifyReliabilities(), testVerifyReliabilitiesStress(), 
- * testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow(), and testSetReliabilityHeaderRow().
+ * testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow(), and testSetReliabilityHeaderRowStress().
  * Matt wrote the test for testGetReliabilities(), testBuildReliabilityTable(), testPrintRaTable(), and
  * testSetInitialStateForReleasedFlows().
  * 
