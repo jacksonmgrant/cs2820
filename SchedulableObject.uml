@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_B2lKQLhiEe2UuoshngsjNA" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_B2lKQbhiEe2UuoshngsjNA" source="codegen">
         <details xmi:id="_B2lKQrhiEe2UuoshngsjNA" key="codegenDirectory" value="/cs2820/src"/>
-        <details xmi:id="_KANj0bhiEe2UuoshngsjNA" key="AssociatedSourceCode" value="/cs2820/src/edu/uiowa/cs/warp/AbstractMap.java;2633489473/1;/cs2820/src/edu/uiowa/cs/warp/Activation.java;3634548837/1;/cs2820/src/edu/uiowa/cs/warp/Activations.java;3305092594/1;/cs2820/src/edu/uiowa/cs/warp/BasicPoset.java;3238489715/1;/cs2820/src/edu/uiowa/cs/warp/ChannelAnalysis.java;1217720653/1;/cs2820/src/edu/uiowa/cs/warp/ChannelVisualization.java;2873127052/1;/cs2820/src/edu/uiowa/cs/warp/Channels.java;3701064188/1;/cs2820/src/edu/uiowa/cs/warp/CodeFragment.java;1941462046/1;/cs2820/src/edu/uiowa/cs/warp/CombinedActivation.java;3978818808/1;/cs2820/src/edu/uiowa/cs/warp/CommunicationGraph.java;724670632/1;/cs2820/src/edu/uiowa/cs/warp/ConnectivityPoset.java;3754377617/1;/cs2820/src/edu/uiowa/cs/warp/DeadlineComparator.java;492899634/1;/cs2820/src/edu/uiowa/cs/warp/Description.java;2596849957/1;/cs2820/src/edu/uiowa/cs/warp/Edge.java;3274728775/1;/cs2820/src/edu/uiowa/cs/warp/FileManager.java;1791012323/1;/cs2820/src/edu/uiowa/cs/warp/Flow.java;559645871/1;/cs2820/src/edu/uiowa/cs/warp/FlowMap.java;3735737588/1;/cs2820/src/edu/uiowa/cs/warp/FlowNodeToActivationMap.java;4234899521/1;/cs2820/src/edu/uiowa/cs/warp/GraphViz.java;1071888484/1;/cs2820/src/edu/uiowa/cs/warp/GraphVizListener.java;2126849807/1;/cs2820/src/edu/uiowa/cs/warp/GuiVisualization.java;654882569/1;/cs2820/src/edu/uiowa/cs/warp/InputGraphFile.java;937049578/1;/cs2820/src/edu/uiowa/cs/warp/InstructionTimeSlot.java;3408505142/1;/cs2820/src/edu/uiowa/cs/warp/LatencyAnalysis.java;2064230864/1;/cs2820/src/edu/uiowa/cs/warp/LatencyVisualization.java;2426998793/1;/cs2820/src/edu/uiowa/cs/warp/LatestReleaseTimeComparator.java;1106993157/1;/cs2820/src/edu/uiowa/cs/warp/MaxPhaseComparator.java;1745026972/1;/cs2820/src/edu/uiowa/cs/warp/Node.java;1243472081/1;/cs2820/src/edu/uiowa/cs/warp/NodeMap.java;2177811796/1;/cs2820/src/edu/uiowa/cs/warp/NonPreemptiveSchedule.java;387408079/1;/cs2820/src/edu/uiowa/cs/warp/NotImplentedVisualization.java;3646556153/1;/cs2820/src/edu/uiowa/cs/warp/PeriodComparator.java;3057078727/1;/cs2820/src/edu/uiowa/cs/warp/Poset.java;4263200805/1;/cs2820/src/edu/uiowa/cs/warp/PreemptiveSchedule.java;3080876127/1;/cs2820/src/edu/uiowa/cs/warp/PriorityComparator.java;349151360/1;/cs2820/src/edu/uiowa/cs/warp/Program.java;2750337732/1;/cs2820/src/edu/uiowa/cs/warp/ProgramSchedule.java;1770485609/1;/cs2820/src/edu/uiowa/cs/warp/ProgramVisualization.java;1316782014/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeComparator.java;2065273961/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeQueue.java;1776494724/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityAnalysis.java;755733015/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityParameters.java;1976749484/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityRow.java;3195166460/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityTable.java;2918095589/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityVisualization.java;4166646452/1;/cs2820/src/edu/uiowa/cs/warp/ReportVisualization.java;2571131140/1;/cs2820/src/edu/uiowa/cs/warp/Row.java;3413533457/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObject.java;2451757979/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObjectQueue.java;3263525257/1;/cs2820/src/edu/uiowa/cs/warp/Schedule.java;3152618411/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTable.java;970860350/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTime.java;2579980776/1;/cs2820/src/edu/uiowa/cs/warp/SimulatorInput.java;3699590899/1;/cs2820/src/edu/uiowa/cs/warp/SortedPeriodQueue.java;3537725478/1;/cs2820/src/edu/uiowa/cs/warp/SystemAttributes.java;876440066/1;/cs2820/src/edu/uiowa/cs/warp/SystemFactory.java;4134708055/1;/cs2820/src/edu/uiowa/cs/warp/Table.java;2577872269/1;/cs2820/src/edu/uiowa/cs/warp/Visualization.java;2548788944/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationFactory.java;1134295780/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationImplementation.java;2803977720/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationObject.java;1022989847/1;/cs2820/src/edu/uiowa/cs/warp/Warp.java;1531133216/1;/cs2820/src/edu/uiowa/cs/warp/WarpDSL.java;1986156920/1;/cs2820/src/edu/uiowa/cs/warp/WarpInterface.java;2926400465/1;/cs2820/src/edu/uiowa/cs/warp/WarpPoset.java;4000167019/1;/cs2820/src/edu/uiowa/cs/warp/WarpSystem.java;1603794739/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadDescription.java;3772857374/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoad.java;2978729470/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadListener.java;3333188147/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadTest.java;2658600754/1;"/>
+        <details xmi:id="_KANj0bhiEe2UuoshngsjNA" key="AssociatedSourceCode" value="/cs2820/src/edu/uiowa/cs/warp/AbstractMap.java;2633489473/1;/cs2820/src/edu/uiowa/cs/warp/Activation.java;3634548837/1;/cs2820/src/edu/uiowa/cs/warp/Activations.java;3305092594/1;/cs2820/src/edu/uiowa/cs/warp/BasicPoset.java;3238489715/1;/cs2820/src/edu/uiowa/cs/warp/ChannelAnalysis.java;1217720653/1;/cs2820/src/edu/uiowa/cs/warp/ChannelVisualization.java;2873127052/1;/cs2820/src/edu/uiowa/cs/warp/Channels.java;3701064188/1;/cs2820/src/edu/uiowa/cs/warp/CodeFragment.java;1941462046/1;/cs2820/src/edu/uiowa/cs/warp/CombinedActivation.java;3978818808/1;/cs2820/src/edu/uiowa/cs/warp/CommunicationGraph.java;724670632/1;/cs2820/src/edu/uiowa/cs/warp/ConnectivityPoset.java;3754377617/1;/cs2820/src/edu/uiowa/cs/warp/DeadlineComparator.java;492899634/1;/cs2820/src/edu/uiowa/cs/warp/Description.java;2596849957/1;/cs2820/src/edu/uiowa/cs/warp/Edge.java;3274728775/1;/cs2820/src/edu/uiowa/cs/warp/FileManager.java;1791012323/1;/cs2820/src/edu/uiowa/cs/warp/Flow.java;559645871/1;/cs2820/src/edu/uiowa/cs/warp/FlowMap.java;3735737588/1;/cs2820/src/edu/uiowa/cs/warp/FlowNodeToActivationMap.java;4234899521/1;/cs2820/src/edu/uiowa/cs/warp/GraphViz.java;1071888484/1;/cs2820/src/edu/uiowa/cs/warp/GraphVizListener.java;2126849807/1;/cs2820/src/edu/uiowa/cs/warp/GuiVisualization.java;654882569/1;/cs2820/src/edu/uiowa/cs/warp/InputGraphFile.java;937049578/1;/cs2820/src/edu/uiowa/cs/warp/InstructionTimeSlot.java;3408505142/1;/cs2820/src/edu/uiowa/cs/warp/LatencyAnalysis.java;2064230864/1;/cs2820/src/edu/uiowa/cs/warp/LatencyVisualization.java;2426998793/1;/cs2820/src/edu/uiowa/cs/warp/LatestReleaseTimeComparator.java;1106993157/1;/cs2820/src/edu/uiowa/cs/warp/MaxPhaseComparator.java;1745026972/1;/cs2820/src/edu/uiowa/cs/warp/Node.java;1243472081/1;/cs2820/src/edu/uiowa/cs/warp/NodeMap.java;2177811796/1;/cs2820/src/edu/uiowa/cs/warp/NonPreemptiveSchedule.java;387408079/1;/cs2820/src/edu/uiowa/cs/warp/NotImplentedVisualization.java;3646556153/1;/cs2820/src/edu/uiowa/cs/warp/PeriodComparator.java;3057078727/1;/cs2820/src/edu/uiowa/cs/warp/Poset.java;4263200805/1;/cs2820/src/edu/uiowa/cs/warp/PreemptiveSchedule.java;3080876127/1;/cs2820/src/edu/uiowa/cs/warp/PriorityComparator.java;349151360/1;/cs2820/src/edu/uiowa/cs/warp/Program.java;2750337732/1;/cs2820/src/edu/uiowa/cs/warp/ProgramSchedule.java;1770485609/1;/cs2820/src/edu/uiowa/cs/warp/ProgramVisualization.java;1316782014/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeComparator.java;2065273961/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeQueue.java;1776494724/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityAnalysis.java;755733015/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityParameters.java;1976749484/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityRow.java;3195166460/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityTable.java;2918095589/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityVisualization.java;4166646452/1;/cs2820/src/edu/uiowa/cs/warp/ReportVisualization.java;2571131140/1;/cs2820/src/edu/uiowa/cs/warp/Row.java;3413533457/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObject.java;2451757979/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObjectQueue.java;3263525257/1;/cs2820/src/edu/uiowa/cs/warp/Schedule.java;3152618411/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTable.java;970860350/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTime.java;2579980776/1;/cs2820/src/edu/uiowa/cs/warp/SimulatorInput.java;3699590899/1;/cs2820/src/edu/uiowa/cs/warp/SortedPeriodQueue.java;3537725478/1;/cs2820/src/edu/uiowa/cs/warp/SystemAttributes.java;876440066/1;/cs2820/src/edu/uiowa/cs/warp/SystemFactory.java;4134708055/1;/cs2820/src/edu/uiowa/cs/warp/Table.java;2577872269/1;/cs2820/src/edu/uiowa/cs/warp/Visualization.java;2548788944/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationFactory.java;1134295780/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationImplementation.java;2803977720/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationObject.java;1022989847/1;/cs2820/src/edu/uiowa/cs/warp/Warp.java;1531133216/1;/cs2820/src/edu/uiowa/cs/warp/WarpDSL.java;1986156920/1;/cs2820/src/edu/uiowa/cs/warp/WarpInterface.java;2926400465/1;/cs2820/src/edu/uiowa/cs/warp/WarpPoset.java;4000167019/1;/cs2820/src/edu/uiowa/cs/warp/WarpSystem.java;1603794739/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadDescription.java;3772857374/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoad.java;2978729470/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadListener.java;3333188147/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadTest.java;2658600754/1;/cs2820-spring23/src/edu/uiowa/cs/warp/SchedulableObject.java;2451757979/1;"/>
       </contents>
     </eAnnotations>
     <elementImport xmi:id="_DA0v0LhiEe2UuoshngsjNA">
@@ -7347,6 +7347,11 @@ the file visualization that is requested in Warp.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_DH190LhiEe2UuoshngsjNA" name="SchedulableObject" isAbstract="true">
+              <eAnnotations xmi:id="_Qo09kOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_Qo09ketaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_Qo09kutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
               <ownedAttribute xmi:id="_DcSj0rhiEe2UuoshngsjNA" name="DEFAULT" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 <defaultValue xmi:type="uml:LiteralString" xmi:id="_DcTK4LhiEe2UuoshngsjNA" value="0"/>
@@ -7399,7 +7404,9 @@ the file visualization that is requested in Warp.&#xD;
               <ownedAttribute xmi:id="_DcWOMbhiEe2UuoshngsjNA" name="endTimes" visibility="private" type="_DHnUU7hiEe2UuoshngsjNA" association="_DezsUbhiEe2UuoshngsjNA"/>
               <ownedAttribute xmi:id="_DcW1QbhiEe2UuoshngsjNA" name="subObjects" type="_DY__QbhiEe2UuoshngsjNA" isReadOnly="true" association="_De0TYLhiEe2UuoshngsjNA"/>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdlkYbhiEe2UuoshngsjNA" name="SchedulableObject" specification="_DH3L8LhiEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_DdlkYrhiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_DdlkYrhiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>setDefaultParameters();&#xD;
 		setNextReleaseTime(0); // initialize parameters&#xD;
@@ -7411,7 +7418,9 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdmLYrhiEe2UuoshngsjNA" name="time">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
-                <ownedParameter xmi:id="_DdmLY7hiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_DdmLY7hiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.name = obj.getName();&#xD;
 		this.priority = obj.getPriority();&#xD;
@@ -7443,7 +7452,9 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdmLaLhiEe2UuoshngsjNA" name="phase">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
-                <ownedParameter xmi:id="_DdmLabhiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_DdmLabhiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>setDefaultParameters();&#xD;
 		this.priority = priority;&#xD;
@@ -7470,7 +7481,9 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdmLb7hiEe2UuoshngsjNA" name="phase">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
-                <ownedParameter xmi:id="_DdmLcLhiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_DdmLcLhiEe2UuoshngsjNA" type="_DH190LhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>setDefaultParameters();&#xD;
 		this.name = name;&#xD;
@@ -7497,7 +7510,9 @@ the file visualization that is requested in Warp.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdmLcrhiEe2UuoshngsjNA" name="getAllEndTimes" specification="_DH6PQLhiEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_DdmLc7hiEe2UuoshngsjNA" type="_DHnUU7hiEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_DdmLc7hiEe2UuoshngsjNA" type="_DHnUU7hiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return endTimes;&#xD;
 	</body>
@@ -7517,6 +7532,7 @@ the file visualization that is requested in Warp.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdmLdrhiEe2UuoshngsjNA" name="peekEndTimes" specification="_DH62ULhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdmLd7hiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7536,6 +7552,7 @@ the file visualization that is requested in Warp.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdmLe7hiEe2UuoshngsjNA" name="getName" specification="_DH62U7hiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdmLfLhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7552,6 +7569,7 @@ the file visualization that is requested in Warp.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdmycLhiEe2UuoshngsjNA" name="getReleaseTime" specification="_DH7dYrhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdmycbhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7560,6 +7578,7 @@ the file visualization that is requested in Warp.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdmycrhiEe2UuoshngsjNA" name="getPhase" specification="_DH7dZLhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_Ddmyc7hiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7568,6 +7587,7 @@ the file visualization that is requested in Warp.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdmydLhiEe2UuoshngsjNA" name="getStartTime" specification="_DH7dZrhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdmydbhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7634,6 +7654,7 @@ the file visualization that is requested in Warp.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdnZgLhiEe2UuoshngsjNA" name="maxPhaseComparison" specification="_DZB0dbhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdnZgbhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdnZgrhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7645,6 +7666,7 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdnZhLhiEe2UuoshngsjNA" name="obj1" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdnZhbhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdnZhrhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7654,6 +7676,7 @@ the file visualization that is requested in Warp.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdnZh7hiEe2UuoshngsjNA" name="deadlineComparison" specification="_DZCbhLhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdnZiLhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdnZibhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7665,6 +7688,7 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdnZi7hiEe2UuoshngsjNA" name="obj1" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdnZjLhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdnZjbhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7674,6 +7698,7 @@ the file visualization that is requested in Warp.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdnZjrhiEe2UuoshngsjNA" name="periodComparison" specification="_DZDCkLhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdnZj7hiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdnZkLhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7685,6 +7710,7 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdoAkbhiEe2UuoshngsjNA" name="obj1" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAkrhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAk7hiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7694,6 +7720,7 @@ the file visualization that is requested in Warp.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdoAlLhiEe2UuoshngsjNA" name="priorityComparison" specification="_DZDCl7hiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdoAlbhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAlrhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7705,6 +7732,7 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdoAmLhiEe2UuoshngsjNA" name="obj1" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAmbhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAmrhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7714,6 +7742,7 @@ the file visualization that is requested in Warp.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdoAm7hiEe2UuoshngsjNA" name="releaseTimeComparison" specification="_DZEQtLhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdoAnLhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAnbhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7725,6 +7754,7 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdoAn7hiEe2UuoshngsjNA" name="obj1" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAoLhiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAobhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7734,6 +7764,7 @@ the file visualization that is requested in Warp.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DdoAorhiEe2UuoshngsjNA" name="LatestReleaseTimeComparison" specification="_DZE3xbhiEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_DdoAo7hiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoApLhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7745,6 +7776,7 @@ the file visualization that is requested in Warp.&#xD;
                 <ownedParameter xmi:id="_DdoAprhiEe2UuoshngsjNA" name="obj1" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAp7hiEe2UuoshngsjNA" name="obj2" type="_DH190LhiEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_DdoAqLhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7759,6 +7791,7 @@ the file visualization that is requested in Warp.&#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_DdoArLhiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7777,6 +7810,7 @@ the file visualization that is requested in Warp.&#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_Ddono7hiEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
                 </ownedParameter>
                 <language>java</language>
@@ -7855,7 +7889,7 @@ the file visualization that is requested in Warp.&#xD;
               </ownedOperation>
               <ownedOperation xmi:id="_DH5oMLhiEe2UuoshngsjNA" name="setDefaultParameters" visibility="private" method="_DdmLcbhiEe2UuoshngsjNA"/>
               <ownedOperation xmi:id="_DH6PQLhiEe2UuoshngsjNA" name="getAllEndTimes" method="_DdmLcrhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTkbhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIgetaEe2AXuuM87VQiQ">
                   <body>@return the endTimes queue</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DZB0crhiEe2UuoshngsjNA" type="_DHnUU7hiEe2UuoshngsjNA" direction="return"/>
@@ -7872,7 +7906,7 @@ the file visualization that is requested in Warp.&#xD;
               </ownedOperation>
               <ownedOperation xmi:id="_DH62UrhiEe2UuoshngsjNA" name="pollEndTimes" method="_DdmLeLhiEe2UuoshngsjNA"/>
               <ownedOperation xmi:id="_DH62U7hiEe2UuoshngsjNA" name="getName" method="_DdmLe7hiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTkrhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIgutaEe2AXuuM87VQiQ">
                   <body>@return the name</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH62VLhiEe2UuoshngsjNA" direction="return">
@@ -7880,7 +7914,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH7dYLhiEe2UuoshngsjNA" name="setName" method="_DdmLfbhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTk7hiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIg-taEe2AXuuM87VQiQ">
                   <body>@param name the name to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH7dYbhiEe2UuoshngsjNA" name="name">
@@ -7888,7 +7922,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH7dYrhiEe2UuoshngsjNA" name="getReleaseTime" method="_DdmycLhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTlLhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIhOtaEe2AXuuM87VQiQ">
                   <body>@return the releaseTime</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH7dY7hiEe2UuoshngsjNA" direction="return">
@@ -7896,7 +7930,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH7dZLhiEe2UuoshngsjNA" name="getPhase" method="_DdmycrhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTlbhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIhetaEe2AXuuM87VQiQ">
                   <body>@return the phase</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH7dZbhiEe2UuoshngsjNA" direction="return">
@@ -7904,7 +7938,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH7dZrhiEe2UuoshngsjNA" name="getStartTime" method="_DdmydLhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTlrhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIhutaEe2AXuuM87VQiQ">
                   <body>@return the startTime</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH8EcLhiEe2UuoshngsjNA" direction="return">
@@ -7912,7 +7946,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH8EcbhiEe2UuoshngsjNA" name="setEndTime" method="_DdmydrhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTl7hiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIh-taEe2AXuuM87VQiQ">
                   <body>@param endTime the endTime to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH8EcrhiEe2UuoshngsjNA" name="endTime">
@@ -7920,7 +7954,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH8Ec7hiEe2UuoshngsjNA" name="setStartTime" method="_DdmyeLhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTmLhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIiOtaEe2AXuuM87VQiQ">
                   <body>@param startTime the startTime to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH8EdLhiEe2UuoshngsjNA" name="startTime">
@@ -7928,7 +7962,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH8rgLhiEe2UuoshngsjNA" name="setReleaseTime" method="_DdmyerhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTmbhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIietaEe2AXuuM87VQiQ">
                   <body>@param releaseTime the releaseTime to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH8rgbhiEe2UuoshngsjNA" name="releaseTime">
@@ -7936,7 +7970,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH9SkLhiEe2UuoshngsjNA" name="setPeriod" method="_DdmyfLhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTmrhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIiutaEe2AXuuM87VQiQ">
                   <body>@param period the period to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH9SkbhiEe2UuoshngsjNA" name="period">
@@ -7944,7 +7978,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH9SkrhiEe2UuoshngsjNA" name="setPhase" method="_DdmyfrhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTm7hiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBvkOtaEe2AXuuM87VQiQ">
                   <body>@param phase the phase to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH9Sk7hiEe2UuoshngsjNA" name="phase">
@@ -7952,7 +7986,7 @@ the file visualization that is requested in Warp.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_DH95oLhiEe2UuoshngsjNA" name="setNextReleaseTime" method="_DdmygLhiEe2UuoshngsjNA">
-                <ownedComment xmi:id="_DeFTnLhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBvketaEe2AXuuM87VQiQ">
                   <body>@param releaseTime the releaseTime to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_DH95obhiEe2UuoshngsjNA" name="currentTime">
@@ -7991,7 +8025,7 @@ the file visualization that is requested in Warp.&#xD;
                 <eAnnotations xmi:id="_DZBNYLhiEe2UuoshngsjNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                   <details xmi:id="_DZB0cLhiEe2UuoshngsjNA" key="create"/>
                 </eAnnotations>
-                <ownedComment xmi:id="_DeFTkLhiEe2UuoshngsjNA">
+                <ownedComment xmi:id="_rFBIgOtaEe2AXuuM87VQiQ">
                   <body>Constructor that creates a copy of schedulable &#xD;
 	 * parameters of the input obj, but setting its&#xD;
 	 * lastUpdateTime to input time.&#xD;

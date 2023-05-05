@@ -4,7 +4,7 @@
     <eAnnotations xmi:id="_EELyoLhUEe2UuoshngsjNA" source="http://ns.yatta.de/umllab">
       <contents xmi:type="ecore:EAnnotation" xmi:id="_EEMZsLhUEe2UuoshngsjNA" source="codegen">
         <details xmi:id="_EEMZsbhUEe2UuoshngsjNA" key="codegenDirectory" value="/cs2820/src"/>
-        <details xmi:id="_Hhm7wLhUEe2UuoshngsjNA" key="AssociatedSourceCode" value="/cs2820/src/edu/uiowa/cs/warp/AbstractMap.java;2633489473/1;/cs2820/src/edu/uiowa/cs/warp/Activation.java;3634548837/1;/cs2820/src/edu/uiowa/cs/warp/Activations.java;3305092594/1;/cs2820/src/edu/uiowa/cs/warp/BasicPoset.java;3238489715/1;/cs2820/src/edu/uiowa/cs/warp/ChannelAnalysis.java;1217720653/1;/cs2820/src/edu/uiowa/cs/warp/ChannelVisualization.java;2873127052/1;/cs2820/src/edu/uiowa/cs/warp/Channels.java;3701064188/1;/cs2820/src/edu/uiowa/cs/warp/CodeFragment.java;1941462046/1;/cs2820/src/edu/uiowa/cs/warp/CombinedActivation.java;3978818808/1;/cs2820/src/edu/uiowa/cs/warp/CommunicationGraph.java;724670632/1;/cs2820/src/edu/uiowa/cs/warp/ConnectivityPoset.java;3754377617/1;/cs2820/src/edu/uiowa/cs/warp/DeadlineComparator.java;492899634/1;/cs2820/src/edu/uiowa/cs/warp/Description.java;2596849957/1;/cs2820/src/edu/uiowa/cs/warp/Edge.java;3274728775/1;/cs2820/src/edu/uiowa/cs/warp/FileManager.java;1791012323/1;/cs2820/src/edu/uiowa/cs/warp/Flow.java;559645871/1;/cs2820/src/edu/uiowa/cs/warp/FlowMap.java;3735737588/1;/cs2820/src/edu/uiowa/cs/warp/FlowNodeToActivationMap.java;4234899521/1;/cs2820/src/edu/uiowa/cs/warp/GraphViz.java;1071888484/1;/cs2820/src/edu/uiowa/cs/warp/GraphVizListener.java;2126849807/1;/cs2820/src/edu/uiowa/cs/warp/GuiVisualization.java;654882569/1;/cs2820/src/edu/uiowa/cs/warp/InputGraphFile.java;937049578/1;/cs2820/src/edu/uiowa/cs/warp/InstructionTimeSlot.java;3408505142/1;/cs2820/src/edu/uiowa/cs/warp/LatencyAnalysis.java;2064230864/1;/cs2820/src/edu/uiowa/cs/warp/LatencyVisualization.java;2426998793/1;/cs2820/src/edu/uiowa/cs/warp/LatestReleaseTimeComparator.java;1106993157/1;/cs2820/src/edu/uiowa/cs/warp/MaxPhaseComparator.java;1745026972/1;/cs2820/src/edu/uiowa/cs/warp/Node.java;1243472081/1;/cs2820/src/edu/uiowa/cs/warp/NodeMap.java;2177811796/1;/cs2820/src/edu/uiowa/cs/warp/NonPreemptiveSchedule.java;387408079/1;/cs2820/src/edu/uiowa/cs/warp/NotImplentedVisualization.java;3646556153/1;/cs2820/src/edu/uiowa/cs/warp/PeriodComparator.java;3057078727/1;/cs2820/src/edu/uiowa/cs/warp/Poset.java;4263200805/1;/cs2820/src/edu/uiowa/cs/warp/PreemptiveSchedule.java;3080876127/1;/cs2820/src/edu/uiowa/cs/warp/PriorityComparator.java;349151360/1;/cs2820/src/edu/uiowa/cs/warp/Program.java;2750337732/1;/cs2820/src/edu/uiowa/cs/warp/ProgramSchedule.java;1770485609/1;/cs2820/src/edu/uiowa/cs/warp/ProgramVisualization.java;1316782014/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeComparator.java;2065273961/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeQueue.java;1776494724/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityAnalysis.java;1636731781/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityParameters.java;1976749484/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityRow.java;3195166460/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityTable.java;2918095589/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityVisualization.java;4166646452/1;/cs2820/src/edu/uiowa/cs/warp/ReportVisualization.java;2571131140/1;/cs2820/src/edu/uiowa/cs/warp/Row.java;1905091962/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObject.java;2451757979/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObjectQueue.java;3263525257/1;/cs2820/src/edu/uiowa/cs/warp/Schedule.java;3152618411/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTable.java;970860350/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTime.java;2579980776/1;/cs2820/src/edu/uiowa/cs/warp/SimulatorInput.java;3699590899/1;/cs2820/src/edu/uiowa/cs/warp/SortedPeriodQueue.java;3537725478/1;/cs2820/src/edu/uiowa/cs/warp/SystemAttributes.java;876440066/1;/cs2820/src/edu/uiowa/cs/warp/SystemFactory.java;4134708055/1;/cs2820/src/edu/uiowa/cs/warp/Table.java;2577872269/1;/cs2820/src/edu/uiowa/cs/warp/Visualization.java;2548788944/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationFactory.java;1134295780/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationImplementation.java;2803977720/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationObject.java;1022989847/1;/cs2820/src/edu/uiowa/cs/warp/Warp.java;1531133216/1;/cs2820/src/edu/uiowa/cs/warp/WarpDSL.java;1986156920/1;/cs2820/src/edu/uiowa/cs/warp/WarpInterface.java;2926400465/1;/cs2820/src/edu/uiowa/cs/warp/WarpPoset.java;4000167019/1;/cs2820/src/edu/uiowa/cs/warp/WarpSystem.java;1603794739/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadDescription.java;3772857374/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadListener.java;3333188147/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadTest.java;2658600754/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoad.java;2147536034/1;"/>
+        <details xmi:id="_Hhm7wLhUEe2UuoshngsjNA" key="AssociatedSourceCode" value="/cs2820/src/edu/uiowa/cs/warp/AbstractMap.java;2633489473/1;/cs2820/src/edu/uiowa/cs/warp/Activation.java;3634548837/1;/cs2820/src/edu/uiowa/cs/warp/Activations.java;3305092594/1;/cs2820/src/edu/uiowa/cs/warp/BasicPoset.java;3238489715/1;/cs2820/src/edu/uiowa/cs/warp/ChannelAnalysis.java;1217720653/1;/cs2820/src/edu/uiowa/cs/warp/ChannelVisualization.java;2873127052/1;/cs2820/src/edu/uiowa/cs/warp/Channels.java;3701064188/1;/cs2820/src/edu/uiowa/cs/warp/CodeFragment.java;1941462046/1;/cs2820/src/edu/uiowa/cs/warp/CombinedActivation.java;3978818808/1;/cs2820/src/edu/uiowa/cs/warp/CommunicationGraph.java;724670632/1;/cs2820/src/edu/uiowa/cs/warp/ConnectivityPoset.java;3754377617/1;/cs2820/src/edu/uiowa/cs/warp/DeadlineComparator.java;492899634/1;/cs2820/src/edu/uiowa/cs/warp/Description.java;2596849957/1;/cs2820/src/edu/uiowa/cs/warp/Edge.java;3274728775/1;/cs2820/src/edu/uiowa/cs/warp/FileManager.java;1791012323/1;/cs2820/src/edu/uiowa/cs/warp/Flow.java;559645871/1;/cs2820/src/edu/uiowa/cs/warp/FlowMap.java;3735737588/1;/cs2820/src/edu/uiowa/cs/warp/FlowNodeToActivationMap.java;4234899521/1;/cs2820/src/edu/uiowa/cs/warp/GraphViz.java;1071888484/1;/cs2820/src/edu/uiowa/cs/warp/GraphVizListener.java;2126849807/1;/cs2820/src/edu/uiowa/cs/warp/GuiVisualization.java;654882569/1;/cs2820/src/edu/uiowa/cs/warp/InputGraphFile.java;937049578/1;/cs2820/src/edu/uiowa/cs/warp/InstructionTimeSlot.java;3408505142/1;/cs2820/src/edu/uiowa/cs/warp/LatencyAnalysis.java;2064230864/1;/cs2820/src/edu/uiowa/cs/warp/LatencyVisualization.java;2426998793/1;/cs2820/src/edu/uiowa/cs/warp/LatestReleaseTimeComparator.java;1106993157/1;/cs2820/src/edu/uiowa/cs/warp/MaxPhaseComparator.java;1745026972/1;/cs2820/src/edu/uiowa/cs/warp/Node.java;1243472081/1;/cs2820/src/edu/uiowa/cs/warp/NodeMap.java;2177811796/1;/cs2820/src/edu/uiowa/cs/warp/NonPreemptiveSchedule.java;387408079/1;/cs2820/src/edu/uiowa/cs/warp/NotImplentedVisualization.java;3646556153/1;/cs2820/src/edu/uiowa/cs/warp/PeriodComparator.java;3057078727/1;/cs2820/src/edu/uiowa/cs/warp/Poset.java;4263200805/1;/cs2820/src/edu/uiowa/cs/warp/PreemptiveSchedule.java;3080876127/1;/cs2820/src/edu/uiowa/cs/warp/PriorityComparator.java;349151360/1;/cs2820/src/edu/uiowa/cs/warp/Program.java;2750337732/1;/cs2820/src/edu/uiowa/cs/warp/ProgramSchedule.java;1770485609/1;/cs2820/src/edu/uiowa/cs/warp/ProgramVisualization.java;1316782014/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeComparator.java;2065273961/1;/cs2820/src/edu/uiowa/cs/warp/ReleaseTimeQueue.java;1776494724/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityAnalysis.java;1636731781/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityParameters.java;1976749484/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityRow.java;3195166460/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityTable.java;2918095589/1;/cs2820/src/edu/uiowa/cs/warp/ReliabilityVisualization.java;4166646452/1;/cs2820/src/edu/uiowa/cs/warp/ReportVisualization.java;2571131140/1;/cs2820/src/edu/uiowa/cs/warp/Row.java;1905091962/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObject.java;2451757979/1;/cs2820/src/edu/uiowa/cs/warp/SchedulableObjectQueue.java;3263525257/1;/cs2820/src/edu/uiowa/cs/warp/Schedule.java;3152618411/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTable.java;970860350/1;/cs2820/src/edu/uiowa/cs/warp/ScheduleTime.java;2579980776/1;/cs2820/src/edu/uiowa/cs/warp/SimulatorInput.java;3699590899/1;/cs2820/src/edu/uiowa/cs/warp/SortedPeriodQueue.java;3537725478/1;/cs2820/src/edu/uiowa/cs/warp/SystemAttributes.java;876440066/1;/cs2820/src/edu/uiowa/cs/warp/SystemFactory.java;4134708055/1;/cs2820/src/edu/uiowa/cs/warp/Table.java;2577872269/1;/cs2820/src/edu/uiowa/cs/warp/Visualization.java;2548788944/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationFactory.java;1134295780/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationImplementation.java;2803977720/1;/cs2820/src/edu/uiowa/cs/warp/VisualizationObject.java;1022989847/1;/cs2820/src/edu/uiowa/cs/warp/Warp.java;1531133216/1;/cs2820/src/edu/uiowa/cs/warp/WarpDSL.java;1986156920/1;/cs2820/src/edu/uiowa/cs/warp/WarpInterface.java;2926400465/1;/cs2820/src/edu/uiowa/cs/warp/WarpPoset.java;4000167019/1;/cs2820/src/edu/uiowa/cs/warp/WarpSystem.java;1603794739/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadDescription.java;3772857374/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadListener.java;3333188147/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoadTest.java;2658600754/1;/cs2820/src/edu/uiowa/cs/warp/WorkLoad.java;2147536034/1;/cs2820-spring23/src/edu/uiowa/cs/warp/WorkLoadDescription.java;3772857374/1;/cs2820-spring23/src/edu/uiowa/cs/warp/ReliabilityParameters.java;1976749484/1;/cs2820-spring23/src/edu/uiowa/cs/warp/WorkLoad.java;561712645/1;/cs2820-spring23/src/edu/uiowa/cs/warp/WorkLoadTest.java;2658600754/1;/cs2820-spring23/src/edu/uiowa/cs/warp/FlowMap.java;3735737588/1;/cs2820-spring23/src/edu/uiowa/cs/warp/WorkLoadListener.java;3333188147/1;/cs2820-spring23/src/edu/uiowa/cs/warp/CommunicationGraph.java;724670632/1;/cs2820-spring23/src/edu/uiowa/cs/warp/Program.java;2750337732/1;/cs2820-spring23/src/edu/uiowa/cs/warp/LatencyAnalysis.java;2064230864/1;/cs2820-spring23/src/edu/uiowa/cs/warp/WarpSystem.java;1603794739/1;/cs2820-spring23/src/edu/uiowa/cs/warp/NodeMap.java;2177811796/1;/cs2820-spring23/src/edu/uiowa/cs/warp/Poset.java;4263200805/1;/cs2820-spring23/src/edu/uiowa/cs/warp/VisualizationImplementation.java;2803977720/1;"/>
       </contents>
       <contents xmi:type="ecore:EAnnotation" xmi:id="_FfEykMv4Ee2QFfqiYSegRA" source="preferences">
         <contents xmi:type="ecore:EAnnotation" xmi:id="_FfEykcv4Ee2QFfqiYSegRA" source="com.yattasolutions.codegen.reverse">
@@ -1612,7 +1612,12 @@ in Warp.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F04UMLhUEe2UuoshngsjNA" name="CommunicationGraph">
-              <ownedComment xmi:id="_GViKMrhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_ddvagOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_ddvagetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_ddvagutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_dd7nwOtaEe2AXuuM87VQiQ">
                 <body>@author sgoddard2&#xD;
  *</body>
               </ownedComment>
@@ -1628,7 +1633,9 @@ in Warp.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUXskLhUEe2UuoshngsjNA" name="CommunicationGraph" specification="_GMp7ALhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUXskbhUEe2UuoshngsjNA" name="fm" type="_F1Sj4LhUEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_GUXskrhUEe2UuoshngsjNA" name="workLoad" type="_F6kFcLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GUXsk7hUEe2UuoshngsjNA" type="_F04UMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUXsk7hUEe2UuoshngsjNA" type="_F04UMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>// constructor for GraphFile class&#xD;
 		super(fm, workLoad, &quot;.wf&quot;);&#xD;
@@ -1643,7 +1650,9 @@ in Warp.&#xD;
                 <ownedParameter xmi:id="_GUXsl7hUEe2UuoshngsjNA" name="verbose">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
-                <ownedParameter xmi:id="_GUXsmLhUEe2UuoshngsjNA" type="_F04UMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUXsmLhUEe2UuoshngsjNA" type="_F04UMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>// constructor for GraphFile class&#xD;
 		super(fm, workLoad, &quot;.wf&quot;);&#xD;
@@ -1653,7 +1662,9 @@ in Warp.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUXsmbhUEe2UuoshngsjNA" name="createHeader" specification="_F06JYLhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUXsmrhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUXsmrhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>Description header = new Description();&#xD;
 		header.add(String.format(&quot;WARP_%s{\n&quot;,workLoad.getName()));&#xD;
@@ -1661,7 +1672,9 @@ in Warp.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUXsm7hUEe2UuoshngsjNA" name="createFooter" specification="_F07XgLhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUXsnLhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUXsnLhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>Description footer = new Description();&#xD;
 		footer.add(&quot;}\n&quot;);&#xD;
@@ -1669,7 +1682,9 @@ in Warp.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUXsnbhUEe2UuoshngsjNA" name="visualization" specification="_F07-krhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUXsnrhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUXsnrhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>Description content = new Description();&#xD;
      String line = String.format(&#xD;
@@ -1715,6 +1730,7 @@ in Warp.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUXsn7hUEe2UuoshngsjNA" name="createWarpFileContent" specification="_F08lorhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUXsoLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -2694,7 +2710,12 @@ It keeps track of the flows used for the WARP project.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F1q-YLhUEe2UuoshngsjNA" name="FlowMap">
-              <ownedComment xmi:id="_GVj_YLhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_bpf1sOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_bpf1setaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_bpf1sutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_bpkuMOtaEe2AXuuM87VQiQ">
                 <body>FlowMap creates a mapping from flow name to &#xD;
 flow object (&lt;name, Flow>).&#xD;
 &#xD;
@@ -3473,7 +3494,12 @@ headings.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F2F1ILhUEe2UuoshngsjNA" name="LatencyAnalysis">
-              <ownedComment xmi:id="_GVkmcLhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_gaI6MOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_gaI6MetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_gaI6MutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_gaqeoOtaEe2AXuuM87VQiQ">
                 <body>@author sgoddard2&#xD;
 @version 1.3</body>
               </ownedComment>
@@ -3492,7 +3518,9 @@ headings.&#xD;
               <ownedAttribute xmi:id="_GSv78bhUEe2UuoshngsjNA" name="nodeIndex" visibility="private" type="_GMPrULhUEe2UuoshngsjNA" association="_GWbiEbhUEe2UuoshngsjNA"/>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUkg6LhUEe2UuoshngsjNA" name="LatencyAnalysis" specification="_GNbXELhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUkg6bhUEe2UuoshngsjNA" name="warp" type="_F5nqQLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GUkg6rhUEe2UuoshngsjNA" type="_F2F1ILhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUkg6rhUEe2UuoshngsjNA" type="_F2F1ILhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.latencyReport = new Description();&#xD;
  this.program = warp.toProgram();&#xD;
@@ -3503,7 +3531,9 @@ headings.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUlH8LhUEe2UuoshngsjNA" name="LatencyAnalysis" specification="_GNb-ILhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUlH8bhUEe2UuoshngsjNA" name="program" type="_F29X0LhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GUlH8rhUEe2UuoshngsjNA" type="_F2F1ILhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUlH8rhUEe2UuoshngsjNA" type="_F2F1ILhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.latencyReport = new Description();&#xD;
  this.program = program;&#xD;
@@ -3513,7 +3543,9 @@ headings.&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUlH87hUEe2UuoshngsjNA" name="latencyReport" specification="_F2IRYLhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUlH9LhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUlH9LhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>/*&#xD;
   * Build a latency report. Flows are output in priority order (based on the priority used to&#xD;
@@ -3616,6 +3648,7 @@ headings.&#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUlH-rhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -3908,7 +3941,12 @@ requested in Warp.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F2YwELhUEe2UuoshngsjNA" name="NodeMap">
-              <ownedComment xmi:id="_GVkmcrhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_jultgOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_jultgetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_jultgutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_juow0OtaEe2AXuuM87VQiQ">
                 <body>NodeMap creates a mapping from graph node name to &#xD;
 node object (&lt;name, Node>).&#xD;
 &#xD;
@@ -4025,7 +4063,12 @@ node object (&lt;name, Node>).&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F2fdwLhUEe2UuoshngsjNA" name="Poset" isAbstract="true">
-              <ownedComment xmi:id="_GVkmdLhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_lQHKoOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_lQHKoetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_lQHKoutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_lROk8OtaEe2AXuuM87VQiQ">
                 <body>Poset is a partially ordered set of activations&#xD;
 that are partitions of the workload to be scheduled.&#xD;
 This version assumes each activation is a node&#xD;
@@ -4055,7 +4098,9 @@ a transmitter or sender for that edge.&#xD;
               <ownedAttribute xmi:id="_GS7iIbhUEe2UuoshngsjNA" name="activationMap" visibility="package" type="_F1rlcLhUEe2UuoshngsjNA" association="_GWi20LhUEe2UuoshngsjNA"/>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUoLQLhUEe2UuoshngsjNA" name="Poset" specification="_GNoycLhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUoLQbhUEe2UuoshngsjNA" name="workload" type="_F6kFcLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GUoLQrhUEe2UuoshngsjNA" type="_F2fdwLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUoLQrhUEe2UuoshngsjNA" type="_F2fdwLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.workload = workload;&#xD;
 		this.activations = new Activations();&#xD;
@@ -4074,7 +4119,9 @@ a transmitter or sender for that edge.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUoLQ7hUEe2UuoshngsjNA" name="getNodeConnectivity" specification="_F2gr4LhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUoLRLhUEe2UuoshngsjNA" type="_GMPrULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUoLRLhUEe2UuoshngsjNA" type="_GMPrULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>HashMap&lt;String, Integer> map = new HashMap&lt;>();&#xD;
 		&#xD;
@@ -4101,7 +4148,9 @@ a transmitter or sender for that edge.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUoLRbhUEe2UuoshngsjNA" name="getNodeNames" specification="_F2hS8bhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUoLRrhUEe2UuoshngsjNA" type="_GMRggLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUoLRrhUEe2UuoshngsjNA" type="_GMRggLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>var keys = nodeMap.keySet();&#xD;
 		var nodeNames = new ArrayList&lt;String>(keys.size());&#xD;
@@ -4111,6 +4160,7 @@ a transmitter or sender for that edge.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUoyULhUEe2UuoshngsjNA" name="getNodesNamesOrderedAlphabetically" specification="_F2ihELhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUoyUbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GUoyUrhUEe2UuoshngsjNA" value="*"/>
                 </ownedParameter>
@@ -4257,6 +4307,7 @@ a transmitter or sender for that edge.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUpZZbhUEe2UuoshngsjNA" name="findCoordinator" specification="_GREg8rhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUpZZrhUEe2UuoshngsjNA" name="nodesInFlow" type="_GMRggLhUEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_GUpZZ7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -4277,6 +4328,7 @@ a transmitter or sender for that edge.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUqAcLhUEe2UuoshngsjNA" name="buildTxArray" specification="_GRFvELhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUqAcbhUEe2UuoshngsjNA" name="nodesInFlow" type="_GMRggLhUEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_GUqAcrhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GUqAc7hUEe2UuoshngsjNA" value="*"/>
                 </ownedParameter>
@@ -4338,6 +4390,7 @@ a transmitter or sender for that edge.&#xD;
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUqAdbhUEe2UuoshngsjNA" name="getMaxTx" specification="_GNqAkLhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUqAdrhUEe2UuoshngsjNA" name="node" type="_F2Q0QLhUEe2UuoshngsjNA"/>
                 <ownedParameter xmi:id="_GUqAd7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -4353,7 +4406,9 @@ a transmitter or sender for that edge.&#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUqAerhUEe2UuoshngsjNA" name="node" type="_F2Q0QLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GUqAe7hUEe2UuoshngsjNA" type="_Fz9uMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUqAe7hUEe2UuoshngsjNA" type="_Fz9uMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>Activation newPartition = activations.get(name);&#xD;
 		if (newPartition == null) {&#xD;
@@ -4381,6 +4436,7 @@ a transmitter or sender for that edge.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUqngLhUEe2UuoshngsjNA" name="getHyperPeriod" specification="_F2kWQLhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUqngbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -4389,6 +4445,7 @@ a transmitter or sender for that edge.&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUqngrhUEe2UuoshngsjNA" name="getMaxPhase" specification="_F2k9ULhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUqng7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -4409,7 +4466,9 @@ a transmitter or sender for that edge.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUqnhbhUEe2UuoshngsjNA" name="getNextActivation" specification="_F2oAoLhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUqnhrhUEe2UuoshngsjNA" type="_Fz9uMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUqnhrhUEe2UuoshngsjNA" type="_Fz9uMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return priorityQueue.poll();&#xD;
 	</body>
@@ -4421,7 +4480,9 @@ a transmitter or sender for that edge.&#xD;
 	</body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUqnibhUEe2UuoshngsjNA" name="findBaseStation" specification="_F2rrALhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUqnirhUEe2UuoshngsjNA" type="_F2Q0QLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUqnirhUEe2UuoshngsjNA" type="_F2Q0QLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>Node baseStation = null;&#xD;
 		Iterator&lt;Flow> iterator = flows.iterator();&#xD;
@@ -4498,7 +4559,7 @@ a transmitter or sender for that edge.&#xD;
               </ownedOperation>
               <ownedOperation xmi:id="_F2k9UrhUEe2UuoshngsjNA" name="orderActivations" method="_GUqnhLhUEe2UuoshngsjNA"/>
               <ownedOperation xmi:id="_F2oAoLhUEe2UuoshngsjNA" name="getNextActivation" method="_GUqnhbhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVkmd7hUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_lRPMAetaEe2AXuuM87VQiQ">
                   <body>getNextActivation returns the highest priority&#xD;
 	 * partition that has been released at or before input&#xD;
 	 * parameter time.&#xD;
@@ -4509,7 +4570,7 @@ a transmitter or sender for that edge.&#xD;
                 <ownedParameter xmi:id="_GNtD4LhUEe2UuoshngsjNA" type="_Fz9uMLhUEe2UuoshngsjNA" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:id="_F2rrALhUEe2UuoshngsjNA" name="findBaseStation" visibility="protected" method="_GUqnibhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVl0kbhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_lRPMA-taEe2AXuuM87VQiQ">
                   <body>findBaseStation is used by algorithms that generate the&#xD;
 	 * partially ordered set of activations using a base station. &#xD;
 	 * This method searches the set of flows to find the node that&#xD;
@@ -4526,7 +4587,7 @@ a transmitter or sender for that edge.&#xD;
                 <eAnnotations xmi:id="_GNoycrhUEe2UuoshngsjNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                   <details xmi:id="_GNoyc7hUEe2UuoshngsjNA" key="create"/>
                 </eAnnotations>
-                <ownedComment xmi:id="_GVkmdbhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_lROk8etaEe2AXuuM87VQiQ">
                   <body>Partition types:&#xD;
 	 *  &#xD;
 	 *  by node--each node is a partition using only one channel&#xD;
@@ -4552,7 +4613,7 @@ a transmitter or sender for that edge.&#xD;
                 <ownedParameter xmi:id="_GNsc0bhUEe2UuoshngsjNA" type="_Fz9uMLhUEe2UuoshngsjNA" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:id="_GNtD4bhUEe2UuoshngsjNA" name="addActivation" method="_GUqnh7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVl0kLhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_lRPMAutaEe2AXuuM87VQiQ">
                   <body>addElemement adds the partitionElement to the priority queue&#xD;
 	 * &#xD;
 	 * @param activation</body>
@@ -4560,7 +4621,7 @@ a transmitter or sender for that edge.&#xD;
                 <ownedParameter xmi:id="_GNtD4rhUEe2UuoshngsjNA" name="activation" type="_Fz9uMLhUEe2UuoshngsjNA"/>
               </ownedOperation>
               <ownedOperation xmi:id="_GREg8rhUEe2UuoshngsjNA" name="findCoordinator" visibility="protected" method="_GUpZZbhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVkmdrhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_lRPMAOtaEe2AXuuM87VQiQ">
                   <body>*&#xD;
 	 * @param nodesInFlow&#xD;
 	 * @return the node in the flow with highest local connectivity.</body>
@@ -5008,7 +5069,12 @@ priority schedule for the Poset using numChannels. &#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F29X0LhUEe2UuoshngsjNA" name="Program">
-              <ownedComment xmi:id="_GVmboLhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_erPIYOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_erPIYetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_erPIYutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_es7KcOtaEe2AXuuM87VQiQ">
                 <body>@author sgoddard&#xD;
  *</body>
               </ownedComment>
@@ -5070,7 +5136,9 @@ priority schedule for the Poset using numChannels. &#xD;
                 <ownedParameter xmi:id="_GUtDxbhUEe2UuoshngsjNA" name="reportLatency">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
-                <ownedParameter xmi:id="_GUtDxrhUEe2UuoshngsjNA" type="_F29X0LhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUtDxrhUEe2UuoshngsjNA" type="_F29X0LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>setDefaultParameters(workLoad, nChannels, verbose, reportLatency);&#xD;
  buildProgram(choice);&#xD;
@@ -5082,7 +5150,9 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUtDyrhUEe2UuoshngsjNA" name="choice" type="_GRMcwLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GUtDy7hUEe2UuoshngsjNA" type="_F29X0LhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUtDy7hUEe2UuoshngsjNA" type="_F29X0LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>setDefaultParameters(workLoad, nChannels, false, false);&#xD;
  buildProgram(choice);&#xD;
@@ -5117,7 +5187,9 @@ priority schedule for the Poset using numChannels. &#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUtq0LhUEe2UuoshngsjNA" name="toWorkLoad" specification="_F3AbILhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUtq0bhUEe2UuoshngsjNA" type="_F6kFcLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUtq0bhUEe2UuoshngsjNA" type="_F6kFcLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return workLoad;&#xD;
   </body>
@@ -5772,6 +5844,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUtq17hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -5788,6 +5861,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUuR4rhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -5813,6 +5887,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUuR6LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -5833,6 +5908,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUuR7rhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -5853,6 +5929,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUu49LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -5864,6 +5941,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUu497hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -5912,6 +5990,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUu5B7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6119,6 +6198,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUvgBLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6150,6 +6230,7 @@ priority schedule for the Poset using numChannels. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GUvgC7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6339,13 +6420,16 @@ priority schedule for the Poset using numChannels. &#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUwHF7hUEe2UuoshngsjNA" name="getSchedule" specification="_F3KMIbhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUwHGLhUEe2UuoshngsjNA" type="_F3dHELhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUwHGLhUEe2UuoshngsjNA" type="_F3dHELhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return scheduleBuilt;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUwHGbhUEe2UuoshngsjNA" name="getSchedulerName" specification="_F3KzMLhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUwHGrhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6354,6 +6438,7 @@ priority schedule for the Poset using numChannels. &#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUwuILhUEe2UuoshngsjNA" name="getSchChoice" specification="_F3MBULhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUwuIbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6362,6 +6447,7 @@ priority schedule for the Poset using numChannels. &#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUwuIrhUEe2UuoshngsjNA" name="getNumChannels" specification="_F3MBUrhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUwuI7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6370,6 +6456,7 @@ priority schedule for the Poset using numChannels. &#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUwuJLhUEe2UuoshngsjNA" name="getNumTransmissions" specification="_F3NPcrhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUwuJbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6378,6 +6465,7 @@ priority schedule for the Poset using numChannels. &#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUwuJrhUEe2UuoshngsjNA" name="getRealTimeHartFlag" specification="_F3PrsrhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUwuJ7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6393,19 +6481,24 @@ priority schedule for the Poset using numChannels. &#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUwuKrhUEe2UuoshngsjNA" name="getMinPacketReceptionRate" specification="_F3Q50LhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUwuK7hUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUwuK7hUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return workLoad.getMinPacketReceptionRate();&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUxVMLhUEe2UuoshngsjNA" name="getE2e" specification="_F3Rg4rhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUxVMbhUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUxVMbhUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return workLoad.getE2e();&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUxVMrhUEe2UuoshngsjNA" name="getName" specification="_F3SvArhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUxVM7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6414,6 +6507,7 @@ priority schedule for the Poset using numChannels. &#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUxVNLhUEe2UuoshngsjNA" name="getOptimizationFlag" specification="_F3TWE7hUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUxVNbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6421,13 +6515,16 @@ priority schedule for the Poset using numChannels. &#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUxVNrhUEe2UuoshngsjNA" name="deadlineMisses" specification="_F3UkMLhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUxVN7hUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUxVN7hUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return deadlineMisses;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUxVOLhUEe2UuoshngsjNA" name="getNumFaults" specification="_F3UkMbhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GUxVObhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -6435,7 +6532,9 @@ priority schedule for the Poset using numChannels. &#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GUxVOrhUEe2UuoshngsjNA" name="getNodeMapIndex" specification="_F3VLQ7hUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GUxVO7hUEe2UuoshngsjNA" type="_GMPrULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GUxVO7hUEe2UuoshngsjNA" type="_GMPrULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>// create an array of node names sorted alphabetically&#xD;
  var orderedNodes = workLoad.getNodeNamesOrderedAlphabetically(); &#xD;
@@ -6452,7 +6551,7 @@ priority schedule for the Poset using numChannels. &#xD;
   </body>
               </ownedBehavior>
               <ownedOperation xmi:id="_F3AbILhUEe2UuoshngsjNA" name="toWorkLoad" method="_GUtq0LhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVmbobhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_es7KcetaEe2AXuuM87VQiQ">
                   <body>@return the WorkLoad object containing all flows and nodes within the graph.</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_GOAl47hUEe2UuoshngsjNA" type="_F6kFcLhUEe2UuoshngsjNA" direction="return"/>
@@ -6538,7 +6637,7 @@ priority schedule for the Poset using numChannels. &#xD;
               <ownedOperation xmi:id="_F3JlErhUEe2UuoshngsjNA" name="selectDM" method="_GUwHEbhUEe2UuoshngsjNA"/>
               <ownedOperation xmi:id="_F3KMILhUEe2UuoshngsjNA" name="selectRtHART" method="_GUwHErhUEe2UuoshngsjNA"/>
               <ownedOperation xmi:id="_F3KMIbhUEe2UuoshngsjNA" name="getSchedule" method="_GUwHF7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVnpwLhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_es7KcutaEe2AXuuM87VQiQ">
                   <body>@return the completed schedule for the graph</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_GOK98LhUEe2UuoshngsjNA" type="_F3dHELhUEe2UuoshngsjNA" direction="return"/>
@@ -6598,7 +6697,7 @@ priority schedule for the Poset using numChannels. &#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F3VLQ7hUEe2UuoshngsjNA" name="getNodeMapIndex" method="_GUxVOrhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVnpwbhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_es7xgOtaEe2AXuuM87VQiQ">
                   <body>@return a HashMap mapping each node to its index when sorted by alphabetical order</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_GRRVQbhUEe2UuoshngsjNA" type="_GMPrULhUEe2UuoshngsjNA" direction="return"/>
@@ -7257,7 +7356,12 @@ snk nodes from the instruction string in a program schedule time slot.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Interface" xmi:id="_F3sXoLhUEe2UuoshngsjNA" name="ReliabilityParameters" visibility="package">
-              <ownedComment xmi:id="_GVoQ07hUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_WBiHoOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_WBiHoetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_WBiHoutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_WBj80OtaEe2AXuuM87VQiQ">
                 <body>@author sgoddard&#xD;
  *</body>
               </ownedComment>
@@ -9797,7 +9901,12 @@ types of visualizations.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F48U0LhUEe2UuoshngsjNA" name="VisualizationImplementation">
-              <ownedComment xmi:id="_GVqtFLhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_mgcKEOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_mgcKEetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_mgcKEutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_mhPbUOtaEe2AXuuM87VQiQ">
                 <body>VisualizationImplementation class implements the Visualization file,&#xD;
 helping create visualizations for the WARP project based on&#xD;
 the requested information/parameters. &#xD;
@@ -9834,7 +9943,9 @@ the requested information/parameters. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GVEQKLhUEe2UuoshngsjNA" name="choice" type="_GRjpILhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GVEQKbhUEe2UuoshngsjNA" type="_F48U0LhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVEQKbhUEe2UuoshngsjNA" type="_F48U0LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.fm = new FileManager();&#xD;
  this.warp = warp;&#xD;
@@ -9850,7 +9961,9 @@ the requested information/parameters. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GVEQLbhUEe2UuoshngsjNA" name="choice" type="_GRk3QLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GVEQLrhUEe2UuoshngsjNA" type="_F48U0LhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVEQLrhUEe2UuoshngsjNA" type="_F48U0LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.fm = new FileManager();&#xD;
  this.workLoad = workLoad;&#xD;
@@ -9875,6 +9988,7 @@ the requested information/parameters. &#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVE3MrhUEe2UuoshngsjNA" name="toString" specification="_F4__MrhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVE3M7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -9963,6 +10077,7 @@ the requested information/parameters. &#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GVE3PLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -9987,7 +10102,7 @@ the requested information/parameters. &#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F5BNULhUEe2UuoshngsjNA" name="createFileNameTemplate" visibility="private" method="_GVE3OrhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVrUJLhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_mhPbVetaEe2AXuuM87VQiQ">
                   <body>@return the file name template created from the output path and input string.&#xD;
 @param outputDirectory directory where output visualization goes</body>
                 </ownedComment>
@@ -10002,7 +10117,7 @@ the requested information/parameters. &#xD;
                 <eAnnotations xmi:id="_GRkQNLhUEe2UuoshngsjNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                   <details xmi:id="_GRkQNbhUEe2UuoshngsjNA" key="create"/>
                 </eAnnotations>
-                <ownedComment xmi:id="_GVrUILhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_mhPbUetaEe2AXuuM87VQiQ">
                   <body>Constructor that initializes objects, and makes a call to &#xD;
    * VisualizationObject. This creates a visualization for warp.&#xD;
 @param warp any object implementing the Warp interface.&#xD;
@@ -10020,7 +10135,7 @@ the requested information/parameters. &#xD;
                 <eAnnotations xmi:id="_GRleULhUEe2UuoshngsjNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                   <details xmi:id="_GRleUbhUEe2UuoshngsjNA" key="create"/>
                 </eAnnotations>
-                <ownedComment xmi:id="_GVrUIbhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_mhPbUutaEe2AXuuM87VQiQ">
                   <body>Constructor that initializes objects, and makes a call to &#xD;
    * VisualizationObject. This creates a visualization for work load.&#xD;
 @param workLoad Workload that will be visualized&#xD;
@@ -10035,7 +10150,7 @@ the requested information/parameters. &#xD;
                 <ownedParameter xmi:id="_GRleUrhUEe2UuoshngsjNA" type="_F48U0LhUEe2UuoshngsjNA" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:id="_GRleU7hUEe2UuoshngsjNA" name="createVisualization" visibility="private" method="_GVE3NLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVrUIrhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_mhPbU-taEe2AXuuM87VQiQ">
                   <body>Depending on the system choice, implement a visualization accordingly.&#xD;
    * These include source, reliability analysis, simulator input, latency analysis,&#xD;
    * chanel analysis, latency report, and deadline report.&#xD;
@@ -10044,7 +10159,7 @@ the requested information/parameters. &#xD;
                 <ownedParameter xmi:id="_GRleVLhUEe2UuoshngsjNA" name="choice" type="_GRjpILhUEe2UuoshngsjNA"/>
               </ownedOperation>
               <ownedOperation xmi:id="_GRmFYLhUEe2UuoshngsjNA" name="createVisualization" visibility="private" method="_GVE3NrhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVrUI7hUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_mhPbVOtaEe2AXuuM87VQiQ">
                   <body>Depending on the workload choice, implement a visualization accordingly.&#xD;
    * These include communication graph, graphViz, and input graph.&#xD;
 @param choice the requested visualization for work load.</body>
@@ -11279,7 +11394,12 @@ coordinator&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F5tJ0LhUEe2UuoshngsjNA" name="WarpSystem">
-              <ownedComment xmi:id="_GVsiQrhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_iGNacOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_iGNacetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_iGNacutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_iGqtcOtaEe2AXuuM87VQiQ">
                 <body>@author sgoddard&#xD;
 @version 1.4</body>
               </ownedComment>
@@ -11306,7 +11426,9 @@ coordinator&#xD;
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <ownedParameter xmi:id="_GVNaFbhUEe2UuoshngsjNA" name="choice" type="_GRMcwLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GVNaFrhUEe2UuoshngsjNA" type="_F5tJ0LhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVNaFrhUEe2UuoshngsjNA" type="_F5tJ0LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.workLoad = workLoad;&#xD;
  this.numChannels = numChannels;&#xD;
@@ -11314,39 +11436,51 @@ coordinator&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVNaF7hUEe2UuoshngsjNA" name="toWorkload" specification="_F5uX8LhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVNaGLhUEe2UuoshngsjNA" type="_F6kFcLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVNaGLhUEe2UuoshngsjNA" type="_F6kFcLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return workLoad;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOBILhUEe2UuoshngsjNA" name="toProgram" specification="_F5u_ArhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVOBIbhUEe2UuoshngsjNA" type="_F29X0LhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVOBIbhUEe2UuoshngsjNA" type="_F29X0LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return program;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOBIrhUEe2UuoshngsjNA" name="toReliabilityAnalysis" specification="_F5vmE7hUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVOBI7hUEe2UuoshngsjNA" type="_F3rJgLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVOBI7hUEe2UuoshngsjNA" type="_F3rJgLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>ra = new ReliabilityAnalysis(program);&#xD;
  return ra;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOBJLhUEe2UuoshngsjNA" name="toSimulator" specification="_F5wNI7hUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVOBJbhUEe2UuoshngsjNA" type="_F4mWkLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVOBJbhUEe2UuoshngsjNA" type="_F4mWkLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return null;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOBJrhUEe2UuoshngsjNA" name="toLatencyAnalysis" specification="_F5yCULhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVOBJ7hUEe2UuoshngsjNA" type="_F2F1ILhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVOBJ7hUEe2UuoshngsjNA" type="_F2F1ILhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>la = new LatencyAnalysis(this);&#xD;
  return la;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOBKLhUEe2UuoshngsjNA" name="toChannelAnalysis" specification="_F5zQcbhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVOBKbhUEe2UuoshngsjNA" type="_F0bBMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVOBKbhUEe2UuoshngsjNA" type="_F0bBMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>ca = new ChannelAnalysis(this);&#xD;
  return ca;&#xD;
@@ -11354,6 +11488,7 @@ coordinator&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOoMLhUEe2UuoshngsjNA" name="reliabilitiesMet" specification="_F5z3grhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVOoMbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11365,6 +11500,7 @@ coordinator&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOoMrhUEe2UuoshngsjNA" name="deadlinesMet" specification="_F51FobhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVOoM7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11388,6 +11524,7 @@ coordinator&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOoOLhUEe2UuoshngsjNA" name="getNumFaults" specification="_F51ssrhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVOoObhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11395,19 +11532,24 @@ coordinator&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOoOrhUEe2UuoshngsjNA" name="getMinPacketReceptionRate" specification="_F5260rhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVOoO7hUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVOoO7hUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return workLoad.getMinPacketReceptionRate();&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVOoPLhUEe2UuoshngsjNA" name="getE2e" specification="_F53h4rhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVOoPbhUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVOoPbhUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return workLoad.getE2e();&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVPPQLhUEe2UuoshngsjNA" name="getName" specification="_F54I87hUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVPPQbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11416,6 +11558,7 @@ coordinator&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVPPQrhUEe2UuoshngsjNA" name="getSchedulerName" specification="_F55XErhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVPPQ7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11424,6 +11567,7 @@ coordinator&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVPPRLhUEe2UuoshngsjNA" name="getNumTransmissions" specification="_F55-IrhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVPPRbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11432,6 +11576,7 @@ coordinator&#xD;
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVPPRrhUEe2UuoshngsjNA" name="getOptimizationFlag" specification="_F56lM7hUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVPPR7hUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11518,7 +11663,12 @@ coordinator&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F6ChALhUEe2UuoshngsjNA" name="WorkLoadDescription">
-              <ownedComment xmi:id="_GVsiQ7hUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_VNQyEOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_VNQyEetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_VNQyEutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_XQKd8OtaEe2AXuuM87VQiQ">
                 <body>Reads the input file, whose name is passed as input parameter to the constructor, and builds a&#xD;
 Description object based on the contents. Each line of the file is an entry (string) in the&#xD;
 Description object.&#xD;
@@ -11548,7 +11698,9 @@ Description object.&#xD;
                 <ownedParameter xmi:id="_GVP2UbhUEe2UuoshngsjNA" name="inputFileName">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
-                <ownedParameter xmi:id="_GVP2UrhUEe2UuoshngsjNA" type="_F6ChALhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVP2UrhUEe2UuoshngsjNA" type="_F6ChALhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>super(new FileManager(), EMPTY, INPUT_FILE_SUFFIX); // VisualizationObject constructor&#xD;
  this.fm = this.getFileManager();&#xD;
@@ -11556,19 +11708,24 @@ Description object.&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVP2U7hUEe2UuoshngsjNA" name="visualization" specification="_F6EWMLhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVP2VLhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVP2VLhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return description;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVP2VbhUEe2UuoshngsjNA" name="fileVisualization" specification="_F6E9QrhUEe2UuoshngsjNA">
-                <ownedParameter xmi:id="_GVP2VrhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVP2VrhUEe2UuoshngsjNA" type="_F1DTULhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>return description;&#xD;
   </body>
               </ownedBehavior>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVQdYLhUEe2UuoshngsjNA" name="toString" specification="_F6GycLhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVQdYbhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
                   <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
                 </ownedParameter>
                 <language>java</language>
@@ -11639,7 +11796,7 @@ Description object.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6IAkLhUEe2UuoshngsjNA" name="main" isStatic="true" method="_GVQdZLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GVtJULhUEe2UuoshngsjNA">
+                <ownedComment xmi:id="_XQKd8etaEe2AXuuM87VQiQ">
                   <body>Returns Flows alphabetically.&#xD;
 	 *&#xD;
 	 * @param args instantiates WorkLoadDescription, prints StressTest.txt alphabetically</body>
@@ -11651,7 +11808,12 @@ Description object.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F6Kc0LhUEe2UuoshngsjNA" name="WorkLoadListener" visibility="package" isLeaf="true">
-              <ownedComment xmi:id="_GVtJUbhUEe2UuoshngsjNA">
+              <eAnnotations xmi:id="_cmebUOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_cmfCYOtaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_cmfCYetaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_cm2OwOtaEe2AXuuM87VQiQ">
                 <body>@author sgoddard&#xD;
  *</body>
               </ownedComment>
@@ -11662,7 +11824,9 @@ Description object.&#xD;
               </ownedAttribute>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVREcLhUEe2UuoshngsjNA" name="WorkLoadListener" specification="_GPjeALhUEe2UuoshngsjNA">
                 <ownedParameter xmi:id="_GVREcbhUEe2UuoshngsjNA" name="workLoad" type="_F6kFcLhUEe2UuoshngsjNA"/>
-                <ownedParameter xmi:id="_GVREcrhUEe2UuoshngsjNA" type="_F6Kc0LhUEe2UuoshngsjNA" direction="return"/>
+                <ownedParameter xmi:id="_GVREcrhUEe2UuoshngsjNA" type="_F6Kc0LhUEe2UuoshngsjNA" direction="return">
+                  <name xsi:nil="true"/>
+                </ownedParameter>
                 <language>java</language>
                 <body>this.workLoad = workLoad; // used to populate the workLoad as the input file is read&#xD;
      this.currentFlow = new String();&#xD;
@@ -11809,6 +11973,11 @@ Description object.&#xD;
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F6OHMLhUEe2UuoshngsjNA" name="WorkLoadTest" visibility="package">
+              <eAnnotations xmi:id="_adD3wOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_adD3wetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_adD3wutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
               <ownedAttribute xmi:id="_GT_SELhUEe2UuoshngsjNA" name="stressTestWorkLoad" visibility="private" type="_F6kFcLhUEe2UuoshngsjNA" association="_GW1KsbhUEe2UuoshngsjNA"/>
               <ownedAttribute xmi:id="_GT_5ILhUEe2UuoshngsjNA" name="exampleThreeWorkLoad" visibility="private" type="_F6kFcLhUEe2UuoshngsjNA" association="_GW1KtLhUEe2UuoshngsjNA"/>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GVTgsLhUEe2UuoshngsjNA" name="setUp" specification="_F6S_sLhUEe2UuoshngsjNA">
@@ -12023,7 +12192,12 @@ Description object.&#xD;
               <ownedOperation xmi:id="_F6hpMbhUEe2UuoshngsjNA" name="testMaxFlowLength" visibility="package" method="_GVUu1bhUEe2UuoshngsjNA"/>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_F6kFcLhUEe2UuoshngsjNA" name="WorkLoad">
-              <ownedComment xmi:id="_GsqnFcv4Ee2QFfqiYSegRA">
+              <eAnnotations xmi:id="_YPqzIOtaEe2AXuuM87VQiQ" source="http://ns.yatta.de/umllab">
+                <contents xmi:type="ecore:EAnnotation" xmi:id="_YPqzIetaEe2AXuuM87VQiQ" source="codegen">
+                  <details xmi:id="_YPqzIutaEe2AXuuM87VQiQ" key="codegenDirectory" value="/cs2820-spring23/src"/>
+                </contents>
+              </eAnnotations>
+              <ownedComment xmi:id="_oZ4X8OtaEe2AXuuM87VQiQ">
                 <body>Build the nodes and flows for the workload described in the workload description file, whose name&#xD;
 is passed into the Constructor via the parameter inputFileName. Good default values for the&#xD;
 constructors are m = 0.9, e2e = 0.99, and numFaults = 1 when the second constructor is used.&#xD;
@@ -12620,7 +12794,7 @@ the per node and total transmission attempts.&#xD;
    /* set numTxPerLink based on numFaults */&#xD;
    flowNode.numTxPerLink = numFaults + 1;&#xD;
    /* Now compute nTx per link to reach E2E requirement. */&#xD;
-   ReliabilityAnalysis analyzer = new ReliabilityAnalysis(e2e, minPacketReceptionRate);&#xD;
+   ReliabilityAnalysis analyzer = new ReliabilityAnalysis(numFaults);&#xD;
    ArrayList&lt;Integer> linkTxAndTotalCost = analyzer.numTxPerLinkAndTotalTxCost(flowNode);&#xD;
    flowNode.linkTxAndTotalCost = linkTxAndTotalCost;&#xD;
    flows.put(flowName, flowNode); // update flow node in Flows array&#xD;
@@ -12815,13 +12989,13 @@ the per node and total transmission attempts.&#xD;
               </ownedBehavior>
               <ownedOperation xmi:id="_F6oW4LhUEe2UuoshngsjNA" name="setDefaultParameters" visibility="private" method="_GVVV67hUEe2UuoshngsjNA"/>
               <ownedOperation xmi:id="_F6oW4bhUEe2UuoshngsjNA" name="getE2e" method="_GVV88LhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsqnGMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X8-taEe2AXuuM87VQiQ">
                   <body>@return the e2e</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_GR6OcLhUEe2UuoshngsjNA" type="_GRQuMLhUEe2UuoshngsjNA" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:id="_F6plALhUEe2UuoshngsjNA" name="getIntForFlowNames" method="_GVV88rhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOIMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X9OtaEe2AXuuM87VQiQ">
                   <body>@return the intForFlowNames</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6plAbhUEe2UuoshngsjNA" direction="return">
@@ -12829,7 +13003,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6qMELhUEe2UuoshngsjNA" name="getName" method="_GVV89LhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOIcv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X9etaEe2AXuuM87VQiQ">
                   <body>@return the name</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6qMEbhUEe2UuoshngsjNA" direction="return">
@@ -12837,7 +13011,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6raMLhUEe2UuoshngsjNA" name="getMaxPhase" method="_GVV8-LhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOI8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X9-taEe2AXuuM87VQiQ">
                   <body>@return the maximum phase of all flows</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6raMbhUEe2UuoshngsjNA" direction="return">
@@ -12845,7 +13019,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6sBQLhUEe2UuoshngsjNA" name="getMinPeriod" method="_GVV8-rhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOJMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X-OtaEe2AXuuM87VQiQ">
                   <body>@return the minimum period of all flows</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6sBQbhUEe2UuoshngsjNA" direction="return">
@@ -12853,7 +13027,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6soULhUEe2UuoshngsjNA" name="setIntForFlowNames" method="_GVWkArhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOJsv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X-utaEe2AXuuM87VQiQ">
                   <body>@param intForFlowNames the intForFlowNames to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6tPYLhUEe2UuoshngsjNA" name="intForFlowNames">
@@ -12861,7 +13035,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6vEkLhUEe2UuoshngsjNA" name="setName" method="_GVWkBLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOJ8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X--taEe2AXuuM87VQiQ">
                   <body>@param name the name to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6vroLhUEe2UuoshngsjNA" name="name">
@@ -12869,7 +13043,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6wSsLhUEe2UuoshngsjNA" name="setNodeChannel" method="_GVWkBrhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOKMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X_OtaEe2AXuuM87VQiQ">
                   <body>@param name the node whose channel is to be set&#xD;
    * @param channel the channel to set</body>
                 </ownedComment>
@@ -12881,7 +13055,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6w5wLhUEe2UuoshngsjNA" name="getNodeChannel" method="_GVWkCbhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOKcv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X_etaEe2AXuuM87VQiQ">
                   <body>@return the node channel</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6w5wbhUEe2UuoshngsjNA" name="name">
@@ -12892,7 +13066,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6xg0LhUEe2UuoshngsjNA" name="addFlow" method="_GVWkDLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOKsv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X_utaEe2AXuuM87VQiQ">
                   <body>Adds a new flow node to the Flows dictionary. Only name, priority, and index are changed from&#xD;
    * the default values. Priority is set to the number of flows already added (index), 0 for first&#xD;
    * flow. This will create a default priority equal to the order listed in the input graph file.&#xD;
@@ -12915,7 +13089,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6yu8bhUEe2UuoshngsjNA" name="addNodeToFlow" method="_GVXLFLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOK8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X_-taEe2AXuuM87VQiQ">
                   <body>Adds the given node to the flow. Creates a new node with default priority if there is not&#xD;
    * already an existing node with the given name. Updates the flow's transmission cost after &#xD;
    * the node has been added.&#xD;
@@ -12931,7 +13105,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6zWALhUEe2UuoshngsjNA" name="getFlowPriority" method="_GVXLF7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1MMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YAOtaEe2AXuuM87VQiQ">
                   <body>Finds the priority of the given node within the given flow.&#xD;
    * &#xD;
    * @param flowName the flow the node belongs to&#xD;
@@ -12989,7 +13163,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F62ZULhUEe2UuoshngsjNA" name="getFlowPriority" method="_GVXyKbhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1Mcv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YAetaEe2AXuuM87VQiQ">
                   <body>@param flowName the flow to get the priority from&#xD;
    * @return the priority of the flow</body>
                 </ownedComment>
@@ -13001,7 +13175,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F63AYLhUEe2UuoshngsjNA" name="getFlowPeriod" method="_GVXyLLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1Msv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YAutaEe2AXuuM87VQiQ">
                   <body>@param flowName the flow to get the period from&#xD;
    * @return the period of the flow</body>
                 </ownedComment>
@@ -13013,7 +13187,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F63AY7hUEe2UuoshngsjNA" name="getFlowDeadline" method="_GVXyL7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1M8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YA-taEe2AXuuM87VQiQ">
                   <body>@param flowName the flow to get the deadline from&#xD;
    * @return the deadline of the flow</body>
                 </ownedComment>
@@ -13025,7 +13199,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F63ncrhUEe2UuoshngsjNA" name="getFlowPhase" method="_GVYZMLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1NMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YBOtaEe2AXuuM87VQiQ">
                   <body>@param flowName the flow to get the phase from&#xD;
    * @return the phase of the flow</body>
                 </ownedComment>
@@ -13037,7 +13211,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F641kLhUEe2UuoshngsjNA" name="getFlowTxAttemptsPerLink" method="_GVYZM7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1Ncv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YBetaEe2AXuuM87VQiQ">
                   <body>@param flowName the flow to retrieve transmission attempts from&#xD;
    * @return the number of transmission attempts for any one link in the flow</body>
                 </ownedComment>
@@ -13049,19 +13223,19 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F65cobhUEe2UuoshngsjNA" name="setFlowsInPriorityOrder" method="_GVYZNrhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1Nsv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YButaEe2AXuuM87VQiQ">
                   <body>Sets flowNamesInPriorityOrder to a List of all flows sorted first by priority, and then by&#xD;
    * index.</body>
                 </ownedComment>
               </ownedOperation>
               <ownedOperation xmi:id="_F65corhUEe2UuoshngsjNA" name="setFlowsInDMorder" method="_GVYZN7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1N8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YB-taEe2AXuuM87VQiQ">
                   <body>Sets flowNamesInPriorityOrder to a List of all flows sorted first by deadline, and then by&#xD;
    * priority.</body>
                 </ownedComment>
               </ownedOperation>
               <ownedOperation xmi:id="_F66DsLhUEe2UuoshngsjNA" name="setFlowsInRMorder" method="_GVYZOLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1OMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YCOtaEe2AXuuM87VQiQ">
                   <body>Sets flowNamesInPriorityOrder to a List of all flows sorted first by period, and then by&#xD;
    * priority.</body>
                 </ownedComment>
@@ -13105,7 +13279,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F69uELhUEe2UuoshngsjNA" name="getNodeNamesOrderedAlphabetically" method="_GVZnVrhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1Ocv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YCetaEe2AXuuM87VQiQ">
                   <body>@return a String array of all node names in alphabetical order</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F69uEbhUEe2UuoshngsjNA" direction="return">
@@ -13120,7 +13294,7 @@ the per node and total transmission attempts.&#xD;
                 <ownedParameter xmi:id="_GP-UwLhUEe2UuoshngsjNA" type="_F1afsLhUEe2UuoshngsjNA" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:id="_F6-8MLhUEe2UuoshngsjNA" name="getFlowNames" method="_GVZnXLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1Osv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YCutaEe2AXuuM87VQiQ">
                   <body>@return a String array with the flow names in their original order from the graph file</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F6-8MbhUEe2UuoshngsjNA" direction="return">
@@ -13129,7 +13303,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F6_jQLhUEe2UuoshngsjNA" name="getNodeIndex" method="_GVaOYLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1O8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4YC-taEe2AXuuM87VQiQ">
                   <body>@param nodeName the node to find the index of&#xD;
    * @return the index of the given node</body>
                 </ownedComment>
@@ -13141,7 +13315,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F7AKULhUEe2UuoshngsjNA" name="getNodesInFlow" method="_GVaOY7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_Gsr1PMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4_AOtaEe2AXuuM87VQiQ">
                   <body>@param flowName the flow to get node names from&#xD;
    * @return an empty array if the flow given doesn't exists, otherwise&#xD;
    * returns an array of the names of the nodes in the given flow</body>
@@ -13155,7 +13329,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F7AxYbhUEe2UuoshngsjNA" name="getHyperPeriod" method="_GVaOZ7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsscQMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4_AetaEe2AXuuM87VQiQ">
                   <body>Calculates the hyperPeriod, which is the smallest time period required to wait&#xD;
    * until all flows can be repeated.&#xD;
    * &#xD;
@@ -13166,7 +13340,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F7BYcLhUEe2UuoshngsjNA" name="getTotalTxAttemptsInFlow" method="_GVaOabhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsscQcv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4_AutaEe2AXuuM87VQiQ">
                   <body>@param flowName the name of the flow being analyzed&#xD;
    * @return the total number of transmission attempts in the flow</body>
                 </ownedComment>
@@ -13178,7 +13352,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F7B_gLhUEe2UuoshngsjNA" name="getNumTxAttemptsPerLink" method="_GVaObLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsscQsv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4_A-taEe2AXuuM87VQiQ">
                   <body>Calculates the number of transmission attempts for each link in a given flow.&#xD;
    * &#xD;
    * @param flowName the name of the flow being analyzed&#xD;
@@ -13194,7 +13368,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_F7D0sLhUEe2UuoshngsjNA" name="maxFlowLength" method="_GVa1c7hUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsscRMv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4_BetaEe2AXuuM87VQiQ">
                   <body>@return the length of the longest flow in the WorkLoad</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_F7D0sbhUEe2UuoshngsjNA" direction="return">
@@ -13202,7 +13376,7 @@ the per node and total transmission attempts.&#xD;
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:id="_GP-UwbhUEe2UuoshngsjNA" name="addEdge" method="_GVa1cLhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsscQ8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4_BOtaEe2AXuuM87VQiQ">
                   <body>Adds an edge to an existing node's list of connected edges.&#xD;
    * &#xD;
    * @param nodeName the node the edge is being added to&#xD;
@@ -13217,7 +13391,7 @@ the per node and total transmission attempts.&#xD;
                 <eAnnotations xmi:id="_GR4ZRLhUEe2UuoshngsjNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                   <details xmi:id="_GR4ZRbhUEe2UuoshngsjNA" key="create"/>
                 </eAnnotations>
-                <ownedComment xmi:id="_GsqnFsv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X8etaEe2AXuuM87VQiQ">
                   <body>Creates a new WorkLoad based on the provided file, packet reception rate, and end to end&#xD;
    * reliability. In addition to initializing the WorkLoad attributes, it will read the input&#xD;
    * file, built the AST of the graph, and build the node and flow data objects. This constructor&#xD;
@@ -13238,7 +13412,7 @@ the per node and total transmission attempts.&#xD;
                 <eAnnotations xmi:id="_GR5nY7hUEe2UuoshngsjNA" source="http://www.eclipse.org/uml2/2.0.0/UML">
                   <details xmi:id="_GR5nZLhUEe2UuoshngsjNA" key="create"/>
                 </eAnnotations>
-                <ownedComment xmi:id="_GsqnF8v4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X8utaEe2AXuuM87VQiQ">
                   <body>Creates a new WorkLoad based on the provided file, packet reception rate, and end to end&#xD;
    * reliability. In addition to initializing the WorkLoad attributes, it will read the input&#xD;
    * file, built the AST of the graph, and build the node and flow data objects.&#xD;
@@ -13259,13 +13433,13 @@ the per node and total transmission attempts.&#xD;
                 <ownedParameter xmi:id="_GR5nZbhUEe2UuoshngsjNA" type="_F6kFcLhUEe2UuoshngsjNA" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:id="_GR6OcbhUEe2UuoshngsjNA" name="setMinPacketReceptionRate" method="_GVV89rhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOIsv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X9utaEe2AXuuM87VQiQ">
                   <body>@param minPacketReceptionRate the minPacketReceptionRate to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_GR6OcrhUEe2UuoshngsjNA" name="minPacketReceptionRate" type="_GRQuMLhUEe2UuoshngsjNA"/>
               </ownedOperation>
               <ownedOperation xmi:id="_GR61gLhUEe2UuoshngsjNA" name="setE2e" method="_GVWkALhUEe2UuoshngsjNA">
-                <ownedComment xmi:id="_GsrOJcv4Ee2QFfqiYSegRA">
+                <ownedComment xmi:id="_oZ4X-etaEe2AXuuM87VQiQ">
                   <body>@param e2e the e2e to set</body>
                 </ownedComment>
                 <ownedParameter xmi:id="_GR61gbhUEe2UuoshngsjNA" name="e2e" type="_GRQuMLhUEe2UuoshngsjNA"/>
@@ -14446,6 +14620,7 @@ the per node and total transmission attempts.&#xD;
   <UMLLabProfile:Generics xmi:id="_GUGm0LhUEe2UuoshngsjNA" genericsValue="String" base_Element="_GUF_wrhUEe2UuoshngsjNA"/>
   <uml:OpaqueBehavior xmi:id="_GVNaELhUEe2UuoshngsjNA" name="getNumChannels" specification="_GT4kYbhUEe2UuoshngsjNA">
     <ownedParameter xmi:id="_GVNaEbhUEe2UuoshngsjNA" direction="return">
+      <name xsi:nil="true"/>
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
     </ownedParameter>
     <language>java</language>

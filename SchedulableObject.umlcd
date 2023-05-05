@@ -27,19 +27,6 @@
       <cardinality xmi:id="_LSfEArhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
     </targetRole>
   </edges>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSRBkLhiEe2UuoshngsjNA" targetItem="_LSiu3rhiEe2UuoshngsjNA" sourceItem="_LSQagLhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSRoobhiEe2UuoshngsjNA" targetItem="_LSiu8rhiEe2UuoshngsjNA" sourceItem="_LSRooLhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSSPsbhiEe2UuoshngsjNA" targetItem="_LSiu97hiEe2UuoshngsjNA" sourceItem="_LSSPsLhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSS2wbhiEe2UuoshngsjNA" targetItem="_LSiu_bhiEe2UuoshngsjNA" sourceItem="_LSS2wLhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSS2w7hiEe2UuoshngsjNA" targetItem="_LSivArhiEe2UuoshngsjNA" sourceItem="_LSS2wrhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSTd0bhiEe2UuoshngsjNA" targetItem="_LSivB7hiEe2UuoshngsjNA" sourceItem="_LSTd0LhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSUr8LhiEe2UuoshngsjNA" targetItem="_LSivDLhiEe2UuoshngsjNA" sourceItem="_LSUE4LhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSV6ELhiEe2UuoshngsjNA" targetItem="_LSivErhiEe2UuoshngsjNA" sourceItem="_LSVTALhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSWhILhiEe2UuoshngsjNA" targetItem="_LSivGLhiEe2UuoshngsjNA" sourceItem="_LSV6EbhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSXIMLhiEe2UuoshngsjNA" targetItem="_LSivHrhiEe2UuoshngsjNA" sourceItem="_LSWhIbhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSXvQLhiEe2UuoshngsjNA" targetItem="_LSivJLhiEe2UuoshngsjNA" sourceItem="_LSXIMbhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSXvQrhiEe2UuoshngsjNA" targetItem="_LSivKrhiEe2UuoshngsjNA" sourceItem="_LSXvQbhiEe2UuoshngsjNA"/>
-  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_LSY9YLhiEe2UuoshngsjNA" targetItem="_LSivT7hiEe2UuoshngsjNA" sourceItem="_LSYWULhiEe2UuoshngsjNA"/>
   <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_LShgQLhiEe2UuoshngsjNA" source="_LSiuYLhiEe2UuoshngsjNA">
     <modelElement href="SchedulableObject.uml#_DezsUbhiEe2UuoshngsjNA"/>
     <stereotypes xmi:id="_LShgQbhiEe2UuoshngsjNA" name="Reference">
@@ -53,6 +40,12 @@
     </sourceRole>
     <targetRole xmi:id="_LShgRrhiEe2UuoshngsjNA" aggregationKind="NONE" name="endTimes" navigable="true">
       <modelElement href="SchedulableObject.uml#_DcWOMbhiEe2UuoshngsjNA"/>
+      <stereotypes xmi:id="_PSD-8OtaEe2AXuuM87VQiQ" name="Generics">
+        <modelElement href="SchedulableObject.uml#_DcWOMrhiEe2UuoshngsjNA"/>
+      </stereotypes>
+      <stereotypes xmi:id="_PSD-8etaEe2AXuuM87VQiQ" name="LegacyStyledElement">
+        <modelElement href="SchedulableObject.uml#_DcW1QLhiEe2UuoshngsjNA"/>
+      </stereotypes>
       <visibility xmi:id="_LShgR7hiEe2UuoshngsjNA" label="-"/>
       <cardinality xmi:id="_LShgSLhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
     </targetRole>
@@ -70,49 +63,26 @@
     </sourceRole>
     <targetRole xmi:id="_LSiHVrhiEe2UuoshngsjNA" aggregationKind="NONE" name="subObjects" navigable="true">
       <modelElement href="SchedulableObject.uml#_DcW1QbhiEe2UuoshngsjNA"/>
+      <stereotypes xmi:id="_PSD-8utaEe2AXuuM87VQiQ" name="Generics">
+        <modelElement href="SchedulableObject.uml#_DcW1QrhiEe2UuoshngsjNA"/>
+      </stereotypes>
       <visibility xmi:id="_LSiHV7hiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSiHWLhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
     </targetRole>
   </edges>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSQagLhiEe2UuoshngsjNA" sourceConnectionVisual="_LSRBkLhiEe2UuoshngsjNA" text="@return the endTimes queue" item="_LSiu3rhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTkbhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSRooLhiEe2UuoshngsjNA" sourceConnectionVisual="_LSRoobhiEe2UuoshngsjNA" text="@return the name" item="_LSiu8rhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTkrhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSSPsLhiEe2UuoshngsjNA" sourceConnectionVisual="_LSSPsbhiEe2UuoshngsjNA" text="@param name the name to set" item="_LSiu97hiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTk7hiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSS2wLhiEe2UuoshngsjNA" sourceConnectionVisual="_LSS2wbhiEe2UuoshngsjNA" text="@return the releaseTime" item="_LSiu_bhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTlLhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSS2wrhiEe2UuoshngsjNA" sourceConnectionVisual="_LSS2w7hiEe2UuoshngsjNA" text="@return the phase" item="_LSivArhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTlbhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSTd0LhiEe2UuoshngsjNA" sourceConnectionVisual="_LSTd0bhiEe2UuoshngsjNA" text="@return the startTime" item="_LSivB7hiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTlrhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSUE4LhiEe2UuoshngsjNA" sourceConnectionVisual="_LSUr8LhiEe2UuoshngsjNA" text="@param endTime the endTime to set" item="_LSivDLhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTl7hiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSVTALhiEe2UuoshngsjNA" sourceConnectionVisual="_LSV6ELhiEe2UuoshngsjNA" text="@param startTime the startTime to set" item="_LSivErhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTmLhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSV6EbhiEe2UuoshngsjNA" sourceConnectionVisual="_LSWhILhiEe2UuoshngsjNA" text="@param releaseTime the releaseTime to set" item="_LSivGLhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTmbhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSWhIbhiEe2UuoshngsjNA" sourceConnectionVisual="_LSXIMLhiEe2UuoshngsjNA" text="@param period the period to set" item="_LSivHrhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTmrhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSXIMbhiEe2UuoshngsjNA" sourceConnectionVisual="_LSXvQLhiEe2UuoshngsjNA" text="@param phase the phase to set" item="_LSivJLhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTm7hiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSXvQbhiEe2UuoshngsjNA" sourceConnectionVisual="_LSXvQrhiEe2UuoshngsjNA" text="@param releaseTime the releaseTime to set" item="_LSivKrhiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTnLhiEe2UuoshngsjNA"/>
-  </nodes>
-  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_LSYWULhiEe2UuoshngsjNA" sourceConnectionVisual="_LSY9YLhiEe2UuoshngsjNA" text="Constructor that creates a copy of schedulable &#xD;&#xA;&#x9; * parameters of the input obj, but setting its&#xD;&#xA;&#x9; * lastUpdateTime to input time.&#xD;&#xA;&#x9; * &#xD;&#xA;&#x9; * @param obj&#xD;&#xA;&#x9; * @param time" item="_LSivT7hiEe2UuoshngsjNA">
-    <modelElement href="SchedulableObject.uml#_DeFTkLhiEe2UuoshngsjNA"/>
-  </nodes>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rFVRketaEe2AXuuM87VQiQ" targetItem="_LSiu3rhiEe2UuoshngsjNA" sourceItem="_rFVRkOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rF5SQetaEe2AXuuM87VQiQ" targetItem="_LSiu8rhiEe2UuoshngsjNA" sourceItem="_rF5SQOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rGV-MOtaEe2AXuuM87VQiQ" targetItem="_LSiu97hiEe2UuoshngsjNA" sourceItem="_rGVXIOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rHChwetaEe2AXuuM87VQiQ" targetItem="_LSiu_bhiEe2UuoshngsjNA" sourceItem="_rHChwOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rHbjUOtaEe2AXuuM87VQiQ" targetItem="_LSivArhiEe2UuoshngsjNA" sourceItem="_rHa8QOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rIJVAetaEe2AXuuM87VQiQ" targetItem="_LSivB7hiEe2UuoshngsjNA" sourceItem="_rIJVAOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rIghYOtaEe2AXuuM87VQiQ" targetItem="_LSivDLhiEe2UuoshngsjNA" sourceItem="_rIf6UOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rI_pkOtaEe2AXuuM87VQiQ" targetItem="_LSivErhiEe2UuoshngsjNA" sourceItem="_rI6KAOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rJpJ0etaEe2AXuuM87VQiQ" targetItem="_LSivGLhiEe2UuoshngsjNA" sourceItem="_rJpJ0OtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rKI5EOtaEe2AXuuM87VQiQ" targetItem="_LSivHrhiEe2UuoshngsjNA" sourceItem="_rKCycOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rKe3UetaEe2AXuuM87VQiQ" targetItem="_LSivJLhiEe2UuoshngsjNA" sourceItem="_rKe3UOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rLBp4OtaEe2AXuuM87VQiQ" targetItem="_LSivKrhiEe2UuoshngsjNA" sourceItem="_rK7jQOtaEe2AXuuM87VQiQ"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_rLN3IetaEe2AXuuM87VQiQ" targetItem="_LSivT7hiEe2UuoshngsjNA" sourceItem="_rLN3IOtaEe2AXuuM87VQiQ"/>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_LSiuYLhiEe2UuoshngsjNA" name="SchedulableObject" abstractClass="true" associationsIn="_LSFbYLhiEe2UuoshngsjNA" associationsOut="_LSFbYLhiEe2UuoshngsjNA _LShgQLhiEe2UuoshngsjNA _LSiHULhiEe2UuoshngsjNA">
     <modelElement href="SchedulableObject.uml#_DH190LhiEe2UuoshngsjNA"/>
     <visualProperties xmi:id="_LSiuYbhiEe2UuoshngsjNA" position="11.0,146.0" size="-1.0,-1.0"/>
@@ -261,12 +231,12 @@
     <attributes xmi:id="_LSiuo7hiEe2UuoshngsjNA" name="endTimes">
       <modelElement href="SchedulableObject.uml#_DcWOMbhiEe2UuoshngsjNA"/>
       <visualProperties xmi:id="_NcTQMbhiEe2UuoshngsjNA" visible="false"/>
-      <stereotypes xmi:id="_LSiupLhiEe2UuoshngsjNA" name="Generics">
-        <modelElement href="SchedulableObject.uml#_DcWOMrhiEe2UuoshngsjNA"/>
-      </stereotypes>
-      <stereotypes xmi:id="_LSiupbhiEe2UuoshngsjNA" name="LegacyStyledElement">
-        <modelElement href="SchedulableObject.uml#_DcW1QLhiEe2UuoshngsjNA"/>
-      </stereotypes>
+      <stereotypes xmi:id="_PSGbMOtaEe2AXuuM87VQiQ" name="Generics"/>
+      <stereotypes xmi:id="_PSGbMetaEe2AXuuM87VQiQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_PSHCQOtaEe2AXuuM87VQiQ" name="Generics"/>
+      <stereotypes xmi:id="_PSHCQetaEe2AXuuM87VQiQ" name="LegacyStyledElement"/>
+      <stereotypes xmi:id="_PSHpUOtaEe2AXuuM87VQiQ" name="Generics"/>
+      <stereotypes xmi:id="_PSHpUetaEe2AXuuM87VQiQ" name="LegacyStyledElement"/>
       <visibility xmi:id="_LSiuprhiEe2UuoshngsjNA" label="-"/>
       <cardinality xmi:id="_LSiup7hiEe2UuoshngsjNA" label="1" max="1" min="1"/>
       <type xmi:id="_LSiuqLhiEe2UuoshngsjNA" name="PriorityQueue">
@@ -275,9 +245,9 @@
     </attributes>
     <attributes xmi:id="_LSiuqbhiEe2UuoshngsjNA" name="subObjects">
       <modelElement href="SchedulableObject.uml#_DcW1QbhiEe2UuoshngsjNA"/>
-      <stereotypes xmi:id="_LSiuqrhiEe2UuoshngsjNA" name="Generics">
-        <modelElement href="SchedulableObject.uml#_DcW1QrhiEe2UuoshngsjNA"/>
-      </stereotypes>
+      <stereotypes xmi:id="_PSHCQutaEe2AXuuM87VQiQ" name="Generics"/>
+      <stereotypes xmi:id="_PSHCQ-taEe2AXuuM87VQiQ" name="Generics"/>
+      <stereotypes xmi:id="_PSHpUutaEe2AXuuM87VQiQ" name="Generics"/>
       <visibility xmi:id="_LSiuq7hiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSiurLhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
       <type xmi:id="_LSiurbhiEe2UuoshngsjNA" name="Queue">
@@ -392,7 +362,7 @@
       <visibility xmi:id="_LSiu3LhiEe2UuoshngsjNA" label="-"/>
       <cardinality xmi:id="_LSiu3bhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
     </operations>
-    <operations xmi:id="_LSiu3rhiEe2UuoshngsjNA" comments="_LSQagLhiEe2UuoshngsjNA" targetConnectionVisual="_LSRBkLhiEe2UuoshngsjNA" name="getAllEndTimes">
+    <operations xmi:id="_LSiu3rhiEe2UuoshngsjNA" comments="_rFVRkOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rFVRketaEe2AXuuM87VQiQ" name="getAllEndTimes">
       <modelElement href="SchedulableObject.uml#_DH6PQLhiEe2UuoshngsjNA"/>
       <stereotypes xmi:id="_LSiu37hiEe2UuoshngsjNA" name="Generics">
         <modelElement href="SchedulableObject.uml#_DH6PQbhiEe2UuoshngsjNA"/>
@@ -434,7 +404,7 @@
       <visibility xmi:id="_LSiu8LhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSiu8bhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
     </operations>
-    <operations xmi:id="_LSiu8rhiEe2UuoshngsjNA" comments="_LSRooLhiEe2UuoshngsjNA" targetConnectionVisual="_LSRoobhiEe2UuoshngsjNA" name="getName">
+    <operations xmi:id="_LSiu8rhiEe2UuoshngsjNA" comments="_rF5SQOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rF5SQetaEe2AXuuM87VQiQ" name="getName">
       <modelElement href="SchedulableObject.uml#_DH62U7hiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSiu87hiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSiu9LhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -445,7 +415,7 @@
         </type>
       </outParameters>
     </operations>
-    <operations xmi:id="_LSiu97hiEe2UuoshngsjNA" comments="_LSSPsLhiEe2UuoshngsjNA" targetConnectionVisual="_LSSPsbhiEe2UuoshngsjNA" name="setName">
+    <operations xmi:id="_LSiu97hiEe2UuoshngsjNA" comments="_rGVXIOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rGV-MOtaEe2AXuuM87VQiQ" name="setName">
       <modelElement href="SchedulableObject.uml#_DH7dYLhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSiu-LhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSiu-bhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -457,7 +427,7 @@
         </type>
       </parameters>
     </operations>
-    <operations xmi:id="_LSiu_bhiEe2UuoshngsjNA" comments="_LSS2wLhiEe2UuoshngsjNA" targetConnectionVisual="_LSS2wbhiEe2UuoshngsjNA" name="getReleaseTime">
+    <operations xmi:id="_LSiu_bhiEe2UuoshngsjNA" comments="_rHChwOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rHChwetaEe2AXuuM87VQiQ" name="getReleaseTime">
       <modelElement href="SchedulableObject.uml#_DH7dYrhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSiu_rhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSiu_7hiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -468,7 +438,7 @@
         </type>
       </outParameters>
     </operations>
-    <operations xmi:id="_LSivArhiEe2UuoshngsjNA" comments="_LSS2wrhiEe2UuoshngsjNA" targetConnectionVisual="_LSS2w7hiEe2UuoshngsjNA" name="getPhase">
+    <operations xmi:id="_LSivArhiEe2UuoshngsjNA" comments="_rHa8QOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rHbjUOtaEe2AXuuM87VQiQ" name="getPhase">
       <modelElement href="SchedulableObject.uml#_DH7dZLhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivA7hiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivBLhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -479,7 +449,7 @@
         </type>
       </outParameters>
     </operations>
-    <operations xmi:id="_LSivB7hiEe2UuoshngsjNA" comments="_LSTd0LhiEe2UuoshngsjNA" targetConnectionVisual="_LSTd0bhiEe2UuoshngsjNA" name="getStartTime">
+    <operations xmi:id="_LSivB7hiEe2UuoshngsjNA" comments="_rIJVAOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rIJVAetaEe2AXuuM87VQiQ" name="getStartTime">
       <modelElement href="SchedulableObject.uml#_DH7dZrhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivCLhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivCbhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -490,7 +460,7 @@
         </type>
       </outParameters>
     </operations>
-    <operations xmi:id="_LSivDLhiEe2UuoshngsjNA" comments="_LSUE4LhiEe2UuoshngsjNA" targetConnectionVisual="_LSUr8LhiEe2UuoshngsjNA" name="setEndTime">
+    <operations xmi:id="_LSivDLhiEe2UuoshngsjNA" comments="_rIf6UOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rIghYOtaEe2AXuuM87VQiQ" name="setEndTime">
       <modelElement href="SchedulableObject.uml#_DH8EcbhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivDbhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivDrhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -502,7 +472,7 @@
         </type>
       </parameters>
     </operations>
-    <operations xmi:id="_LSivErhiEe2UuoshngsjNA" comments="_LSVTALhiEe2UuoshngsjNA" targetConnectionVisual="_LSV6ELhiEe2UuoshngsjNA" name="setStartTime">
+    <operations xmi:id="_LSivErhiEe2UuoshngsjNA" comments="_rI6KAOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rI_pkOtaEe2AXuuM87VQiQ" name="setStartTime">
       <modelElement href="SchedulableObject.uml#_DH8Ec7hiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivE7hiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivFLhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -514,7 +484,7 @@
         </type>
       </parameters>
     </operations>
-    <operations xmi:id="_LSivGLhiEe2UuoshngsjNA" comments="_LSV6EbhiEe2UuoshngsjNA" targetConnectionVisual="_LSWhILhiEe2UuoshngsjNA" name="setReleaseTime">
+    <operations xmi:id="_LSivGLhiEe2UuoshngsjNA" comments="_rJpJ0OtaEe2AXuuM87VQiQ" targetConnectionVisual="_rJpJ0etaEe2AXuuM87VQiQ" name="setReleaseTime">
       <modelElement href="SchedulableObject.uml#_DH8rgLhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivGbhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivGrhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -526,7 +496,7 @@
         </type>
       </parameters>
     </operations>
-    <operations xmi:id="_LSivHrhiEe2UuoshngsjNA" comments="_LSWhIbhiEe2UuoshngsjNA" targetConnectionVisual="_LSXIMLhiEe2UuoshngsjNA" name="setPeriod">
+    <operations xmi:id="_LSivHrhiEe2UuoshngsjNA" comments="_rKCycOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rKI5EOtaEe2AXuuM87VQiQ" name="setPeriod">
       <modelElement href="SchedulableObject.uml#_DH9SkLhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivH7hiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivILhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -538,7 +508,7 @@
         </type>
       </parameters>
     </operations>
-    <operations xmi:id="_LSivJLhiEe2UuoshngsjNA" comments="_LSXIMbhiEe2UuoshngsjNA" targetConnectionVisual="_LSXvQLhiEe2UuoshngsjNA" name="setPhase">
+    <operations xmi:id="_LSivJLhiEe2UuoshngsjNA" comments="_rKe3UOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rKe3UetaEe2AXuuM87VQiQ" name="setPhase">
       <modelElement href="SchedulableObject.uml#_DH9SkrhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivJbhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivJrhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -550,7 +520,7 @@
         </type>
       </parameters>
     </operations>
-    <operations xmi:id="_LSivKrhiEe2UuoshngsjNA" comments="_LSXvQbhiEe2UuoshngsjNA" targetConnectionVisual="_LSXvQrhiEe2UuoshngsjNA" name="setNextReleaseTime">
+    <operations xmi:id="_LSivKrhiEe2UuoshngsjNA" comments="_rK7jQOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rLBp4OtaEe2AXuuM87VQiQ" name="setNextReleaseTime">
       <modelElement href="SchedulableObject.uml#_DH95oLhiEe2UuoshngsjNA"/>
       <visibility xmi:id="_LSivK7hiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivLLhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
@@ -629,7 +599,7 @@
       <visibility xmi:id="_LSivTbhiEe2UuoshngsjNA" label="+"/>
       <cardinality xmi:id="_LSivTrhiEe2UuoshngsjNA" label="1" max="1" min="1"/>
     </operations>
-    <operations xmi:id="_LSivT7hiEe2UuoshngsjNA" comments="_LSYWULhiEe2UuoshngsjNA" targetConnectionVisual="_LSY9YLhiEe2UuoshngsjNA" name="SchedulableObject">
+    <operations xmi:id="_LSivT7hiEe2UuoshngsjNA" comments="_rLN3IOtaEe2AXuuM87VQiQ" targetConnectionVisual="_rLN3IetaEe2AXuuM87VQiQ" name="SchedulableObject">
       <modelElement href="SchedulableObject.uml#_DZAmULhiEe2UuoshngsjNA"/>
       <visualProperties xmi:id="_NcVFYbhiEe2UuoshngsjNA" visible="false"/>
       <keywords xmi:id="_LSivULhiEe2UuoshngsjNA" keyword="create"/>
@@ -926,5 +896,44 @@
         </type>
       </parameters>
     </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rFVRkOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rFVRketaEe2AXuuM87VQiQ" text="@return the endTimes queue" item="_LSiu3rhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIgetaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rF5SQOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rF5SQetaEe2AXuuM87VQiQ" text="@return the name" item="_LSiu8rhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIgutaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rGVXIOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rGV-MOtaEe2AXuuM87VQiQ" text="@param name the name to set" item="_LSiu97hiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIg-taEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rHChwOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rHChwetaEe2AXuuM87VQiQ" text="@return the releaseTime" item="_LSiu_bhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIhOtaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rHa8QOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rHbjUOtaEe2AXuuM87VQiQ" text="@return the phase" item="_LSivArhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIhetaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rIJVAOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rIJVAetaEe2AXuuM87VQiQ" text="@return the startTime" item="_LSivB7hiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIhutaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rIf6UOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rIghYOtaEe2AXuuM87VQiQ" text="@param endTime the endTime to set" item="_LSivDLhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIh-taEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rI6KAOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rI_pkOtaEe2AXuuM87VQiQ" text="@param startTime the startTime to set" item="_LSivErhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIiOtaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rJpJ0OtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rJpJ0etaEe2AXuuM87VQiQ" text="@param releaseTime the releaseTime to set" item="_LSivGLhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIietaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rKCycOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rKI5EOtaEe2AXuuM87VQiQ" text="@param period the period to set" item="_LSivHrhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIiutaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rKe3UOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rKe3UetaEe2AXuuM87VQiQ" text="@param phase the phase to set" item="_LSivJLhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBvkOtaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rK7jQOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rLBp4OtaEe2AXuuM87VQiQ" text="@param releaseTime the releaseTime to set" item="_LSivKrhiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBvketaEe2AXuuM87VQiQ"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_rLN3IOtaEe2AXuuM87VQiQ" sourceConnectionVisual="_rLN3IetaEe2AXuuM87VQiQ" text="Constructor that creates a copy of schedulable &#xD;&#xA;&#x9; * parameters of the input obj, but setting its&#xD;&#xA;&#x9; * lastUpdateTime to input time.&#xD;&#xA;&#x9; * &#xD;&#xA;&#x9; * @param obj&#xD;&#xA;&#x9; * @param time" item="_LSivT7hiEe2UuoshngsjNA">
+    <modelElement href="SchedulableObject.uml#_rFBIgOtaEe2AXuuM87VQiQ"/>
   </nodes>
 </com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
