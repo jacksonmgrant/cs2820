@@ -145,4 +145,5 @@ Worked with Jackie Mills to transfer numTxPerLinkAndTotalTxCost to the Reliabili
     * testBuildReliabilityTable() -Matt
     * testPrintRaTable() -Matt
     * testSetInitialStateForReleasedFlows() -Matt
+* Check the UML diagram and the high-level plans for this Sprint
         
