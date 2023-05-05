@@ -240,10 +240,6 @@ public class ReliabilityAnalysis {
 		  }
 		  timeslot++;
 	  }
-	  
-	  //This is for testing and will be removed in the final version  TODO delete this
-	  //printRATable(reliabilities);
-	  
 	  return reliabilities;
   }
 
@@ -445,7 +441,6 @@ public class ReliabilityAnalysis {
 		}
 	}
 	
-	
 	for(int i = 0; i < this.reliabilities.getNumColumns(); i++) {
 		String header = this.headerRow[i];
 		String flowName = header.substring(0, header.indexOf(":"));
@@ -473,7 +468,7 @@ public class ReliabilityAnalysis {
 		
 		int deadline = allFlows.get(flowName).getDeadline();
 		
-		if(reliabilities.get(deadline, i) < e2e) {
+		if(reliabilities.get(deadline-1, i) < e2e) {
 			return false;
 		}
 	}
