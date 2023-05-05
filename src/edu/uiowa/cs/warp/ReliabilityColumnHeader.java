@@ -3,7 +3,7 @@ package edu.uiowa.cs.warp;
 import java.util.ArrayList;
 
 /**
- * Currently unused, does not function when multiple programs are running in test. 
+ * @deprecated Currently unused, does not function when multiple programs are running in tests. 
  * Leaving in in the event it needs to be reused.
  * 
  * Singleton class to generate the column headers for the reliability analysis
