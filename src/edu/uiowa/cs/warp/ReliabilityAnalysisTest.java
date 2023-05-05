@@ -9,8 +9,8 @@ import edu.uiowa.cs.warp.SystemAttributes.ScheduleChoices;
 
 /** 
  * Tests the class ReliabilityAnalysis using the files Example1a.txt and some from StressTest4.txt to make sure the 
- * methods are properly set up. In these tests, Jackie wrote the testVerifyReliabilities(), 
- * testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow().
+ * methods are properly set up. In these tests, Jackie wrote the testVerifyReliabilities(), testVerifyReliabilitiesStress(), 
+ * testCarryForwardReliabilities(), testSetReliabilities(), testSetReliabilityHeaderRow(), and testSetReliabilityHeaderRow().
  * Matt wrote the test for testGetReliabilities(), testBuildReliabilityTable(), testPrintRaTable(), and
  * testSetInitialStateForReleasedFlows().
  * 
@@ -67,7 +67,8 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Tests that getReliability returns a reliability table with the correct reliabilities
+	 * in the correct spot for each node in the flow.
 	 */
 	@Test
 	void testGetReliabilities() {
@@ -107,13 +108,6 @@ class ReliabilityAnalysisTest {
 		if ((first < e2e) || (second < e2e) || (third < e2e)) {
 			standing = false; }
 		
-		//String[] lastRow = expectedData[expectedData.length-1];
-		//for(int i = 0; i < lastRow.length; i++) {
-		//	if(i < e2e) {
-		//		standing = false;
-		//	}
-		//}
-		
 		assertEquals(standing, actual);
 	}
 	
@@ -133,12 +127,12 @@ class ReliabilityAnalysisTest {
 			standing = false;
 		
 		assertFalse(actual);
-		//assertEquals(standing, actual);
 		
 	}
 	
 	/**
-	 * 
+	 * Tests buildReliabilityTable and ensures that it computes the correct data. If the data is not correct, 
+	 * or if the data is in the wrong spot, then the test will fail.
 	 */
 	@Test
 	void testBuildReliabilityTable() {
@@ -176,7 +170,9 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Test that printRATable prints the correct reliability analysis table to the console
+	 * when the program is ran. If it does not print the correct info in the correct location,
+	 * then the test will fail.
 	 */
 	@Test
 	void testPrintRaTable() {
@@ -227,7 +223,8 @@ class ReliabilityAnalysisTest {
 	}
 	
 	/**
-	 * 
+	 * Test to check that setInitialStateForReleasedFlows sets all the source nodes to 1.0 
+	 * in the reliability table. If all of the source nodes are not set to 1.0, the test will fail. 
 	 */
 	@Test
 	void testSetInitialStateForReleasedFlows() {
