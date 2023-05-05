@@ -74,7 +74,6 @@ class ReliabilityAnalysisTest {
 		int y = 0;
 		for(x = 0; x < expectedData.length;x++) {
 			for(y = 0;y < expectedData[x].length;y++) {
-				System.out.print("  "+ status +" (" + x + "," + y + ") " + actual.get(x, y).toString() + expectedData[x][y]);
 				if(actual.get(x, y).toString().compareTo(expectedData[x][y]) != 0) {
 					status = false;
 				}
