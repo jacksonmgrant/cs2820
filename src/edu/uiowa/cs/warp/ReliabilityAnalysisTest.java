@@ -103,6 +103,9 @@ class ReliabilityAnalysisTest {
 		assertEquals(standing, actual);
 	}
 	
+	/**
+	 * Stress test to make sure that verify reliabilities returns true if the reliabilities are met.
+	 */
 	@Test
 	void testVerifyReliabilitiesStress() {
 		WorkLoad workloadStress = new WorkLoad(0, 0.9, 0.99, "StressTest4.txt");

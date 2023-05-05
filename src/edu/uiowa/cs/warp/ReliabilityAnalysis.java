@@ -32,7 +32,8 @@ import edu.uiowa.cs.warp.WarpDSL.InstructionParameters;
  * 
  * Project was completed by Jackson Grant, Jackie Mills, Matt Boenish, and Andy Luo on May 5, 2023.
  * The reliability analysis here was written by Jackson Grant and Andy Luo for this project, with 
- * Jackie Mills and Matt Boenish performing testing, planning, and documentation for the project.
+ * Jackie Mills and Matt Boenish performing testing and assisting with planning and documentation 
+ * for the project.
  * <p>
  * 
  * The method numTxPerLinkAndTotalTxCost and its associated code was written for Homework 5 by Jackson 
@@ -444,21 +445,6 @@ public class ReliabilityAnalysis {
 	for(int i = 0; i < this.reliabilities.getNumColumns(); i++) {
 		String header = this.headerRow[i];
 		String flowName = header.substring(0, header.indexOf(":"));
-		String nodeName = header.substring(header.indexOf(":"));
-		/*
-		Boolean flipped = false;
-		
-		for(int j = 0; j < header.length(); j++) {
-			if(flipped) {
-				if(header.charAt(j) == ':') {
-					flipped = true;
-					continue;
-				}	
-				flowName = flowName + header.charAt(j);
-			}else {
-				nodeName += header.charAt(j);
-			}
-		}*/
 		
 		ReliabilityNode curNode = (ReliabilityNode) this.nodeIndexes.get(header);
 		
@@ -474,30 +460,6 @@ public class ReliabilityAnalysis {
 	}
 		
 	return true;
-  }
-
-
-
-  /*
-   * Testing main, feel free to rewrite and/or use whenever you need to test something.
-   * If you want to save a test for reuse, just comment it out when it's not in use.
-   * 
-   * TODO delete this
-   */
-  public static void main(String[] args) {
-	  WorkLoad workload = new WorkLoad(0.8, 0.99, "Example1a.txt");
-	  Program program = new Program(workload, 16, ScheduleChoices.PRIORITY);
-	  
-	  //Node node = program.toWorkLoad().getNodes().get(workload.getNodeNamesOrderedAlphabetically()[0]);
-	  //System.out.println(node.getStartTime());
-	  ReliabilityAnalysis tester = new ReliabilityAnalysis(program);
-	  
-	  /*
-	   * Test for Andy to use
-	   */
-	  tester.printRATable(tester.getReliabilities());
-	  System.out.println(tester.verifyReliabilities());
-	  
   }
   
   
